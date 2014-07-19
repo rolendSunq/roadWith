@@ -80,28 +80,28 @@
 							 개인 정보 보호로 연락처와 주민번호는 묻지 않습니다. </p>
 							<hr>
 
-							<form>
+							<form method="post">
 								<div class="top-margin">
 									<label>성함 (공개되지 않습니다.)</label>
-									<input type="text" class="form-control">
+									<input type="text" class="form-control" id="userName" placeholder="자신의 성함을 입력해주세요.">
 								</div>
 								<div class="top-margin">
 									<label>ID (화면상 사용되어질 별칭입니다.)</label>
-									<input type="text" class="form-control">
+									<input type="text" class="form-control" id="UserId" placeholder="영문, 숫자 사용하여 입력해주세요.">
 								</div>
 								<div class="top-margin">
 									<label>Email Address <span class="text-danger">*</span></label>
-									<input type="text" class="form-control">
+									<input type="text" class="form-control" id="userEmail" placeholder="현재 사용하는 Email 주소를 입력해주세요.">
 								</div>
 
 								<div class="row top-margin">
 									<div class="col-sm-6">
 										<label>Password <span class="text-danger">*</span></label>
-										<input type="text" class="form-control">
+										<input type="password" class="form-control" id="userPasswd1">
 									</div>
 									<div class="col-sm-6">
 										<label>Confirm Password <span class="text-danger">*</span></label>
-										<input type="text" class="form-control">
+										<input type="password" class="form-control" id="userPasswd2">
 									</div>
 								</div>
 
@@ -110,12 +110,12 @@
 								<div class="row">
 									<div class="col-lg-8">
 										<label class="checkbox">
-											<input type="checkbox"> 
+											<input type="checkbox" id="userTerm"> 
 											I've read the <a href="page_terms.html">Terms and Conditions</a>
 										</label>                        
 									</div>
 									<div class="col-lg-4 text-right">
-										<button class="btn btn-action" type="submit">가입완료</button>
+										<button class="btn btn-warning" type="submit">가입완료</button>
 									</div>
 								</div>
 							</form>
@@ -211,5 +211,10 @@
 	<script src="./resources/assets/js/headroom.min.js"></script>
 	<script src="./resources/assets/js/jQuery.headroom.min.js"></script>
 	<script src="./resources/assets/js/template.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+		});
+	</script>
 </body>
 </html>
