@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Resource
+		name="ssgPool"
+		auth="Container"
+		type="javax.sql.DataSource"
+		driverClassName="oracle.jdbc.driver.OracleDriver"
+		factory="org.apache.tomcat.dbcp.dbcp.BasicDataSourceFactory"
+		username="java"
+		password="gosling"
+		url="jdbc:oracle:thin:@localhost:orcl"
+		maxActive="500"
+		maxIdle="100"
+	/>
+</Context>
