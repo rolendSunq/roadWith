@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
@@ -49,7 +49,7 @@
 							<li class="active"><a href="sidebar-right.html">Right Sidebar</a></li>
 						</ul>
 					</li>
-					<li><a href="contact.html">Contact</a></li>
+					<li><a href="contact.html?signin">Contact</a></li>
 					<li><a class="btn" href="signin.html">SIGN IN / SIGN UP</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
