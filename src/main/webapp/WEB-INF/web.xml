@@ -72,8 +72,8 @@
 	</servlet-mapping>
 	
 	<resource-ref>
-		<description>jdbc/ssgPool</description>
-		<res-ref-name>jdbc/ssgPool</res-ref-name>
+		<description>TomcatConnectionPool</description>
+		<res-ref-name>connectionPool</res-ref-name>
 		<res-type>javax.sql.DataSource</res-type>
 		<res-auth>Container</res-auth>
 	</resource-ref>
