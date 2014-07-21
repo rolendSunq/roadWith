@@ -36,21 +36,21 @@
 					<span class="icon-bar"></span> 
 					<span class="icon-bar"></span> 
 				</button>
-				<a class="navbar-brand" href="index.html"><img src="./resources/assets/images/logo.png" alt="Progressus HTML5 template"></a>
+				<a class="navbar-brand" href="#"><img src="./resources/assets/images/logo.png" alt="Progressus HTML5 template"></a>
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
 					<li class="active"><a href="#">홈</a></li>
 					<li><a href="about.html">개요</a></li>
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">게시판 <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="sidebar-left.html">Left Sidebar</a></li>
 							<li class="active"><a href="sidebar-right.html">Right Sidebar</a></li>
 						</ul>
 					</li>
 					<li><a href="contact.html?signin">Contact</a></li>
-					<li><a class="btn" href="signin.html">SIGN IN / SIGN UP</a></li>
+					<li><a class="btn" href="signin.html?signin">로그인 / 회원가입</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
@@ -91,7 +91,8 @@
 			
 			<div class="row">
 				<div class="col-md-3 col-sm-6 highlight">
-					<div class="h-caption"><h4><i class="fa fa-list fa-5"></i>Free Board</h4></div>
+					<div class="h-caption" >		
+					<h4 class="btn" id="iconBtn"><i class="fa fa-list fa-5" id="boardIC" ></i>Free Board</h4></div>
 					<div class="h-body text-center">
 						<p>[글을 남기시려면 회원 가입이 필요합니다.] 자유로운 생각, 회원들간의 소통등을 통해서 여러가지 정보와 나눔을 얻을수 있습니다.</p>
 					</div>
@@ -257,6 +258,20 @@
 	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 	<script src="./resources/assets/js//jquery-1.11.1.min.js"></script>
 	<script src="./resources/assets/js/bootstrap.min.js"></script>
+	<script>
+		$(document).ready(function (){
+			$("#boardIC").hover(function() {
+				$(this).css("color","red");
+			},
+			function() {
+				$(this).css("color","#333");
+			});
+			
+			$("#iconBtn").click(function() {
+				 location.replace('freeBoard?freeBoard');
+			});
+		});
+	</script>
 	<script src="./resources/assets/js/headroom.min.js"></script>
 	<script src="./resources/assets/js/jQuery.headroom.min.js"></script>
 	<script src="./resources/assets/js/template.js"></script>
