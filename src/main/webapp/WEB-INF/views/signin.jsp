@@ -11,7 +11,7 @@
 
 	<link rel="shortcut icon" href="./resources/assets/images/gt_favicon.png">
 	
-	<link rel="stylesheet" media="screen" href="./resourcess/assets/css/googleFont.css">
+	<link rel="stylesheet" media="screen" href="./resources/assets/css/googleFont.css">
 	<link rel="stylesheet" href="./resources/assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="./resources/assets/css/font-awesome.min.css">
 
@@ -35,21 +35,21 @@
 			<div class="navbar-header">
 				<!-- Button for smallest screens -->
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-				<a class="navbar-brand" href="index.html"><img src="./resources/assets/images/logo.png" alt="Progressus HTML5 template"></a>
+				<a class="navbar-brand" href="#"><img src="./resources/assets/images/logo.png" alt="Progressus HTML5 template"></a>
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
-					<li><a href="index.html">Home</a></li>
-					<li><a href="about.html">About</a></li>
+					<li><a href="index.html">홈</a></li>
+					<li><a href="about.html">개요</a></li>
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">게시판<b class="caret"></b></a>
 						<ul class="dropdown-menu">
 							<li><a href="sidebar-left.html">Left Sidebar</a></li>
 							<li><a href="sidebar-right.html">Right Sidebar</a></li>
 						</ul>
 					</li>
 					<li><a href="contact.html">Contact</a></li>
-					<li class="active"><a class="btn" href="signin.html">SIGN IN / SIGN UP</a></li>
+					<li class="active"><a class="btn" href="signin.html">로그인 / 회원가입</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
@@ -62,7 +62,7 @@
 	<div class="container">
 
 		<ol class="breadcrumb">
-			<li><a href="index.html">Home</a></li>
+			<li><a href="index.html">홈</a></li>
 			<li class="active">로그인</li>
 		</ol>
 

@@ -43,4 +43,9 @@ public class HomeController {
 	public String signup(Model model) {
 		return "signup";
 	}
+	
+	@RequestMapping(value = "freeBoard", method = RequestMethod.GET)
+	public String freeBoard(Model model) {
+		return "freeBoard/freeMain";
+	}
 }
