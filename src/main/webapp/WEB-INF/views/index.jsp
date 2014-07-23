@@ -55,10 +55,11 @@
 	<!-- Header -->
 	<header id="head">
 		<div class="container">
-			<div class="row">
-				<h1 class="lead">함께 라이딩하는 즐거움 </h1>
-				<p class="tagline">그룹으로 모여 달리는 재미와 기록은 라이딩의 더 큰 가치를 제공합니다.<!-- <a href="http://www.gettemplate.com/?utm_source=progressus&amp;utm_medium=template&amp;utm_campaign=progressus">GetTemplate</a></p>
+			<div class="row" >
+				<h1 class="lead" id="imgRi">함께 라이딩하는 즐거움 </h1>
+				<p class="tagline" id="imgRi2">그룹으로 모여 달리는 재미와 기록은 라이딩의 더 큰 가치를 제공합니다.<!-- <a href="http://www.gettemplate.com/?utm_source=progressus&amp;utm_medium=template&amp;utm_campaign=progressus">GetTemplate</a></p>
 				<p><a class="btn btn-default btn-lg" role="button">MORE INFO</a> <a class="btn btn-action btn-lg" role="button">DOWNLOAD NOW</a> --></p>
+		
 			</div>
 		</div>
 	</header>
@@ -67,10 +68,10 @@
 	<!-- Intro -->
 	<div id="content1">
 		<div class="container">
-			<div class="row">
-				<h1 class="lead">같이 달리는 재미</h1>
-				<p class="text-muted">
-					같이 달리면서 서로의 호흡을 나누면 더 즐겁습니다
+			<div class="row" >
+				<h1 class="lead" id="imgRu">같이 달리는 재미</h1>
+				<p class="text-muted" id="imgRu2">
+					함께 달리며 서로의 호흡을 나누면 더 즐겁습니다
 				</p>
 			</div>
 		</div>
@@ -265,6 +266,34 @@
 				$(this).css("color","#333");
 			});
 			
+			$("#imgRi").hover(function() {
+				$(this).css("color","#FFEC3A");
+			},
+			function() {
+				$(this).css("color","#FF9433");
+			});
+			
+			$("#imgRi").hover(function() {
+				$("#imgRi2").css("color","#FFEC3A");
+			},
+			function() {
+				$("#imgRi2").css("color","#E85F08");
+			});
+			
+			$("#imgRu").hover(function() {
+				$(this).css("color","#19009E");
+			},
+			function() {
+				$(this).css("color","#3B96E8");
+			});
+			
+			$("#imgRu").hover(function() {
+				$("#imgRu2").css("color","#19009E");
+			},
+			function() {
+				$("#imgRu2").css("color","#0B44FF");
+			});
+			
 			$("#iconBtn").click(function() {
 				 //location.replace("freeBoard?freeBoard");
 				$(location).attr('href','freeBoard?freeBoard');
@@ -285,6 +314,15 @@
 				$(location).attr('href','about');
 			});
 			
+			$("#imgRi").click(function() {
+				 //location.replace("freeBoard?freeBoard");
+				$(location).attr('href','freeBoard?riderBoard');
+			});
+			
+			$("#imgRu").click(function() {
+				 //location.replace("freeBoard?freeBoard");
+				$(location).attr('href','freeBoard?runBoard');
+			});
 			
 		});
 	</script>
