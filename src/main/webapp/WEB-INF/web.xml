@@ -72,9 +72,10 @@
 	</servlet-mapping>
 	
 	<resource-ref>
-		<description>TomcatConnectionPool</description>
-		<res-ref-name>connectionPool</res-ref-name>
+		<description>DB Connection</description>
+		<res-ref-name>jdbc/oracle</res-ref-name>
 		<res-type>javax.sql.DataSource</res-type>
 		<res-auth>Container</res-auth>
 	</resource-ref>
+	
 </web-app>
