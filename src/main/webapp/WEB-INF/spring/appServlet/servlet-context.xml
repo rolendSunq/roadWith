@@ -10,7 +10,7 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	<!-- DispatcherServlet Context: 이 서블릿의 요청 처리 인프라를 정의 -->
 	
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
@@ -23,21 +23,7 @@
 		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
-	
-	<!-- Create DataSource Bean -->
-	<beans:bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-		<beans:property name="jndiName" value="jdbc/oracle"/>
-		<beans:property name="resourceRef" value="true" />
-	</beans:bean>
-
-	<beans:bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-		<beans:property name="dataSource" ref="dataSource" />
-		<beans:property name="configLocation" value="classpath:/com/sbaitproject/mybatis-config.xml"/>
-		<beans:property name="mapperLocations" value="classpath:com/sbaitproject/mapper/*.xml" />
-	</beans:bean> 
     
 	<context:component-scan base-package="com.sbaitproject.roadwith" />
-	
-	
 	
 </beans:beans>
