@@ -49,6 +49,15 @@ public class HomeController {
 		return "freeBoard/freeMain";
 	}
 	
+	@RequestMapping(value = "riderBoard", method = RequestMethod.GET)
+	public String riderBoard(Model model) {
+		return "freeBoard/riderBoard";
+	}
+	@RequestMapping(value = "runBoard", method = RequestMethod.GET)
+	public String runBoard(Model model) {
+		return "freeBoard/runBoard";
+	}
+	
 	@RequestMapping(value = "notice", method = RequestMethod.GET)
 	public String notice(Model model) {
 		return "notice";
