@@ -48,4 +48,7 @@ public class HomeController {
 	public String freeBoard(Model model) {
 		return "freeBoard/freeMain";
 	}
+	
+
+	
 }

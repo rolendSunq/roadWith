@@ -42,14 +42,9 @@
 				<ul class="nav navbar-nav pull-right">
 					<li class="active"><a href="#">홈</a></li>
 					<li><a href="about.html">개요</a></li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown">게시판 <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-							<li><a href="sidebar-left.html">Left Sidebar</a></li>
-							<li class="active"><a href="sidebar-right.html">Right Sidebar</a></li>
-						</ul>
-					</li>
-					<li><a href="contact.html?signin">Contact</a></li>
+					<li><a href="freeBoard?freeBoard" class="board" >게시판</a></li>
+					<li><a href="">공지사항</a></li>
+					<li><a href="contact.html?signin">문의사항</a></li>
 					<li><a class="btn" href="signin.html?signin">로그인 / 회원가입</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
@@ -98,21 +93,24 @@
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 highlight">
-					<div class="h-caption"><h4><i class="fa fa-flash fa-5"></i>Fat-free</h4></div>
+					<div class="h-caption">
+					<h4 class="btn" id="iconAb"><i class="fa fa-flash fa-5"  id="boardIC" ></i>About</h4></div>
 					<div class="h-body text-center">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, commodi, sequi quis ad fugit omnis cumque a libero error nesciunt molestiae repellat quos perferendis numquam quibusdam rerum repellendus laboriosam reprehenderit! </p>
+						<p>[자유롭게 보실 수 있습니다.] RoadRunner를 만들게 된 계기와 제작자들의 간단한 프로필을 공개합니다.</p>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 highlight">
-					<div class="h-caption"><h4><i class="fa fa-heart fa-5"></i>Creative Commons</h4></div>
+					<div class="h-caption">
+					<h4 class="btn" id="iconNo" ><i class="fa fa-heart fa-5" id="boardIC" ></i>Notice</h4></div>
 					<div class="h-body text-center">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, vitae, perferendis, perspiciatis nobis voluptate quod illum soluta minima ipsam ratione quia numquam eveniet eum reprehenderit dolorem dicta nesciunt corporis?</p>
+						<p>[정보 확인은 로그인이 필요합니다.] RoadRunner가 어떤 변화를 거쳐왔는지와 업데이트의 기록을 보실수 있습니다.</p>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 highlight">
-					<div class="h-caption"><h4><i class="fa fa-smile-o fa-5"></i>Author's support</h4></div>
+					<div class="h-caption">
+					<h4 class="btn" id="iconCo"><i class="fa fa-smile-o fa-5" id="boardIC" ></i>Contact Us</h4></div>
 					<div class="h-body text-center">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, excepturi, maiores, dolorem quasi reprehenderit illo accusamus nulla minima repudiandae quas ducimus reiciendis odio sequi atque temporibus facere corporis eos expedita? </p>
+						<p>[로그인이 필요한 서비스 입니다.] 직접 RoadRunner를 사용해보시며, 불편하거나 개선될 점을 제작자에게 알려주세요!</p>
 					</div>
 				</div>
 			</div> <!-- /row  -->
@@ -260,7 +258,7 @@
 	<script src="./resources/assets/js/bootstrap.min.js"></script>
 	<script>
 		$(document).ready(function (){
-			$("#boardIC").hover(function() {
+			$('i').hover(function() {
 				$(this).css("color","red");
 			},
 			function() {
@@ -268,8 +266,11 @@
 			});
 			
 			$("#iconBtn").click(function() {
-				 location.replace('freeBoard?freeBoard');
+				 //location.replace("freeBoard?freeBoard");
+				$(location).attr('href','freeBoard?freeBoard');
 			});
+			
+			
 		});
 	</script>
 	<script src="./resources/assets/js/headroom.min.js"></script>
