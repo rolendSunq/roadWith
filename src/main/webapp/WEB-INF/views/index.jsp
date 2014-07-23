@@ -36,15 +36,15 @@
 					<span class="icon-bar"></span> 
 					<span class="icon-bar"></span> 
 				</button>
-				<a class="navbar-brand" href="#"><img src="./resources/assets/images/logo.png" alt="Progressus HTML5 template"></a>
+				<a class="navbar-brand" href="/roadwith"><img src="./resources/assets/images/logo.png" alt="Progressus HTML5 template"></a>
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
-					<li class="active"><a href="#">홈</a></li>
-					<li><a href="about.html">개요</a></li>
+					<li class="active"><a href="/roadwith">홈</a></li>
+					<li><a href="about">개요</a></li>
 					<li><a href="freeBoard?freeBoard" class="board" >게시판</a></li>
-					<li><a href="">공지사항</a></li>
-					<li><a href="contact.html?signin">문의사항</a></li>
+					<li><a href="notice">공지사항</a></li>
+					<li><a href="contact">문의사항</a></li>
 					<li><a class="btn" href="signin.html?signin">로그인 / 회원가입</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
@@ -268,6 +268,21 @@
 			$("#iconBtn").click(function() {
 				 //location.replace("freeBoard?freeBoard");
 				$(location).attr('href','freeBoard?freeBoard');
+			});
+			
+			$("#iconNo").click(function() {
+				 //location.replace("freeBoard?freeBoard");
+				$(location).attr('href','notice');
+			});
+			
+			$("#iconCo").click(function() {
+				 //location.replace("freeBoard?freeBoard");
+				$(location).attr('href','contact');
+			});
+			
+			$("#iconAb").click(function() {
+				 //location.replace("freeBoard?freeBoard");
+				$(location).attr('href','about');
 			});
 			
 			
