@@ -21,7 +21,7 @@ public class UserContactDAOImpl implements UserContactDAO {
 	private static final String NS = "com.sbaitproject.roadwith.vo.Person.";
 	
 	@Override
-	public Person getUser(String userInfo) {
+	public String getUserID(String userInfo) {
 		logger.info("dao select one id or email is " + userInfo);
 		return sqlSession.selectOne(NS + "getUser", userInfo);
 	}

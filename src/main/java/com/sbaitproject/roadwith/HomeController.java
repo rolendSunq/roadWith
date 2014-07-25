@@ -9,8 +9,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.sbaitproject.roadwith.signservice.ContactServices;
+import com.sbaitproject.roadwith.vo.Person;
 
 /**
  * Handles requests for the application home page.
@@ -41,7 +43,14 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "signin", method = RequestMethod.GET)
-	public String signin(Model model) {
+	public ModelAndView signin() {
+		return new ModelAndView("signin");
+	}
+	
+	@RequestMapping(value = "signin", method = RequestMethod.POST)
+	public String signinPost(Person person, Model model) {
+		System.out.println(person.getId());
+		System.out.println(person.getEmail());
 		return "signin";
 	}
 	

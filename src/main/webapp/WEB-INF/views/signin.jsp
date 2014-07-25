@@ -78,14 +78,14 @@
 							</p>
 							<hr>
 							
-							<form>
+							<form name="signin">
 								<div class="top-margin">
 									<label>Username/Email <span class="text-danger">*</span></label>
-									<input type="text" class="form-control" id="userEmail">
+									<input type="text" class="form-control" name="id" id="idOrEmail" placeholder="아이디 또는 email를 입력하세요.">
 								</div>
 								<div class="top-margin">
 									<label>Password <span class="text-danger">*</span></label>
-									<input type="password" class="form-control" id="userPasswd">
+									<input type="password" class="form-control" name="password" id="userPasswd" placeholder="●●●●●●●●●">
 								</div>
 
 								<hr>
@@ -95,9 +95,10 @@
 										<b><a href="">Forgot password?</a></b>
 									</div>
 									<div class="col-lg-4 text-right">
-										<button class="btn btn-action" type="submit">Sign in</button>
+										<button class="btn btn-action" type="button" id="signinBtn">Sign in</button>
 									</div>
 								</div>
+								<input type="hidden" name="email" id="emailHd">
 							</form>
 						</div>
 					</div>
@@ -189,13 +190,73 @@
 	<script src="./resources/assets/js/jquery-1.11.1.min.js"></script>
 	<script src="./resources/assets/js/bootstrap.min.js"></script>
 	<script>
+		var section = true;
+		function selectIdEmail(inputValue) {
+			if (inputValue.indexOf('@') != -1) {
+				section = false;
+				$('#emailHd').val(inputValue);
+			}
+		}
+		
+		function validation() {
+			var idExp = /^[a-z]+[a-z0-9]{7,15}$/g;
+			var emailExp = /^([0-9a-zA-Z_-]+)@([0-9a-zA-Z_-]+)(\.[0-9a-zA-Z_-]+){1,2}$/g;
+			var inpVal = $('#idOrEmail').val();
+			var inpPasswd = $('#userPasswd').val();
+			if (inpVal.length == 0 || inpVal.length == null || inpVal.length == '') {
+				alert('아이디 또는 email을 입력하세요');
+				$('#idOrEmail').focus();
+				return false;
+			}
+			
+			if (inpPasswd.length == 0 || inpPasswd.length == null || inpPasswd.length == '') {
+				alert('password를 입력하세요.');
+				$('#userPasswd').focus();
+				return false;
+			}
+			
+			if (section == true) {
+				if (inpVal.length >= 7 && inpVal.length < 15) {
+					if (!inpVal.match(idExp)) {
+						alert('아이디 또는 email형식이 맞지 않습니다.');
+						$('#idOrEmail').focus();
+						return false;
+					}
+				} else {
+					alert('아이디 또는 email형식이 맞지 않습니다.');
+					$('#idOrEmail').focus();
+					return false;
+				}
+			} else {
+				if (!inpVal.match(emailExp)) {
+					alert('아이디 또는 email형식이 맞지 않습니다.');
+					$('#idOrEmail').focus();
+					return false;
+				}
+			}
+			
+			//$('form[name=signin]').attr({action:'signin',method:'post'}).submit();
+		}
+	
 		$(document).ready(function(){
-			$('#userEmail').keydown(function(e){
-				var txt = $('#userEmail').val();
+			$('#idOrEmail').keydown(function(e){
 				if (e.keyCode == 13){
 					$('#userPasswd').focus();
 					return false;
 				}
+			});
+			
+			$('#userPasswd').keydown(function(e){
+				if (e.keyCode == 13) {
+					var txt = $('#idOrEmail').val();
+					selectIdEmail(txt);
+				}
+			});
+			
+			$('#signinBtn').click(function(){
+				var txt = $('#idOrEmail').val();
+				selectIdEmail(txt);
+				validation();
 			});
 		});
 	</script>

@@ -13,8 +13,8 @@ public class ContactServicesImpl implements ContactServices {
 	UserContactDAO userContactDAO;
 	
 	@Override
-	public Person getByUserInfo(String userInfo) {
-		return userContactDAO.getUser(userInfo);
+	public String getByUserInfo(String userID) {
+		return userContactDAO.getUserID(userID);
 	}
 
 }
