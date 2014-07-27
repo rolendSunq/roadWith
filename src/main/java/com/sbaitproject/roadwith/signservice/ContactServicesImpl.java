@@ -11,10 +11,39 @@ public class ContactServicesImpl implements ContactServices {
 
 	@Autowired
 	UserContactDAO userContactDAO;
-	
+
 	@Override
-	public String getByUserInfo(String userID) {
-		return userContactDAO.getUserID(userID);
+	public String checkSignin(boolean section, Person userInfo) {
+		int idNumber, emailNumber, passwordNumber;
+		idNumber = emailNumber = passwordNumber = 0;
+		
+		if (section == true) {
+			idNumber = userContactDAO.getPersonID(userInfo.getId());
+		} else {
+			emailNumber = userContactDAO.getPersonEmail(userInfo.getEmail());
+		}
+		
+		passwordNumber = userContactDAO.getPersonPassword(userInfo.getPassword());
+		
+		if (section == true) {
+			if (idNumber == 0 || passwordNumber == 0)
+				return "failure";
+			else if (idNumber != 0 && passwordNumber != 0)
+				return "success";
+		} else {
+			if (emailNumber == 0 || passwordNumber == 0)
+				return "failure";
+			else if (idNumber != 0 || passwordNumber != 0)
+				return "success";
+		}
+		return "failure";
 	}
 
+	@Override
+	public String getIdByEmail(String userEmail) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
 }

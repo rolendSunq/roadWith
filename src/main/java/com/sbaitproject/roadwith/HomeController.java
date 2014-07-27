@@ -2,6 +2,8 @@ package com.sbaitproject.roadwith;
 
 import java.util.Locale;
 
+import javax.servlet.http.HttpSession;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,9 +50,20 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "signin", method = RequestMethod.POST)
-	public String signinPost(Person person, Model model) {
-		System.out.println(person.getId());
-		System.out.println(person.getEmail());
+	public String signinPost(Person person, Model model, HttpSession session) {
+		String result = null;
+		boolean section = true;
+		
+		if (person.getId() != null) {
+			result = contactServices.checkSignin(section, person);
+		} else {
+			result = contactServices.checkSignin(section = false, person);
+		}
+		
+		if (result.equals("success") && section == true)
+			session.setAttribute("id", person.getId());
+		else if (result.equals("success") && section == false)
+			return null;
 		return "signin";
 	}
 	

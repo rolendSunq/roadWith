@@ -7,20 +7,19 @@
         <result property="email" column="email"/>
     </resultMap>
  
-    <select id="getPersons" resultType="com.sbaitproject.roadwith.vo.Person">
-        SELECT
-        *
-        FROM
-        person
+    <select id="getPersonId" parameterType="String" resultType="String">
+        SELECT count(*) FROM PERSON
+        WHERE ID = #{id}
     </select>
  
-    <select id="getPerson" parameterType="String" resultType="com.sbaitproject.roadwith.vo.Person">
-        SELECT
-        *
-        FROM
-        person
-        WHERE
-        id=#{id}
+    <select id="getPersonEmail" parameterType="String" resultType="String">
+        SELECT count(*) FROM PERSON 
+        WHERE EMAIL = #{email}
+    </select>
+
+    <select id="getPersonPassword" parameterType="String" resultType="int">
+        SELECT count(*) FROM PERSON 
+        WHERE PASSWORD = #{password}
     </select>
  
     <insert id="savePerson" parameterType="com.sbaitproject.roadwith.vo.Person"> 

@@ -18,12 +18,30 @@ public class UserContactDAOImpl implements UserContactDAO {
 	private static final Logger logger = LoggerFactory.getLogger(ContactServicesImpl.class);
 	
 	// end must be point . 
-	private static final String NS = "com.sbaitproject.roadwith.vo.Person.";
+	private static final String NS = "person.";
 	
 	@Override
-	public String getUserID(String userInfo) {
-		logger.info("dao select one id or email is " + userInfo);
-		return sqlSession.selectOne(NS + "getUser", userInfo);
+	public int getPersonID(String userId) {
+		logger.info("dao select one id is " + userId);
+		return (Integer)sqlSession.selectOne(NS + "getPersonID", userId);
+	}
+
+	@Override
+	public int getPersonEmail(String userEmail) {
+		logger.info("dao select one email is " + userEmail);
+		return (Integer)sqlSession.selectOne(userEmail);
+	}
+
+	@Override
+	public int getPersonPassword(String userPassword) {
+		logger.info("dao select one password");
+		return (Integer)sqlSession.selectOne(userPassword);
+	}
+
+	@Override
+	public String getPersonIdByEmail(String userEmail) {
+		logger.info("dao select one email is " + userEmail);
+		return null;
 	}
 
 }
