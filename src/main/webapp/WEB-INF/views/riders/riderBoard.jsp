@@ -19,6 +19,10 @@
 	<link rel="stylesheet" href="./resources/assets/css/bootstrap-theme.css" media="screen" >
 	<link rel="stylesheet" href="./resources/assets/css/main.css">
 
+	<style>
+		#counter, #entry, #reply {background-color: #6093FF;}
+	</style>
+
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
 	<script src="./resources/assets/js/html5shiv.js"></script>
@@ -45,7 +49,7 @@
 					<li><a href="freeBoard?freeBoard" class="board" >게시판</a></li>
 					<li><a href="notice">공지사항</a></li>
 					<li><a href="contact">문의사항</a></li>
-					<li><a class="btn" href="signin.html?signin">로그인 / 회원가입</a></li>
+					<li><a class="btn"><i class="fa fa-sign-out"></i> 로그아웃</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
@@ -57,8 +61,24 @@
 	<!-- container -->
 	<div class="container">
 		<h1>I'M Rider</h1><br>
-		<c:set var="name" value="id" />
-		<c:out value="${sessionScope[name]}"/>
+		<div class="row">
+			<div class="col-lg-1" id="counter">
+				<div><h2 class="text-center">0</h2></div>
+				<div><h4 class="text-center">조회수</h4></div>
+			</div>
+			<div class="col-lg-1" id="entry">
+				<div><h2 class="text-center">0</h2></div>
+				<div><h4 class="text-center">참여자</h4></div>
+			</div>
+			<div class="col-lg-1" id="reply">
+				<div><h2 class="text-center">0</h2></div>
+				<div><h4 class="text-center">댓글</h4></div>
+			</div>
+			<div class="col-lg-9">
+				<div class="col-sm-9">오늘 달려요</div>
+				<div class="col-sm-9">여의도</div>
+			</div>
+		</div>
 	</div>
 
 	<footer id="footer" class="top-space">
