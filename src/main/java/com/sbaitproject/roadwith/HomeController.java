@@ -50,21 +50,28 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "signin", method = RequestMethod.POST)
-	public String signinPost(Person person, Model model, HttpSession session) {
+	public String signinPost(Person person, HttpSession session) {
 		String result = null;
+		String url = "signin";
 		boolean section = true;
 		
-		if (person.getId() != null) {
+		if (person.getId() != null) 
 			result = contactServices.checkSignin(section, person);
-		} else {
+		else 
 			result = contactServices.checkSignin(section = false, person);
-		}
 		
-		if (result.equals("success") && section == true)
+		
+		if (result.equals("success") && section == true){
 			session.setAttribute("id", person.getId());
-		else if (result.equals("success") && section == false)
-			return null;
-		return "signin";
+			url = "/riders/riderBoard";
+		}
+		else if (result.equals("success") && section == false) {
+			String obtainID = contactServices.getIdByEmail(person.getEmail());
+			session.setAttribute("id", obtainID);
+			url = "/riders/riderBoard";
+		}
+			
+		return url;
 	}
 	
 	@RequestMapping(value = "signup", method = RequestMethod.GET)

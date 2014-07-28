@@ -235,7 +235,7 @@
 				}
 			}
 			
-			//$('form[name=signin]').attr({action:'signin',method:'post'}).submit();
+			$('form[name=signin]').attr({action:'signin',method:'post'}).submit();
 		}
 	
 		$(document).ready(function(){

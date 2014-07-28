@@ -33,7 +33,7 @@ public class ContactServicesImpl implements ContactServices {
 		} else {
 			if (emailNumber == 0 || passwordNumber == 0)
 				return "failure";
-			else if (idNumber != 0 || passwordNumber != 0)
+			else if (emailNumber != 0 || passwordNumber != 0)
 				return "success";
 		}
 		return "failure";
@@ -41,8 +41,7 @@ public class ContactServicesImpl implements ContactServices {
 
 	@Override
 	public String getIdByEmail(String userEmail) {
-		// TODO Auto-generated method stub
-		return null;
+		return userContactDAO.getPersonIdByEmail(userEmail);
 	}
 
 	
