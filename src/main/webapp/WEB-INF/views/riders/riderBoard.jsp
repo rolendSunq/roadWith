@@ -20,7 +20,10 @@
 	<link rel="stylesheet" href="./resources/assets/css/main.css">
 
 	<style>
-		#counter, #entry, #reply {background-color: #6093FF;}
+		#counter, #entry, #reply {background-color: blue;}
+		#cbox, #ebox, #rbox {
+			background-color: #6093FF;
+		}
 	</style>
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -62,19 +65,27 @@
 	<div class="container">
 		<h1>I'M Rider</h1><br>
 		<div class="row">
-			<div class="col-lg-1" id="counter">
-				<div><h2 class="text-center">0</h2></div>
-				<div><h4 class="text-center">조회수</h4></div>
+			<div class="col-md-1" id="counter">
+				<div id="cbox">
+					<div>
+						<h3 class="text-center">0</h3>
+						<h5 class="text-center">조회수</h5>
+					</div>
+				</div>
 			</div>
-			<div class="col-lg-1" id="entry">
-				<div><h2 class="text-center">0</h2></div>
-				<div><h4 class="text-center">참여자</h4></div>
+			<div class="col-md-1" id="entry">
+				<div id="ebox">
+					<div><h3 class="text-center">0</h3></div>
+					<div><h5 class="text-center">참여자</h5></div>
+				</div>
 			</div>
-			<div class="col-lg-1" id="reply">
-				<div><h2 class="text-center">0</h2></div>
-				<div><h4 class="text-center">댓글</h4></div>
+			<div class="col-md-1" id="reply">
+				<div id="rbox">
+					<div><h3 class="text-center">0</h3></div>
+					<div><h5 class="text-center">댓글</h5></div>
+				</div>
 			</div>
-			<div class="col-lg-9">
+			<div class="col-md-9">
 				<div class="col-sm-9">오늘 달려요</div>
 				<div class="col-sm-9">여의도</div>
 			</div>
