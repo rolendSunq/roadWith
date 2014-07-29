@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="freeboard">
+ 	 
+    <resultMap id="Article"  type="com.sbaitproject.roadwith.freeboard.vo.Article" >
+        <result property="id" column="id"/>
+        <result property="groupId" column="groupId"/>
+        <result property="sequenceNumber"  column="sequenceNumber"/>
+        <result property="postingDate"  column="postingDate"/>
+        <result property="readCount"  column="readCount"/>
+        <result property="writerName"  column="writerName"/>
+        <result property="password"  column="password"/>
+        <result property="title"  column="title"/>
+        <result property="content"  column="content"/>
+    </resultMap>
+    
+    <select id="SelectAll"  resultType="int">
+    	SELECT count(*)
+    	FROM article
+    </select>
+	
+	<select id="articleSelected"  parameterType="String"  resultType="hashmap">
+		SELECT article_id , group_id , sequence_no , posting_date, read_count, writer_name , password , title
+		FROM article
+		ORDER BY sequence_no desc limit #{firstRow}, #{endRow} 
+	</select>
+	
+ 	 </mapper>
