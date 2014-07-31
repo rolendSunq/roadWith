@@ -19,11 +19,9 @@
 	<link rel="stylesheet" href="./resources/assets/css/bootstrap-theme.css" media="screen" >
 	<link rel="stylesheet" href="./resources/assets/css/main.css">
 
-	<style>
-		#counter, #entry, #reply {background-color: blue;}
-		#cbox, #ebox, #rbox {
-			background-color: #6093FF;
-		}
+	<style type="text/css">
+		#riderContent {/*background-color: blue;*/}
+		#nameTitle {background-color: yellow;}
 	</style>
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -59,36 +57,47 @@
 	</div> 
 	<!-- /.navbar -->
 	
+	<!-- 
 	<header id="head" class="secondary"></header>
+	 -->
 
 	<!-- container -->
 	<div class="container">
 		<h1>I'M Rider</h1><br>
+		<div class="jumbotron top-space">
+			<h4>함께 모여 달려 보세요.</h4>
+     		<p class="text-right"><a class="btn btn-primary btn-large">그룹 생성하기 »</a></p>
+  		</div>
 		<div class="row">
-			<div class="col-md-1" id="counter">
-				<div id="cbox">
-					<div>
-						<h3 class="text-center">0</h3>
-						<h5 class="text-center">조회수</h5>
+			<div class="container">
+				<div id="riderContent">
+					<div class="col-md-1" id="counter">
+						<div id="cbox">
+							<div>
+								<h3 class="text-center">0</h3>
+								<h5 class="text-center">조회수</h5>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-1" id="entry">
+						<div id="ebox">
+							<h3 class="text-center">0</h3>
+							<h5 class="text-center">참여자</h5>
+						</div>
+					</div>
+					<div class="col-md-1" id="reply">
+						<div id="rbox">
+							<h3 class="text-center">0</h3>
+							<h5 class="text-center">댓글</h5>
+						</div>
+					</div>
+					<div class="col-md-9" id="nameTitle">
+						<h3>오늘 달려요</h3>
+						<h5>여의도</h5>
 					</div>
 				</div>
 			</div>
-			<div class="col-md-1" id="entry">
-				<div id="ebox">
-					<div><h3 class="text-center">0</h3></div>
-					<div><h5 class="text-center">참여자</h5></div>
-				</div>
-			</div>
-			<div class="col-md-1" id="reply">
-				<div id="rbox">
-					<div><h3 class="text-center">0</h3></div>
-					<div><h5 class="text-center">댓글</h5></div>
-				</div>
-			</div>
-			<div class="col-md-9">
-				<div class="col-sm-9">오늘 달려요</div>
-				<div class="col-sm-9">여의도</div>
-			</div>
+			<hr class="hr">
 		</div>
 	</div>
 
