@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Rider">
+	<resultMap type="com.sbaitproject.roadwith.riderboard.vo.RiderArticle" id="RiderArticle">
+		<result property="seq" column="seq"/>
+		<result property="writer" column="writer"/>
+		<result property="subject" column="subject"/>
+		<result property="content" column="content"/>
+		<result property="readySpot" column="readySpot"/>
+		<result property="endSpot" column="endSpot"/>
+		<result property="logTime" column="logTime"/>
+	</resultMap>
+	
+	<select id="SelectAllCount">
+		SELECT count(*)
+		FROM RIDERBOARD
+	</select>
+	
+	<!-- 지정된 페이지 갯수를 가져오기 -->
+	<select id="SelectedSubject" parameterType="int" resultMap="Rider.RiderArticle">
+		SELECT *
+		FROM (SELECT /*+INDEX_DESC(RIDERBOARD riderBoard_seq_pk)*/ ROWNUM RSEQ, SEQ, WRITER, SUBJECT, CONTENT, LOGTIME FROM RIDERBOARD WHERE ROWNUM &lt;= #{endNo1}) A 
+		WHERE A.RSEQ &gt; #{endNo2}		
+	</select>
+	
+	<insert id="InsertQuery">
+		INSERT INTO (seq, writer, subject, content, logTime)
+		VALUES(seq_riderboard.nextval, #{writer}, #{subject}, #{content}, sysdate)
+	</insert>
+</mapper>

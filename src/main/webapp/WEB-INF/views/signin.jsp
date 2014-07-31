@@ -85,7 +85,7 @@
 								</div>
 								<div class="top-margin">
 									<label>Password <span class="text-danger">*</span></label>
-									<input type="password" class="form-control" name="password" id="userPasswd" placeholder="●●●●●●●●●">
+									<input type="password" class="form-control" name="pw" id="userPasswd" placeholder="●●●●●●●●●">
 								</div>
 
 								<hr>

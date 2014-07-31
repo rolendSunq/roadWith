@@ -20,7 +20,7 @@
 
     <select id="getPersonPassword" parameterType="String" resultType="int">
         SELECT count(*) FROM USERS 
-        WHERE PASSWORD = #{password}
+        WHERE PW = #{password}
     </select>
 
     <select id="getPersonIdByEmail" parameterType="String" resultType="String">

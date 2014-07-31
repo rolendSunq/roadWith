@@ -53,4 +53,5 @@ public class RiderArticle {
 	public void setLogTime(Timestamp logTime) {
 		this.logTime = logTime;
 	}
+	
 }

@@ -68,7 +68,8 @@ EXEC reset_sequence('users_num_seq');
 -- 현재 존재 하는 테이블 스페이스 현황
 SELECT * FROM DBA_DATA_FILES;
 
-
+-- 휴지통의 자료 삭제
+purge recyclebin;
 ----------------------------------------------------------
 */
 
@@ -92,19 +93,19 @@ drop SEQUENCE users_num_seq;
 
 
 CREATE TABLE users (
-	users_num number(5) CONSTRAINT users_pk_users_num PRIMARY KEY,
-	name VARCHAR2(20) CONSTRAINT users_nn_name NOT NULL, 
-	id VARCHAR2(20) CONSTRAINT users_nn_id NOT NULL,
-  nickname VARCHAR2(20) CONSTRAINT users_nn_nickname NOT NULL,
-	pw VARCHAR2(20) CONSTRAINT users_nn_pw NOT NULL, 
-	email VARCHAR2(40) CONSTRAINT users_nn_email NOT NULL,
-  time DATE)
+	users_num 	number(5) 	 CONSTRAINT users_pk_users_num PRIMARY KEY,
+	name 		VARCHAR2(20) CONSTRAINT users_nn_name NOT NULL, 
+	id 			VARCHAR2(20) CONSTRAINT users_nn_id NOT NULL,
+  	nickname 	VARCHAR2(20) CONSTRAINT users_nn_nickname NOT NULL,
+	pw 			VARCHAR2(20) CONSTRAINT users_nn_pw NOT NULL, 
+	email 		VARCHAR2(40) CONSTRAINT users_nn_email NOT NULL,
+  	time DATE)
   PCTFREE 35 PCTUSED 55
   TABLESPACE roadwith
   STORAGE (INITIAL 4M
             NEXT 4M
             PCTINCREASE 20
-  );
+);
 
 ALTER SESSION SET NLS_DATE_FORMAT = 'YYYY-MM-DD HH24:MI:SS';
 
@@ -123,7 +124,7 @@ insert into users values
   '수지',
   'sujijjang',
   '수미칩',
-  'aa11',
+  'aa11suji',
   'suji@naver.com',
   SYSDATE
   );
@@ -133,7 +134,7 @@ insert into users values
   '아이유',
   'iujjang',
   '필쑥',
-  'bb22',
+  'bb22iujjang',
   'iu@hanmail.net',
   SYSDATE
   );
@@ -143,7 +144,7 @@ insert into users values
   '태연',
   'taeyeonjjang',
   '탱구',
-  'cc33',
+  'cc33taeyeon',
   'taeyeon@gmail.com',
   SYSDATE
   );
@@ -153,7 +154,7 @@ insert into users values
   '민아',
   'minajjang',
   '빵민아',
-  'dd44',
+  'dd44mina',
   'mina@naver.com',
   SYSDATE
   );
@@ -163,10 +164,11 @@ insert into users values
   '유이',
   'uejjang',
   '꿀벅지',
-  'ee55',
+  'ee55uejjang',
   'ue@hanmail.net',
   SYSDATE
   );
+  
   
   COMMIT
   

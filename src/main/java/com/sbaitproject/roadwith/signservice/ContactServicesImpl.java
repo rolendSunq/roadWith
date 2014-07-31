@@ -23,7 +23,7 @@ public class ContactServicesImpl implements ContactServices {
 			emailNumber = userContactDAO.getPersonEmail(userInfo.getEmail());
 		}
 		
-		passwordNumber = userContactDAO.getPersonPassword(userInfo.getPassword());
+		passwordNumber = userContactDAO.getPersonPassword(userInfo.getPw());
 		
 		if (section == true) {
 			if (idNumber == 0 || passwordNumber == 0)
