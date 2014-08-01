@@ -17,12 +17,7 @@
 
 	<!-- Custom styles for our template -->
 	<link rel="stylesheet" href="./resources/assets/css/bootstrap-theme.css" media="screen" >
-	<link rel="stylesheet" href="./resources/assets/css/main.css">
-
-	<style type="text/css">
-		#riderContent {/*background-color: blue;*/}
-		#nameTitle {background-color: yellow;}
-	</style>
+	<link rel="stylesheet" href="./resources/assets/css/makeGroup.css">
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -57,48 +52,14 @@
 	</div> 
 	<!-- /.navbar -->
 	
-	<!-- 
-	<header id="head" class="secondary"></header>
-	 -->
+	<header id="head"></header>
 
 	<!-- container -->
 	<div class="container">
-		<div class="jumbotron top-space">
-			<h4>Rider Group</h4>
-			<form name="makeGrpFrm">
-	     		<p class="text-right"><a class="btn btn-primary btn-large" id="makeGroup"><i class="fa fa-users"></i> 그룹 생성하기 »</a></p>
-			</form>
-  		</div>
 		<div class="row">
-			<div class="container">
-				<div id="riderContent">
-					<div class="col-md-1" id="counter">
-						<div id="cbox">
-							<div>
-								<h3 class="text-center">0</h3>
-								<h5 class="text-center">조회수</h5>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-1" id="entry">
-						<div id="ebox">
-							<h3 class="text-center">0</h3>
-							<h5 class="text-center">참여자</h5>
-						</div>
-					</div>
-					<div class="col-md-1" id="reply">
-						<div id="rbox">
-							<h3 class="text-center">0</h3>
-							<h5 class="text-center">댓글</h5>
-						</div>
-					</div>
-					<div class="col-md-9" id="nameTitle">
-						<h3>오늘 달려요</h3>
-						<h5>여의도</h5>
-					</div>
-				</div>
-			</div>
-			<hr class="hr">
+		</div>
+		<div class="row">
+			<h1 class="text-center">${section} 생성</h1>
 		</div>
 	</div>
 
@@ -180,11 +141,7 @@
 	<script src="./resources/assets/js/jquery-1.11.1.min.js"></script>
 	<script src="./resources/assets/js/bootstrap.min.js"></script>
 	<script>
-		$(document).ready(function(){
-			$('#makeGroup').click(function(){
-				$('form[name=makeGrpFrm]').attr({'method':'post','action':'MakeRiderGroup'}).submit();
-			});
-		});
+		
 	</script>
 	<script src="./resources/assets/js/headroom.min.js"></script>
 	<script src="./resources/assets/js/jQuery.headroom.min.js"></script>

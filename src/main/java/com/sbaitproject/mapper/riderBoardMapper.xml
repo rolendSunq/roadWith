@@ -23,7 +23,7 @@
 		WHERE A.RSEQ &gt; #{endNo2}		
 	</select>
 	
-	<insert id="InsertQuery">
+	<insert id="InsertQuery" parameterType="com.sbaitproject.roadwith.riderboard.vo.RiderArticle">
 		INSERT INTO (seq, writer, subject, content, logTime)
 		VALUES(seq_riderboard.nextval, #{writer}, #{subject}, #{content}, sysdate)
 	</insert>
