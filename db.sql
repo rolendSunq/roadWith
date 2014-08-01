@@ -184,13 +184,13 @@ drop SEQUENCE run_idx_num_seq;
   
 CREATE TABLE run_index (
 	run_idx_num number(5),
-  users_num number(5),
-  uploader_name VARCHAR2(40),
-  title VARCHAR2(100) CONSTRAINT run_index_nn_title NOT NULL,
-  text VARCHAR2(1000) CONSTRAINT run_index_nn_text NOT NULL,
-	start_spot VARCHAR2(20) CONSTRAINT run_index_nn_sp NOT NULL,
-  finish_spot VARCHAR2(20) CONSTRAINT run_index_nn_fs NOT NULL,
-  start_time VARCHAR2(40) CONSTRAINT run_index_nn_st NOT NULL
+  	users_num 		number(5),
+  	uploader_name 	VARCHAR2(40),
+  	title 			VARCHAR2(100) CONSTRAINT run_index_nn_title NOT NULL,
+  	text 			VARCHAR2(1000) CONSTRAINT run_index_nn_text NOT NULL,
+	start_spot		VARCHAR2(20) CONSTRAINT run_index_nn_sp NOT NULL,
+	finish_spot 	VARCHAR2(20) CONSTRAINT run_index_nn_fs NOT NULL,
+  	start_time 		VARCHAR2(40) CONSTRAINT run_index_nn_st NOT NULL
 )
   PCTFREE 45 PCTUSED 45
   TABLESPACE roadwith
@@ -268,15 +268,15 @@ drop table rider_index CASCADE CONSTRAINTS;
 drop SEQUENCE rider_idx_num_seq;
   
 CREATE TABLE rider_index (
-	rider_idx_num number(5),
-  users_num number(5),
-  uploader_name VARCHAR2(40),
-  title VARCHAR2(100) CONSTRAINT rider_index_nn_title NOT NULL,
-  text VARCHAR2(1000) CONSTRAINT rider_index_nn_text NOT NULL,
-	start_spot VARCHAR2(20) CONSTRAINT rider_index_nn_sp NOT NULL,
-  finish_spot VARCHAR2(20) CONSTRAINT rider_index_nn_fs NOT NULL,
-	start_time VARCHAR2(40) CONSTRAINT rider_index_nn_st NOT NULL,
-  time DATE)
+  rider_idx_num 	number(5),
+  users_num 		number(5),
+  uploader_name		VARCHAR2(40),
+  title 			VARCHAR2(100) CONSTRAINT rider_index_nn_title NOT NULL,
+  text 				VARCHAR2(1000) CONSTRAINT rider_index_nn_text NOT NULL,
+  start_spot 		VARCHAR2(20) CONSTRAINT rider_index_nn_sp NOT NULL,
+  finish_spot 		VARCHAR2(20) CONSTRAINT rider_index_nn_fs NOT NULL,
+  start_time 		VARCHAR2(40) CONSTRAINT rider_index_nn_st NOT NULL,
+  time				DATE)
   PCTFREE 45 PCTUSED 45
   TABLESPACE roadwith
   STORAGE (INITIAL 7M
@@ -360,13 +360,13 @@ drop table question CASCADE CONSTRAINTS;
 drop SEQUENCE que_idx_num_seq;
 
 CREATE TABLE question (
-	que_idx_num number(5) ,
-  users_num number(5),
-  title VARCHAR2(100) CONSTRAINT question_nn_title NOT NULL,
-  text VARCHAR2(1000) CONSTRAINT question_nn_text NOT NULL,
-  email VARCHAR2(40) CONSTRAINT question_nn_email NOT NULL,
+  que_idx_num 	number(5) ,
+  users_num 	number(5),
+  title 		VARCHAR2(100) CONSTRAINT question_nn_title NOT NULL,
+  text 			VARCHAR2(1000) CONSTRAINT question_nn_text NOT NULL,
+  email 		VARCHAR2(40) CONSTRAINT question_nn_email NOT NULL,
   cellphone_num VARCHAR2(20) CONSTRAINT question_nn_cn NOT NULL,
-  time DATE )
+  time 			DATE )
   PCTFREE 5 PCTUSED 85
   TABLESPACE roadwith
   STORAGE (INITIAL 3M
@@ -432,11 +432,11 @@ drop table answer CASCADE CONSTRAINTS;
 drop SEQUENCE ans_idx_num_seq;
 
 CREATE TABLE answer (
-	ans_idx_num number(5),
-  que_idx_num number(5),
-  title VARCHAR2(100) CONSTRAINT answer_nn_title NOT NULL,
-  text VARCHAR2(1000) CONSTRAINT answer_nn_text NOT NULL,
-  time DATE )
+  ans_idx_num 	number(5),
+  que_idx_num 	number(5),
+  title 		VARCHAR2(100) CONSTRAINT answer_nn_title NOT NULL,
+  text 			VARCHAR2(1000) CONSTRAINT answer_nn_text NOT NULL,
+  time 			DATE )
   PCTFREE 5 PCTUSED 85
   TABLESPACE roadwith
   STORAGE (INITIAL 3M

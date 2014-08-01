@@ -22,7 +22,10 @@
 	<!--[if lt IE 9]>
 	<script src="./resources/assets/js/html5shiv.js"></script>
 	<script src="./resources/assets/js/respond.min.js"></script>
+	
+
 	<![endif]-->
+
 </head>
 
 <body class="home">
@@ -42,10 +45,21 @@
 				<ul class="nav navbar-nav pull-right">
 					<li class="active"><a href="/roadwith">홈</a></li>
 					<li><a href="about">개요</a></li>
-					<li><a href="freeBoard?freeBoard" class="board" >게시판</a></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#" >
+							게시판<span class="creat"></span>
+						</a>
+						<ul class="dropdown-menu">						
+							<li><a href="freeBoard?runBoard class="board">
+								런</a></li>
+							<li><a href="freeBoard?riderBoard class="board">
+								라이더</a></li>						
+						</ul>
+					</li>
 					<li><a href="notice">공지사항</a></li>
 					<li><a href="contact">문의사항</a></li>
 					<li><a class="btn" href="signin.html?signin">로그인 / 회원가입</a></li>
+					<li><a href="Preview">Tutorial</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
