@@ -46,5 +46,7 @@ public class ListArticleServiceImpl implements ListArticleService {
 		}
 		return pageCount;
 	}
+	
+	
 
 }

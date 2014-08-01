@@ -79,16 +79,17 @@ public class HomeController {
 		return "signup";
 	}
 	
-	@RequestMapping(value = "freeBoard", method = RequestMethod.GET)
+	@RequestMapping(value = "/freeBoard", method = RequestMethod.GET)
 	public String freeBoard(Model model) {
 		return "freeBoard/freeMain";
 	}
 	
-	@RequestMapping(value = "riderBoard", method = RequestMethod.GET)
+	@RequestMapping(value = "FreeRiderBoard", method = RequestMethod.GET)
 	public String riderBoard(Model model) {
 		return "freeBoard/riderBoard";
 	}
-	@RequestMapping(value = "runBoard", method = RequestMethod.GET)
+	
+	@RequestMapping(value = "R2Board", method = RequestMethod.GET)
 	public String runBoard(Model model) {
 		return "freeBoard/runBoard";
 	}

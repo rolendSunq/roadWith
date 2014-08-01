@@ -1,56 +1,149 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%
+		response.setHeader("Pragma", "No-cache");
+		response.setHeader("Cache-Control", "no-cache");
+		response.setHeader("Cache-Control", "no-store");
+		response.setDateHeader("Expires", 1L);
+%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
-	
-	<title>로드러너</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="Sergey Pozhilov (GetTemplate.com)">
 
-	<link rel="shortcut icon" href="./resources/assets/images/gt_favicon.png">
-	<link rel="stylesheet" media="screen" href="./resources/assets/css/googleFont.css">
-	<link rel="stylesheet" href="./resources/assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="./resources/assets/css/font-awesome.min.css">
+<title>로드러너</title>
 
-	<!-- Custom styles for our template -->
-	<link rel="stylesheet" href="./resources/assets/css/bootstrap-theme.css" media="screen" >
-	<link rel="stylesheet" href="./resources/assets/css/main.css">
+<link rel="shortcut icon"
+	href="./resources/assets/images/gt_favicon.png">
+<link rel="stylesheet" media="screen"
+	href="./resources/assets/css/googleFont.css">
+<link rel="stylesheet" href="./resources/assets/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="./resources/assets/css/font-awesome.min.css">
 
-	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
+<!-- Custom styles for our template -->
+<link rel="stylesheet" href="./resources/assets/css/bootstrap-theme.css"
+	media="screen">
+<link rel="stylesheet" href="./resources/assets/css/main.css">
+
+<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
 	<script src="./resources/assets/js/html5shiv.js"></script>
 	<script src="./resources/assets/js/respond.min.js"></script>
 	<![endif]-->
 </head>
 <body>
-<!-- Fixed navbar -->
-	<div class="navbar navbar-inverse navbar-fixed-top headroom" >
+	<!-- Fixed navbar -->
+	<div class="navbar navbar-inverse navbar-fixed-top headroom">
 		<div class="container">
 			<div class="navbar-header">
 				<!-- Button for smallest screens -->
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span> 
-					<span class="icon-bar"></span> 
+				<button type="button" class="navbar-toggle" data-toggle="collapse"
+					data-target=".navbar-collapse">
+					<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="/roadwith"><img src="./resources/assets/images/logo.png" alt="Progressus HTML5 template"></a>
+				<a class="navbar-brand" href="/roadwith"><img
+					src="./resources/assets/images/logo.png"
+					alt="Progressus HTML5 template"></a>
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
 					<li><a href="/roadwith">홈</a></li>
 					<li><a href="about">개요</a></li>
-					<li  class="active"><a href="freeBoard?freeBoard" class="board" >게시판</a></li>
+					<li class="active"><a href="freeBoard?freeBoard" class="board">게시판</a></li>
 					<li><a href="notice">공지사항</a></li>
 					<li><a href="contact">문의사항</a></li>
 					<li><a class="btn" href="signin.html?signin">로그인 / 회원가입</a></li>
 				</ul>
-			</div><!--/.nav-collapse -->
-		</div>
-	</div> 
+			</div>
+			<!--/.nav-collapse -->
+		
+	</div>
+
 	<!-- /.navbar -->
-<footer id="footer" class="top-space">
+
+	<header id="head" class="secondary"></header>
+
+	<!-- container -->
+	<div class="container">
+		<ol class="breadcrumb">
+			<li><a href="/roadwith">홈</a></li>
+			<li class="active">자유게시판</li>
+		</ol>
+	<article class="">
+		<div class="row">
+	<table class="table">
+		<c:if test="${listVo.totalPageCount >0}">
+		<td colspan="5">
+		${listVo.startRow}-${listVo.endRow}
+		[${listVo.requestPage}/${listVo.totalPageCount}] </td>
+		</c:if>
+			<colgroup>
+					<col width="8%">
+					<col width="">
+					<col width="14%">
+					<col width="10%">
+					<col width="7%">
+					</colgroup>
+		<tr>
+			<td>번호</td>
+			<td>제목</td>
+			<td>작성자</td>
+			<td>작성일</td>
+			<td>조회수</td>
+		</tr>
+		
+	<c:choose>
+			<c:when test="${listVo.hasArticle == false }">
+			<tr>
+				<td colspan="5">
+					게시글이 없습니다.
+				</td>
+			</tr>
+			</c:when>
+			<c:otherwise>
+			<c:forEach var="article" items="${listVo.articleList}">
+			<tr>
+				<td>${article.id}</td>
+				<td>
+				<c:set var="query" value="articleId=${article.id}&p=${listVo.requestPage}"/>
+				<a href='<c:url value="/read.jsp?${query}"/>'>
+				${article.title}
+				</a>
+				</td>
+				<td>${article.writerName}</td>
+				<td>${article.postingDate}</td>
+				<td>${article.readCount}</td>
+			</tr>
+			</c:forEach>
+			<tr>
+				<td colspan="5">
+					<c:if test="${beginPage > 10}">
+						<a href='<c:url value="/Flist.jsp?p=${beginPage-1}"/>'>이전</a>
+					</c:if>
+					<c:forEach var="pno" begin="${beginPage}" end="${endPage}">
+					<a href='<c:url value="/Flist.jsp?p=${pno}"/>'>[${pno}]</a>
+					</c:forEach>
+					<c:if test="${endPage < listVo.totalPageCount}">
+						<a href="<c:url value="/Flist.jsp?p=${endPage + 1}"/>">다음</a>
+					</c:if>
+				</td>
+			</tr>
+			</c:otherwise>
+			</c:choose>
+	</table>
+		
+	</div>
+	</article>
+	<!-- /container -->
+	</div>
+	</div>
+	
+	
+	<footer id="footer" class="top-space">
 
 		<div class="footer1">
 			<div class="container">

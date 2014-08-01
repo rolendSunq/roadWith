@@ -50,7 +50,11 @@
 		</div>
 	</div> 
 	<!-- /.navbar -->
-<footer id="footer" class="top-space">
+	
+	<header id="head" class="secondary"></header>
+	
+	
+	<footer id="footer" class="top-space">
 
 		<div class="footer1">
 			<div class="container">
