@@ -50,7 +50,7 @@
 					<li><a href="freeBoard?freeBoard" class="board" >게시판</a></li>
 					<li><a href="notice">공지사항</a></li>
 					<li><a href="contact">문의사항</a></li>
-					<li><a class="btn"><i class="fa fa-sign-out"></i> 로그아웃</a></li>
+					<li><a href="signout" class="btn"><i class="fa fa-sign-out"></i> 로그아웃</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>

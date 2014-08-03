@@ -60,6 +60,30 @@
 		</div>
 		<div class="row">
 			<h1 class="text-center">${section} 생성</h1>
+			<form class="form-horizontal" role="form">
+				<div class="form-group">
+					<label for="titleName" class="col-md-3 control-label">라이딩 제목</label>
+					<div class="col-md-6">
+						<input type="text" name="title" id="titleName" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<select class="form-control">
+						<option>1</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+						<option>6</option>
+						<option>7</option>
+						<option>8</option>
+						<option>9</option>
+						<option>10</option>
+						<option>11</option>
+						<option>12</option>
+					</select>
+				</div>
+			</form>
 		</div>
 	</div>
 

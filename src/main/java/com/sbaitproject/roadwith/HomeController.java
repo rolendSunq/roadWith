@@ -74,6 +74,12 @@ public class HomeController {
 		return url;
 	}
 	
+	@RequestMapping(value ="signout", method = RequestMethod.GET)
+	public String signout(HttpSession session) {
+		session.invalidate();
+		return "index";
+	}
+	
 	@RequestMapping(value = "signup", method = RequestMethod.GET)
 	public String signup(Model model) {
 		return "signup";

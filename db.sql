@@ -91,6 +91,7 @@ ALTER TABLESPACE roadwith
 drop table users CASCADE CONSTRAINTS;
 drop SEQUENCE users_num_seq;
 
+--select * from user_sequences;
 
 CREATE TABLE users (
 	users_num 	number(5) 	 CONSTRAINT users_pk_users_num PRIMARY KEY,

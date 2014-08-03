@@ -69,7 +69,7 @@
 					<h1 class="page-title">로그인</h1>
 				</header>
 				
-				<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+				<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2" id="panel">
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<h3 class="thin text-center">귀하의 계정에 로그인</h3>
@@ -239,6 +239,7 @@
 		}
 	
 		$(document).ready(function(){
+			$('#idOrEmail').focus();
 			$('#idOrEmail').keydown(function(e){
 				if (e.keyCode == 13){
 					$('#userPasswd').focus();
