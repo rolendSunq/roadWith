@@ -100,6 +100,12 @@ public class HomeController {
 		return "freeBoard/runBoard";
 	}
 	
+	@RequestMapping(value = "write", method = RequestMethod.GET)
+	public String writeForm(Model model) {
+		return "freeBoard/writeForm";
+	}
+	
+	
 	@RequestMapping(value = "notice", method = RequestMethod.GET)
 	public String notice(Model model) {
 		return "notice";

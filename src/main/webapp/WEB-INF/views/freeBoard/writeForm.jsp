@@ -1,41 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%
-		response.setHeader("Pragma", "No-cache");
-		response.setHeader("Cache-Control", "no-cache");
-		response.setHeader("Cache-Control", "no-store");
-		response.setDateHeader("Expires", 1L);
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="Sergey Pozhilov (GetTemplate.com)">
+	<meta charset="utf-8">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
+	
+	<title>자유게시판</title>
 
-<title>로드러너</title>
+	<link rel="shortcut icon" href="./resources/assets/images/gt_favicon.png">
+	<link rel="stylesheet" media="screen" href="./resources/assets/css/googleFont.css">
+	<link rel="stylesheet" href="./resources/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./resources/assets/css/font-awesome.min.css">
 
-<link rel="shortcut icon"
-	href="./resources/assets/images/gt_favicon.png">
-<link rel="stylesheet" media="screen"
-	href="./resources/assets/css/googleFont.css">
-<link rel="stylesheet" href="./resources/assets/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="./resources/assets/css/font-awesome.min.css">
+	<!-- Custom styles for our template -->
+	<link rel="stylesheet" href="./resources/assets/css/bootstrap-theme.css" media="screen" >
+	<link rel="stylesheet" href="./resources/assets/css/main.css">
 
-<!-- Custom styles for our template -->
-<link rel="stylesheet" href="./resources/assets/css/bootstrap-theme.css"
-	media="screen">
-<link rel="stylesheet" href="./resources/assets/css/makeGroup.css">
-
-<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
 	<script src="./resources/assets/js/html5shiv.js"></script>
 	<script src="./resources/assets/js/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body>
+<body bgcolor="#BDBDBD">
 	<!-- Fixed navbar -->
 	<div class="navbar navbar-inverse navbar-fixed-top headroom">
 		<div class="container">
@@ -60,92 +50,50 @@
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
-	</div><!-- /.navbar -->
-
-	<header id="head" class="secondary"></header>
-
-	<!-- container -->
-	<div class="container">
-		<ol class="breadcrumb">
-			<li><a href="/roadwith">홈</a></li>
-			<li class="active">자유게시판</li>
-		</ol>
-		<article class="">
-			<div class="row">
-				<table class="table table-bordered">
-				<c:if test="${listVo.totalPageCount >0}">
-					<tr>
-						<td colspan="5">
-							${listVo.startRow}-${listVo.endRow}
-							[${listVo.requestPage}/${listVo.totalPageCount}]
-						</td>
-					</tr>
-				</c:if>
-				<colgroup>
-						<col width="8%">
-						<col width="">
-						<col width="14%">
-						<col width="10%">
-						<col width="7%">
-				</colgroup>
-				<tr>
-					<td>번호</td>
-					<td>제목</td>
-					<td>작성자</td>
-					<td>작성일</td>
-					<td>조회수</td>
-				</tr>
-			
-		<c:choose>
-				<c:when test="${listVo.hasArticle == false }">
-				<tr>
-					<td colspan="5">
-						게시글이 없습니다.
-					</td>
-				</tr>
-				</c:when>
-				<c:otherwise>
-					<c:forEach var="article" items="${listVo.articleList}">
-					<tr>
-						<td>${article.id}</td>
-						<td>
-							<c:set var="query" 
-								value="articleId=${article.id}&p=${listVo.requestPage}"/>
-							<a href='<c:url value="/read.jsp?${query}"/>'>
-								${article.title}
-							</a>
-						</td>
-						<td>${article.writerName}</td>
-						<td>${article.postingDate}</td>
-						<td>${article.readCount}</td>
-					</tr>
-					</c:forEach>
-					<tr>
-						<td colspan="5">
-							<c:if test="${beginPage > 10}">
-								<a href='<c:url value="/Flist.jsp?p=${beginPage-1}"/>'>이전</a>
-							</c:if>
-							<c:forEach var="pno" begin="${beginPage}" end="${endPage}">
-							<a href='<c:url value="/Flist.jsp?p=${pno}"/>'>[${pno}]</a>
-							</c:forEach>
-							<c:if test="${endPage < listVo.totalPageCount}">
-								<a href="<c:url value="/Flist.jsp?p=${endPage + 1}"/>">다음</a>
-							</c:if>
-						</td>
-					</tr>
-				</c:otherwise>
-		</c:choose>
-				</table>
-				<div class="pull-right">
-					<div class="col-md-4">
-						<button type="button" class="btn btn-default" name="writeArticle" id="writeArticle"><i class="fa fa-pencil-square"></i> 글쓰기</button>
+</div>
+<div class="container"	>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2">
+			<br><br>
+			<h2 class="text-center">글쓰기</h2>
+			<form action="<c:url value = "writeBoard"/>" method="post" class="form-horizontal" role="form">
+				<div class="form-group">
+					<label class="col-md-3 control-label">제목</label>
+					<div class="col-md-8">
+						<input type="text" name="title" class="form-control">
+					</div>
+				</div> 
+				<div class="form-group">
+					<label class="col-md-3 control-label">작성자</label>
+					<div class="col-md-8">
+						<input type="text" name="writer_name" class="form-control">
+					</div>
+				</div> 
+				<div class="form-group">
+					<label class="col-md-3 control-label">내용</label>
+					<div class="col-md-8">
+						<textarea name="content" rows="5" class="form-control"></textarea>
 					</div>
 				</div>
-		</div><!-- /row -->
-	</article>
-	</div><!-- /container -->
-	
-	<footer id="footer" class="top-space">
+				<div class="form-group">
+					<label class="col-md-3 control-label">Password</label>
+					<div class="col-md-8">
+						<input type="password" name="password" class="form-control">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-md-3 control-label"></label>
+						<div class="col-md-3 pull-right-offset-1">
+							<input type="submit" class="form-control" value="글등록" >
+						</div>
+					</div>
+				</div> 
+			</form>
+		</div>
+	</div>
+</div>
+
+<footer id="footer" class="top-space">
 
 		<div class="footer1">
 			<div class="container">
@@ -224,9 +172,7 @@
 	<script src="./resources/assets/js/bootstrap.min.js"></script>
 	<script>
 		$(document).ready(function(){
-			$('#writeArticle').click(function(){
-				$(location).attr('href',"write");
-			});
+			
 		});
 	</script>
 	<script src="./resources/assets/js/headroom.min.js"></script>

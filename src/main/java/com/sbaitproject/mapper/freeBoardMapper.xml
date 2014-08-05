@@ -3,12 +3,12 @@
 <mapper namespace="freeboard">
  	 
     <resultMap id="Article"  type="com.sbaitproject.roadwith.freeboard.vo.Article" >
-        <result property="id" column="id"/>
-        <result property="groupId" column="groupId"/>
-        <result property="sequenceNumber"  column="sequenceNumber"/>
-        <result property="postingDate"  column="postingDate"/>
-        <result property="readCount"  column="readCount"/>
-        <result property="writerName"  column="writerName"/>
+        <result property="article_id" column="article_id"/>
+        <result property="group_id" column="group_id"/>
+        <result property="sequence_no"  column="sequence_no"/>
+        <result property="posting_date"  column="posting_date"/>
+        <result property="read_count"  column="read_count"/>
+        <result property="writer_name"  column="writer_name"/>
         <result property="password"  column="password"/>
         <result property="title"  column="title"/>
         <result property="content"  column="content"/>
@@ -25,4 +25,14 @@
 		ORDER BY sequence_no desc limit #{firstRow}, #{endRow} 
 	</select>
 	
+	<select id="selectLastArticleNo" resultType="int">
+		SELECT seq_freeboard.currval
+		FROM dual
+	</select>
+	
+	<insert id="insertArticle" parameterType="com.sbaitproject.roadwith.freeboard.vo">
+		insert into freeBoard
+		(article_id, group_id, sequence_no, posting_date, read_count, writer_name, password, title, content)
+		values (#{article_id}, #{group_id}, #{sequence_no}, #{posting_date}, #{read_count}, #{writer_name}, #{password}, #{title}, #{content})
+	</insert>
  	 </mapper>

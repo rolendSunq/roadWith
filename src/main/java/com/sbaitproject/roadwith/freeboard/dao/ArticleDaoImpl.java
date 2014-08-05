@@ -28,7 +28,8 @@ public class ArticleDaoImpl implements ArticleDao {
 	}
 
 	@Override
-	public int insert(Article article) {
+	public int insertArticle(Article article) {
+		
 		return 0;
 	}
  
@@ -38,6 +39,24 @@ public class ArticleDaoImpl implements ArticleDao {
 		parameters.put("firstRow", firstRow - 1);
 		parameters.put("endRow", endRow - firstRow +1);
 		return session.selectList(NS + "articleSelected", parameters);
+	}
+
+	@Override
+	public Article selectById(int articleId) {
+		
+		return null;
+	}
+
+	@Override
+	public void increaseReadCount(int articleId) {
+		
+		
+	}
+
+	@Override
+	public int update(Article article) {
+		
+		return 0;
 	}
 
 }
