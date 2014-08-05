@@ -233,73 +233,166 @@
 
 
 	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
-	<script type="text/javascript" src="http://apis.daum.net/maps/maps3.js?apikey=cdf1005f73411b433607ebee97f67c482da9e2c7"></script>
+	<script type="text/javascript" src="http://openapi.map.naver.com/openapi/naverMap.naver?ver=2.0&key=1cd4020a7df985f3bb9f64b77ae0e8db"></script>
 	<script src="./resources/assets/js/jquery-1.11.1.min.js"></script>
 	<script src="./resources/assets/js/bootstrap.min.js"></script>
 	<script type="text/javascript">
-		/*
-		function mapInit(){
-			var lat = 37.553351;	//pos.coords.latitude;
-			var lng = 126.878891;	//pos.coords.longitude;
-			//alert("위도: " + lat + ", " + "경도: " + lng);
-			var mapArea = document.getElementById("mapArea");
-			var pos = new daum.maps.LatLng(lat, lng);
-			var myMap = new daum.maps.Map(mapArea, {
-				center: pos, 
-				level: 3,
-				//mapTypeId: daum.maps.MapTypeId.HYBRID,
-				draggable: true
-			});
-			var pin = new daum.maps.Marker({position:pos});
-			pin.setMap(myMap);
-			pin.setTitle("타겟 지정");
-			
-			myMap.addControl( new daum.maps.ZoomControl(), daum.maps.ControlPosition.TOPRIGHT);
-			myMap.addControl( new daum.maps.MapTypeControl(), daum.maps.ControlPosition.BOTTOMRIGHT);
-			*/
-			/*
-			var rvArea = document.getElementById("rvArea");
-			var rvMap = new daum.maps.Roadview(rvArea);
-			var manager = new daum.maps.RoadviewClient();
-			// string panoId: 촬영을 한 자동차
-			manager.getNearestPanoId(pos, 100, function (panoId){
-				rvMap.setPanoId(panoId, pos);
-			}); 
-		}
-			*/
-		var myMap;
-		function mapInit() {
-			var let1, let2, lng1, lng2;
-			let1 = 37.553351;
-			lng1 = 126.878891;
-			let2 = 37.540168;
-			lng2 = 126.900349;
-			myMap = new daum.maps.Map(document.getElementById('mapArea'), {
-				center: new daum.maps.LatLng(37.537123, 127.005523),
-				level: 3
-			});
+		var pinCreateCount = 0;
+	 	var oSeoulCityPoint = new nhn.api.map.LatLng(37.509931, 126.981784);
+		var defaultLevel = 9;
+		var oMap = new nhn.api.map.Map(document.getElementById('mapArea'), { 
+										point : oSeoulCityPoint,
+										zoom : defaultLevel,
+										enableWheelZoom : true,
+										enableDragPan : true,
+										enableDblClickZoom : false,
+										mapMode : 0,
+										activateTrafficMap : false,
+										activateBicycleMap : true,
+										minMaxLevel : [ 1, 14 ],
+										size : new nhn.api.map.Size(800, 480)           });
+		var oSlider = new nhn.api.map.ZoomControl();
+		oMap.addControl(oSlider);
+		oSlider.setPosition({
+				top : 10,
+				left : 10
+		});
 
-			// 좌표값들 지정
-			var points = new Array();
-			points[0] = new daum.maps.LatLng(let1, lng1);
-			points[1] = new daum.maps.LatLng(let2, lng2);
-
-			// 빈 LatLngBounds 객체 생성
-			var bounds = new daum.maps.LatLngBounds();
-			
-			for(var i = 0; i < points.length; i++)
-			{
-				// 해당 좌표에 marker 올리기
-				new daum.maps.Marker({position:points[i]}).setMap(myMap);
-				// LatLngBounds 객체에 해당 좌표들을 포함
-				bounds.extend(points[i]);
-			}
-			// 좌표가 채워진 LatLngBounds 객체를 이용하여 지도 영역을 확장
-			myMap.setBounds(bounds);
-		}
+		var oMapTypeBtn = new nhn.api.map.MapTypeBtn();
+		oMap.addControl(oMapTypeBtn);
+		oMapTypeBtn.setPosition({
+				bottom : 10,
+				right : 80
+		});
 		
-		$(document).ready(function(){
-			mapInit();
+		var oThemeMapBtn = new nhn.api.map.ThemeMapBtn();
+		oThemeMapBtn.setPosition({
+				bottom : 10,
+				right : 10
+		});
+		oMap.addControl(oThemeMapBtn);
+		/*
+		var oBicycleGuide = new nhn.api.map.BicycleGuide(); // - 자전거 범례 선언
+		oBicycleGuide.setPosition({
+				top : 10,
+				right : 10
+		}); // - 자전거 범례 위치 지정
+		oMap.addControl(oBicycleGuide);// - 자전거 범례를 지도에 추가.
+		*/
+		var oTrafficGuide = new nhn.api.map.TrafficGuide(); // - 교통 범례 선언
+		oTrafficGuide.setPosition({
+				bottom : 30,
+				left : 10
+		});  // - 교통 범례 위치 지정.
+		oMap.addControl(oTrafficGuide); // - 교통 범례를 지도에 추가.
+
+		var trafficButton = new nhn.api.map.TrafficMapBtn(); // - 실시간 교통지도 버튼 선언
+		trafficButton.setPosition({
+				bottom:10, 
+				right:150
+		}); // - 실시간 교통지도 버튼 위치 지정
+		oMap.addControl(trafficButton);
+
+		var oSize = new nhn.api.map.Size(28, 37);
+		var oOffset = new nhn.api.map.Size(14, 37);
+		var oIcon = new nhn.api.map.Icon('http://static.naver.com/maps2/icons/pin_spot2.png', oSize, oOffset);
+
+		var oInfoWnd = new nhn.api.map.InfoWindow();
+		oInfoWnd.setVisible(false);
+		oMap.addOverlay(oInfoWnd);
+
+		oInfoWnd.setPosition({
+				top : 20,
+				left :20
+		});
+
+		var oLabel = new nhn.api.map.MarkerLabel(); // - 마커 라벨 선언.
+		oMap.addOverlay(oLabel); // - 마커 라벨 지도에 추가. 기본은 라벨이 보이지 않는 상태로 추가됨.
+
+		oInfoWnd.attach('changeVisible', function(oCustomEvent) {
+				if (oCustomEvent.visible) {
+						oLabel.setVisible(false);
+				}
+		});
+		
+		var oPolyline = new nhn.api.map.Polyline([], {
+				strokeColor : '#f00', // - 선의 색깔
+				strokeWidth : 5, // - 선의 두께
+				strokeOpacity : 0.5 // - 선의 투명도
+		}); // - polyline 선언, 첫번째 인자는 선이 그려질 점의 위치. 현재는 없음.
+		oMap.addOverlay(oPolyline); // - 지도에 선을 추가함.
+
+		oMap.attach('mouseenter', function(oCustomEvent) {
+
+				var oTarget = oCustomEvent.target;
+				// 마커위에 마우스 올라간거면
+				if (oTarget instanceof nhn.api.map.Marker) {
+						var oMarker = oTarget;
+						oLabel.setVisible(true, oMarker); // - 특정 마커를 지정하여 해당 마커의 title을 보여준다.
+				}
+		});
+
+		oMap.attach('mouseleave', function(oCustomEvent) {
+
+				var oTarget = oCustomEvent.target;
+				// 마커위에서 마우스 나간거면
+				if (oTarget instanceof nhn.api.map.Marker) {
+						oLabel.setVisible(false);
+				}
+		});
+
+		oMap.attach('click', function(oCustomEvent) {
+				var pinTitle = '';
+				var oPoint = oCustomEvent.point;
+				var oTarget = oCustomEvent.target;
+				oInfoWnd.setVisible(false);
+				
+				// 마커 클릭하면
+				if (oTarget instanceof nhn.api.map.Marker) {
+						// 겹침 마커 클릭한거면
+						if (oCustomEvent.clickCoveredMarker) {
+								return;
+						}
+						// - InfoWindow 에 들어갈 내용은 setContent 로 자유롭게 넣을 수 있습니다. 외부 css를 이용할 수 있으며, 
+						// - 외부 css에 선언된 class를 이용하면 해당 class의 스타일을 바로 적용할 수 있습니다.
+						// - 단, DIV 의 position style 은 absolute 가 되면 안되며, 
+						// - absolute 의 경우 autoPosition 이 동작하지 않습니다. 
+						/*
+						oInfoWnd.setContent('<DIV style="border-top:1px solid; border-bottom:2px groove black; border-left:1px solid; border-right:2px groove black;margin-bottom:1px;color:black;background-color:white; width:auto; height:auto;">'+
+								'<span style="color: #000000 !important;display: inline-block;font-size: 12px !important;font-weight: bold !important;letter-spacing: -1px !important;white-space: nowrap !important; padding: 2px 5px 2px 2px !important">' + 
+								+ 'hello world! <br /> ' + oTarget.getPoint()
+								+'<span></div>');
+						*/
+						oInfoWnd.setPoint(oTarget.getPoint());
+						oInfoWnd.setPosition({right : 15, top : 30});
+						oInfoWnd.setVisible(true);
+						oInfoWnd.autoPosition();
+						return;
+				}
+				
+				pinCreateCount = pinCreateCount + 1;
+
+				if (pinCreateCount >= 3) {
+					return false;
+				}
+				
+				if (pinCreateCount == 1) {
+					pinTitle = '출발지점';
+				} else {
+					pinTitle = '도착지점';
+				}
+				
+				var oMarker = new nhn.api.map.Marker(oIcon, { title : pinTitle });
+				oMarker.setPoint(oPoint);
+				oMap.addOverlay(oMarker);
+
+				var aPoints = oPolyline.getPoints(); // - 현재 폴리라인을 이루는 점을 가져와서 배열에 저장.
+				aPoints.push(oPoint); // - 추가하고자 하는 점을 추가하여 배열로 저장함.
+				oPolyline.setPoints(aPoints); // - 해당 폴리라인에 배열에 저장된 점을 추가함
+		});
+		
+		oMap.attach('dblclick', function(oCustomEvent) {
+			alert('hi yo~~');
 		});
 	</script>
 	<script src="./resources/assets/js/headroom.min.js"></script>
