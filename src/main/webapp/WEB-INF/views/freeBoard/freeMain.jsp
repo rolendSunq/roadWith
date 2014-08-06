@@ -73,11 +73,11 @@
 		<article class="">
 			<div class="row">
 				<table class="table table-bordered">
-				<c:if test="${listVo.totalPageCount >0}">
+				<c:if test="${Articles.totalPageCount >0}">
 					<tr>
 						<td colspan="5">
-							${listVo.startRow}-${listVo.endRow}
-							[${listVo.requestPage}/${listVo.totalPageCount}]
+							${Articles.startRow}-${Articles.endRow}
+							[${Articles.requestPage}/${Articles.totalPageCount}]
 						</td>
 					</tr>
 				</c:if>
@@ -97,7 +97,7 @@
 				</tr>
 			
 		<c:choose>
-				<c:when test="${listVo.hasArticle == false }">
+				<c:when test="${Articles.hasArticle == false }">
 				<tr>
 					<td colspan="5">
 						게시글이 없습니다.
@@ -105,13 +105,12 @@
 				</tr>
 				</c:when>
 				<c:otherwise>
-					<c:forEach var="article" items="${listVo.articleList}">
+					<c:forEach var="article" items="${Articles.articleList}">
 					<tr>
-						<td>${article.id}</td>
+						<td>${article.articleId}</td>
 						<td>
-							<c:set var="query" 
-								value="articleId=${article.id}&p=${listVo.requestPage}"/>
-							<a href='<c:url value="/read.jsp?${query}"/>'>
+							<c:set var="query" value="articleId=${article.articleId}&p=${Articles.requestPage}"/>
+							<a href='<c:url value="read_view?${query}"/>'>
 								${article.title}
 							</a>
 						</td>
@@ -128,7 +127,7 @@
 							<c:forEach var="pno" begin="${beginPage}" end="${endPage}">
 							<a href='<c:url value="/Flist.jsp?p=${pno}"/>'>[${pno}]</a>
 							</c:forEach>
-							<c:if test="${endPage < listVo.totalPageCount}">
+							<c:if test="${endPage < Articles.totalPageCount}">
 								<a href="<c:url value="/Flist.jsp?p=${endPage + 1}"/>">다음</a>
 							</c:if>
 						</td>

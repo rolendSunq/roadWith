@@ -66,4 +66,13 @@ public class Article {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	
+	public int getLevel() {
+		if (sequenceNo == null) 			return -1;
+		if (sequenceNo.length() != 16) 		return -1;
+		if (sequenceNo.endsWith("999999")) 	return 0;
+		if (sequenceNo.endsWith("9999")) 	return 1;
+		if (sequenceNo.endsWith("99")) 		return 2;
+		return 3;
+	}
 }

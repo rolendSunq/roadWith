@@ -17,4 +17,6 @@ create sequence seq_freeboard
 	nocache
 	nocycle;
 	
-	
+--SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME = 'SEQ_FREEBOARD';
+
+select * from freeboard;

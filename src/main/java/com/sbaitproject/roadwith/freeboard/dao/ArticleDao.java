@@ -11,5 +11,6 @@ import com.sbaitproject.roadwith.freeboard.vo.Article;
 	public int insertArticle(Article article);
 	public Article selectById(int articleId);
 	void increaseReadCount(int articleId);
-	public int update(Article article); 
+	public int update(Article article);
+	public int selectLastArticleNo();
 }

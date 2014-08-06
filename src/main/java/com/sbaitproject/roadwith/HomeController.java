@@ -11,8 +11,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.sbaitproject.roadwith.freeboard.service.FreeBoardArticleService;
+import com.sbaitproject.roadwith.freeboard.vo.ArticleListVo;
 import com.sbaitproject.roadwith.signservice.ContactServices;
 import com.sbaitproject.roadwith.vo.Person;
 
@@ -24,6 +27,9 @@ public class HomeController {
 	
 	@Autowired
 	ContactServices contactServices;
+	
+	@Autowired
+	FreeBoardArticleService freeBoardArticleService;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -86,7 +92,27 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "/freeBoard", method = RequestMethod.GET)
-	public String freeBoard(Model model) {
+	public String freeBoard(Model model, @RequestParam(value="p", required=false) String pageString) {
+		int pageNumber = 0;
+		if (pageString == null)
+			pageNumber = 1;
+		else pageNumber = Integer.parseInt(pageString);
+		
+		ArticleListVo articleListVo = freeBoardArticleService.getArticleList(pageNumber);
+		
+		if(articleListVo.getTotalPageCount() > 0) {
+			int beginPageNumber = (articleListVo.getRequestPage() - 1) / 10 * 10 + 1;
+			int endPageNumber = beginPageNumber + 9;
+			
+			if (endPageNumber > articleListVo.getTotalPageCount()) 
+				endPageNumber = articleListVo.getTotalPageCount();
+
+			model.addAttribute("beginPage", beginPageNumber);
+			model.addAttribute("endPage", endPageNumber);
+		}
+		
+		model.addAttribute("Articles", articleListVo);
+		
 		return "freeBoard/freeMain";
 	}
 	
@@ -95,7 +121,7 @@ public class HomeController {
 		return "freeBoard/riderBoard";
 	}
 	
-	@RequestMapping(value = "R2Board", method = RequestMethod.GET)
+	@RequestMapping(value = "FreeRunBoard", method = RequestMethod.GET)
 	public String runBoard(Model model) {
 		return "freeBoard/runBoard";
 	}

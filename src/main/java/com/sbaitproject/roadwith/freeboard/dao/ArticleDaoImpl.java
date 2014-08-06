@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,6 +23,7 @@ public class ArticleDaoImpl implements ArticleDao {
 	private static final Logger logger = LoggerFactory.getLogger(ContactServicesImpl.class);
 	// end must be point . 
 	private static final String NS = "freeboard.";
+	
 	@Override
 	public int selectCount() {
 		return session.selectOne(NS + "SelectAll");
@@ -29,16 +31,17 @@ public class ArticleDaoImpl implements ArticleDao {
 
 	@Override
 	public int insertArticle(Article article) {
-		
-		return 0;
+		return session.insert(NS + "InsertArticle", article);
 	}
  
 	@Override
 	public List<Article> articleSelected(int firstRow, int endRow) {
-		Map<String, Integer> parameters = new HashMap<String, Integer>();
-		parameters.put("firstRow", firstRow - 1);
-		parameters.put("endRow", endRow - firstRow +1);
-		return session.selectList(NS + "articleSelected", parameters);
+		Map<String, Integer> param = new HashMap<String, Integer>();
+		firstRow = firstRow - 1;
+		endRow = endRow - firstRow + 1;
+		param.put("firstRow", firstRow);
+		param.put("endRow", endRow);
+		return session.selectList(NS + "ArticleSelected", param);
 	}
 
 	@Override
@@ -56,6 +59,12 @@ public class ArticleDaoImpl implements ArticleDao {
 	@Override
 	public int update(Article article) {
 		
+		return 0;
+	}
+
+	@Override
+	public int selectLastArticleNo() {
+		session.selectOne(NS + "SelectLastArticleNo");
 		return 0;
 	}
 
