@@ -56,23 +56,23 @@
 		<div class="col-md-8 col-md-offset-2">
 			<br><br>
 			<h2 class="text-center">글쓰기</h2>
-			<form action="<c:url value = "writeBoard"/>" method="post" class="form-horizontal" role="form">
+			<form name="writeFrm" action="<c:url value = "writeBoard"/>" method="GET" class="form-horizontal" role="form">
 				<div class="form-group">
 					<label class="col-md-3 control-label">제목</label>
 					<div class="col-md-8">
-						<input type="text" name="title" class="form-control">
+						<input type="text" name="title" id="title" class="form-control">
 					</div>
 				</div> 
 				<div class="form-group">
 					<label class="col-md-3 control-label">작성자</label>
 					<div class="col-md-8">
-						<input type="text" name="writerName" class="form-control">
+						<input type="text" name="writerName" id="writerName" class="form-control">
 					</div>
 				</div> 
 				<div class="form-group">
 					<label class="col-md-3 control-label">내용</label>
 					<div class="col-md-8">
-						<textarea name="content" rows="5" class="form-control"></textarea>
+						<textarea name="content" rows="10" class="form-control"></textarea>
 					</div>
 				</div>
 				<div class="form-group">
@@ -84,7 +84,7 @@
 				<div class="form-group">
 					<label class="col-md-3 control-label"></label>
 						<div class="col-md-3 pull-right-offset-1">
-							<button type="submit" class="form-control"><i class="fa fa-pencil-square"></i> 글 등록</button>
+							<button type="button" class="btn btn-primary" id="sendBtn"><i class="fa fa-align-justify"></i> 글 등록</button>
 						</div>
 					</div>
 				</div> 
@@ -171,8 +171,38 @@
 	<script src="./resources/assets/js/jquery-1.11.1.min.js"></script>
 	<script src="./resources/assets/js/bootstrap.min.js"></script>
 	<script>
-		$(document).ready(function(){
+		function isValidate(){
+			var titleValue = $('#title').val();
+			var writerNameValue = $('input[name=writerName]').val();
 			
+			if(titleValue == '' || titleValue == null || titleValue.langth == 0) {
+				alert('제목을 입력하세요.');
+				$('#title').focus();
+				return false;
+			}
+			
+			if(writerNameValue == '' || writerNameValue == null || writerNameValue.langth == 0) {
+				alert('작성자 이름을 입력하세요.');
+				$('#writerName').focus();
+				return false;
+			}
+			
+			if(titleValue == '' || titleValue == null || titleValue.langth == 0) {
+				return false;
+			}
+			
+			if(titleValue == '' || titleValue == null || titleValue.langth == 0) {
+				return false;
+			}
+			
+			return true;
+		}
+		
+		$(document).ready(function(){
+			$('#sendBtn').click(function(){
+				if (isValidate())
+				$('form[name=writeFrm]').submit();
+			});
 		});
 	</script>
 	<script src="./resources/assets/js/headroom.min.js"></script>
