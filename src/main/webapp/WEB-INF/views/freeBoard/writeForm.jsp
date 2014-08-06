@@ -66,7 +66,7 @@
 				<div class="form-group">
 					<label class="col-md-3 control-label">작성자</label>
 					<div class="col-md-8">
-						<input type="text" name="writer_name" class="form-control">
+						<input type="text" name="writerName" class="form-control">
 					</div>
 				</div> 
 				<div class="form-group">
@@ -84,7 +84,7 @@
 				<div class="form-group">
 					<label class="col-md-3 control-label"></label>
 						<div class="col-md-3 pull-right-offset-1">
-							<input type="submit" class="form-control" value="글등록" >
+							<button type="submit" class="form-control"><i class="fa fa-pencil-square"></i> 글 등록</button>
 						</div>
 					</div>
 				</div> 
