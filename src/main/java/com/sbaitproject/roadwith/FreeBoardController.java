@@ -1,5 +1,7 @@
 package com.sbaitproject.roadwith;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -19,9 +21,9 @@ public class FreeBoardController {
 	FreeBoardArticleService freeBoardArticleService;
 	
 	@RequestMapping(value = "writeBoard", method = RequestMethod.GET)
-	public String writeBoardController(Article article) {
+	public String writeBoardController(HttpServletResponse response, Article article) {
+		response.setContentType("text/html; charset=UTF-8");
 		freeBoardArticleService.writeFreeBoard(article);
-		System.out.println("success!!!!");
 		return "freeBoard/freeMain";
 	}
 	

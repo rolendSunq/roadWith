@@ -26,7 +26,25 @@
 	</select>
 	
 	<select id="SelectLastArticleNo" resultType="int">
-		SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME = 'SEQ_FREEBOARD'
+		SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME = 'SEQ_FREEBOARD_ID'
+	</select>
+	
+	<select id="SelectById" parameterType="int" resultMap="articles">
+		SELECT *
+		FROM freeboard
+		WHERE article_id = #{articleId}
+	</select>
+	
+	<select id="SelectReadCount" parameterType="int" resultType="int">
+		SELECT read_count
+		FROM freeboard
+		WHERE article_id = #{articleId}
+	</select>
+	
+	<select id="SelectLastSequenceNumber" parameterType="map" resultType="int">
+		SELECT MIN(sequence_no)
+		FROM freeboard
+		WHERE sequence_no &lt; #{} AND sequence_no &gt;= #{}
 	</select>
 	
 	<select id="SelectById" parameterType="int" resultMap="articles">
@@ -44,7 +62,7 @@
 	<insert id="InsertArticle" parameterType="com.sbaitproject.roadwith.freeboard.vo.Article" >
 		insert into freeBoard
 		(article_id, group_id, sequence_no, posting_date, read_count, writer_name, password, title, content)
-		values (seq_freeboard.nextval, #{groupId}, #{sequenceNo}, #{postingDate}, #{readCount}, #{writerName}, #{password}, #{title}, #{content})
+		values (seq_freeboard_id.nextval, #{groupId}, #{sequenceNo}, #{postingDate}, #{readCount}, #{writerName}, #{password}, #{title}, #{content})
 	</insert>
 	
 	<update id="UpdateReadCount" parameterType="map">

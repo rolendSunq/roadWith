@@ -4,12 +4,8 @@
 <html lang="ko">
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
-	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>로드러너</title>
-
 	<link rel="shortcut icon" href="./resources/assets/images/gt_favicon.png">
 	<link rel="stylesheet" media="screen" href="./resources/assets/css/googleFont.css">
 	<link rel="stylesheet" href="./resources/assets/css/bootstrap.min.css">
@@ -17,7 +13,7 @@
 
 	<!-- Custom styles for our template -->
 	<link rel="stylesheet" href="./resources/assets/css/bootstrap-theme.css" media="screen" >
-	<link rel="stylesheet" href="./resources/assets/css/makeGroup.css">
+	<link rel="stylesheet" href="./resources/assets/css/noImgCommon.css">
 	
 	<!-- daumMap size -->
 	<style type="text/css">

@@ -130,11 +130,23 @@
 							</div>
 							<div class="form-group col-md-3">
 								<select class="form-control" id="doSlt">
-									<option>서울특별시</option>
-									<option>경기도</option>
 									<option>강원도</option>
-									<option>충청북도</option>
+									<option>경기도</option>
+									<option>경상남도</option>
+									<option>경상북도</option>
+									<option>광주광역시</option>
+									<option>대구광역시</option>
+									<option>대전광역시</option>
+									<option>부산광역시</option>
+									<option>서울특별시</option>
+									<option>세종특별자치시</option>
+									<option>울산광역시</option>
+									<option>인천광역시</option>
+									<option>전라남도</option>
+									<option>전라북도</option>
+									<option>제주특별자치도</option>
 									<option>충청남도</option>
+									<option>충청북도</option>
 								</select>
 							</div>
 							<div class="col-md-3 text-right">
