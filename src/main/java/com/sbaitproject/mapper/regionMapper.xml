@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="zoneInfo">
+	<resultMap type="com.sbaitproject.roadwith.region.vo.Zone" id="zoneVo">
+		<result property="sigu" column="sigu"/>
+		<result property="zoneNumber" column="zonenum"/>
+	</resultMap>
+	
+	<select id="SelectBySigu" parameterType="String" resultMap="zoneVo">
+		SELECT sigu, zonenum 
+		FROM WEATHER 
+		WHERE do = #{doName} ORDER BY sigu ASC
+	</select>
+</mapper>
