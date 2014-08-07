@@ -1,5 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%
 		response.setHeader("Pragma", "No-cache");
 		response.setHeader("Cache-Control", "no-cache");
@@ -9,33 +10,30 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="Sergey Pozhilov (GetTemplate.com)">
+	<meta charset="utf-8">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
+	
+	<title>로드러너</title>
 
-<title>로드러너</title>
+	<link rel="shortcut icon" href="./resources/assets/images/gt_favicon.png">
+	<link rel="stylesheet" media="screen" href="./resources/assets/css/googleFont.css">
+	<link rel="stylesheet" href="./resources/assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./resources/assets/css/font-awesome.min.css">
 
-<link rel="shortcut icon"
-	href="./resources/assets/images/gt_favicon.png">
-<link rel="stylesheet" media="screen"
-	href="./resources/assets/css/googleFont.css">
-<link rel="stylesheet" href="./resources/assets/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="./resources/assets/css/font-awesome.min.css">
+	<!-- Custom styles for our template -->
+	<link rel="stylesheet" href="./resources/assets/css/bootstrap-theme.css" media="screen" >
+	<link rel="stylesheet" href="./resources/assets/css/noImgCommon.css">
 
-<!-- Custom styles for our template -->
-<link rel="stylesheet" href="./resources/assets/css/bootstrap-theme.css"
-	media="screen">
-<link rel="stylesheet" href="./resources/assets/css/makeGroup.css">
-
-<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
 	<script src="./resources/assets/js/html5shiv.js"></script>
 	<script src="./resources/assets/js/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body>
+
+<body class="home">
 	<!-- Fixed navbar -->
 	<div class="navbar navbar-inverse navbar-fixed-top headroom" >
 		<div class="container">
@@ -51,106 +49,56 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
 					<li class="active"><a href="/roadwith">홈</a></li>
-					<li><a href="preview">튜토리얼</a></li>
+					<li><a href="about">개요</a></li>
 					<li class="dropdown">
 					<a href="#" data-toggle="dropdown" class="dropdown-toggle">게시판 <b class="caret"></b></a>
 					<ul class="dropdown-menu">
-					<li><a href="freeBoard">자유게시판</a></li>
+					<li><a href="freeBoard?freeBoard">자유게시판</a></li>
 					<li><a href="R2Board">러너 / 라이더</a></li>
 					</ul>
 					</li>
 					<li><a href="notice">공지사항</a></li>
 					<li><a href="contact">문의사항</a></li>
-					<li><a href="weather">날씨</a></li>
 					<li><a class="btn" href="signin.html?signin">로그인 / 회원가입</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->
 		</div>
-	</div> 
-	<!-- /.navbar -->
-
-	<header id="head" class="secondary"></header>
-
-	<!-- container -->
-	<div class="container">
-		<ol class="breadcrumb">
-			<li><a href="/roadwith">홈</a></li>
-			<li class="active">자유게시판</li>
-		</ol>
-		<article class="">
-			<div class="row">
-				<table class="table table-bordered">
-				<c:if test="${Articles.totalPageCount >0}">
+	</div>
+	<div><br><br><br><br></div>
+	<div class="container"	>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<table class="table">
 					<tr>
-						<td colspan="5">
-							${Articles.startRow}-${Articles.endRow}
-							[${Articles.requestPage}/${Articles.totalPageCount}]
-						</td>
+						<td>제목</td>
+						<td>${article.title}</td>
 					</tr>
-				</c:if>
-				<colgroup>
-						<col width="8%">
-						<col width="">
-						<col width="14%">
-						<col width="10%">
-						<col width="7%">
-				</colgroup>
-				<tr>
-					<td>번호</td>
-					<td>제목</td>
-					<td>작성자</td>
-					<td>작성일</td>
-					<td>조회수</td>
-				</tr>
-			
-		<c:choose>
-			<c:when test="${Articles.hasArticle == false }">
-				<tr>
-					<td colspan="5">
-						게시글이 없습니다.
-					</td>
-				</tr>
-			</c:when>
-			<c:otherwise>
-				<c:forEach var="article" items="${Articles.articleList}">
 					<tr>
-						<td>${article.articleId}</td>
-						<td>
-							<c:set var="query" value="articleId=${article.articleId}&p=${Articles.requestPage}"/>
-							<a href='<c:url value="read_view?${query}"/>'>
-								${article.title}
-							</a>
-						</td>
+						<td>작성자</td>
 						<td>${article.writerName}</td>
-						<td>${article.postingDate}</td>
-						<td>${article.readCount}</td>
 					</tr>
-				</c:forEach>
 					<tr>
-						<td colspan="5">
-							<c:if test="${beginPage > 10}">
-								<a href='<c:url value="/Flist.jsp?p=${beginPage-1}"/>'>이전</a>
-							</c:if>
-							<c:forEach var="pno" begin="${beginPage}" end="${endPage}">
-							<a href='<c:url value="/Flist.jsp?p=${pno}"/>'>[${pno}]</a>
-							</c:forEach>
-							<c:if test="${endPage < Articles.totalPageCount}">
-								<a href="<c:url value="/Flist.jsp?p=${endPage + 1}"/>">다음</a>
-							</c:if>
+						<td>작성일</td>
+						<td><fmt:formatDate value="${article.postingDate}" pattern="yyyy-MM-dd"/></td>
+					</tr>
+					<tr>
+						<td>내용</td>
+						<td>
+							<pre><c:out value="${article.content}"></c:out></pre>
 						</td>
 					</tr>
-			</c:otherwise>
-		</c:choose>
+					<tr>
+						<td colspan="2">
+							<a class="btn btn-default" href="freeBoard"><i class="fa fa-arrow-left"></i> 목록</a>
+							<a class="btn btn-default" href="replyArticle"><i class="fa fa-hand-o-right"></i> 답글</a>
+							<a class="btn btn-default" href="editArticle"><i class="fa fa-pencil-square-o"></i> 수정</a>
+							<a class="btn btn-default" href="deletArticle"><i class="fa fa-trash-o"></i> 삭제</a>
+						</td>
+					</tr>
 				</table>
-				<div class="pull-right">
-					<div class="col-md-4">
-						<button type="button" class="btn btn-default" name="writeArticle" id="writeArticle"><i class="fa fa-pencil-square"></i> 글쓰기</button>
-					</div>
-				</div>
-		</div><!-- /row -->
-	</article>
-	</div><!-- /container -->
-	
+			</div>
+		</div>
+	</div>
 	<footer id="footer" class="top-space">
 
 		<div class="footer1">
@@ -230,8 +178,12 @@
 	<script src="./resources/assets/js/bootstrap.min.js"></script>
 	<script>
 		$(document).ready(function(){
-			$('#writeArticle').click(function(){
-				$(location).attr('href',"write");
+			$('#userEmail').keydown(function(e){
+				var txt = $('#userEmail').val();
+				if (e.keyCode == 13){
+					$('#userPasswd').focus();
+					return false;
+				}
 			});
 		});
 	</script>

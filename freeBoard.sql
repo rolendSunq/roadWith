@@ -17,7 +17,17 @@ create sequence seq_freeboard
 	nocache
 	nocycle;
 	
+create sequence seq_freeboard_readcount
+	start with 1
+	increment by 1
+	nocache
+	nocycle;
+
 --SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME = 'SEQ_FREEBOARD';
 
 select * from freeboard;
+<<<<<<< HEAD
 DELETE FROM freeboard;
+=======
+
+>>>>>>> refs/remotes/origin/master

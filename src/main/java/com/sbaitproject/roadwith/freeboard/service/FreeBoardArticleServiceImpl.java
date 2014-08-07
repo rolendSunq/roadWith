@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.sbaitproject.roadwith.freeboard.dao.ArticleDao;
 import com.sbaitproject.roadwith.freeboard.vo.Article;
@@ -62,7 +63,13 @@ public class FreeBoardArticleServiceImpl implements FreeBoardArticleService {
 		else 
 			System.out.println("성공");
 	}
-	
-	
+
+	@Override
+	public void selectArticle(int articleId, Model model) {
+		Article article  = articleDao.selectById(articleId);
+		int readCount = articleDao.selectReadCount(articleId);
+		articleDao.updateReadCount(readCount + 1, articleId);
+		model.addAttribute("article", article);
+	}
 
 }

@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.sbaitproject.roadwith.freeboard.vo.Article;
-import com.sbaitproject.roadwith.freeboard.vo.ArticleListVo;
 import com.sbaitproject.roadwith.signservice.ContactServicesImpl;
 
 @Repository
@@ -26,7 +24,7 @@ public class ArticleDaoImpl implements ArticleDao {
 	
 	@Override
 	public int selectCount() {
-		return session.selectOne(NS + "SelectAll");
+		return session.selectOne(NS + "SelectAllCount");
 	}
 
 	@Override
@@ -46,8 +44,7 @@ public class ArticleDaoImpl implements ArticleDao {
 
 	@Override
 	public Article selectById(int articleId) {
-		
-		return null;
+		return session.selectOne(NS + "SelectById", articleId);
 	}
 
 	@Override
@@ -66,6 +63,19 @@ public class ArticleDaoImpl implements ArticleDao {
 	public int selectLastArticleNo() {
 		session.selectOne(NS + "SelectLastArticleNo");
 		return 0;
+	}
+
+	@Override
+	public void updateReadCount(int readCount, int articleId) {
+		Map<String, Integer> param = new HashMap<String, Integer>();
+		param.put("readCount", readCount);
+		param.put("articleId", articleId);
+		session.update(NS + "UpdateReadCount", param);
+	}
+
+	@Override
+	public int selectReadCount(int articleId) {
+		return session.selectOne(NS + "SelectReadCount", articleId);
 	}
 
 }

@@ -14,7 +14,7 @@
         <result property="content"  column="content"/>
     </resultMap>
     
-    <select id="SelectAll"  resultType="int">
+    <select id="SelectAllCount"  resultType="int">
     	SELECT count(*)
     	FROM freeBoard
     </select>
@@ -29,9 +29,27 @@
 		SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME = 'SEQ_FREEBOARD'
 	</select>
 	
+	<select id="SelectById" parameterType="int" resultMap="articles">
+		SELECT *
+		FROM freeboard
+		WHERE article_id = #{articleId}
+	</select>
+	
+	<select id="SelectReadCount" parameterType="int" resultType="int">
+		SELECT read_count
+		FROM freeboard
+		WHERE article_id = #{articleId}
+	</select>
+	
 	<insert id="InsertArticle" parameterType="com.sbaitproject.roadwith.freeboard.vo.Article" >
 		insert into freeBoard
 		(article_id, group_id, sequence_no, posting_date, read_count, writer_name, password, title, content)
 		values (seq_freeboard.nextval, #{groupId}, #{sequenceNo}, #{postingDate}, #{readCount}, #{writerName}, #{password}, #{title}, #{content})
 	</insert>
+	
+	<update id="UpdateReadCount" parameterType="map">
+		UPDATE freeboard
+		SET read_count = #{readCount}
+		WHERE article_id = #{articleId}
+	</update>
  	 </mapper>
