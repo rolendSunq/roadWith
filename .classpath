@@ -25,5 +25,11 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/jar/jaxen.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/jar/jstl.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/jar/saxpath.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/jar/standard.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/jar/xalan.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/jar/xml-apis.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

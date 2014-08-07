@@ -20,3 +20,4 @@ create sequence seq_freeboard
 --SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME = 'SEQ_FREEBOARD';
 
 select * from freeboard;
+DELETE FROM freeboard;

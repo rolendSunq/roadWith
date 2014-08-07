@@ -41,7 +41,7 @@
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
 					<li class="active"><a href="/roadwith">홈</a></li>
-					<li><a href="about">개요</a></li>
+					<li><a href="preview">튜토리얼</a></li>
 					<li class="dropdown">
 					<a href="#" data-toggle="dropdown" class="dropdown-toggle">게시판 <b class="caret"></b></a>
 					<ul class="dropdown-menu">
@@ -51,6 +51,7 @@
 					</li>
 					<li><a href="notice">공지사항</a></li>
 					<li><a href="contact">문의사항</a></li>
+					<li><a href="weather">날씨</a></li>
 					<li><a class="btn" href="signin.html?signin">로그인 / 회원가입</a></li>
 				</ul>
 			</div><!--/.nav-collapse -->

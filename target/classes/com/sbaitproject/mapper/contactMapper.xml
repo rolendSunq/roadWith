@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="SigninUser">
+ 	<!-- 
+    <resultMap id="Person" type="com.sbaitproject.roadwith.vo.Person" >
+        <result property="id" column="id"/>
+        <result property="email" column="email"/>
+    </resultMap>
+ 	 -->
+ 
+    <select id="getPersonID" parameterType="String" resultType="int">
+        SELECT count(*) FROM USERS
+        WHERE ID = #{id}
+    </select>
+ 
+    <select id="getPersonEmail" parameterType="String" resultType="int">
+        SELECT count(*) FROM USERS 
+        WHERE EMAIL = #{email}
+    </select>
+
+    <select id="getPersonPassword" parameterType="String" resultType="int">
+        SELECT count(*) FROM USERS 
+        WHERE PW = #{password}
+    </select>
+
+    <select id="getPersonIdByEmail" parameterType="String" resultType="String">
+        SELECT id FROM USERS 
+        WHERE email = #{email}
+    </select>
+ 
+    <insert id="savePerson" parameterType="com.sbaitproject.roadwith.vo.Person"> 
+        INSERT INTO
+        USERS(id, name)
+        VALUES
+        (#{id}, #{name})
+    </insert>
+    
+    <update id="updatePerson" parameterType="com.sbaitproject.roadwith.vo.Person"> 
+        UPDATE 
+        USERS 
+        SET
+        name=#{name}
+        WHERE
+        id=#{id} 
+    </update>
+ 
+    <delete id="deletePerson" parameterType="Integer">
+        DELETE FROM
+        USERS
+        WHERE
+        id=#{id}
+    </delete>
+ 
+</mapper>

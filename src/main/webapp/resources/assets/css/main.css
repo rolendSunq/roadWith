@@ -1,6 +1,15 @@
 /* Header */
 #head { background:#181015 url( ../images/cycles-cycling-resize.jpg) no-repeat; background-size: cover; min-height:520px; text-align: center; padding-top:240px; color:white; font-family:"Open sans", Helvetica, Arial; font-weight:300; }
 #content1 { background:#181015 url( ../images/runner_resize.jpg) no-repeat; background-size: cover; min-height:520px; text-align: center; padding-top:240px; color:white; font-family:"Open sans", Helvetica, Arial; font-weight:300; }
+#directionTool {background:#FFFFFF; margin-left: 600px;}
+#board1 { background:#FFFFFF url( ../images/board1.jpg) no-repeat;  min-height:600px; min-width:1000px; padding-top:240px; color:white; }
+#board2 { background:#FFFFFF url( ../images/board2.jpg) no-repeat;  min-height:600px; min-width:1000px; padding-top:240px; color:white; }
+#board3 { background:#FFFFFF url( ../images/board3.jpg) no-repeat;  min-height:600px; min-width:1000px; padding-top:240px; color:white; }
+#map{background:#FFFFFF url( ../images/map.jpg) no-repeat; min-height:900px; margin-left: 100px;}
+#weather{background:#FFFFFF url( ../images/weather.jpg) no-repeat; min-height:500px; margin-left: 200px;}
+#signup { background:#FFFFFF url( ../images/signup.jpg) no-repeat;  min-height:500px; padding-top:240px; color:white; }
+#signin { background:#FFFFFF url( ../images/signin.jpg) no-repeat;  min-height:500px; padding-top:240px; color:white; }
+#direction { margin-left:60px;}
 #head .secondary { height:100px; min-height: 100px; padding-top:0px; }
 #head .lead { font-family:"Open sans", Helvetica, Arial; font-size:44px; margin-bottom:6px; color:#FF9433; line-height:1.15em; } 
 #content1 .lead { font-family:"Open sans", Helvetica, Arial; font-size:44px; margin-bottom:6px; color:#3B96E8; line-height:1.15em; }
@@ -12,7 +21,7 @@
 #head .btn-default:focus { color:rgba(255,255,255,.8); -webkit-box-shadow:inset 0px 0px 0px 3px rgba(255,255,255,.8); -moz-box-shadow:inset 0px 0px 0px 3px rgba(255,255,255,.8); box-shadow:inset 0px 0px 0px 3px rgba(255,255,255,.8); background: transparent; }
 #head .btn-default:active, 
 #head .btn-default.active { color:#fff; -webkit-box-shadow:inset 0px 0px 0px 3px #fff; -moz-box-shadow:inset 0px 0px 0px 3px #fff; box-shadow:inset 0px 0px 0px 3px #fff; background: transparent; }
-
+#serch {font-size: 300px; }
 @media (max-width: 767px) {
 	#head { min-height:420px; padding-top:160px; }
 	#head .lead { font-size: 34px; }

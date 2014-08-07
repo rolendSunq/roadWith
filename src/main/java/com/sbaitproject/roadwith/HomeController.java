@@ -147,4 +147,9 @@ public class HomeController {
 		return "about";
 	}
 	
+	@RequestMapping(value = "weather", method = RequestMethod.GET)
+	public String weather(Model model) {
+		return "weather";
+	}
+	
 }

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="freeboard">
+ 	 
+    <resultMap id="articles"  type="com.sbaitproject.roadwith.freeboard.vo.Article" >
+        <result property="articleId" column="article_id"/>
+        <result property="groupId" column="group_id"/>
+        <result property="sequenceNo"  column="sequence_no"/>
+        <result property="postingDate"  column="posting_date"/>
+        <result property="readCount"  column="read_count"/>
+        <result property="writerName"  column="writer_name"/>
+        <result property="password"  column="password"/>
+        <result property="title"  column="title"/>
+        <result property="content"  column="content"/>
+    </resultMap>
+    
+    <select id="SelectAll"  resultType="int">
+    	SELECT count(*)
+    	FROM freeBoard
+    </select>
+	
+	<select id="ArticleSelected"  parameterType="map"  resultMap="articles">
+		SELECT article_id , group_id , sequence_no , posting_date, read_count, writer_name , password , title
+		FROM (SELECT article_id , group_id , sequence_no , posting_date, read_count, writer_name , password , title, ROW_NUMBER() OVER (ORDER BY sequence_no DESC) R FROM freeboard) 
+		WHERE R BETWEEN #{firstRow} and #{endRow}  
+	</select>
+	
+	<select id="SelectLastArticleNo" resultType="int">
+		SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME = 'SEQ_FREEBOARD'
+	</select>
+	
+	<insert id="InsertArticle" parameterType="com.sbaitproject.roadwith.freeboard.vo.Article" >
+		insert into freeBoard
+		(article_id, group_id, sequence_no, posting_date, read_count, writer_name, password, title, content)
+		values (seq_freeboard.nextval, #{groupId}, #{sequenceNo}, #{postingDate}, #{readCount}, #{writerName}, #{password}, #{title}, #{content})
+	</insert>
+ 	 </mapper>
