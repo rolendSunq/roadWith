@@ -1,12 +1,8 @@
-
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%
-	request.setCharacterEncoding("euc-kr");
-%>
+<fmt:requestEncoding value="UTF-8"/>
 <!DOCTYPE html>
 <html lang="ko">
 	<head>
@@ -22,54 +18,6 @@
 		<!-- Custom styles for our template -->
 		<link rel="stylesheet" href="./resources/assets/css/bootstrap-theme.css" media="screen">
 		<link rel="stylesheet" href="./resources/assets/css/noImgCommon.css">
-	<style>
-		.button{
-			width: 120px;
-			height: 30px;
-			padding: 5px 6px 3px;
-			-webkit-border-radius:16px;
-			border: 2px solid #ccc;
-			position: relative;
-			
-			font-family: Lucida Sans, Helvetica, sans-serif;
-			font-weight: 800;
-			color: #fff;
-			text-shadow: rgba(10, 10, 10, 0.5) 1px 2px 2px;
-			text-align: center;
-			vertical-align: middle;
-			overflow: hidden;
-		}
-		
-		.aqua{
-			background-color: rgb(60, 132, 198, 0.8);
-			background-image: -webkit-gradient(linear, 0% 0%, 0% 90%, from(rgba(28, 91, 155, 0.8)), to(rgba(108, 191, 255, .9)));
-			border-top-color: #8ba2c1;
-			border-right-color: #5890bf;
-			border-bottom-color: #4f93ca;
-			border-left-color: #768fa5;
-			-webkit-box-shadow: rgba(66, 140, 240, 0.5) 0px 10px 16px;
-			-moz-box-shadow: rgba(66, 140, 240, 0.5) 0px 10px 16px;
-		}
-		
-		.button .blaze{
-			position: absolute;
-			top: 0;
-			left: 5px;
-			-webkit-border-radius: 8px;
-			-moz-border-radius: 8px;
-			height: 1px;
-			width: 122px;
-			padding: 8px 0;
-			background-color: rgba(255, 255, 255, 0.25);
-			background-image: -webkit-gradient(linear, 0% 0%, 0% 95%, from(rgba(255, 255, 255, 0.7)), to(rgba(255, 255, 255, 0)));
-		}
-		
-		.button:HOVER {
-			color: #000;
-			text-shadow: rgb(255, 255, 255) 0px 0px 5px;
-			top: 1px;
-		}
-	</style>
 	</head>
 	<body>
 		<!-- Fixed navbar -->
@@ -124,12 +72,12 @@
 				<br></br>
 				<form name="doFrm" class="form-horizontal" role="form">
 					<div class="form-group">
-						<div class="col-md-6 form-inline">
+						<div class="col-md-8 form-inline">
 							<div class="form-group col-md-2">
 								<h4>시선택</h4>
 							</div>
 							<div class="form-group col-md-3">
-								<select class="form-control" id="doSlt">
+								<select class="form-control" id="doSlt" name="doName">
 									<option>강원도</option>
 									<option>경기도</option>
 									<option>경상남도</option>
@@ -149,31 +97,22 @@
 									<option>충청북도</option>
 								</select>
 							</div>
-							<div class="col-md-3 text-right">
-							<div class="button aqua">
-									<div class="blaze"></div>
-									검색
-								</div>
-								
-							</div>
-							
-							<div class="form-group col-md-2">
+							<div class="form-group col-md-3">
 								<h4>구선택</h4>
 							</div>
 							<div class="form-group col-md-3">
-								<select class="form-control">
-									<option>영등포구</option>
+								<select class="form-control" id="localSlt" name="localName">
+									<option>지역선택</option>
+									<c:forEach var="result" items="${zoneList}">
+									<option value="${result.zoneNumber}">${result.sigu }</option>
+									</c:forEach>
 								</select>
 							</div>
-							<div class="col-md-1 text-right">
-								<div class="button aqua">
-									<div class="blaze"></div>
-									검색
-								</div>								
-							</div>
-
 	 					</div>
 					</div>
+					<input type="hidden" name="hdoName" id="hName" value="${doName}">
+					<input type="hidden" name="hLoName" id="lName" value="${localName}">
+					<input type="hidden" name="weatherUrl" id="wrl">
 				</form>
 			</div>
 		</div>
@@ -182,7 +121,14 @@
 				
 			<div class="col-md-8">
 		<c:catch var="err">
+			<c:choose>
+			<c:when test="${weatherUrl == null}">
 			<c:import var="weather"	url="http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=1156055000"/>
+			</c:when>
+			<c:otherwise>
+			<c:import var="weather"	url="${weatherUrl }"/>
+			</c:otherwise>
+			</c:choose>
 			<!-- xml 파싱하기 -->
 			<x:parse var="wrss" xml="${weather}"/>
 			
@@ -542,10 +488,29 @@
 		<script src="./resources/assets/js/jquery-1.11.1.min.js"></script>
 		<script src="./resources/assets/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
+			var doName = $('#hName').val();
+			var localName = $('#lName').val();
 			$(document).ready(function(){
+				if (doName != null) {
+					$("#doSlt").val(doName).attr("selected", "selected");
+				}
+				
+				if (localName != null) {
+					$("#localSlt").val(localName).attr("selected", "selected");
+				}
+				
 				$("#doSlt").change(function(){
-					var doName = $("#doSlt option:selected").val();
-					$('form[name=doFrm]').attr('action', 'weatheInfo?doName=' + doName).submit();
+					//var doName = $("#doSlt option:selected").val();
+					
+					$('form[name=doFrm]').attr('action', 'weatherInfo').submit();
+				});
+				
+				$('#localSlt').change(function(){
+					var url = 'http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=';
+					var zoneNum = $("#localSlt option:selected").val();
+					url  = url + zoneNum;
+					$('#wrl').val(url);
+					$('form[name=doFrm]').attr('action', 'weatherInfo').submit();
 				});
 			});
 		</script>
