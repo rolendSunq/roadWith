@@ -3,47 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html>
 <html lang="ko">
-<<<<<<< HEAD
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="">
-<meta name="author" content="Sergey Pozhilov (GetTemplate.com)">
-
-<title>로드러너</title>
-
-<link rel="shortcut icon"
-	href="./resources/assets/images/gt_favicon.png">
-<link rel="stylesheet" media="screen"
-	href="./resources/assets/css/googleFont.css">
-<link rel="stylesheet" href="./resources/assets/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="./resources/assets/css/font-awesome.min.css">
-
-<!-- Custom styles for our template -->
-<link rel="stylesheet" href="./resources/assets/css/bootstrap-theme.css"
-	media="screen">
-<link rel="stylesheet" href="./resources/assets/css/makeGroup.css">
-
-<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-	<script src="./resources/assets/js/html5shiv.js"></script>
-	<script src="./resources/assets/js/respond.min.js"></script>
-	<![endif]-->
-</head>
-<body>
-	<!-- Fixed navbar -->
-	<div class="navbar navbar-inverse navbar-fixed-top headroom" >
-		<div class="container">
-			<div class="navbar-header">
-				<!-- Button for smallest screens -->
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span> 
-					<span class="icon-bar"></span> 
-				</button>
-				<a class="navbar-brand" href="/roadwith"><img src="./resources/assets/images/logo.png" alt="Progressus HTML5 template"></a>
-=======
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,19 +38,6 @@
 						src="./resources/assets/images/logo.png"
 						alt="Progressus HTML5 template"></a>
 				</div>
-				<div class="navbar-collapse collapse">
-					<ul class="nav navbar-nav pull-right">
-						<li><a href="/roadwith">홈</a></li>
-						<li><a href="about">개요</a></li>
-						<li class="active"><a href="freeBoard?freeBoard" class="board">게시판</a></li>
-						<li><a href="notice">공지사항</a></li>
-						<li><a href="contact">문의사항</a></li>
-						<li><a class="btn" href="signin.html?signin">로그인 / 회원가입</a></li>
-					</ul>
-				</div><!--/.nav-collapse -->
->>>>>>> branch 'master' of https://github.com/rolendSunq/roadWith.git
-			</div>
-<<<<<<< HEAD
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
 					<li class="active"><a href="/roadwith">홈</a></li>
@@ -125,19 +71,6 @@
 			<div class="row">
 				<table class="table table-bordered">
 				<c:if test="${Articles.totalPageCount >0}">
-=======
-		</div><!-- /.navbar -->
-		<header id="head" class="secondary"></header>
-		<!-- container -->
-		<div class="container">
-			<ol class="breadcrumb">
-				<li><a href="/roadwith">홈</a></li>
-				<li class="active">자유게시판</li>
-			</ol>
-			<article class="">
-				<div class="row">
-					<table class="table table-bordered">
-					<c:if test="${Articles.totalPageCount >0}">
 						<tr>
 							<td colspan="5">
 								${Articles.startRow}-${Articles.endRow}
@@ -159,31 +92,13 @@
 						<td>작성일</td>
 						<td>조회수</td>
 					</tr>
-			<c:choose>
-				<c:when test="${Articles.hasArticle == false }">
->>>>>>> branch 'master' of https://github.com/rolendSunq/roadWith.git
-					<tr>
-						<td colspan="5">
-							게시글이 없습니다.
-						</td>
-					</tr>
-<<<<<<< HEAD
-				</c:if>
 				<colgroup>
 						<col width="8%">
 						<col width="">
 						<col width="14%">
 						<col width="10%">
 						<col width="7%">
-				</colgroup>
-				<tr>
-					<td>번호</td>
-					<td>제목</td>
-					<td>작성자</td>
-					<td>작성일</td>
-					<td>조회수</td>
-				</tr>
-			
+				</colgroup>		
 		<c:choose>
 			<c:when test="${Articles.hasArticle == false }">
 				<tr>
@@ -226,26 +141,6 @@
 				<div class="pull-right">
 					<div class="col-md-4">
 						<button type="button" class="btn btn-default" name="writeArticle" id="writeArticle"><i class="fa fa-pencil-square"></i> 글쓰기</button>
-=======
-				</c:when>
-				<c:otherwise>
-					<c:forEach var="article" items="${Articles.articleList}" varStatus="number">
-						<tr>
-							<td>${number.count}</td>
-							<td>
-								<c:set var="query" value="articleId=${article.articleId}&p=${Articles.requestPage}"/>
-								<a href='<c:url value="read_view?${query}"/>'>
-									${article.title}
-								</a>
-							</td>
-							<td>${article.writerName}</td>
-							<td><fmt:formatDate value="${article.postingDate}" pattern="yyyy-MM-dd"/></td>
-							<td>${article.readCount}</td>
-						</tr>
-					</c:forEach>
-				</c:otherwise>
-			</c:choose>
-					</table>
 					<div class="text-center">
 						<ul class="pagination">
 						<c:if test="${beginPage > 10}">
@@ -258,13 +153,9 @@
 						  <li><a href="<c:url value="/freeBoard?p=${endPage + 1}"/>">&raquo;</a></li>
 						</c:if>
 						</ul>
->>>>>>> branch 'master' of https://github.com/rolendSunq/roadWith.git
-					</div>
-					<div class="pull-right">
-						<div class="col-md-4">
-							<button type="button" class="btn btn-default" name="writeArticle" id="writeArticle"><i class="fa fa-pencil-square"></i> 글쓰기</button>
 						</div>
 					</div>
+				</div>
 			</div><!-- /row -->
 		</article>
 		</div><!-- /container -->
@@ -337,19 +228,9 @@
 					$(location).attr('href',"write");
 				});
 			});
-<<<<<<< HEAD
-		});
 	</script>
 	<script src="./resources/assets/js/headroom.min.js"></script>
 	<script src="./resources/assets/js/jQuery.headroom.min.js"></script>
 	<script src="./resources/assets/js/template.js"></script>
 </body>
 </html>
-=======
-		</script>
-		<script src="./resources/assets/js/headroom.min.js"></script>
-		<script src="./resources/assets/js/jQuery.headroom.min.js"></script>
-		<script src="./resources/assets/js/template.js"></script>
-	</body>
-</html>
->>>>>>> branch 'master' of https://github.com/rolendSunq/roadWith.git

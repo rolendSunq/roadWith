@@ -1,3 +1,5 @@
+drop table freeboard;
+
 create table freeboard (
 	article_id number not null,
 	group_id number not null,

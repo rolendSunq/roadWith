@@ -91,7 +91,7 @@ public class HomeController {
 		return "signup";
 	}
 	
-	@RequestMapping(value = "/freeBoard", method = RequestMethod.GET)
+	@RequestMapping(value = "freeBoard", method = RequestMethod.GET)
 	public String freeBoard(Model model, @RequestParam(value="p", required=false) String pageString) {
 		int pageNumber = 0;
 		if (pageString == null)
