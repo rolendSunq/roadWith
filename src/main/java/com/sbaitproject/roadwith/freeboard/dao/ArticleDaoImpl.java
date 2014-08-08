@@ -24,7 +24,7 @@ public class ArticleDaoImpl implements ArticleDao {
 	
 	@Override
 	public int selectCount() {
-		return session.selectOne(NS + "SelectAllCount");
+		return session.selectOne(NS + "SelectCountAll");
 	}
 
 	@Override

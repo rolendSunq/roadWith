@@ -14,7 +14,7 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry including="**/*.java" kind="src" output="target/test-classes" path="src/test/resources"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6">
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
@@ -25,11 +25,5 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/jar/jaxen.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/jar/jstl.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/jar/saxpath.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/jar/standard.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/jar/xalan.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Administrator/Desktop/jar/xml-apis.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
