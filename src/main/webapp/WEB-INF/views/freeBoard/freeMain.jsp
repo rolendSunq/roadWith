@@ -73,7 +73,7 @@
 				<c:if test="${Articles.totalPageCount >0}">
 						<tr>
 							<td colspan="5">
-								${Articles.startRow}-${Articles.endRow}
+								${Articles.startRow} - ${Articles.endRow}
 								[${Articles.requestPage}/${Articles.totalPageCount}]
 							</td>
 						</tr>
@@ -118,23 +118,10 @@
 							</a>
 						</td>
 						<td>${article.writerName}</td>
-						<td>${article.postingDate}</td>
+						<td><fmt:formatDate value="${article.postingDate}" pattern="yyyy-MM-dd"/></td>
 						<td>${article.readCount}</td>
 					</tr>
 				</c:forEach>
-					<tr>
-						<td colspan="5">
-							<c:if test="${beginPage > 10}">
-								<a href='<c:url value="/Flist.jsp?p=${beginPage-1}"/>'>이전</a>
-							</c:if>
-							<c:forEach var="pno" begin="${beginPage}" end="${endPage}">
-							<a href='<c:url value="/Flist.jsp?p=${pno}"/>'>[${pno}]</a>
-							</c:forEach>
-							<c:if test="${endPage < Articles.totalPageCount}">
-								<a href="<c:url value="/Flist.jsp?p=${endPage + 1}"/>">다음</a>
-							</c:if>
-						</td>
-					</tr>
 			</c:otherwise>
 		</c:choose>
 				</table>
@@ -143,22 +130,23 @@
 						<button type="button" class="btn btn-default" name="writeArticle" id="writeArticle"><i class="fa fa-pencil-square"></i> 글쓰기</button>
 					<div class="text-center">
 						<ul class="pagination">
-						<c:if test="${beginPage > 10}">
-						  <li><a href="<c:url value="/freeBoard?p=${beginPage-1}"/>">&laquo;</a></li>
-						</c:if>
-						<c:forEach var="pno" begin="${beginPage}" end="${endPage}">
-						  <li><a href='<c:url value="/freeBoard?p=${pno}"/>'>${pno}</a></li>
-						</c:forEach>
-						<c:if test="${endPage < Articles.totalPageCount}">
-						  <li><a href="<c:url value="/freeBoard?p=${endPage + 1}"/>">&raquo;</a></li>
-						</c:if>
+							<c:if test="${beginPage > 10}">
+							  <li><a href="<c:url value="/freeBoard?p=${beginPage-1}"/>">&laquo;</a></li>
+							</c:if>
+							<c:forEach var="pno" begin="${beginPage}" end="${endPage}">
+							  <li><a href='<c:url value="/freeBoard?p=${pno}"/>'>${pno}</a></li>
+							</c:forEach>
+							<c:if test="${endPage < Articles.totalPageCount}">
+							  <li><a href="<c:url value="/freeBoard?p=${endPage + 1}"/>">&raquo;</a></li>
+							</c:if>
 						</ul>
-						</div>
 					</div>
 				</div>
-			</div><!-- /row -->
-		</article>
-		</div><!-- /container -->
+			</div>
+		</div><!-- /row -->
+	</article>
+</div><!-- /container -->
+
 		<footer id="footer" class="top-space">
 			<div class="footer1">
 				<div class="container">

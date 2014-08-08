@@ -190,7 +190,7 @@
 				}
 				
 				if(passwordValue == '' || passwordValue == null || passwordValue.langth == 0) {
-					alert('비밀번호를 입력하세요.');
+					alert('비밀번호 4자리를 입력하세요.');
 					$('#passwordId').focus();
 					return false;
 				}
