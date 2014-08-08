@@ -16,25 +16,3 @@ create sequence seq_freeboard_id
 	increment by 1
 	nocache
 	nocycle;
-	
-<<<<<<< HEAD
-create sequence seq_freeboard_readcount
-	start with 1
-	increment by 1
-	nocache
-	nocycle;
-=======
->>>>>>> branch 'master' of https://github.com/rolendSunq/roadWith.git
-
---SELECT LAST_NUMBER FROM USER_SEQUENCES WHERE SEQUENCE_NAME = 'SEQ_FREEBOARD';
-
-<<<<<<< HEAD
-select * from freeboard;
-<<<<<<< HEAD
-DELETE FROM freeboard;
-=======
-
->>>>>>> refs/remotes/origin/master
-=======
-select * from freeboard order by article_id desc;
->>>>>>> branch 'master' of https://github.com/rolendSunq/roadWith.git
