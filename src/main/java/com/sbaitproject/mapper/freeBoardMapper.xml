@@ -44,7 +44,7 @@
 	<select id="SelectLastSequenceNumber" parameterType="map" resultType="int">
 		SELECT MIN(sequence_no)
 		FROM freeboard
-		WHERE sequence_no &lt; #{} AND sequence_no &gt;= #{}
+		WHERE sequence_no &lt; #{searchMaxSeqNumber} AND sequence_no &gt;= #{searchMinSeqNum}
 	</select>
 	
 	<select id="SelectById" parameterType="int" resultMap="articles">
