@@ -72,11 +72,11 @@
 				<br></br>
 				<form name="doFrm" class="form-horizontal" role="form">
 					<div class="form-group">
-						<div class="col-md-8 form-inline">
-							<div class="form-group col-md-2">
-								<h4>시선택</h4>
+						<div class="col-md-12 form-inline">
+							<div class="form-group col-md-1" >
+								<h4>도 / 시</h4>
 							</div>
-							<div class="form-group col-md-3">
+							<div class="form-group col-md-2">
 								<select class="form-control" id="doSlt" name="doName">
 									<option>강원도</option>
 									<option>경기도</option>
@@ -97,10 +97,10 @@
 									<option>충청북도</option>
 								</select>
 							</div>
-							<div class="form-group col-md-3">
-								<h4>구선택</h4>
+							<div class="form-group col-md-2" >
+								<h4 class="text-right">시 / 군 / 구&nbsp; &nbsp;</h4>
 							</div>
-							<div class="form-group col-md-3">
+							<div class="form-group col-md-4">
 								<select class="form-control" id="localSlt" name="localName">
 									<option>지역선택</option>
 									<c:forEach var="result" items="${zoneList}">
@@ -148,8 +148,8 @@
 							
 				<tr>
 					<td>
-						<div class="col-md-6">
-							업데이트 시간
+						<div class="col-md-7">
+							업데이트 시간 :
 						</div>
 					</td>
 					<td>
