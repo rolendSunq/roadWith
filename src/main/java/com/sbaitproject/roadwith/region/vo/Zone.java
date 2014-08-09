@@ -2,7 +2,7 @@ package com.sbaitproject.roadwith.region.vo;
 
 public class Zone {
 	private String sigu;
-	private double zoneNumber;
+	private String zoneNumber;
 	
 	public String getSigu() {
 		return sigu;
@@ -10,10 +10,10 @@ public class Zone {
 	public void setSigu(String sigu) {
 		this.sigu = sigu;
 	}
-	public double getZoneNumber() {
+	public String getZoneNumber() {
 		return zoneNumber;
 	}
-	public void setZoneNumber(double zoneNumber) {
+	public void setZoneNumber(String zoneNumber) {
 		this.zoneNumber = zoneNumber;
 	}
 }

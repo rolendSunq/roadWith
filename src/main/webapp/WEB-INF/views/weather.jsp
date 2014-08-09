@@ -18,6 +18,11 @@
 		<!-- Custom styles for our template -->
 		<link rel="stylesheet" href="./resources/assets/css/bootstrap-theme.css" media="screen">
 		<link rel="stylesheet" href="./resources/assets/css/noImgCommon.css">
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script src="./resources/assets/js/html5shiv.js"></script>
+		<script src="./resources/assets/js/respond.min.js"></script>
+		<![endif]-->
 	</head>
 	<body>
 		<!-- Fixed navbar -->
@@ -118,8 +123,7 @@
 		</div>
 		<div class="container">
 			<div class="row">
-				
-			<div class="col-md-8">
+				<div class="col-md-8">
 		<c:catch var="err">
 			<c:choose>
 			<c:when test="${weatherUrl == null}">
@@ -131,34 +135,30 @@
 			</c:choose>
 			<!-- xml 파싱하기 -->
 			<x:parse var="wrss" xml="${weather}"/>
-			
-	
-			
-			<table class="table">
-				<tr>
-					<td >
-						<div class="col-md-6">
-							검색 장소 :
-						</div>
-					</td>
-					<td>
-						<div class="col-md-8"><x:out select="$wrss/rss/channel/item/category"/></div>
-					</td>
-				</tr>
-							
-				<tr>
-					<td>
-						<div class="col-md-7">
-							업데이트 시간 :
-						</div>
-					</td>
-					<td>
-						<div class="col-md-8"><x:out select="$wrss/rss/channel/pubDate"/></div>	
-					</td>		
-				</tr>	
-			</table>
-			</div>
-			
+					<table class="table">
+						<tr>
+							<td >
+								<div class="col-md-6">
+									검색 장소 :
+								</div>
+							</td>
+							<td>
+								<div class="col-md-8"><x:out select="$wrss/rss/channel/item/category"/></div>
+							</td>
+						</tr>
+									
+						<tr>
+							<td>
+								<div class="col-md-7">
+									업데이트 시간 :
+								</div>
+							</td>
+							<td>
+								<div class="col-md-8"><x:out select="$wrss/rss/channel/pubDate"/></div>	
+							</td>		
+						</tr>	
+					</table>
+				</div>
 			<br>
 			
 			<table class="table table-bordered" id="serch">
@@ -496,7 +496,7 @@
 				}
 				
 				if (localName != null) {
-					$("#localSlt").val(localName).attr("selected", "selected");
+					$('#locaSlt').val(localName).attr('selected', 'selected');
 				}
 				
 				$("#doSlt").change(function(){
@@ -506,11 +506,13 @@
 				});
 				
 				$('#localSlt').change(function(){
+					var selectName = $('#localSlt option:selected').text();
+					$('#lName').val(selectName);
 					var url = 'http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=';
 					var zoneNum = $("#localSlt option:selected").val();
 					url  = url + zoneNum;
 					$('#wrl').val(url);
-					$('form[name=doFrm]').attr('action', 'weatherInfo').submit();
+					$('form[name=doFrm]').attr('action', 'supportUrl').submit();
 				});
 			});
 		</script>

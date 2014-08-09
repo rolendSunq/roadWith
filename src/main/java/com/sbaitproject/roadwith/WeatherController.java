@@ -21,15 +21,20 @@ public class WeatherController {
 	RegionService regionService;
 	
 	@RequestMapping(value = "weatherInfo", method = RequestMethod.GET)
-	public String weatherInfoController(HttpServletResponse response, Model model, @Param("doName") String doName, 
-			@RequestParam(value = "hLoName", required=false) String localName,
-			@RequestParam(value = "weatherUrl", required=false) String weatherUrl
-			){
+	public String weatherInfoController(HttpServletResponse response, Model model, @Param("doName") String doName){
 		response.setContentType("text/html; charset=UTF-8"); 
-		System.out.println(doName);
-		System.out.println(localName);
-		regionService.getZoneNumber(doName, model, localName, weatherUrl);
+		regionService.getZoneNumber(doName, model);
 		return "weather";
 		
+	}
+
+	@RequestMapping(value = "supportUrl", method = RequestMethod.GET)
+	public String supportUrlContoller(HttpServletResponse response, Model model,
+			@Param("doName") String doName, 
+			@RequestParam(value = "hLoName", required=false) String localName,
+			@RequestParam(value = "weatherUrl", required=false) String weatherUrl){
+		response.setContentType("text/html; charset=UTF-8");
+		regionService.sendWeatherUrl(model, doName, localName, weatherUrl);
+		return "weather";
 	}
 }

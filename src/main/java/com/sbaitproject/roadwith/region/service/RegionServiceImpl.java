@@ -16,7 +16,14 @@ public class RegionServiceImpl implements RegionService {
 	ZoneDao zoneDao;
 	
 	@Override
-	public void getZoneNumber(String doName, Model model, String localName, String weatherUrl) {
+	public void getZoneNumber(String doName, Model model) {
+		List<Zone> zoneList = zoneDao.selectBySigu(doName);
+		model.addAttribute("zoneList", zoneList);
+		model.addAttribute("doName", doName);
+	}
+
+	@Override
+	public void sendWeatherUrl(Model model, String doName, String localName, String weatherUrl) {
 		List<Zone> zoneList = zoneDao.selectBySigu(doName);
 		model.addAttribute("zoneList", zoneList);
 		model.addAttribute("doName", doName);
