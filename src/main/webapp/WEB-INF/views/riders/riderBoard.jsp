@@ -178,11 +178,6 @@
 			</div>
 		</div>
 	</footer>	
-		
-
-
-
-
 	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 	<script src="./resources/assets/js/jquery-1.11.1.min.js"></script>
 	<script src="./resources/assets/js/bootstrap.min.js"></script>

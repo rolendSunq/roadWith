@@ -78,7 +78,7 @@ ALTER SESSION SET NLS_DATE_FORMAT = 'YYYY-MM-DD HH24:MI:SS';
 CREATE TABLESPACE roadwith DATAFILE 'c:\roadwith.dbf' size 100M;
 
 ALTER TABLESPACE roadwith
-          ADD DATAFILE 'C:\roadwith.dbf' SIZE 100M
+          ADD DATAFILE 'D:\roadwith.dbf' SIZE 100M
           AUTOEXTEND ON NEXT 10M
           MAXSIZE 500M;
 /* roadwith 테이블 스페이스에 100M 추가, 100메가를 다 사용 하면 500M 될때까지 자동으로 10M씩 증가
@@ -123,9 +123,9 @@ CREATE SEQUENCE users_num_seq
 insert into users values
 (users_num_seq.NEXTVAL -1,
   '수지',
-  'sujijjang',
+  'sujijjang1',
   '수미칩',
-  'aa11suji',
+  'aa11sujijjang',
   'suji@naver.com',
   SYSDATE
   );
@@ -174,7 +174,7 @@ insert into users values
   COMMIT
   
   DESC users
-  select * from users;
+  select * from USERS;
 
 
 
@@ -235,7 +235,7 @@ insert into run_index values
   
 insert into run_index values
   (run_idx_num_seq.NEXTVAL -1,
-    2,
+    5,
     '지리산 코스.jpg',
     '지리산 둘레길 뛰실분 모집합니다!!',
     '지리산 둘레길 도실분 연락주세요',

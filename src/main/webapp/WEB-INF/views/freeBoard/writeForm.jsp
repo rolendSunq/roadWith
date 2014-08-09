@@ -15,7 +15,6 @@
 		<!-- Custom styles for our template -->
 		<link rel="stylesheet" href="./resources/assets/css/bootstrap-theme.css" media="screen" >
 		<link rel="stylesheet" href="./resources/assets/css/main.css">
-	
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 		<script src="./resources/assets/js/html5shiv.js"></script>
@@ -26,79 +25,77 @@
 		<!-- Fixed navbar -->
 		<div class="navbar navbar-inverse navbar-fixed-top headroom">
 			<div class="container">
-			<div class="navbar-header">
-				<!-- Button for smallest screens -->
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span> 
-					<span class="icon-bar"></span> 
-				</button>
-				<a class="navbar-brand" href="/roadwith"><img src="./resources/assets/images/logo.png" alt="Progressus HTML5 template"></a>
-			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav pull-right">
-					<li class="active"><a href="/roadwith">홈</a></li>
-					<li><a href="preview">튜토리얼</a></li>
-					<li class="dropdown">
-					<a href="#" data-toggle="dropdown" class="dropdown-toggle">게시판 <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-					<li><a href="freeBoard">자유게시판</a></li>
-					<li><a href="R2Board">러너 / 라이더</a></li>
-					</ul>
-					</li>
-					<li><a href="notice">공지사항</a></li>
-					<li><a href="contact">문의사항</a></li>
-					<li><a href="weather">날씨</a></li>
-					<li><a class="btn" href="signin.html?signin">로그인 / 회원가입</a></li>
-				</ul>
-			</div><!--/.nav-collapse -->
-		</div>
-	</div> 
-	<!-- /.navbar -->
-	
-<div class="container"	>
-	<div class="row">
-			<div class="row">
-				<div class="col-md-8 col-md-offset-2">
-					<br><br>
-					<h2 class="text-center">글쓰기</h2>
-					<form name="writeFrm" action='<c:url value="writeBoard"/>' method="GET" class="form-horizontal" role="form">
-						<div class="form-group">
-							<label class="col-md-3 control-label">제목</label>
-							<div class="col-md-8">
-								<input type="text" name="title" id="title" class="form-control">
-							</div>
-						</div> 
-						<div class="form-group">
-							<label class="col-md-3 control-label">작성자</label>
-							<div class="col-md-8">
-								<input type="text" name="writerName" id="writerName" class="form-control">
-							</div>
-						</div> 
-						<div class="form-group">
-							<label class="col-md-3 control-label">내용</label>
-							<div class="col-md-8">
-								<textarea name="content" id="contentId" rows="10" class="form-control"></textarea>
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-md-3 control-label">Password</label>
-							<div class="col-md-8">
-								<input type="password" name="password" id="passwordId" class="form-control">
-							</div>
-						</div>
-						<div class="form-group">
-							<label class="col-md-3 control-label"></label>
-							<div class="col-md-3 pull-right-offset-1">
-								<button type="button" class="btn btn-primary" id="sendBtn"><i class="fa fa-align-justify"></i> 글 등록</button>
-							</div>
-						</div>
-					</form>
+				<div class="navbar-header">
+					<!-- Button for smallest screens -->
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span> 
+						<span class="icon-bar"></span> 
+					</button>
+					<a class="navbar-brand" href="/roadwith"><img src="./resources/assets/images/logo.png" alt="Progressus HTML5 template"></a>
 				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav pull-right">
+						<li class="active"><a href="/roadwith">홈</a></li>
+						<li><a href="preview">튜토리얼</a></li>
+						<li class="dropdown">
+							<a href="#" data-toggle="dropdown" class="dropdown-toggle">게시판 <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="freeBoard">자유게시판</a></li>
+								<li><a href="R2Board">러너 / 라이더</a></li>
+							</ul>
+						</li>
+						<li><a href="notice">공지사항</a></li>
+						<li><a href="contact">문의사항</a></li>
+						<li><a href="weather">날씨</a></li>
+						<li><a class="btn" href="signin.html?signin">로그인 / 회원가입</a></li>
+					</ul>
+				</div><!--/.nav-collapse -->
 			</div>
-		</div>		
-	</div>
-		
+		</div> 
+		<!-- /.navbar -->
+		<div class="container">
+			<div class="row">
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<br><br>
+						<h2 class="text-center">글쓰기</h2>
+						<form name="writeFrm" action='<c:url value="writeBoard"/>' method="GET" class="form-horizontal" role="form">
+							<div class="form-group">
+								<label class="col-md-3 control-label">제목</label>
+								<div class="col-md-8">
+									<input type="text" name="title" id="title" class="form-control">
+								</div>
+							</div> 
+							<div class="form-group">
+								<label class="col-md-3 control-label">작성자</label>
+								<div class="col-md-8">
+									<input type="text" name="writerName" id="writerName" class="form-control">
+								</div>
+							</div> 
+							<div class="form-group">
+								<label class="col-md-3 control-label">내용</label>
+								<div class="col-md-8">
+									<textarea name="content" id="contentId" rows="10" class="form-control"></textarea>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label">Password</label>
+								<div class="col-md-8">
+									<input type="password" name="password" id="passwordId" class="form-control">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-md-3 control-label"></label>
+								<div class="col-md-3 pull-right-offset-1">
+									<button type="button" class="btn btn-primary" id="sendBtn"><i class="fa fa-align-justify"></i> 글 등록</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>		
+		</div>
 		<footer id="footer" class="top-space">
 			<div class="footer1">
 				<div class="container">
@@ -202,6 +199,7 @@
 				$('#sendBtn').click(function(){
 					if (isValidate())
 					$('form[name=writeFrm]').submit();
+					$(location).attr('href', 'freeBoard');
 				});
 			});
 		</script>

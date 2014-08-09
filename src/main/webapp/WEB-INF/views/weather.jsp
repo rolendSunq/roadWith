@@ -123,15 +123,15 @@
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col-md-8">
+				<div class="col-md-8-offset-1">
 		<c:catch var="err">
 			<c:choose>
-			<c:when test="${weatherUrl == null}">
-			<c:import var="weather"	url="http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=1156055000"/>
-			</c:when>
-			<c:otherwise>
-			<c:import var="weather"	url="${weatherUrl }"/>
-			</c:otherwise>
+				<c:when test="${weatherUrl == null}">
+					<c:import var="weather"	url="http://www.kma.go.kr/wid/queryDFSRSS.jsp?zone=1156055000"/>
+				</c:when>
+				<c:otherwise>
+					<c:import var="weather"	url="${weatherUrl }"/>
+				</c:otherwise>
 			</c:choose>
 			<!-- xml 파싱하기 -->
 			<x:parse var="wrss" xml="${weather}"/>
@@ -143,10 +143,9 @@
 								</div>
 							</td>
 							<td>
-								<div class="col-md-8"><x:out select="$wrss/rss/channel/item/category"/></div>
+								<div class="col-md-8"><b><x:out select="$wrss/rss/channel/item/category"/></b></div>
 							</td>
 						</tr>
-									
 						<tr>
 							<td>
 								<div class="col-md-7">
@@ -159,7 +158,6 @@
 						</tr>	
 					</table>
 				</div>
-			<br>
 			
 			<table class="table table-bordered" id="serch">
 				<tr>
@@ -488,16 +486,11 @@
 		<script src="./resources/assets/js/jquery-1.11.1.min.js"></script>
 		<script src="./resources/assets/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
-			var doName = $('#hName').val();
-			var localName = $('#lName').val();
 			$(document).ready(function(){
-				if (doName != null) {
-					$("#doSlt").val(doName).attr("selected", "selected");
-				}
-				
-				if (localName != null) {
-					$('#locaSlt').val(localName).attr('selected', 'selected');
-				}
+				var doName = $('#hName').val();
+				var localName = $('#lName').val();
+				$("#doSlt").val(doName).attr("selected", "selected");
+				$('#locaSlt').val(localName).attr('selected', 'selected');
 				
 				$("#doSlt").change(function(){
 					//var doName = $("#doSlt option:selected").val();

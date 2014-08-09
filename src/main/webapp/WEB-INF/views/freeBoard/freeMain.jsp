@@ -13,7 +13,6 @@
 		<link rel="stylesheet" media="screen" href="./resources/assets/css/googleFont.css">
 		<link rel="stylesheet" href="./resources/assets/css/bootstrap.min.css">
 		<link rel="stylesheet" href="./resources/assets/css/font-awesome.min.css">
-		
 		<!-- Custom styles for our template -->
 		<link rel="stylesheet" href="./resources/assets/css/bootstrap-theme.css"
 			media="screen">
@@ -22,7 +21,7 @@
 		<!--[if lt IE 9]>
 			<script src="./resources/assets/js/html5shiv.js"></script>
 			<script src="./resources/assets/js/respond.min.js"></script>
-			<![endif]-->
+		<![endif]-->
 	</head>
 	<body>
 		<!-- Fixed navbar -->
@@ -34,20 +33,18 @@
 						data-target=".navbar-collapse">
 						<span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="/roadwith"><img
-						src="./resources/assets/images/logo.png"
-						alt="Progressus HTML5 template"></a>
+					<a class="navbar-brand" href="/roadwith"><img src="./resources/assets/images/logo.png" alt="Progressus HTML5 template"></a>
 				</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
 					<li class="active"><a href="/roadwith">홈</a></li>
 					<li><a href="preview">튜토리얼</a></li>
 					<li class="dropdown">
-					<a href="#" data-toggle="dropdown" class="dropdown-toggle">게시판 <b class="caret"></b></a>
-					<ul class="dropdown-menu">
-					<li><a href="freeBoard">자유게시판</a></li>
-					<li><a href="R2Board">러너 / 라이더</a></li>
-					</ul>
+						<a href="#" data-toggle="dropdown" class="dropdown-toggle">게시판 <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+							<li><a href="freeBoard">자유게시판</a></li>
+							<li><a href="R2Board">러너 / 라이더</a></li>
+						</ul>
 					</li>
 					<li><a href="notice">공지사항</a></li>
 					<li><a href="contact">문의사항</a></li>
@@ -58,9 +55,7 @@
 		</div>
 	</div> 
 	<!-- /.navbar -->
-
 	<header id="head" class="secondary"></header>
-
 	<!-- container -->
 	<div class="container">
 		<ol class="breadcrumb">
@@ -92,23 +87,23 @@
 						<td>작성일</td>
 						<td>조회수</td>
 					</tr>
-				<colgroup>
-						<col width="8%">
-						<col width="">
-						<col width="14%">
-						<col width="10%">
-						<col width="7%">
-				</colgroup>		
-		<c:choose>
-			<c:when test="${Articles.hasArticle == false }">
+					<colgroup>
+							<col width="8%">
+							<col width="">
+							<col width="14%">
+							<col width="10%">
+							<col width="7%">
+					</colgroup>		
+			<c:choose>
+				<c:when test="${Articles.hasArticle == false }">
 				<tr>
 					<td colspan="5">
 						게시글이 없습니다.
 					</td>
 				</tr>
-			</c:when>
-			<c:otherwise>
-				<c:forEach var="article" items="${Articles.articleList}">
+				</c:when>
+				<c:otherwise>
+					<c:forEach var="article" items="${Articles.articleList}">
 					<tr>
 						<td>${article.articleId}</td>
 						<td>
@@ -121,31 +116,31 @@
 						<td><fmt:formatDate value="${article.postingDate}" pattern="yyyy-MM-dd"/></td>
 						<td>${article.readCount}</td>
 					</tr>
-				</c:forEach>
-			</c:otherwise>
-		</c:choose>
+					</c:forEach>
+				</c:otherwise>
+			</c:choose>
 				</table>
 				<div class="pull-right">
 					<div class="col-md-4">
 						<button type="button" class="btn btn-default" name="writeArticle" id="writeArticle"><i class="fa fa-pencil-square"></i> 글쓰기</button>
-					<div class="text-center">
-						<ul class="pagination">
-							<c:if test="${beginPage > 10}">
-							  <li><a href="<c:url value="/freeBoard?p=${beginPage-1}"/>">&laquo;</a></li>
-							</c:if>
-							<c:forEach var="pno" begin="${beginPage}" end="${endPage}">
-							  <li><a href='<c:url value="/freeBoard?p=${pno}"/>'>${pno}</a></li>
-							</c:forEach>
-							<c:if test="${endPage < Articles.totalPageCount}">
-							  <li><a href="<c:url value="/freeBoard?p=${endPage + 1}"/>">&raquo;</a></li>
-							</c:if>
-						</ul>
 					</div>
 				</div>
-			</div>
-		</div><!-- /row -->
-	</article>
-</div><!-- /container -->
+				<div class="text-center">
+					<ul class="pagination">
+						<c:if test="${beginPage > 10}">
+						  <li><a href="<c:url value="/freeBoard?p=${beginPage-1}"/>">&laquo;</a></li>
+						</c:if>
+						<c:forEach var="pno" begin="${beginPage}" end="${endPage}">
+						  <li><a href='<c:url value="/freeBoard?p=${pno}"/>'>${pno}</a></li>
+						</c:forEach>
+						<c:if test="${endPage < Articles.totalPageCount}">
+						  <li><a href="<c:url value="/freeBoard?p=${endPage + 1}"/>">&raquo;</a></li>
+						</c:if>
+					</ul>
+				</div>
+			</div><!-- /row -->
+		</article>
+	</div><!-- /container -->
 
 		<footer id="footer" class="top-space">
 			<div class="footer1">
