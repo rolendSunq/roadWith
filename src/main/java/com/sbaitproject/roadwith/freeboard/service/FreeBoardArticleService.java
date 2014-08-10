@@ -11,4 +11,5 @@ public interface FreeBoardArticleService {
 	public int calculateTotalPageCount(int totalArticleCount);  // 전체 페이지 개수를 구함
 	public void writeFreeBoard(Article article);			  	// 글 등록
 	public void selectArticle(int articleId, Model model);	   	// 선택된 글 보여주기
+	public void registrationReply(int articleId, Model model, Article replyArticle);	// 댓글 등록
 }

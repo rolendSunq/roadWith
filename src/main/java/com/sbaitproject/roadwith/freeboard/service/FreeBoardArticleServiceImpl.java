@@ -70,6 +70,78 @@ public class FreeBoardArticleServiceImpl implements FreeBoardArticleService {
 		int readCount = articleDao.selectReadCount(articleId);
 		articleDao.updateReadCount(readCount + 1, articleId);
 		model.addAttribute("article", article);
+		model.addAttribute("articleId", articleId);
 	}
 
+	@Override
+	public void registrationReply(int articleId, Model model, Article replyArticle) {
+		Article article = articleDao.selectById(articleId);
+		String maxNumber = article.getSequenceNo();
+		String minNumber = getSearchMinSeqNumber(article);
+		int lastChildSeq = articleDao.selectLastSeqNumber(maxNumber, minNumber);
+		String sequenceNumber = getSequenceNumber(article, String.valueOf(lastChildSeq));
+		article.setSequenceNo(sequenceNumber);
+		article.setPostingDate(new Date());
+		int insertResult = articleDao.insertArticle(article);
+		if (insertResult == -1)
+			System.out.println("실패");
+		else 
+			System.out.println("성공");
+		model.addAttribute("article", article);
+		model.addAttribute("articleId", articleId);
+	}
+	
+	private String getSearchMinSeqNumber(Article article) {
+		DecimalFormat decimalFormat = new DecimalFormat("0000000000000000");
+		long seqValue = Long.parseLong(article.getSequenceNo());
+		long minValue = 0;
+		
+		if (article.getLevel() == 0)
+			minValue = seqValue / 1000000L * 1000000L;
+		else if (article.getLevel() == 1)
+			minValue = seqValue / 10000L * 10000L;
+		else if (article.getLevel() == 2)
+			minValue = seqValue / 100L * 100L;
+			
+		return decimalFormat.format(minValue);
+	}
+
+	private String getSequenceNumber(Article article, String lastChildSeq) {
+		long seqNumber = Long.parseLong(article.getSequenceNo());
+		int levelValue = article.getLevel();
+		
+		long decUnit = 0;
+		
+		if (levelValue == 0) 	  decUnit = 10000L;
+		else if (levelValue == 1) decUnit = 100L;
+		else if (levelValue == 2) decUnit = 1L;
+		
+		String sequenceNumber = null;
+		
+		DecimalFormat decimalFormat = new DecimalFormat("0000000000000000");
+		
+		if (lastChildSeq == null)	// 답변글이 없음
+			sequenceNumber = decimalFormat.format(levelValue - decUnit);
+		else {
+			String orderOfLastChildSeq = null;
+			
+			if (levelValue == 0) {
+				orderOfLastChildSeq = lastChildSeq.substring(10, 12);
+				sequenceNumber = lastChildSeq.substring(0, 12) + "9999";
+			} else if (levelValue == 1) {
+				orderOfLastChildSeq = lastChildSeq.substring(12, 14);
+				sequenceNumber = lastChildSeq.substring(0, 14) + "99";
+			} else if (levelValue == 2) {
+				orderOfLastChildSeq = lastChildSeq.substring(14, 16);
+				sequenceNumber = lastChildSeq;
+			}
+			
+			if (orderOfLastChildSeq.equals("00")) ;
+			
+			long seq = Long.parseLong(sequenceNumber) - decUnit;
+			sequenceNumber = decimalFormat.format(seq);
+		}
+		
+		return lastChildSeq;
+	}
 }

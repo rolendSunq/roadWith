@@ -63,7 +63,7 @@
 						<div class="panel-heading">
 							<div class="form-inline">
 								<div>
-									<h3 class="panel-title">${article.title}</h3>
+									<h3 class="panel-title"><b>${article.title}</b></h3>
 								</div>
 								<div class="text-right">
 									<div class="form-group">
@@ -78,9 +78,44 @@
 						<div class="panel-body">
 							<pre class="row"><c:out value="${article.content}"/></pre>
 						</div>
+						
 				    </div>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<div class="panel panel-default" id="replyForm">
+						<div class="panel-heading">
+							<form name="replyFrm">
+								<div class="form-group">
+									<div class="col-md-2">
+										<h4>reply</h4>
+									</div>
+									<div class="pull-right col-md-5">
+										<div class="input-group">
+											<input type="text" class="form-control" id="writerTxt" name="writerName" placeholder="아이디 입력">
+											<span class="btn btn-default input-group-addon" id="replyBtn">답글 등록</span>
+										</div>
+									</div>
+									<div class="row">
+										<textarea rows="3" name="replyContent" id="reTextArea" class="form-control" name="content"></textarea>
+									</div>
+								</div>
+								<input type="hidden" name="articleId" value="${articleId }">
+								<input type="hidden" name="title" value="<i class='fa fa-hand-o-right'></i>">
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="container"	>
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
 					<a class="btn btn-default" href="freeBoard"><i class="fa fa-arrow-left"></i> 목록</a>
-					<a class="btn btn-default" href="replyArticle"><i class="fa fa-hand-o-right"></i> 답글</a>
+					<button type="button" class="btn btn-default" id="replyDisplayBtn"><i class="fa fa-hand-o-right"></i> 답글</button>
 					<a class="btn btn-default" href="editArticle"><i class="fa fa-pencil-square-o"></i> 수정</a>
 					<a class="btn btn-default" href="deletArticle"><i class="fa fa-trash-o"></i> 삭제</a>
 				</div>
@@ -150,13 +185,29 @@
 		<script src="./resources/assets/js/jquery-1.11.1.min.js"></script>
 		<script src="./resources/assets/js/bootstrap.min.js"></script>
 		<script>
+			var status = 'hide';
 			$(document).ready(function(){
-				$('#userEmail').keydown(function(e){
-					var txt = $('#userEmail').val();
-					if (e.keyCode == 13){
-						$('#userPasswd').focus();
-						return false;
+				$('#replyForm').hide();
+				$('#replyDisplayBtn').click(function(){
+					if (status == 'hide') {
+						status = 'show';
+						$(this).html('<i class="fa fa-hand-o-right"></i> 답글취소');
+						$('#replyForm').show();
+						$('#writerTxt').focus();
+					} else {
+						status = 'hide';
+						$('#reTextArea').val('');
+						$('#writerTxt').val('');
+						$(this).html('<i class="fa fa-hand-o-right"></i> 답글');
+						$('#replyForm').hide();
 					}
+				});
+				
+				$('#replyBtn').click(function(){
+					status = 'hide';
+					$('#replyDisplayBtn').html('<i class="fa fa-hand-o-right"></i> 답글');
+					$('#replyForm').hide();
+					$('form[name=replyFrm]').attr('action', 'putReply').submit();
 				});
 			});
 		</script>

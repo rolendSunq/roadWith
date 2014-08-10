@@ -78,4 +78,12 @@ public class ArticleDaoImpl implements ArticleDao {
 		return session.selectOne(NS + "SelectReadCount", articleId);
 	}
 
+	@Override
+	public int selectLastSeqNumber(String maxNumber, String minNumber) {
+		Map<String, Integer> param = new HashMap<String, Integer>();
+		param.put("maxNumber", Integer.parseInt(maxNumber));
+		param.put("minNumber", Integer.parseInt(minNumber));
+		return session.selectOne(NS + "SelectLastSequenceNumber", param);
+	}
+
 }

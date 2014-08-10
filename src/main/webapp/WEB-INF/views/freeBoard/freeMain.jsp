@@ -14,8 +14,7 @@
 		<link rel="stylesheet" href="./resources/assets/css/bootstrap.min.css">
 		<link rel="stylesheet" href="./resources/assets/css/font-awesome.min.css">
 		<!-- Custom styles for our template -->
-		<link rel="stylesheet" href="./resources/assets/css/bootstrap-theme.css"
-			media="screen">
+		<link rel="stylesheet" href="./resources/assets/css/bootstrap-theme.css" media="screen">
 		<link rel="stylesheet" href="./resources/assets/css/noImgCommon.css">
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -62,7 +61,7 @@
 			<li><a href="/roadwith">홈</a></li>
 			<li class="active">자유게시판</li>
 		</ol>
-		<article class="">
+		<article class="container">
 			<div class="row">
 				<table class="table table-bordered">
 				<c:if test="${Articles.totalPageCount >0}">
@@ -73,13 +72,6 @@
 							</td>
 						</tr>
 					</c:if>
-					<colgroup>
-							<col width="8%">
-							<col width="">
-							<col width="14%">
-							<col width="10%">
-							<col width="7%">
-					</colgroup>
 					<tr>
 						<td>번호</td>
 						<td>제목</td>

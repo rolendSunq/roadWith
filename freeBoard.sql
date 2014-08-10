@@ -18,3 +18,5 @@ create sequence seq_freeboard_id
 	increment by 1
 	nocache
 	nocycle;
+	
+--select * from freeboard;

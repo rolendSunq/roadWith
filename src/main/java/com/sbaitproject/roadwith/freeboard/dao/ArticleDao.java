@@ -15,4 +15,5 @@ import com.sbaitproject.roadwith.freeboard.vo.Article;
 	public int selectLastArticleNo();
 	public void updateReadCount(int readCount, int articleId);
 	public int selectReadCount(int articleId);
+	public int selectLastSeqNumber(String maxNumber, String minNumber);
 }

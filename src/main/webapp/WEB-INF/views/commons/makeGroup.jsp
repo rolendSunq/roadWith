@@ -17,11 +17,12 @@
 		
 		<!-- daumMap size -->
 		<style type="text/css">
-			#mapArea {
+			#mapArea img {
 				margin: auto;
-				width: 900px;
-	  			height: 500px;
+				max-width: none;
+	  			height: auto;
 	  			border: 0;
+	  			-ms-interpolation-mode: bicubic;
 			}
 		</style>
 	
@@ -150,7 +151,9 @@
 							<input type="text" class="form-control" name="goalSpot" id="goalSpot" readonly="readonly">
 						</div>
 					</div>
-					<div id="mapArea"></div>
+					<div class="form-group">
+						<div id="mapArea"></div>
+					</div>
 					<div class="form-group">
 						<p></p>
 						<div class="col-md-3 text-right">
