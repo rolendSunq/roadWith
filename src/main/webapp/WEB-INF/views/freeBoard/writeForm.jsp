@@ -60,7 +60,7 @@
 					<div class="col-md-8 col-md-offset-2">
 						<br><br>
 						<h2 class="text-center">글쓰기</h2>
-						<form name="writeFrm" action='<c:url value="writeBoard"/>' method="GET" class="form-horizontal" role="form">
+						<form name="writeFrm" action='<c:url value="/writeBoard"/>' method="GET" class="form-horizontal" role="form">
 							<div class="form-group">
 								<label class="col-md-3 control-label">제목</label>
 								<div class="col-md-8">
@@ -197,9 +197,9 @@
 			
 			$(document).ready(function(){
 				$('#sendBtn').click(function(){
-					if (isValidate())
-					$('form[name=writeFrm]').submit();
-					$(location).attr('href', 'freeBoard');
+					if (isValidate()) {
+						$('form[name="writeFrm"]').submit();
+					}
 				});
 			});
 		</script>

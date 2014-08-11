@@ -40,12 +40,18 @@
 		WHERE article_id = #{articleId}
 	</select>
 	
-	<select id="SelectLastSequenceNumber" parameterType="map" resultType="int">
+	<select id="SelectLastSequenceNumber" parameterType="map" resultType="java.lang.Object">
 		SELECT MIN(sequence_no)
 		FROM freeboard
 		WHERE sequence_no &lt; #{maxNumber} AND sequence_no &gt;= #{minNumber}
 	</select>
 	
+	<select id="SelectGroupIdByReply" parameterType="int" resultMap="articles">
+		SELECT *
+		FROM (SELECT * FROM FREEBOARD WHERE group_id = #{group_id})
+		WHERE group_id &lt;&gt; article_id
+		ORDER BY posting_date ASC;
+	</select>
 	<insert id="InsertArticle" parameterType="com.sbaitproject.roadwith.freeboard.vo.Article" >
 		insert into freeBoard
 		(article_id, group_id, sequence_no, posting_date, read_count, writer_name, password, title, content)

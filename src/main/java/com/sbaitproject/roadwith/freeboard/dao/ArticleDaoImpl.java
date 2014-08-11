@@ -61,8 +61,7 @@ public class ArticleDaoImpl implements ArticleDao {
 
 	@Override
 	public int selectLastArticleNo() {
-		session.selectOne(NS + "SelectLastArticleNo");
-		return 0;
+		return session.selectOne(NS + "SelectLastArticleNo");
 	}
 
 	@Override
@@ -79,11 +78,16 @@ public class ArticleDaoImpl implements ArticleDao {
 	}
 
 	@Override
-	public int selectLastSeqNumber(String maxNumber, String minNumber) {
-		Map<String, Integer> param = new HashMap<String, Integer>();
-		param.put("maxNumber", Integer.parseInt(maxNumber));
-		param.put("minNumber", Integer.parseInt(minNumber));
+	public String selectLastSeqNumber(String maxNumber, String minNumber) {
+		Map<String, String> param = new HashMap<String, String>();
+		param.put("maxNumber", maxNumber);
+		param.put("minNumber", minNumber);
 		return session.selectOne(NS + "SelectLastSequenceNumber", param);
+	}
+
+	@Override
+	public List<Article> selectGroupIdByReply(int group_id) {
+		return session.selectList(NS + "SelectGroupIdByReply", group_id);
 	}
 
 }

@@ -95,9 +95,9 @@
 				</tr>
 				</c:when>
 				<c:otherwise>
-					<c:forEach var="article" items="${Articles.articleList}">
+					<c:forEach var="article" items="${Articles.articleList}" varStatus="status">
 					<tr>
-						<td>${article.articleId}</td>
+						<td>${status.count}</td>
 						<td>
 							<c:set var="query" value="articleId=${article.articleId}&p=${Articles.requestPage}"/>
 							<a href='<c:url value="read_view?${query}"/>'>

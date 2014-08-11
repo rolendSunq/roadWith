@@ -20,3 +20,12 @@ create sequence seq_freeboard_id
 	nocycle;
 	
 --select * from freeboard;
+
+select * from (select * from FREEBOARD where group_id = '4')
+where group_id <> article_id
+order by posting_date asc;
+	
+--select * from freeboard
+--where article_id = group_id
+--order by posting_date desc;
+

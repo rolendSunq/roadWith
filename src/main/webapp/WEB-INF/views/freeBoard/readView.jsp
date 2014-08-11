@@ -90,7 +90,7 @@
 						<div class="panel-heading">
 							<form name="replyFrm">
 								<div class="form-group">
-									<div class="col-md-2">
+									<div class="col-md-6">
 										<h4>reply</h4>
 									</div>
 									<div class="pull-right col-md-5">
@@ -99,12 +99,13 @@
 											<span class="btn btn-default input-group-addon" id="replyBtn">답글 등록</span>
 										</div>
 									</div>
+									<p>&nbsp;</p>
 									<div class="row">
-										<textarea rows="3" name="replyContent" id="reTextArea" class="form-control" name="content"></textarea>
+										<textarea rows="3" id="reTextArea" class="form-control" name="content"></textarea>
 									</div>
 								</div>
 								<input type="hidden" name="articleId" value="${articleId }">
-								<input type="hidden" name="title" value="<i class='fa fa-hand-o-right'></i>">
+								<input type="hidden" name="title" value="<i class='fa fa-hand-o-right'></i> re">
 							</form>
 						</div>
 					</div>

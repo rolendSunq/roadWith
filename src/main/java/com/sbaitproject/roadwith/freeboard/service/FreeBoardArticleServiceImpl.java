@@ -1,8 +1,11 @@
 package com.sbaitproject.roadwith.freeboard.service;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +23,7 @@ public class FreeBoardArticleServiceImpl implements FreeBoardArticleService {
 	
 	@Override
 	public ArticleListVo getArticleList(int requestPageNumber) {
+		List<Article> articleList = new ArrayList<Article>();
 		int totalArticleCount = articleDao.selectCount();	//  총 페이지수
 		
 		if (totalArticleCount == 0){
@@ -34,7 +38,7 @@ public class FreeBoardArticleServiceImpl implements FreeBoardArticleService {
 			endRow = totalArticleCount;
 		}
 		
-		List<Article> articleList = articleDao.articleSelected(firstRow, endRow);
+		articleList = articleDao.articleSelected(firstRow, endRow);
 		return new ArticleListVo(articleList, requestPageNumber, totalPageCount, firstRow, endRow);
 	}
 
@@ -54,6 +58,7 @@ public class FreeBoardArticleServiceImpl implements FreeBoardArticleService {
 	public void writeFreeBoard(Article article) {
 		DecimalFormat decimalFormat = new DecimalFormat("0000000000");
 		int lastArticleNo = articleDao.selectLastArticleNo();
+		System.out.println("lastArticleNo : " + lastArticleNo);
 		article.setGroupId(lastArticleNo);
 		article.setPostingDate(new Date());
 		article.setSequenceNo(decimalFormat.format(lastArticleNo) + "999999");
@@ -78,16 +83,20 @@ public class FreeBoardArticleServiceImpl implements FreeBoardArticleService {
 		Article article = articleDao.selectById(articleId);
 		String maxNumber = article.getSequenceNo();
 		String minNumber = getSearchMinSeqNumber(article);
-		int lastChildSeq = articleDao.selectLastSeqNumber(maxNumber, minNumber);
-		String sequenceNumber = getSequenceNumber(article, String.valueOf(lastChildSeq));
-		article.setSequenceNo(sequenceNumber);
-		article.setPostingDate(new Date());
-		int insertResult = articleDao.insertArticle(article);
+		String lastChildSeq = articleDao.selectLastSeqNumber(maxNumber, minNumber);
+		String sequenceNumber = getSequenceNumber(article, lastChildSeq);
+		System.out.println("sequenceNumber : " + sequenceNumber);
+		replyArticle.setGroupId(article.getGroupId());
+		replyArticle.setSequenceNo(sequenceNumber);
+		replyArticle.setPassword("1234");
+		replyArticle.setPostingDate(new Date());
+		int insertResult = articleDao.insertArticle(replyArticle);
 		if (insertResult == -1)
 			System.out.println("실패");
 		else 
 			System.out.println("성공");
 		model.addAttribute("article", article);
+		model.addAttribute("repArticle", replyArticle);
 		model.addAttribute("articleId", articleId);
 	}
 	
@@ -112,16 +121,16 @@ public class FreeBoardArticleServiceImpl implements FreeBoardArticleService {
 		
 		long decUnit = 0;
 		
-		if (levelValue == 0) 	  decUnit = 10000L;
-		else if (levelValue == 1) decUnit = 100L;
-		else if (levelValue == 2) decUnit = 1L;
+		if (levelValue == 0)		decUnit = 10000L;
+		else if (levelValue == 1) 	decUnit = 100L;
+		else if (levelValue == 2) 	decUnit = 1L;
 		
 		String sequenceNumber = null;
 		
 		DecimalFormat decimalFormat = new DecimalFormat("0000000000000000");
 		
 		if (lastChildSeq == null)	// 답변글이 없음
-			sequenceNumber = decimalFormat.format(levelValue - decUnit);
+			sequenceNumber = decimalFormat.format((levelValue - decUnit) * -1);
 		else {
 			String orderOfLastChildSeq = null;
 			
@@ -142,6 +151,12 @@ public class FreeBoardArticleServiceImpl implements FreeBoardArticleService {
 			sequenceNumber = decimalFormat.format(seq);
 		}
 		
-		return lastChildSeq;
+		return sequenceNumber;
+	}
+
+	@Override
+	public void getReplyList(int group_id, Model model) {
+		List<Article> replyArticle = articleDao.selectGroupIdByReply(group_id);
+		model.addAttribute("replyList", replyArticle);
 	}
 }

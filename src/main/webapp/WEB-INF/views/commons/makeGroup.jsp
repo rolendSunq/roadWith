@@ -17,12 +17,11 @@
 		
 		<!-- daumMap size -->
 		<style type="text/css">
-			#mapArea img {
+			#mapArea {
 				margin: auto;
-				max-width: none;
-	  			height: auto;
+				width: 900px;
+	  			height: 500px;
 	  			border: 0;
-	  			-ms-interpolation-mode: bicubic;
 			}
 		</style>
 	
@@ -50,11 +49,11 @@
 						<li class="active"><a href="/roadwith">홈</a></li>
 						<li><a href="preview">튜토리얼</a></li>
 						<li class="dropdown">
-						<a href="#" data-toggle="dropdown" class="dropdown-toggle">게시판 <b class="caret"></b></a>
-						<ul class="dropdown-menu">
-						<li><a href="freeBoard">자유게시판</a></li>
-						<li><a href="R2Board">러너 / 라이더</a></li>
-						</ul>
+							<a href="#" data-toggle="dropdown" class="dropdown-toggle">게시판 <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="freeBoard">자유게시판</a></li>
+								<li><a href="R2Board">러너 / 라이더</a></li>
+							</ul>
 						</li>
 						<li><a href="notice">공지사항</a></li>
 						<li><a href="contact">문의사항</a></li>
