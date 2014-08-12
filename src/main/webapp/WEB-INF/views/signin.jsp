@@ -71,7 +71,7 @@
 							<div class="panel-body">
 								<h3 class="thin text-center">귀하의 계정에 로그인</h3>
 								<p class="text-center text-muted">계정이 없다면, 
-									<a href="signup.html?signup">회원가입</a>으로  이동하여 가입하시면 됩니다.  
+									<a href="signUp">회원가입</a>으로  이동하여 가입하시면 됩니다.  
 								</p>
 								<hr>
 								<form name="signin">
