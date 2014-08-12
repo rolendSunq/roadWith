@@ -273,6 +273,40 @@
 				return true;
 			}
 			
+			function checkUserNickName(){
+				var nickNameExp = /^[ㄱ-ㅎ|가-힣|a-z|A-Z|0-9|\*]+$/;
+				var userNickName = $('#userNickName').val();
+				
+				if (userNickName == '' || userNickName == null || userNickName.length == 0) {
+					alert('사용자의 별명을 입력하세요.');
+					$('#userNickName').focus();
+					return false;
+				}
+				
+				if (!userNickName.match(nickNameExp)) {
+					alert('영문자와 한글,숫자만을 입력하세요.');
+					$('#userNickName').val('');
+					$('#userNickName').focus();
+					return false;
+				}
+				
+				return true;
+			}
+			
+			function checkUserEmail(){
+				var userEmail = $('#userEmail').val();
+				
+				if (userEmail == '' || userEmail == null || userEmail.length == 0) {
+					alert('사용자의 Email Address를 입력하세요.');
+					$('#userEmail').focus();
+					return false;
+				}
+				
+				return true;
+			}
+			
+	
+			
 			function validation() {
 				var hangulExp = /^[가-힣]{2,5}$/;
 				var userName = $('#userName').val();			
@@ -318,13 +352,16 @@
 					return false;
 				}
 				
-				if (!userName.match(hangulExp)) {
-					alert('정확한 이름을 입력하세요.');
-					$('#userName').val('');
-					$('#userName').focus();
+				if (userPasswd1 !== userPasswd2) {
+					alert('패스워드를 일치 시켜주세요');
+					$('#userPasswd1').val('');
+					$('#userPasswd2').val('');
+					$('#userPasswd1').focus();
+					
 					return false;
+		
 				}
-				
+
 				return true;
 			}
 	
@@ -362,7 +399,31 @@
 						}
 						
 					}
-				})
+				});
+				
+				$('#userNickName').keydown(function(e){
+					if (e.keyCode == 13) {
+						if (checkUserNickName()) {
+							$('#userEmail').focus();
+						}						
+					}
+				});
+				
+				$('#userEmail').keydown(function(e){
+					if (e.keyCode == 13){
+						if (checkUserEmail()){
+							$('#userPasswd1').focus();
+						}						
+					}
+				});
+				
+				$('#userPasswd1').keydown(function(e){
+					if (e.keyCode == 13){
+						if (checkUserEmail()){
+							$('#userPasswd2').focus();
+						}						
+					}
+				});			
 			});
 				
 	
