@@ -15,7 +15,7 @@
     
     <insert id="SignUpInsert" parameterType="com.sbaitproject.roadwith.vo.Person">
 		INSERT INTO users 
-		(user_num, name, id, nickname, pw, email, time )
-		VALUES (users_num_seq.NEXTVAL -1, #{name}, #{id}, #{nickName}, #{pw}, #{email}, #{logtime})
+		(users_num, name, id, nickname, pw, email, logTime )
+		VALUES (users_num_seq.NEXTVAL -1, #{name}, #{id}, #{nickName}, #{pw}, #{email}, TO_DATE(#{logTime}, 'YYYY-MM-DD HH24:MI:SS'))
 	</insert>
 </mapper>

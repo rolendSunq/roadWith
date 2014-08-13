@@ -93,25 +93,23 @@
 									</div>
 									<div class="top-margin">
 										<label>Email Address <span class="text-danger">*</span></label>
-										<input type="text" class="form-control" id="userEmail" name="email"
-											placeholder="현재 사용하는 Email 주소를 입력해주세요.">
+										<input type="text" class="form-control" id="userEmail" name="email"	placeholder="현재 사용하는 Email 주소를 입력해주세요.">
 									</div>
 	
 									<div class="row top-margin">
 										<div class="col-sm-6">
-											<label>패스워드 <span class="text-danger">*</span></label> <input
-												type="password" class="form-control" id="userPasswd1" name="passwd1" >
+											<label>패스워드 <span class="text-danger">*</span></label> 
+											<input type="password" class="form-control" id="userPasswd1" name="pw" >
 										</div>
 										<div class="col-sm-6">
-											<label>패스워드 확인 <span class="text-danger">*</span></label> <input
-												type="password" class="form-control" id="userPasswd2" name="passwd2">
+											<label>패스워드 확인 <span class="text-danger">*</span></label> 
+											<input type="password" class="form-control" id="userPasswd2">
 										</div>
 									</div>
 									<hr>
 									<div class="row">
 										<div class="col-lg-12 text-right">
-											<button class="btn btn-primary btn-lg" type="button"  
-												id="signUpBtn">가입완료</button>
+											<button class="btn btn-primary btn-lg" type="button" id="signUpBtn">가입완료</button>
 										</div>
 									</div>
 								</form>
@@ -219,7 +217,7 @@
 			}
 			
 			function checkUserId(){
-				var idExp = /^[a-z]+[a-z]|[0-9]{7,15}$/g;
+				var idExp =   /^[A-Za-z]{1}[A-Za-z0-9]{6,14}$/;
 				var userId = $('#userId').val();
 				
 				if (userId == '' || userId == null || userId.length == 0) {
@@ -234,7 +232,6 @@
 					$('#userId').focus();
 					return false;
 				}
-				
 				return true;
 			}
 			
@@ -278,11 +275,51 @@
 				return true;
 			}
 			
-	
+			function searchId(){
+				$.ajax({
+				    type : "POST"
+				    ,async : true
+				    ,url : "ajaxCheckUserId"
+				    ,dataType : "json" 
+				    ,data : {id:$('#userId').val()}
+				    ,contentType: "application/json; charset=utf-8"
+				    ,success : function(response, status, request) {
+				    	if (response == 'success') {
+							alert('유효한 아이디 입니다.');
+							$('#userNickName').focus();
+						} else {
+							alert('중복되는 아이디 입니다.');
+							$('#userId').focus();
+							return false;
+						}
+				    }
+				});
+			}
+			
+			function searchEmail(){
+				$.ajax({
+				    type : "POST"
+				    ,async : true
+				    ,url : "ajaxCheckUserEmail"
+				    ,dataType : "json" 
+				    ,data : {id:$('#userEmail').val()}
+				    ,contentType: "application/json; charset=utf-8"
+				    ,success : function(response, status, request) {
+				    	if (response == 'success') {
+							alert('유효한 E-mail 입니다.');
+							$('#userPasswd1').focus();
+						} else {
+							alert('중복되는 E-mail 입니다.');
+							$('#userEmail').focus();
+							return false;
+						}
+				    }
+				});
+			}
 			
 			function validation() {
 				var hangulExp = /^[가-힣]{2,5}$/;
-				var idExp = /^[a-z]+[a-z]|[0-9]{7,15}$/g;
+				var idExp = /^[a-z]+[a-z]|[0-9]{7,15}$/;
 				var nickNameExp = /^[ㄱ-ㅎ|가-힣|a-z|A-Z|0-9|\*]+$/;
 				var emailExp = /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{2,5}$/;
 				var userName = $('#userName').val();			
@@ -366,8 +403,10 @@
 					return false;
 				}
 				
+				searchId();
+				searchEmail();
 				
-				$('form[name=signUpFrm]').attr({action:'welcome',method:'post'}).submit();
+				return true;
 			}
 	
 			$(document).ready(function() {
@@ -387,26 +426,7 @@
 				
 				$('#userId').keydown(function(e){
 					if (e.keyCode == 13){
-						if (checkUserId()){
-							$.ajax({
-							    type : "POST"
-							    ,async : true
-							    ,url : "ajaxCheckUserId"
-							    ,dataType : "json" 
-							    ,data : {id:$(this).val()}
-							    ,contentType: "application/json; charset=utf-8"
-							    ,success : function(response, status, request) {
-							    	if (response == 'success') {
-										alert('유효한 아이디 입니다.');
-										$('#userNickName').focus();
-									} else {
-										alert('중복되는 아이디 입니다.');
-										$('#userId').focus();
-									}
-							    }
-							});
-						}
-						
+						if (checkUserId()) searchId();						
 					}
 				});
 				
@@ -420,9 +440,7 @@
 				
 				$('#userEmail').keydown(function(e){
 					if (e.keyCode == 13){
-						if (checkUserEmail()){
-							$('#userPasswd1').focus();
-						}						
+						if (checkUserEmail()) searchEmail();
 					}
 				});
 				

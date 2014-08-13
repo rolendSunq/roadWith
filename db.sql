@@ -100,7 +100,7 @@ CREATE TABLE users (
   	nickname 	VARCHAR2(20) CONSTRAINT users_nn_nickname NOT NULL,
 	pw 			VARCHAR2(20) CONSTRAINT users_nn_pw NOT NULL, 
 	email 		VARCHAR2(40) CONSTRAINT users_nn_email NOT NULL,
-  	time DATE)
+  	logTime Timestamp)
   PCTFREE 35 PCTUSED 55
   TABLESPACE roadwith
   STORAGE (INITIAL 4M
@@ -164,6 +164,16 @@ insert into users values
 (users_num_seq.NEXTVAL -1,
   '유이',
   'uejjang',
+  '꿀벅지',
+  'ee55uejjang',
+  'ue@hanmail.net',
+  SYSDATE
+  );
+  
+  insert into users values
+(users_num_seq.NEXTVAL -1,
+  '유이',
+  'uejjang1',
   '꿀벅지',
   'ee55uejjang',
   'ue@hanmail.net',

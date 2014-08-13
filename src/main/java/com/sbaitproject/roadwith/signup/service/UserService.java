@@ -10,6 +10,6 @@ public interface UserService {
 	
 	public void searchId(String id, HttpServletResponse response);
 	public void registrationUser(Person person);
-	public void searchEmail(String email, Model model);
+	public void searchEmail(String email, HttpServletResponse response);
 	public void signUpUserInsert(Person person);
 }

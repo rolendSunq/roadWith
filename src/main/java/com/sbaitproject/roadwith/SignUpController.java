@@ -24,17 +24,12 @@ public class SignUpController{
 	@RequestMapping(value = "signUp", method = RequestMethod.POST)
 	public String signUp(Model model, Person person) {
 		userService.registrationUser(person);
-		return "signUp/signup";
+		return "signUp/welcome";
 	}
 	
 	@RequestMapping(value = "signUp", method = RequestMethod.GET)
 	public String enterSignPage() {
 		return "signUp/signup";
-	}
-	
-	@RequestMapping(value = "welcome", method = RequestMethod.GET)
-	public String welcome(Model model) {
-		return "signUp/welcome";
 	}
 	
 	@RequestMapping(value = "searchId", method = RequestMethod.GET)
@@ -48,5 +43,13 @@ public class SignUpController{
 		String data = json;
 		String userId = data.substring(3, data.length());
 		userService.searchId(userId, response);
+	}
+	
+	@RequestMapping(value = "ajaxCheckUserEmail", method = RequestMethod.POST)
+	public void ajaxCheckUserEmailController(@RequestBody String json, HttpServletResponse response) {
+		String data = json;
+		String userEmail = data.substring(3, data.length());
+		System.out.println("userEmail: " + userEmail);
+		userService.searchEmail(userEmail, response);
 	}
 }
