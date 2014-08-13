@@ -5,10 +5,5 @@
 <configuration>
 	<settings>
 		<setting name="callSettersOnNulls" value="true"/>
-		<setting name="cacheEnable" value="false" />
-		<setting name="useGeneratedKeys" value="true" />
-		<setting name="lazyLoadingEnabled" value="true" />
-		<setting name="defaultExecutorType" value="BATCH" />
-		<setting name="defaultStatementTimeout" value="3000" />
 	</settings>
 </configuration>

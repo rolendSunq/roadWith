@@ -8,5 +8,6 @@ public interface UserService {
 	
 	public void searchId(String id, Model model);
 	public void registrationUser(Person person);
-	
+	public void searchEmail(String email, Model model);
+	public void signUpUserInsert(Person person);
 }

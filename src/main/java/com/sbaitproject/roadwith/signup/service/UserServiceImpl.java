@@ -34,4 +34,14 @@ public class UserServiceImpl implements UserService{
 		System.out.println("Id 조회: " + status);
 	}
 
+	@Override
+	public void searchEmail(String email, Model model) {
+		userDao.findByEmail(email);
+	}
+
+	@Override
+	public void signUpUserInsert(Person person) {
+		userDao.signUpInsert(person);
+	}
+
 }

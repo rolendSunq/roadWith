@@ -225,11 +225,6 @@
 				</div>
 			</div>
 		</footer>
-	
-	
-	
-	
-	
 		<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 		<script src="./resources/assets/js/jquery-1.11.1.min.js"></script>
 		<script src="./resources/assets/js/bootstrap.min.js"></script>
@@ -294,8 +289,8 @@
 			}
 			
 			function checkUserEmail(){
+				var emailExp = /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{2,5}$/;
 				var userEmail = $('#userEmail').val();
-				
 				if (userEmail == '' || userEmail == null || userEmail.length == 0) {
 					alert('사용자의 Email Address를 입력하세요.');
 					$('#userEmail').focus();
@@ -359,7 +354,6 @@
 					$('#userPasswd1').focus();
 					
 					return false;
-		
 				}
 
 				return true;
@@ -425,16 +419,9 @@
 					}
 				});			
 			});
-				
-	
-			
-			
-			</script>
+		</script>
 		<script src="./resources/assets/js/headroom.min.js"></script>
 		<script src="./resources/assets/js/jQuery.headroom.min.js"></script>
 		<script src="./resources/assets/js/template.js"></script>
-		<script type="text/javascript">
-			
-		</script>
 	</body>
 </html>

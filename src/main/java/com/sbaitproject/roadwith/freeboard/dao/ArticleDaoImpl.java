@@ -5,20 +5,16 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.sbaitproject.roadwith.freeboard.vo.Article;
-import com.sbaitproject.roadwith.signservice.ContactServicesImpl;
 
 @Repository
 public class ArticleDaoImpl implements ArticleDao {
 
 	@Autowired
 	private SqlSession session;
-	private static final Logger logger = LoggerFactory.getLogger(ContactServicesImpl.class);
 	// end must be point . 
 	private static final String NS = "freeboard.";
 	

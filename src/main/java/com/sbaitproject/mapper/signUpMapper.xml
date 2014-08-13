@@ -1,16 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="signup">
-    <resultMap id="person"  type="com.sbaitproject.roadwith.vo.Person" >
-        <result property="userId" column="users_num"/>
-        <result property="userName" column="name"/>
-        <result property="userId" column="id"/>
-        <result property="userNickName" column="nickname"/>
-        <result property="userPasswd" column="pw"/>
-		<result property="userEmail" column="email"/>
-		<result property="time" column="time"/>
-    </resultMap>
-    
     <select id="FindById" parameterType="String" resultType="int">
     	SELECT count(*)
     	FROM users
@@ -28,5 +18,4 @@
 		(user_num, name, id, nickname, pw, email, time )
 		VALUES (users_num_seq.NEXTVAL -1, #{name}, #{id}, #{nickName}, #{pw}, #{email}, #{logtime})
 	</insert>
-
 </mapper>
