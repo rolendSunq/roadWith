@@ -101,7 +101,7 @@
 									</div>
 									<div class="top-margin">
 										<label>아이디 ( 로그인시 사용됩니다. )</label> 
-										<input type="text" class="form-control" id="userId" name="id" placeholder="영문, 숫자를 혼합하여 7자리 이상 입력하세요.">
+										<input type="text" class="form-control" id="userId" name="id" placeholder="영문, 숫자를 혼합하여 7자리 이상 15자리 이하로 입력하세요.">
 									</div>
 									<div class="top-margin">
 										<label>별명 ( 게시판에서 불려질 별명입니다. )</label> 
@@ -116,7 +116,7 @@
 									<div class="row top-margin">
 										<div class="col-sm-6">
 											<label>패스워드 <span class="text-danger">*</span></label> <input
-												type="password" class="form-control" id="userPasswd1" name="passwd1">
+												type="password" class="form-control" id="userPasswd1" name="passwd1" >
 										</div>
 										<div class="col-sm-6">
 											<label>패스워드 확인 <span class="text-danger">*</span></label> <input
@@ -129,7 +129,7 @@
 									<div class="row">
 	
 										<div class="col-lg-12 text-right">
-											<button class="btn btn-primary btn-lg" type="button"
+											<button class="btn btn-primary btn-lg" type="button"  
 												id="signUpBtn">가입완료</button>
 										</div>
 									</div>
@@ -261,6 +261,7 @@
 				
 				if (!userId.match(idExp)) {
 					alert('아이디 형식이 맞지 않습니다.');
+					$('#userId').val('');
 					$('#userId').focus();
 					return false;
 				}
@@ -297,6 +298,14 @@
 					return false;
 				}
 				
+				if (!userEmail.match(emailExp)) {
+					alert('올바른 Email Address를 입력해주세요');
+					$('#userEmail').val('');
+					$('#userEmail').focus();
+					
+					return false;
+				}
+				
 				return true;
 			}
 			
@@ -304,6 +313,9 @@
 			
 			function validation() {
 				var hangulExp = /^[가-힣]{2,5}$/;
+				var idExp = /^[a-z]+[a-z]|[0-9]{7,15}$/g;
+				var nickNameExp = /^[ㄱ-ㅎ|가-힣|a-z|A-Z|0-9|\*]+$/;
+				var emailExp = /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{2,5}$/;
 				var userName = $('#userName').val();			
 				var userId = $('#userId').val();
 				var userNickName = $('#userNickName').val();
@@ -353,10 +365,40 @@
 					$('#userPasswd2').val('');
 					$('#userPasswd1').focus();
 					
+					return false;	
+				}
+				
+				if (!userName.match(hangulExp)) {
+					alert('정확한 이름을 입력하세요.');
+					$('#userName').val('');
+					$('#userName').focus();
 					return false;
 				}
 
-				return true;
+				if (!userId.match(idExp)) {
+					alert('아이디 형식이 맞지 않습니다.');
+					$('#userId').val('');
+					$('#userId').focus();
+					return false;
+				}
+				
+				if (!userNickName.match(nickNameExp)) {
+					alert('영문자와 한글,숫자만을 입력하세요.');
+					$('#userNickName').val('');
+					$('#userNickName').focus();
+					return false;
+				}
+				
+				if (!userEmail.match(emailExp)) {
+					alert('올바른 Email Address를 입력해주세요');
+					$('#userEmail').val('');
+					$('#userEmail').focus();
+					
+					return false;
+				}
+				
+				
+				$('form[name=signUpFrm]').attr({action:'welcome',method:'post'}).submit();
 			}
 	
 			$(document).ready(function() {
@@ -412,12 +454,18 @@
 				});
 				
 				$('#userPasswd1').keydown(function(e){
-					if (e.keyCode == 13){
-						if (checkUserEmail()){
-							$('#userPasswd2').focus();
-						}						
+					if (e.keyCode == 13){											
+						$('#userPasswd2').focus();												
 					}
-				});			
+				});	
+				
+				$('#userPasswd2').keydown(function(e){
+					if (e.keyCode == 13){											
+						if (validation()) {
+							$('form[name=signUpFrm]').submit();
+						}											
+					}
+				});	
 			});
 		</script>
 		<script src="./resources/assets/js/headroom.min.js"></script>

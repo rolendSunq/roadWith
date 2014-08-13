@@ -89,7 +89,7 @@
 											<b><a href="">Forgot password?</a></b>
 										</div>
 										<div class="col-lg-4 text-right">
-											<button class="btn btn-action" type="button" id="signinBtn">Sign in</button>
+											<button class="btn btn-primary btn-lg" type="button" id="signinBtn">Sign in</button>
 										</div>
 									</div>
 									<input type="hidden" name="email" id="emailHd">
