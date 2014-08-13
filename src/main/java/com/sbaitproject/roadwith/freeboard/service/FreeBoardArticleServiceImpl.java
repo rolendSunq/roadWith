@@ -164,7 +164,8 @@ public class FreeBoardArticleServiceImpl implements FreeBoardArticleService {
 	public void updateArticleService(Article article, Model model) {
 		articleDao.updateArticle(article);
 		Article newArticle = articleDao.selectById(article.getArticleId());
-		List<Article> replyArticleList = articleDao.selectGroupIdByReply(article.getGroupId());
+		System.out.println("group_id: " + newArticle.getGroupId());
+		List<Article> replyArticleList = articleDao.selectGroupIdByReply(newArticle.getGroupId());
 		model.addAttribute("article", newArticle);
 		model.addAttribute("replyArticleList", replyArticleList);
 	}

@@ -50,8 +50,15 @@
 		SELECT *
 		FROM (SELECT * FROM FREEBOARD WHERE group_id = #{group_id})
 		WHERE group_id &lt;&gt; article_id
-		ORDER BY posting_date ASC;
+		ORDER BY posting_date ASC
 	</select>
+	
+	<select id="SelectGroupIdByArticleId" parameterType="int" resultType="int">
+		SELECT group_id
+		FROM freeboard
+		WHERE article_id = #{articleId}
+	</select>
+	
 	<insert id="InsertArticle" parameterType="com.sbaitproject.roadwith.freeboard.vo.Article" >
 		insert into freeBoard
 		(article_id, group_id, sequence_no, posting_date, read_count, writer_name, password, title, content)

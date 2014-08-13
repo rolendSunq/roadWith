@@ -28,4 +28,3 @@ order by posting_date asc;
 --select * from freeboard
 --where article_id = group_id
 --order by posting_date desc;
-

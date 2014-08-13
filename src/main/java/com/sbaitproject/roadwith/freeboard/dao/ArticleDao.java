@@ -16,4 +16,5 @@ import com.sbaitproject.roadwith.freeboard.vo.Article;
 	public String selectLastSeqNumber(String maxNumber, String minNumber);
 	public List<Article> selectGroupIdByReply(int group_id);
 	public void updateArticle(Article article);
+	public int selectGroupIdByArticleId(int articleId);
 }

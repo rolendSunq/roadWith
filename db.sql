@@ -186,6 +186,7 @@ insert into users values
   DESC users
   select * from USERS;
 
+--  truncate table users;
 
 
 /*-------------------러너 페이지-------------------------------*/

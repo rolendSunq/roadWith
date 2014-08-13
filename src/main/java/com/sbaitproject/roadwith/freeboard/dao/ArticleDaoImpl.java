@@ -80,7 +80,12 @@ public class ArticleDaoImpl implements ArticleDao {
 		param.put("title", article.getTitle());
 		param.put("content", article.getContent());
 		param.put("articleId", article.getArticleId());
-		session.update(NS, param);
+		session.update(NS + "UpdateArticle", param);
+	}
+
+	@Override
+	public int selectGroupIdByArticleId(int articleId) {
+		return session.selectOne(NS + "SelectGroupIdByArticleId", articleId);
 	}
 
 }

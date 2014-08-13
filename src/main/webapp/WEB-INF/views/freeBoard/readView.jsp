@@ -82,12 +82,12 @@
 				    </div>
 					<!--/readBox End -->
 					<!-- updateBox -->
-					<div class="panel panel-info" id="updateBox">
+					<div class="panel panel-warning" id="updateBox">
 						<form name="updateFrm" method="get" action="updateArticle">
 							<div class="panel-heading">
 								<div class="form-inline">
 									<div>
-										<input id="updateTitle" class="form-control" value="${article.title}" style="width:100%;">
+										<input type="text" id="updateTitle" name="title" class="form-control" value="${article.title}" style="width:100%;">
 									</div>
 									<div class="text-right">
 										<div class="form-group">
@@ -100,8 +100,14 @@
 								</div>
 							</div>
 							<div class="panel-body">
-								<textarea rows="3" class="form-control" name="content">${article.content}</textarea>
+								<textarea rows="3" class="form-control" name="content" id="updateContent">${article.content}</textarea>
+								<div class="row">
+									<div class="col-md-3">
+										<button type="button" class="btn btn-default" id="enterEditBtn"><i class="fa fa-cog"></i> 등록</button>
+									</div>
+								</div>
 							</div>
+							<input type="hidden" name="articleId" value="${article.getArticleId() }">
 						</form>
 				    </div>
 					<!--/updateBox End -->
@@ -144,7 +150,6 @@
 				<div class="col-md-8 col-md-offset-2">
 					<a class="btn btn-default" href="freeBoard"><i class="fa fa-arrow-left"></i> 목록</a>
 					<button type="button" class="btn btn-default" id="replyDisplayBtn"><i class="fa fa-hand-o-right"></i> 답글</button>
-					<button type="button" class="btn btn-default" id="updateBtn"><i class="fa fa-pencil-square-o"></i> 수정완료</button>
 					<button type="button" class="btn btn-default" id="updateDisplayBtn"><i class="fa fa-pencil-square-o"></i> 수정</button>
 					<a class="btn btn-default" href="deletArticle"><i class="fa fa-trash-o"></i> 삭제</a>
 				</div>
@@ -216,9 +221,12 @@
 		<script>
 			var status = 'hide';
 			var updateStatus = 'hide';
+			
 			$(document).ready(function(){
-				
+				var title = $('#updateTitle').val();
+				var content = $('#updateContent').val();
 				$('#replyForm').hide();
+				$('#updateBox').hide();
 				$('#replyDisplayBtn').click(function(){
 					if (status == 'hide') {
 						status = 'show';
@@ -234,24 +242,20 @@
 					}
 				});
 				
-				$('#updateBtn').hide();
-				$('#upTextArea').hide();
-				$('#updateBox').hide();
 				$('#updateDisplayBtn').click(function(){
 					if (updateStatus == 'hide') {
 						updateStatus = 'show';
 						$('#readBox').hide();
-						$('#titleId').hide();
-						$('#readContent').hide();
-						$('#updateDisplayBtn').hide();
 						$('#updateBox').show();
-						$('#upTextArea').show();
-						$('#updateBtn').show();
+						$(this).html('<i class="fa fa-pencil-square-o"></i> 수정취소');
 						$('#updateTitle').focus();
 					} else{
 						updateStatus = 'hide';
-						$('#upTextArea').hide();
-						$('#updateBtn').hide();
+						$('#updateBox').hide();
+						$('#readBox').show();
+						$(this).html('<i class="fa fa-pencil-square-o"></i> 수정');
+						$('#updateTitle').val(title);
+						$('#updateContent').val(content);
 					}
 				});
 				
@@ -262,17 +266,17 @@
 					$('form[name=replyFrm]').attr('action', 'putReply').submit();
 				});					
 				
-				$('#updateBtn').click(function() {
+				$('#enterEditBtn').click(function() {
 					updateStatus = 'hide';
 					$('#readBox').show();
-					$('#updateDisplayBtn').show();
-					$('#titleId').show();
-					$('#readContent').show();
-					$('#upTextArea').hide();
-					$('#updateBtn').hide();
 					$('#updateBox').hide();
 					
+					if (true) {
+						$('form[name=updateFrm]').submit();
+					}
 				});
+				
+				
 			});
 		</script>
 		<script src="./resources/assets/js/headroom.min.js"></script>
