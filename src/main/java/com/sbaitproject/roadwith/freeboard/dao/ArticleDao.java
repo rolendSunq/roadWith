@@ -10,11 +10,10 @@ import com.sbaitproject.roadwith.freeboard.vo.Article;
 	public List<Article> articleSelected(int firstRow, int endRow);
 	public int insertArticle(Article article);
 	public Article selectById(int articleId);
-	void increaseReadCount(int articleId);
-	public int update(Article article);
 	public int selectLastArticleNo();
 	public void updateReadCount(int readCount, int articleId);
 	public int selectReadCount(int articleId);
 	public String selectLastSeqNumber(String maxNumber, String minNumber);
 	public List<Article> selectGroupIdByReply(int group_id);
+	public void updateArticle(Article article);
 }

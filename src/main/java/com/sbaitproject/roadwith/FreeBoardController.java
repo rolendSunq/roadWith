@@ -43,4 +43,11 @@ public class FreeBoardController {
 		freeBoardArticleService.registrationReply(articleId, model, replyArticle);
 		return "freeBoard/readView";
 	}
+	
+	@RequestMapping(value = "updateArticle")
+	public String updateArticleController(Model model, Article article) {
+		freeBoardArticleService.updateArticleService(article, model);
+		return "freeBoard/readView";
+		
+	}
 }

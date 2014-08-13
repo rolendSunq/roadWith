@@ -83,24 +83,26 @@
 					<!--/readBox End -->
 					<!-- updateBox -->
 					<div class="panel panel-info" id="updateBox">
-						<div class="panel-heading">
-							<div class="form-inline">
-								<div>
-									<input id="updateTitle" class="panel-title" value="${article.title}" style="width:100%;">
-								</div>
-								<div class="text-right">
-									<div class="form-group">
-										<h4 class="text-right"><small>${article.writerName}</small></h4>
+						<form name="updateFrm" method="get" action="updateArticle">
+							<div class="panel-heading">
+								<div class="form-inline">
+									<div>
+										<input id="updateTitle" class="form-control" value="${article.title}" style="width:100%;">
 									</div>
-									<div class="form-group">
-										<h4 class="text-right"><small><fmt:formatDate value="${article.postingDate}" pattern="yyyy-MM-dd"/></small></h4>
+									<div class="text-right">
+										<div class="form-group">
+											<h4 class="text-right"><small>${article.writerName}</small></h4>
+										</div>
+										<div class="form-group">
+											<h4 class="text-right"><small><fmt:formatDate value="${article.postingDate}" pattern="yyyy-MM-dd"/></small></h4>
+										</div>
 									</div>
 								</div>
 							</div>
-						</div>
-						<div class="panel-body">
-							<textarea rows="3" class="form-control" name="content">${article.content}</textarea>
-						</div>
+							<div class="panel-body">
+								<textarea rows="3" class="form-control" name="content">${article.content}</textarea>
+							</div>
+						</form>
 				    </div>
 					<!--/updateBox End -->
 				</div>
@@ -269,6 +271,7 @@
 					$('#upTextArea').hide();
 					$('#updateBtn').hide();
 					$('#updateBox').hide();
+					
 				});
 			});
 		</script>

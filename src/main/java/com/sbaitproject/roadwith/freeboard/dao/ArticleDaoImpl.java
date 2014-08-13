@@ -44,18 +44,6 @@ public class ArticleDaoImpl implements ArticleDao {
 	}
 
 	@Override
-	public void increaseReadCount(int articleId) {
-		
-		
-	}
-
-	@Override
-	public int update(Article article) {
-		
-		return 0;
-	}
-
-	@Override
 	public int selectLastArticleNo() {
 		return session.selectOne(NS + "SelectLastArticleNo");
 	}
@@ -84,6 +72,15 @@ public class ArticleDaoImpl implements ArticleDao {
 	@Override
 	public List<Article> selectGroupIdByReply(int group_id) {
 		return session.selectList(NS + "SelectGroupIdByReply", group_id);
+	}
+
+	@Override
+	public void updateArticle(Article article) {
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("title", article.getTitle());
+		param.put("content", article.getContent());
+		param.put("articleId", article.getArticleId());
+		session.update(NS, param);
 	}
 
 }
