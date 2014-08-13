@@ -29,5 +29,6 @@
 	<context:component-scan base-package="freeBoard" />
 	<context:component-scan base-package="previewGroup" />
 	<context:component-scan base-package="weathers" />
+	<!-- mail Bean -->
 	
 </beans:beans>

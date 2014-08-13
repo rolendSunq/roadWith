@@ -8,6 +8,7 @@
 	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
 	
 	<title>로드러너</title>
+	
 
 	<link rel="shortcut icon" href="./resources/assets/images/gt_favicon.png">
 	<link rel="stylesheet" media="screen" href="./resources/assets/css/googleFont.css">
@@ -23,9 +24,17 @@
 	<script src="./resources/assets/js/html5shiv.js"></script>
 	<script src="./resources/assets/js/respond.min.js"></script>
 	<![endif]-->
+	<style type="text/css">
+	.img-responsive{
+	display : black;
+	height : auto;
+	max-width : 100%;
+	}
+	</style>
 </head>
 
 <body class="home">
+<img src="..." class="img-responsive" alt="Responsive image">
 	<!-- Fixed navbar -->
 	<div class="navbar navbar-inverse navbar-fixed-top headroom" >
 		<div class="container">
@@ -104,21 +113,21 @@
 					<div class="h-caption">
 					<h4 class="btn" id="iconAb"><i class="fa fa-flash fa-5"  id="boardIC" ></i>About</h4></div>
 					<div class="h-body text-center">
-						<p>[자유롭게 보실 수 있습니다.] RoadRunner를 만들게 된 계기와 제작자들의 간단한 프로필을 공개합니다.</p>
+						<p>[자유롭게 보실 수 있습니다.] RoadWith를 만들게 된 계기와 제작자들의 간단한 프로필을 공개합니다.</p>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 highlight">
 					<div class="h-caption">
 					<h4 class="btn" id="iconNo" ><i class="fa fa-heart fa-5" id="boardIC" ></i>Notice</h4></div>
 					<div class="h-body text-center">
-						<p>[정보 확인은 로그인이 필요합니다.] RoadRunner가 어떤 변화를 거쳐왔는지와 업데이트의 기록을 보실수 있습니다.</p>
+						<p>[정보 확인은 로그인이 필요합니다.] RoadWith가 어떤 변화를 거쳐왔는지와 업데이트의 기록을 보실수 있습니다.</p>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 highlight">
 					<div class="h-caption">
 					<h4 class="btn" id="iconCo"><i class="fa fa-smile-o fa-5" id="boardIC" ></i>Contact Us</h4></div>
 					<div class="h-body text-center">
-						<p>[로그인이 필요한 서비스 입니다.] 직접 RoadRunner를 사용해보시며, 불편하거나 개선될 점을 제작자에게 알려주세요!</p>
+						<p>[로그인이 필요한 서비스 입니다.] 직접 RoadWith를 사용해보시며, 불편하거나 개선될 점을 제작자에게 알려주세요!</p>
 					</div>
 				</div>
 			</div> <!-- /row  -->

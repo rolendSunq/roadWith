@@ -83,19 +83,19 @@
 					<form>
 						<div class="row">
 							<div class="col-sm-4">
-								<input class="form-control" type="text" placeholder="이름">
+								<input class="form-control" type="text" placeholder="이름" id="contectName">
 							</div>
 							<div class="col-sm-4">
-								<input class="form-control" type="text" placeholder="Email">
+								<input class="form-control" type="text" placeholder="Email" id="contactEmail">
 							</div>
 							<div class="col-sm-4">
-								<input class="form-control" type="text" placeholder="연락처">
+								<input class="form-control" type="text" placeholder="연락처" id="phoneNumber">
 							</div>
 						</div>
 						<br>
 						<div class="row">
 							<div class="col-sm-12">
-								<textarea placeholder="여러분의 의견을 적어주세요..." class="form-control" rows="9"></textarea>
+								<textarea placeholder="여러분의 의견을 적어주세요..." class="form-control" rows="9" id="contactText"></textarea>
 							</div>
 						</div>
 						<br>
@@ -131,10 +131,6 @@
 
 		</div>
 	</div>	<!-- /container -->
-	
-	<section class="container-full top-space">
-		<div id="map"></div>
-	</section>
 	
 <footer id="footer" class="top-space">
 

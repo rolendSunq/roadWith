@@ -77,12 +77,31 @@
 							</div>
 						</div>
 						<div class="panel-body">
-							<pre class="row"><c:out value="${article.content}"/></pre>
+							<pre class="row" id="readContent"><c:out value="${article.content}"/></pre>
 						</div>
 				    </div>
 					<!--/readBox End -->
 					<!-- updateBox -->
-					
+					<div class="panel panel-info" id="updateBox">
+						<div class="panel-heading">
+							<div class="form-inline">
+								<div>
+									<input id="updateTitle" class="panel-title" value="${article.title}" style="width:100%;">
+								</div>
+								<div class="text-right">
+									<div class="form-group">
+										<h4 class="text-right"><small>${article.writerName}</small></h4>
+									</div>
+									<div class="form-group">
+										<h4 class="text-right"><small><fmt:formatDate value="${article.postingDate}" pattern="yyyy-MM-dd"/></small></h4>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="panel-body">
+							<textarea rows="3" class="form-control" name="content">${article.content}</textarea>
+						</div>
+				    </div>
 					<!--/updateBox End -->
 				</div>
 			</div>
@@ -90,6 +109,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
+					<!-- replyForm -->
 					<div class="panel panel-default" id="replyForm">
 						<div class="panel-heading">
 							<form name="replyFrm">
@@ -113,6 +133,7 @@
 							</form>
 						</div>
 					</div>
+					<!-- /replyForm End -->
 				</div>
 			</div>
 		</div>
@@ -121,7 +142,8 @@
 				<div class="col-md-8 col-md-offset-2">
 					<a class="btn btn-default" href="freeBoard"><i class="fa fa-arrow-left"></i> 목록</a>
 					<button type="button" class="btn btn-default" id="replyDisplayBtn"><i class="fa fa-hand-o-right"></i> 답글</button>
-					<a class="btn btn-default" href="editArticle"><i class="fa fa-pencil-square-o"></i> 수정</a>
+					<button type="button" class="btn btn-default" id="updateBtn"><i class="fa fa-pencil-square-o"></i> 수정완료</button>
+					<button type="button" class="btn btn-default" id="updateDisplayBtn"><i class="fa fa-pencil-square-o"></i> 수정</button>
 					<a class="btn btn-default" href="deletArticle"><i class="fa fa-trash-o"></i> 삭제</a>
 				</div>
 			</div>
@@ -193,6 +215,7 @@
 			var status = 'hide';
 			var updateStatus = 'hide';
 			$(document).ready(function(){
+				
 				$('#replyForm').hide();
 				$('#replyDisplayBtn').click(function(){
 					if (status == 'hide') {
@@ -209,11 +232,43 @@
 					}
 				});
 				
+				$('#updateBtn').hide();
+				$('#upTextArea').hide();
+				$('#updateBox').hide();
+				$('#updateDisplayBtn').click(function(){
+					if (updateStatus == 'hide') {
+						updateStatus = 'show';
+						$('#readBox').hide();
+						$('#titleId').hide();
+						$('#readContent').hide();
+						$('#updateDisplayBtn').hide();
+						$('#updateBox').show();
+						$('#upTextArea').show();
+						$('#updateBtn').show();
+						$('#updateTitle').focus();
+					} else{
+						updateStatus = 'hide';
+						$('#upTextArea').hide();
+						$('#updateBtn').hide();
+					}
+				});
+				
 				$('#replyBtn').click(function(){
 					status = 'hide';
 					$('#replyDisplayBtn').html('<i class="fa fa-hand-o-right"></i> 답글');
 					$('#replyForm').hide();
 					$('form[name=replyFrm]').attr('action', 'putReply').submit();
+				});					
+				
+				$('#updateBtn').click(function() {
+					updateStatus = 'hide';
+					$('#readBox').show();
+					$('#updateDisplayBtn').show();
+					$('#titleId').show();
+					$('#readContent').show();
+					$('#upTextArea').hide();
+					$('#updateBtn').hide();
+					$('#updateBox').hide();
 				});
 			});
 		</script>
