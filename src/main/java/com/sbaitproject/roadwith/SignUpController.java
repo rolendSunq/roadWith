@@ -1,5 +1,7 @@
 package com.sbaitproject.roadwith;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -42,11 +44,9 @@ public class SignUpController{
 	}
 	
 	@RequestMapping(value = "ajaxCheckUserId", method = RequestMethod.POST)
-	public String ajaxCheckUserIdController(@RequestBody String json, Model model) {
+	public void ajaxCheckUserIdController(@RequestBody String json, HttpServletResponse response) {
 		String data = json;
 		String userId = data.substring(3, data.length());
-		userService.searchId(userId, model);
-//		System.out.println("userId : " + result);
-		return "signUp/signup";
+		userService.searchId(userId, response);
 	}
 }
