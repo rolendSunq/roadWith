@@ -59,7 +59,8 @@
 		<div class="container"	>
 			<div class="row">
 				<div class="col-md-8 col-md-offset-2">
-					<div class="panel panel-info">
+					<!-- readBox -->
+					<div class="panel panel-info" id="readBox">
 						<div class="panel-heading">
 							<div class="form-inline">
 								<div>
@@ -78,8 +79,11 @@
 						<div class="panel-body">
 							<pre class="row"><c:out value="${article.content}"/></pre>
 						</div>
-						
 				    </div>
+					<!--/readBox End -->
+					<!-- updateBox -->
+					
+					<!--/updateBox End -->
 				</div>
 			</div>
 		</div>
@@ -187,6 +191,7 @@
 		<script src="./resources/assets/js/bootstrap.min.js"></script>
 		<script>
 			var status = 'hide';
+			var updateStatus = 'hide';
 			$(document).ready(function(){
 				$('#replyForm').hide();
 				$('#replyDisplayBtn').click(function(){

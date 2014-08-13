@@ -1,9 +1,15 @@
 package com.sbaitproject.roadwith.signup.service;
 
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import com.google.gson.Gson;
 import com.sbaitproject.roadwith.signup.dao.UserDao;
 import com.sbaitproject.roadwith.vo.Person;
 
@@ -22,16 +28,30 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public void searchId(String id, Model model) {
-		int result = userDao.findById(id);
+	public void searchId(String id, HttpServletResponse response) {
+		Gson gson = new Gson();
+		PrintWriter printWriter = null;
 		String status = null;
+		
+		int result = userDao.findById(id);
 		
 		if (result == 0) {
 			 status = "success";
 		} else {
 			status = "failure";
 		}
-		System.out.println("Id 조회: " + status);
+		
+		response.setContentType("application/json");
+		response.setContentType("text/xml; charset=UTF-8");
+		response.setHeader("Cache-Control", "no-cache");
+		try {
+			printWriter = new PrintWriter(response.getWriter());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		printWriter.println(gson.toJson(status));
+		printWriter.flush();
+		printWriter.close();
 	}
 
 	@Override

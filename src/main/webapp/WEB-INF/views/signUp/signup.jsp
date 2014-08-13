@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="ko">
 	<head>
@@ -7,39 +6,30 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
 		<meta name="author" content="Sergey Pozhilov (GetTemplate.com)">
-		
 		<title>Sign up - Progressus Bootstrap template</title>
-		
-		<link rel="shortcut icon"
-			href="./resources/assets/images/gt_favicon.png">
-		
-		<link rel="stylesheet" media="screen"
-			href="./resources/assets/css/googleFont.css">
+		<link rel="shortcut icon" href="./resources/assets/images/gt_favicon.png">
+		<link rel="stylesheet" media="screen" href="./resources/assets/css/googleFont.css">
 		<link rel="stylesheet" href="./resources/assets/css/bootstrap.min.css">
-		<link rel="stylesheet"
-			href="./resources/assets/css/font-awesome.min.css">
-		
+		<link rel="stylesheet" href="./resources/assets/css/font-awesome.min.css">
 		<!-- Custom styles for our template -->
 		<link rel="stylesheet" href="./resources/assets/css/bootstrap-theme.css" media="screen">
 		<link rel="stylesheet" href="./resources/assets/css/main.css">
-		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 			<script src="./resources/assets/js/html5shiv.js"></script>
 			<script src="./resources/assets/js/respond.min.js"></script>
 		<![endif]-->
 	</head>
-	
 	<body>
 		<!-- Fixed navbar -->
 		<div class="navbar navbar-inverse navbar-fixed-top headroom">
 			<div class="container">
 				<div class="navbar-header">
 					<!-- Button for smallest screens -->
-					<button type="button" class="navbar-toggle" data-toggle="collapse"
-						data-target=".navbar-collapse">
-						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
-							class="icon-bar"></span>
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span> 
+						<span class="icon-bar"></span> 
+						<span class="icon-bar"></span>
 					</button>
 					<a class="navbar-brand" href="/roadwith"><img
 						src="./resources/assets/images/logo.png"
@@ -54,7 +44,8 @@
 							<ul class="dropdown-menu">
 								<li><a href="freeBoard">자유게시판</a></li>
 								<li><a href="R2Board">러너 / 라이더</a></li>
-							</ul></li>
+							</ul>
+						</li>
 						<li><a href="notice">공지사항</a></li>
 						<li><a href="contact">문의사항</a></li>
 						<li><a href="weather">날씨</a></li>
@@ -65,25 +56,19 @@
 			</div>
 		</div>
 		<!-- /.navbar -->
-	
 		<header id="head" class="secondary"></header>
-	
 		<!-- container -->
 		<div class="container">
-	
 			<ol class="breadcrumb">
 				<li><a href="index.html">Home</a></li>
 				<li class="active">회원가입</li>
 			</ol>
-	
 			<div class="row">
-	
 				<!-- Article main content -->
 				<article class="col-xs-12 maincontent">
 					<header class="page-header">
 						<h1 class="page-title">회원가입</h1>
 					</header>
-	
 					<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
 						<div class="panel panel-default">
 							<div class="panel-body">
@@ -93,7 +78,6 @@
 									개인 정보 보호로 연락처와 주민번호는 묻지 않습니다.
 								</p>
 								<hr>
-	
 								<form method="post" action="signUp" name="signUpFrm">
 									<div class="top-margin">
 										<label>성함 ( 공개 되지 않습니다. )</label>
@@ -123,11 +107,8 @@
 												type="password" class="form-control" id="userPasswd2" name="passwd2">
 										</div>
 									</div>
-	
 									<hr>
-	
 									<div class="row">
-	
 										<div class="col-lg-12 text-right">
 											<button class="btn btn-primary btn-lg" type="button"  
 												id="signUpBtn">가입완료</button>
@@ -136,23 +117,16 @@
 								</form>
 							</div>
 						</div>
-	
 					</div>
-	
 				</article>
 				<!-- /Article -->
-	
 			</div>
 		</div>
 		<!-- /container -->
-	
-	
 		<footer id="footer" class="top-space">
-	
 			<div class="footer1">
 				<div class="container">
 					<div class="row">
-	
 						<div class="col-md-3 widget">
 							<h3 class="widget-title">Contact</h3>
 							<div class="widget-body">
@@ -162,19 +136,17 @@
 								</p>
 							</div>
 						</div>
-	
 						<div class="col-md-3 widget">
 							<h3 class="widget-title">Follow me</h3>
 							<div class="widget-body">
 								<p class="follow-me-icons clearfix">
-									<a href=""><i class="fa fa-twitter fa-2"></i></a> <a href=""><i
-										class="fa fa-dribbble fa-2"></i></a> <a href=""><i
-										class="fa fa-github fa-2"></i></a> <a href=""><i
-										class="fa fa-facebook fa-2"></i></a>
+									<a href=""><i class="fa fa-twitter fa-2"></i></a>
+									<a href=""><i class="fa fa-dribbble fa-2"></i></a> 
+									<a href=""><i class="fa fa-github fa-2"></i></a>
+									<a href=""><i class="fa fa-facebook fa-2"></i></a>
 								</p>
 							</div>
 						</div>
-	
 						<div class="col-md-6 widget">
 							<h3 class="widget-title">Text widget</h3>
 							<div class="widget-body">
@@ -191,31 +163,28 @@
 									reprehenderit architecto sint libero illo et hic.</p>
 							</div>
 						</div>
-	
 					</div>
 					<!-- /row of widgets -->
 				</div>
 			</div>
-	
 			<div class="footer2">
 				<div class="container">
 					<div class="row">
-	
 						<div class="col-md-6 widget">
 							<div class="widget-body">
 								<p class="simplenav">
-									<a href="#">Home</a> | <a href="about.html">About</a> | <a
-										href="sidebar-right.html">Sidebar</a> | <a href="contact.html">Contact</a>
+									<a href="#">Home</a> | <a href="about.html">About</a> | 
+									<a href="sidebar-right.html">Sidebar</a> | 
+									<a href="contact.html">Contact</a>
 									| <b><a href="signup.html">Sign up</a></b>
 								</p>
 							</div>
 						</div>
-	
 						<div class="col-md-6 widget">
 							<div class="widget-body">
 								<p class="text-right">
-									Copyright &copy; 2014, Your name. Designed by <a
-										href="http://gettemplate.com/" rel="designer">gettemplate</a>
+									Copyright &copy; 2014, Your name. Designed by 
+									<a href="http://gettemplate.com/" rel="designer">gettemplate</a>
 								</p>
 							</div>
 						</div>
@@ -419,7 +388,6 @@
 				$('#userId').keydown(function(e){
 					if (e.keyCode == 13){
 						if (checkUserId()){
-							alert('before');
 							$.ajax({
 							    type : "POST"
 							    ,async : true
@@ -428,10 +396,15 @@
 							    ,data : {id:$(this).val()}
 							    ,contentType: "application/json; charset=utf-8"
 							    ,success : function(response, status, request) {
-							    	alert('success');
+							    	if (response == 'success') {
+										alert('유효한 아이디 입니다.');
+										$('#userNickName').focus();
+									} else {
+										alert('중복되는 아이디 입니다.');
+										$('#userId').focus();
+									}
 							    }
 							});
-							alert('after');
 						}
 						
 					}
