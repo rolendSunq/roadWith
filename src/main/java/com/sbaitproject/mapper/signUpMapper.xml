@@ -19,6 +19,12 @@
     	WHERE email = #{userEmail}
     </select>
     
+    <select id="FindPasswdById" parameterType="String" resultType="String">
+	   SELECT pw
+	   FROM users
+	   WHERE id = #{userId}
+    </select>
+    
     <insert id="SignUpInsert" parameterType="com.sbaitproject.roadwith.vo.Person">
 		INSERT INTO users 
 		(users_num, name, id, nickname, pw, email, logTime )

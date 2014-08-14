@@ -8,4 +8,5 @@ public interface UserDao {
 	public int findByEmail(String email);
 	public void signUpInsert(Person person);
 	public String findIdByEmail(String userEmail);
+	public String findPasswdById(String userId);
 }

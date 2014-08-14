@@ -48,7 +48,7 @@
 					<li><a href="R2Board">러너 / 라이더</a></li>
 					</ul>
 					</li>
-					<li><a href="notice">공지사항</a></li>
+					<li><a class="btn" id="navNotice">공지사항</a></li>
 					<li><a href="contact">문의사항</a></li>
 					<li><a href="weather">날씨</a></li>
 					<li><a class="btn" href="signin.html?signin">로그인 / 회원가입</a></li>
@@ -57,6 +57,193 @@
 		</div>
 	</div> 
 	<!-- /.navbar -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel"><b>공지 사항</b></h4>
+      </div>
+      <div class="modal-body">
+      <div class="page-header">
+					<h2>
+						<b>Test1</b> 
+					</h2>
+				</div>
+      안녕하세요~! 
+익스트림 액션 MMORPG 데카론 입니다.
+ 
+데카론을 사랑하고 아껴주시는 회원 여러분께 감사의 말씀 드리며,
+2014년 08월 14일 목요일 전 서버 임시점검 일정을 안내해 드립니다.
+ 
+자세한 사항은 이하를 참고 바랍니다.
+ 
+ 
+◎ 점검 일시:
+ 
+    ■ 게임서버점검 - 2014년 08월 14일 (목) 07:00 ~ 09:00 (약 2시간)
+ 
+ 
+◎ 게임 패치 내용:
+ 
+    ■ 로스트 호라이즌에서 스마트 드랍을 통한 0~4강 아이템이
+      드랍되지 않는 오류 수정
+
+
+회원 여러분들의 뜨거운 관심과 열정에 항상 감사 드리며
+최선을 다하는 “데카론”을 보여드리겠습니다.
+ 
+감사합니다.
+ 
+      </div>
+      
+        <div class="modal-body">
+        <div class="page-header">
+					<h2>
+						<b>Test2</b> 
+					</h2>
+				</div>
+        
+      안녕하세요~! 
+익스트림 액션 MMORPG 데카론 입니다.
+ 
+데카론을 사랑하고 아껴주시는 회원 여러분께 감사의 말씀 드리며,
+2014년 08월 14일 목요일 전 서버 임시점검 일정을 안내해 드립니다.
+ 
+자세한 사항은 이하를 참고 바랍니다.
+ 
+ 
+◎ 점검 일시:
+ 
+    ■ 게임서버점검 - 2014년 08월 14일 (목) 07:00 ~ 09:00 (약 2시간)
+ 
+ 
+◎ 게임 패치 내용:
+ 
+    ■ 로스트 호라이즌에서 스마트 드랍을 통한 0~4강 아이템이
+      드랍되지 않는 오류 수정
+
+
+회원 여러분들의 뜨거운 관심과 열정에 항상 감사 드리며
+최선을 다하는 “데카론”을 보여드리겠습니다.
+ 
+감사합니다.
+ 
+      </div>
+      
+      <div class="modal-body">
+        <div class="page-header">
+					<h2>
+						<b>Test3</b> 
+					</h2>
+				</div>
+        
+      안녕하세요~! 
+익스트림 액션 MMORPG 데카론 입니다.
+ 
+데카론을 사랑하고 아껴주시는 회원 여러분께 감사의 말씀 드리며,
+2014년 08월 14일 목요일 전 서버 임시점검 일정을 안내해 드립니다.
+ 
+자세한 사항은 이하를 참고 바랍니다.
+ 
+ 
+◎ 점검 일시:
+ 
+    ■ 게임서버점검 - 2014년 08월 14일 (목) 07:00 ~ 09:00 (약 2시간)
+ 
+ 
+◎ 게임 패치 내용:
+ 
+    ■ 로스트 호라이즌에서 스마트 드랍을 통한 0~4강 아이템이
+      드랍되지 않는 오류 수정
+
+
+회원 여러분들의 뜨거운 관심과 열정에 항상 감사 드리며
+최선을 다하는 “데카론”을 보여드리겠습니다.
+ 
+감사합니다.
+ 
+      </div>
+      
+      <div class="modal-body">
+        <div class="page-header">
+					<h2>
+						<b>Test4</b> 
+					</h2>
+				</div>
+        
+      안녕하세요~! 
+익스트림 액션 MMORPG 데카론 입니다.
+ 
+데카론을 사랑하고 아껴주시는 회원 여러분께 감사의 말씀 드리며,
+2014년 08월 14일 목요일 전 서버 임시점검 일정을 안내해 드립니다.
+ 
+자세한 사항은 이하를 참고 바랍니다.
+ 
+ 
+◎ 점검 일시:
+ 
+    ■ 게임서버점검 - 2014년 08월 14일 (목) 07:00 ~ 09:00 (약 2시간)
+ 
+ 
+◎ 게임 패치 내용:
+ 
+    ■ 로스트 호라이즌에서 스마트 드랍을 통한 0~4강 아이템이
+      드랍되지 않는 오류 수정
+
+
+회원 여러분들의 뜨거운 관심과 열정에 항상 감사 드리며
+최선을 다하는 “데카론”을 보여드리겠습니다.
+ 
+감사합니다.
+ 
+      </div>
+      
+      <div class="modal-body">
+        <div class="page-header">
+					<h2>
+						<b>Test5</b> 
+					</h2>
+				</div>
+        
+      안녕하세요~! 
+익스트림 액션 MMORPG 데카론 입니다.
+ 
+데카론을 사랑하고 아껴주시는 회원 여러분께 감사의 말씀 드리며,
+2014년 08월 14일 목요일 전 서버 임시점검 일정을 안내해 드립니다.
+ 
+자세한 사항은 이하를 참고 바랍니다.
+ 
+ 
+◎ 점검 일시:
+ 
+    ■ 게임서버점검 - 2014년 08월 14일 (목) 07:00 ~ 09:00 (약 2시간)
+ 
+ 
+◎ 게임 패치 내용:
+ 
+    ■ 로스트 호라이즌에서 스마트 드랍을 통한 0~4강 아이템이
+      드랍되지 않는 오류 수정
+
+
+회원 여러분들의 뜨거운 관심과 열정에 항상 감사 드리며
+최선을 다하는 “데카론”을 보여드리겠습니다.
+ 
+감사합니다.
+ 
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+      </div>
+    </div>
+  </div>
+</div>
+	
+	
 	
 <footer id="footer" class="top-space">
 
@@ -143,6 +330,12 @@
 					return false;
 				}
 			});
+			
+			$('#navNotice').click(function(){
+				$('#myModal').modal('show');
+			});
+			
+			
 		});
 	</script>
 	<script src="./resources/assets/js/headroom.min.js"></script>

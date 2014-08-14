@@ -70,4 +70,13 @@ public class SignUpController{
 		System.out.println("userEmail: " + userEmail);
 		userService.findIdService(userEmail, response);
 	}
+	
+	@RequestMapping(value = "ajaxFindPasswdById", method = RequestMethod.POST)
+	public void ajaxFindPasswdByIdController(@RequestBody String json, HttpServletResponse response) {
+		String data = json;
+		String userId = data.substring(3, data.length());
+
+		System.out.println("userId: " + userId);
+		userService.findPasswdService(userId, response);
+	}
 }

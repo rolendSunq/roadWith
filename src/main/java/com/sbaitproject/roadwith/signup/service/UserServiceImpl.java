@@ -105,4 +105,32 @@ public class UserServiceImpl implements UserService{
 		printWriter.close();
 	}
 
+	@Override
+	public void findPasswdService(String userId, HttpServletResponse response) {
+		Gson gson = new Gson();
+		PrintWriter printWriter = null;
+		
+		response.setContentType("application/json");
+		response.setContentType("text/xml; charset=UTF-8");
+		response.setHeader("Cache-Control", "no-cache");
+		
+		String result = userDao.findPasswdById(userId);
+		
+		System.out.println(result);
+		
+		try {
+			printWriter = new PrintWriter(response.getWriter());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		printWriter.println(gson.toJson(result));
+		printWriter.flush();
+		printWriter.close();
+		
+	}
+
+
+
+
 }

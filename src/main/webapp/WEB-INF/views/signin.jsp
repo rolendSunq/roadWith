@@ -86,7 +86,8 @@
 									<hr>
 									<div class="row">
 										<div class="col-lg-8">
-											<button type="button" class="btn btn-default" id="findEmailBtn">Forgot password?</button>
+											<button type="button" class="btn btn-default" id="findId">아이디 찾기</button>
+											<button type="button" class="btn btn-default" id="findPasswd">패스워드 찾기</button>
 										</div>
 										<div class="col-lg-4 text-right">
 											<button class="btn btn-primary btn-lg" type="button" id="signinBtn">Sign in</button>
@@ -101,93 +102,53 @@
 				<!-- /Article -->
 			</div>
 		</div>	<!-- /container -->
+		
 		<!-- modal find ID -->
-		<div class="modal fade" id="modalEmail">
+		<div class="modal fade" id="modalId">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-						<h4 class="modal-title">Modal title</h4>
+						<button type="button" class="close" data-dismiss="modal" id="cancelIdBtn1"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title"><b>아이디 찾기</b></h4>
 					</div>
 					<div class="modal-body">
-						<p id="modalTitle">가입한 Email 입력</p>
+						<p id="modalTitleEmail">가입한 Email 입력</p>
 						<input type="text" class="form-control" id="emailInp">
+						<br/>
+						<label id="serchIdByEmail"></label>
 					</div>
 					<div class="modal-footer">
-					    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					    <button type="button" class="btn btn-primary" id="findIdBtn">찾기</button>
+					    <button type="button" class="btn btn-default" data-dismiss="modal" id="cancelIdBtn2">취소</button>
+					    <button type="button" class="btn btn-primary" id="findIdBtn">확인</button>
 				  	</div>
 				</div><!-- /.modal-content -->
 			</div><!-- /.modal-dialog -->
 		</div><!-- /.modal -->
-		<footer id="footer" class="top-space">
-
-		<div class="footer1">
-			<div class="container">
-				<div class="row">
-					
-					<div class="col-md-3 widget">
-						<h3 class="widget-title">문의관련</h3>
-						<div class="widget-body">
-							<p>010-5423-2723<br>
-								<a href="mailto:#">jjunghee@sba.seoul.kr</a><br>
-								<br>
-								서울시 마포구 성암로 330 DMC첨단산업센터
-							</p>	
-						</div>
+		
+		<!-- modal find ID -->
+		<div class="modal fade" id="modalPasswd">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" id="cancelPasswdBtn1"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title"><b>패스워드 찾기</b></h4>
 					</div>
-
-					<div class="col-md-3 widget">
-						<h3 class="widget-title">Follow me</h3>
-						<div class="widget-body">
-							<p class="follow-me-icons">
-								<a href=""><i class="fa fa-twitter fa-2"></i></a>
-								<a href=""><i class="fa fa-dribbble fa-2"></i></a>
-								<a href=""><i class="fa fa-github fa-2"></i></a>
-								<a href=""><i class="fa fa-facebook fa-2"></i></a>
-							</p>	
-						</div>
+					<div class="modal-body">
+						<p id="modalTitleEmail">가입한 아이디 입력</p>
+						<input type="text" class="form-control" id="idInp">
+						<br/>
+						<label id="serchPasswdById"></label>
 					</div>
-
-					<div class="col-md-6 widget">
-						<h3 class="widget-title">사용된 기술</h3>
-						<div class="widget-body">
-							<p>이 프로젝트(Roadwith)는 MyBatis, GitHub, Twitter Bootstrap, Spring Framework, Apache Tomcat, Oracle 11g 등의 기술들이 이용되어 만들어졌습니다.
-						</div>
-					</div>
-
-				</div> <!-- /row of widgets -->
-			</div>
-		</div>
-			<div class="footer2">
-			<div class="container">
-				<div class="row">
-					
-					<div class="col-md-6 widget">
-						<div class="widget-body">
-							<p class="simplenav">
-								<a href="/roadwith">홈</a> | 
-								<a href="notice">공지사항</a> |
-								<a href="freeBoard">자유게시판</a> |
-								<a href="contact.html">문의사항</a> |
-								<b><a href="signUp">회원가입</a></b>
-							</p>
-						</div>
-					</div>
-
-					<div class="col-md-6 widget">
-						<div class="widget-body">
-							<p class="text-right">
-								Copyright &copy; 2014, Your name. Designed by <a href="http://gettemplate.com/" rel="designer">gettemplate</a> 
-							</p>
-						</div>
-					</div>
-
-				</div> <!-- /row of widgets -->
-			</div>
-		</div>
-
-	</footer>		
+					<div class="modal-footer">
+					    <button type="button" class="btn btn-default" data-dismiss="modal" id="cancelPasswdBtn2">취소</button>
+					    <button type="button" class="btn btn-primary" id="findPasswdBtn">확인</button>
+				  	</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		
+		
+				
 		<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 		<script src="./resources/assets/js/jquery-1.11.1.min.js"></script>
 		<script src="./resources/assets/js/bootstrap.min.js"></script>
@@ -241,6 +202,8 @@
 			}
 			
 			function searchId(){
+				var inputEmail = $('#emailInp').val();
+				
 				$.ajax({
 				    type : "POST"
 				    ,async : true
@@ -250,14 +213,39 @@
 				    ,contentType: "application/json; charset=utf-8"
 				    ,success : function(response, status, request) {
 				    	if (response != null) {
-				    		$('#modalTitle').html('아이디: <b class="pull-right">' + response + '</b>');
+				    		$('#serchIdByEmail').html('회원님의 아이디는 ' + response + '입니다.');
+						} else if (inputEmail == '' || inputEmail == null || inputEmail.length == 0) {
+							$('#serchIdByEmail').html('입력되 않았습니다. 회원가입시 등록한 E-mail을 입력하세요.');
 						} else {
-				    		$('#modalTitle').html('아이디: <b class="pull-right">일치하는 아이디 없음.</b>');
+				    		$('#serchIdByEmail').html('일치하는 E-mail이 없습니다. 회원가입 후 이용해주세요.');
 							return false;
 						}
 				    }
 				});
-			}
+			}		
+			
+			function searchPasswd(){
+				var inputId = $('#idInp').val();
+				
+				$.ajax({
+				    type : "POST"
+				    ,async : true
+				    ,url : "ajaxFindPasswdById"
+				    ,dataType : "json" 
+				    ,data : {id:$('#idInp').val()}
+				    ,contentType: "application/json; charset=utf-8"
+				    ,success : function(response, status, request) {
+				    	if (response != null) {
+				    		$('#serchPasswdById').html('회원님의 패스워드는 ' + response + '입니다.');
+						} else if (inputId == '' || inputId == null || inputId.length == 0) {
+							$('#serchPasswdById').html('입력되지 않았습니다. 회원가입시 등록한 ID를 입력하세요.');
+						} else {
+				    		$('#serchPasswdById').html('일치하는 ID가 없습니다. ID 검색 후 이용해주세요.');
+							return false;
+						}
+				    }
+				});
+			}				
 		
 			$(document).ready(function(){
 				$('#idOrEmail').focus();
@@ -281,8 +269,12 @@
 					validation();
 				});
 				
-				$('#findEmailBtn').click(function(){
-					$('#modalEmail').modal('show');
+				$('#findId').click(function(){
+					$('#modalId').modal('show');
+				});
+				
+				$('#findPasswd').click(function(){
+					$('#modalPasswd').modal('show');
 				});
 				
 				$('#findIdBtn').click(function(){
@@ -290,8 +282,107 @@
 						searchId();
 					}
 				});
+				
+				$('#findPasswdBtn').click(function(){
+					if (true) {
+						searchPasswd();
+					}
+				});
+				
+				$('#cancelIdBtn1').click(function(){
+					$('#emailInp').val('');		
+					$('#serchIdByEmail').empty();		
+				});
+				
+				$('#cancelIdBtn2').click(function(){
+					$('#emailInp').val('');			
+					$('#serchIdByEmail').empty();		
+				});
+				
+				$('#cancelPasswdBtn1').click(function(){
+					$('#idInp').val('');			
+					$('#serchPasswdById').empty();		
+				});
+				
+				$('#cancelPasswdBtn2').click(function(){
+					$('#idInp').val('');			
+					$('#serchPasswdById').empty();		
+				});				
 			});
+			
+
 		</script>
+		
+		<footer id="footer" class="top-space">
+
+		<div class="footer1">
+			<div class="container">
+				<div class="row">
+					
+					<div class="col-md-3 widget">
+						<h3 class="widget-title">문의관련</h3>
+						<div class="widget-body">
+							<p>010-5423-2723<br>
+								<a href="mailto:#">jjunghee@sba.seoul.kr</a><br>
+								<br>
+								서울시 마포구 성암로 330 DMC첨단산업센터
+							</p>	
+						</div>
+					</div>
+
+					<div class="col-md-3 widget">
+						<h3 class="widget-title">Follow me</h3>
+						<div class="widget-body">
+							<p class="follow-me-icons">
+								<a href=""><i class="fa fa-twitter fa-2"></i></a>
+								<a href=""><i class="fa fa-dribbble fa-2"></i></a>
+								<a href=""><i class="fa fa-github fa-2"></i></a>
+								<a href=""><i class="fa fa-facebook fa-2"></i></a>
+							</p>	
+						</div>
+					</div>
+
+					<div class="col-md-6 widget">
+						<h3 class="widget-title">사용된 기술</h3>
+						<div class="widget-body">
+							<p>이 프로젝트(Roadwith)는 MyBatis, GitHub, Twitter Bootstrap, Spring Framework, Apache Tomcat, Oracle 11g 등의 기술들이 이용되어 만들어졌습니다.
+						</div>
+					</div>
+
+				</div> <!-- /row of widgets -->
+			</div>
+		</div>
+
+		<div class="footer2">
+			<div class="container">
+				<div class="row">
+					
+					<div class="col-md-6 widget">
+						<div class="widget-body">
+							<p class="simplenav">
+								<a href="/roadwith">홈</a> | 
+								<a href="notice">공지사항</a> |
+								<a href="freeBoard">자유게시판</a> |
+								<a href="contact.html">문의사항</a> |
+								<b><a href="signUp">회원가입</a></b>
+							</p>
+						</div>
+					</div>
+
+					<div class="col-md-6 widget">
+						<div class="widget-body">
+							<p class="text-right">
+								Copyright &copy; 2014, Your name. Designed by <a href="http://gettemplate.com/" rel="designer">gettemplate</a> 
+							</p>
+						</div>
+					</div>
+
+				</div> <!-- /row of widgets -->
+			</div>
+		</div>
+
+	</footer>	
+		
 		<script src="./resources/assets/js/headroom.min.js"></script>
 		<script src="./resources/assets/js/jQuery.headroom.min.js"></script>
 		<script src="./resources/assets/js/template.js"></script>

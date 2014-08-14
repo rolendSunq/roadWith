@@ -99,11 +99,11 @@
 									<div class="row top-margin">
 										<div class="col-sm-6">
 											<label>패스워드 <span class="text-danger">*</span></label> 
-											<input type="password" class="form-control" id="userPasswd1" name="pw" >
+											<input type="password" class="form-control" id="userPasswd1" name="pw" placeholder="패스워드1">
 										</div>
 										<div class="col-sm-6">
 											<label>패스워드 확인 <span class="text-danger">*</span></label> 
-											<input type="password" class="form-control" id="userPasswd2">
+											<input type="password" class="form-control" id="userPasswd2" placeholder="패스워드2">
 										</div>
 									</div>
 									<hr>

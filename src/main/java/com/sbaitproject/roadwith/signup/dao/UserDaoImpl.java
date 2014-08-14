@@ -33,6 +33,11 @@ public class UserDaoImpl implements UserDao {
 	public String findIdByEmail(String userEmail) {
 		return session.selectOne(NS + "FindIdByEmail", userEmail);
 	}
+
+	@Override
+	public String findPasswdById(String userId) {
+		return session.selectOne(NS + "FindPasswdById", userId);
+	}
 	
 
 }

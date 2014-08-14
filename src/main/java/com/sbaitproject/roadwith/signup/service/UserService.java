@@ -11,4 +11,5 @@ public interface UserService {
 	public void searchEmail(String email, HttpServletResponse response);
 	public void signUpUserInsert(Person person);
 	public void findIdService(String userEmail, HttpServletResponse response);
+	public void findPasswdService(String userId, HttpServletResponse response);
 }
