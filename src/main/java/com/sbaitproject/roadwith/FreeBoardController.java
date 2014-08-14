@@ -38,13 +38,13 @@ public class FreeBoardController {
 		return "freeBoard/readView";
 	}
 	
-	@RequestMapping(value = "putReply")
+	@RequestMapping(value = "putReply", method = RequestMethod.GET)
 	public String putReplyController(Model model, @RequestParam("articleId") int articleId, Article replyArticle) {
 		freeBoardArticleService.registrationReply(articleId, model, replyArticle);
 		return "freeBoard/readView";
 	}
 	
-	@RequestMapping(value = "updateArticle")
+	@RequestMapping(value = "updateArticle", method = RequestMethod.GET)
 	public String updateArticleController(Model model, Article article) {
 		freeBoardArticleService.updateArticleService(article, model);
 		return "freeBoard/readView";

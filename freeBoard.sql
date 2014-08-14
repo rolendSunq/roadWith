@@ -28,3 +28,15 @@ order by posting_date asc;
 --select * from freeboard
 --where article_id = group_id
 --order by posting_date desc;
+SELECT article_id , group_id , sequence_no , posting_date, read_count, writer_name , password , title
+FROM FREEBOARD
+WHERE article_id = group_id;
+
+SELECT * FROM (
+SELECT A.*, 
+ROWNUM AS RNUM,
+COUNT(*) OVER() AS TOTCNT FROM (
+	SELECT * FROM FREEBOARD where article_id = group_id
+) A
+) WHERE RNUM >= 1 AND RNUM <= 10
+order by posting_date desc;
