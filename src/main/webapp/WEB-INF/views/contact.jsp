@@ -9,7 +9,7 @@
 	
 	<title>로드러너</title>
 
-	<link rel="shortcut icon" href="./resources/assets/images/gt_favicon.png">
+	<link rel="shortcut icon" href="./resources/assets/images/favicon5.png">
 	<link rel="stylesheet" media="screen" href="./resources/assets/css/googleFont.css">
 	<link rel="stylesheet" href="./resources/assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="./resources/assets/css/font-awesome.min.css">
@@ -35,7 +35,7 @@
 					<span class="icon-bar"></span> 
 					<span class="icon-bar"></span> 
 				</button>
-				<a class="navbar-brand" href="/roadwith"><img src="./resources/assets/images/logo.png" alt="Progressus HTML5 template"></a>
+				<a class="navbar-brand" href="/roadwith"><img src="./resources/assets/images/logotest2.png" alt="Progressus HTML5 template"></a>
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
@@ -64,8 +64,8 @@
 	<div class="container">
 
 		<ol class="breadcrumb">
-			<li><a href="index.html">Home</a></li>
-			<li class="active">About</li>
+			<li><a href="index.html">홈</a></li>
+			<li class="active">문의사항</li>
 		</ol>
 
 		<div class="row">
@@ -100,11 +100,8 @@
 						</div>
 						<br>
 						<div class="row">
-							<div class="col-sm-6">
-								<label class="checkbox"><input type="checkbox"> Sign up for newsletter</label>
-							</div>
-							<div class="col-sm-6 text-right">
-								<input class="btn btn-action" type="submit" value="Send message">
+							<div class="pull-right col-sm-6 text-right">
+								<input class="btn btn-action" type="submit" value="메일 전송" id="sendMessageBtn">
 							</div>
 						</div>
 					</form>
@@ -118,11 +115,11 @@
 				<div class="widget">
 					<h4>Address</h4>
 					<address>
-						2002 Holcombe Boulevard, Houston, TX 77030, USA
+						jjunghee@sba.seoul.kr
 					</address>
 					<h4>Phone:</h4>
 					<address>
-						(713) 791-1414
+						(010) 5423-2723
 					</address>
 				</div>
 
@@ -139,12 +136,12 @@
 				<div class="row">
 					
 					<div class="col-md-3 widget">
-						<h3 class="widget-title">Contact</h3>
+						<h3 class="widget-title">문의관련</h3>
 						<div class="widget-body">
-							<p>+234 23 9873237<br>
-								<a href="mailto:#">some.email@somewhere.com</a><br>
+							<p>010-5423-2723<br>
+								<a href="mailto:#">jjunghee@sba.seoul.kr</a><br>
 								<br>
-								234 Hidden Pond Road, Ashland City, TN 37015
+								서울시 마포구 성암로 330 DMC첨단산업센터
 							</p>	
 						</div>
 					</div>
@@ -152,7 +149,7 @@
 					<div class="col-md-3 widget">
 						<h3 class="widget-title">Follow me</h3>
 						<div class="widget-body">
-							<p class="follow-me-icons clearfix">
+							<p class="follow-me-icons">
 								<a href=""><i class="fa fa-twitter fa-2"></i></a>
 								<a href=""><i class="fa fa-dribbble fa-2"></i></a>
 								<a href=""><i class="fa fa-github fa-2"></i></a>
@@ -162,10 +159,9 @@
 					</div>
 
 					<div class="col-md-6 widget">
-						<h3 class="widget-title">Text widget</h3>
+						<h3 class="widget-title">사용된 기술</h3>
 						<div class="widget-body">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, dolores, quibusdam architecto voluptatem amet fugiat nesciunt placeat provident cumque accusamus itaque voluptate modi quidem dolore optio velit hic iusto vero praesentium repellat commodi ad id expedita cupiditate repellendus possimus unde?</p>
-							<p>Eius consequatur nihil quibusdam! Laborum, rerum, quis, inventore ipsa autem repellat provident assumenda labore soluta minima alias temporibus facere distinctio quas adipisci nam sunt explicabo officia tenetur at ea quos doloribus dolorum voluptate reprehenderit architecto sint libero illo et hic.</p>
+							<p>이 프로젝트(Roadwith)는 MyBatis, GitHub, Twitter Bootstrap, Spring Framework, Apache Tomcat, Oracle 11g 등의 기술들이 이용되어 만들어졌습니다.
 						</div>
 					</div>
 
@@ -180,11 +176,11 @@
 					<div class="col-md-6 widget">
 						<div class="widget-body">
 							<p class="simplenav">
-								<a href="#">Home</a> | 
-								<a href="about.html">About</a> |
-								<a href="sidebar-right.html">Sidebar</a> |
-								<a href="contact.html">Contact</a> |
-								<b><a href="signup.html">Sign up</a></b>
+								<a href="/roadwith">홈</a> | 
+								<a href="notice">공지사항</a> |
+								<a href="freeBoard">자유게시판</a> |
+								<a href="contact.html">문의사항</a> |
+								<b><a href="signUp">회원가입</a></b>
 							</p>
 						</div>
 					</div>
@@ -200,7 +196,8 @@
 				</div> <!-- /row of widgets -->
 			</div>
 		</div>
-	</footer>	
+
+	</footer>		
 		
 
 
@@ -211,12 +208,9 @@
 	<script src="./resources/assets/js/bootstrap.min.js"></script>
 	<script>
 		$(document).ready(function(){
-			$('#userEmail').keydown(function(e){
-				var txt = $('#userEmail').val();
-				if (e.keyCode == 13){
-					$('#userPasswd').focus();
-					return false;
-				}
+			$('#sendMessageBtn').click(function() {
+				alert("정상적으로 전송되었습니다");
+				alert("문의해 주셔서 감사합니다");
 			});
 		});
 	</script>
