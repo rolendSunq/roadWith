@@ -68,16 +68,16 @@
 								</div>
 								<div class="text-right">
 									<div class="form-group">
-										<h4 class="text-right"><small>${article.writerName}</small></h4>
+										<h4 class="text-right"><small><spqn class="badge">${article.getWriterName()}</spqn></small></h4>
 									</div>
 									<div class="form-group">
-										<h4 class="text-right"><small><fmt:formatDate value="${article.postingDate}" pattern="yyyy-MM-dd"/></small></h4>
+										<h4 class="text-right"><small><fmt:formatDate value="${article.getPostingDate()}" pattern="yyyy-MM-dd"/></small></h4>
 									</div>
 								</div>
 							</div>
 						</div>
 						<div class="panel-body">
-							<pre class="row" id="readContent"><c:out value="${article.content}"/></pre>
+							<pre class="row" id="readContent"><c:out value="${article.getContent()}"/></pre>
 						</div>
 				    </div>
 					<!--/readBox End -->
@@ -91,16 +91,16 @@
 									</div>
 									<div class="text-right">
 										<div class="form-group">
-											<h4 class="text-right"><small>${article.writerName}</small></h4>
+											<h4 class="text-right"><small>${article.getWriterName()}</small></h4>
 										</div>
 										<div class="form-group">
-											<h4 class="text-right"><small><fmt:formatDate value="${article.postingDate}" pattern="yyyy-MM-dd"/></small></h4>
+											<h4 class="text-right"><small><fmt:formatDate value="${article.getPostingDate()}" pattern="yyyy-MM-dd"/></small></h4>
 										</div>
 									</div>
 								</div>
 							</div>
 							<div class="panel-body">
-								<textarea rows="3" class="form-control" name="content" id="updateContent">${article.content}</textarea>
+								<textarea rows="3" class="form-control" name="content" id="updateContent">${article.getContent()}</textarea>
 								<div class="row">
 									<div class="col-md-3">
 										<button type="button" class="btn btn-default" id="enterEditBtn"><i class="fa fa-cog"></i> 등록</button>
@@ -136,7 +136,7 @@
 										<textarea rows="3" id="reTextArea" class="form-control" name="content"></textarea>
 									</div>
 								</div>
-								<input type="hidden" name="articleId" value="${articleId }">
+								<input type="hidden" name="articleId" value="${article.getArticleId() }">
 								<input type="hidden" name="title" value="<i class='fa fa-hand-o-right'></i> re">
 							</form>
 						</div>
@@ -151,7 +151,35 @@
 					<a class="btn btn-default" href="freeBoard"><i class="fa fa-arrow-left"></i> 목록</a>
 					<button type="button" class="btn btn-default" id="replyDisplayBtn"><i class="fa fa-hand-o-right"></i> 답글</button>
 					<button type="button" class="btn btn-default" id="updateDisplayBtn"><i class="fa fa-pencil-square-o"></i> 수정</button>
-					<a class="btn btn-default" href="deletArticle"><i class="fa fa-trash-o"></i> 삭제</a>
+					<button type="button" class="btn btn-default" id="deleteArticleBtn"><i class="fa fa-trash-o"></i> 삭제</button>
+				</div>
+			</div>
+			<br>
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<ul class="list-group">
+					<c:choose>
+						<c:when test="${replyArticleList.size() == 0 }"></c:when>
+						<c:otherwise>
+							<c:forEach var="replyArticle" items="${replyArticleList }">
+						<li class="list-group-item list-group-item-success">
+							<div>
+								<i class="fa fa-comment-o"></i><b> Reply: </b>
+								<span class="badge">${replyArticle.getWriterName() }</span> 
+								${replyArticle.getContent() }
+							</div>
+						</li>
+							</c:forEach>
+						</c:otherwise>
+					</c:choose>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-sm">
+				<div class="modal-content">
+				  ...
 				</div>
 			</div>
 		</div>
@@ -230,6 +258,44 @@
 			var status = 'hide';
 			var updateStatus = 'hide';
 			
+			function updateValidation(){
+				var titleValue = $('#updateTitle').val();
+				var contentValue = $('#updateContent').val();
+				
+				if (titleValue == '' || titleValue == null || titleValue.length == 0) {
+					alert('제목을 입력하세요.');
+					$('#updateTitle').focus();
+					return false;
+				}
+				
+				if (contentValue == '' || contentValue == null || contentValue.length == 0) {
+					alert('내용을 입력하세요.');
+					$('#updateContent').focus();
+					return false;
+				}
+				
+				return true;
+			}
+			
+			function replyValidation() {
+				var titleValue = $('#writerTxt').val();
+				var contentValue = $('#reTextArea').val();
+				
+				if (titleValue == '' || titleValue == null || titleValue.length == 0) {
+					alert('제목을 입력하세요.');
+					$('#writerTxt').focus();
+					return false;
+				}
+				
+				if (contentValue == '' || contentValue == null || contentValue.length == 0) {
+					alert('내용을 입력하세요.');
+					$('#reTextArea').focus();
+					return false;
+				}
+				
+				return true;
+			}
+			
 			$(document).ready(function(){
 				var title = $('#updateTitle').val();
 				var content = $('#updateContent').val();
@@ -240,11 +306,15 @@
 						status = 'show';
 						$(this).html('<i class="fa fa-hand-o-right"></i> 답글취소');
 						$('#replyForm').show();
+						$('#updateDisplayBtn').hide();
+						$('#deleteArticleBtn').hide();
 						$('#writerTxt').focus();
 					} else {
 						status = 'hide';
 						$('#reTextArea').val('');
 						$('#writerTxt').val('');
+						$('#updateDisplayBtn').show();
+						$('#deleteArticleBtn').show();
 						$(this).html('<i class="fa fa-hand-o-right"></i> 답글');
 						$('#replyForm').hide();
 					}
@@ -254,12 +324,16 @@
 					if (updateStatus == 'hide') {
 						updateStatus = 'show';
 						$('#readBox').hide();
+						$('#deleteArticleBtn').hide();
+						$('#replyDisplayBtn').hide();
 						$('#updateBox').show();
 						$(this).html('<i class="fa fa-pencil-square-o"></i> 수정취소');
 						$('#updateTitle').focus();
 					} else{
 						updateStatus = 'hide';
 						$('#updateBox').hide();
+						$('#deleteArticleBtn').show();
+						$('#replyDisplayBtn').show();
 						$('#readBox').show();
 						$(this).html('<i class="fa fa-pencil-square-o"></i> 수정');
 						$('#updateTitle').val(title);
@@ -268,10 +342,13 @@
 				});
 				
 				$('#replyBtn').click(function(){
-					status = 'hide';
-					$('#replyDisplayBtn').html('<i class="fa fa-hand-o-right"></i> 답글');
-					$('#replyForm').hide();
-					$('form[name=replyFrm]').attr('action', 'putReply').submit();
+
+					if (replyValidation()) {
+						status = 'hide';
+						$('#replyDisplayBtn').html('<i class="fa fa-hand-o-right"></i> 답글');
+						$('#replyForm').hide();
+						$('form[name=replyFrm]').attr('action', 'putReply').submit();
+					}
 				});					
 				
 				$('#enterEditBtn').click(function() {
@@ -279,12 +356,10 @@
 					$('#readBox').show();
 					$('#updateBox').hide();
 					
-					if (true) {
+					if (updateValidation()) {
 						$('form[name=updateFrm]').submit();
 					}
 				});
-				
-				
 			});
 		</script>
 		<script src="./resources/assets/js/headroom.min.js"></script>

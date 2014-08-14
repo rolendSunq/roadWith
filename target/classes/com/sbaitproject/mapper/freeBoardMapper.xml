@@ -16,12 +16,18 @@
     <select id="SelectCountAll"  resultType="int">
     	SELECT count(*)
     	FROM freeBoard
+    	WHERE article_id = group_id
     </select>
 	
 	<select id="ArticleSelected"  parameterType="map"  resultMap="articles">
-		SELECT article_id , group_id , sequence_no , posting_date, read_count, writer_name , password , title
-		FROM (SELECT article_id , group_id , sequence_no , posting_date, read_count, writer_name , password , title, ROW_NUMBER() OVER (ORDER BY sequence_no DESC) R FROM freeboard) 
-		WHERE R BETWEEN #{firstRow} and #{endRow}  
+		SELECT * FROM (
+		SELECT A.*, 
+		ROWNUM AS RNUM,
+		COUNT(*) OVER() AS TOTCNT FROM (
+			SELECT * FROM FREEBOARD where article_id = group_id
+		) A
+		) WHERE RNUM &gt;= #{firstRow} AND RNUM &lt;= #{endRow}
+		ORDER BY posting_date DESC
 	</select>
 	
 	<select id="SelectLastArticleNo" resultType="int">

@@ -74,8 +74,9 @@ public class FreeBoardArticleServiceImpl implements FreeBoardArticleService {
 		Article article  = articleDao.selectById(articleId);
 		int readCount = articleDao.selectReadCount(articleId);
 		articleDao.updateReadCount(readCount + 1, articleId);
+		List<Article> replyArticleList = articleDao.selectGroupIdByReply(article.getGroupId());
 		model.addAttribute("article", article);
-		model.addAttribute("articleId", articleId);
+		model.addAttribute("replyArticleList", replyArticleList);
 	}
 
 	@Override
@@ -85,7 +86,6 @@ public class FreeBoardArticleServiceImpl implements FreeBoardArticleService {
 		String minNumber = getSearchMinSeqNumber(article);
 		String lastChildSeq = articleDao.selectLastSeqNumber(maxNumber, minNumber);
 		String sequenceNumber = getSequenceNumber(article, lastChildSeq);
-		System.out.println("sequenceNumber : " + sequenceNumber);
 		replyArticle.setGroupId(article.getGroupId());
 		replyArticle.setSequenceNo(sequenceNumber);
 		replyArticle.setPassword("1234");
@@ -95,9 +95,9 @@ public class FreeBoardArticleServiceImpl implements FreeBoardArticleService {
 			System.out.println("실패");
 		else 
 			System.out.println("성공");
+		List<Article> replyArticleList = articleDao.selectGroupIdByReply(article.getGroupId());
 		model.addAttribute("article", article);
-		model.addAttribute("repArticle", replyArticle);
-		model.addAttribute("articleId", articleId);
+		model.addAttribute("replyArticleList", replyArticleList);
 	}
 	
 	private String getSearchMinSeqNumber(Article article) {
