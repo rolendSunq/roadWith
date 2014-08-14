@@ -10,7 +10,7 @@
 	<title>로드러너</title>
 	
 
-	<link rel="shortcut icon" href="./resources/assets/images/gt_favicon.png">
+	<link rel="shortcut icon" href="./resources/assets/images/favicon5.png">
 	<link rel="stylesheet" media="screen" href="./resources/assets/css/googleFont.css">
 	<link rel="stylesheet" href="./resources/assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="./resources/assets/css/font-awesome.min.css">
@@ -45,7 +45,7 @@
 					<span class="icon-bar"></span> 
 					<span class="icon-bar"></span> 
 				</button>
-				<a class="navbar-brand" href="/roadwith"><img src="./resources/assets/images/logo.png" alt="Progressus HTML5 template"></a>
+				<a class="navbar-brand" href="/roadwith"><img src="./resources/assets/images/logotest2.png" alt="Progressus HTML5 template"></a>
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
@@ -111,21 +111,21 @@
 				</div>
 				<div class="col-md-3 col-sm-6 highlight">
 					<div class="h-caption">
-					<h4 class="btn" id="iconAb"><i class="fa fa-flash fa-5"  id="boardIC" ></i>About</h4></div>
+					<h4 class="btn" id="iconAb"><i class="fa fa-eye fa-5"  id="boardIC" ></i>About</h4></div>
 					<div class="h-body text-center">
 						<p>[자유롭게 보실 수 있습니다.] RoadWith를 만들게 된 계기와 제작자들의 간단한 프로필을 공개합니다.</p>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 highlight">
 					<div class="h-caption">
-					<h4 class="btn" id="iconNo" ><i class="fa fa-heart fa-5" id="boardIC" ></i>Notice</h4></div>
+					<h4 class="btn" id="iconNo" ><i class="fa fa-file-text fa-5" id="boardIC" ></i>Notice</h4></div>
 					<div class="h-body text-center">
 						<p>[정보 확인은 로그인이 필요합니다.] RoadWith가 어떤 변화를 거쳐왔는지와 업데이트의 기록을 보실수 있습니다.</p>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 highlight">
 					<div class="h-caption">
-					<h4 class="btn" id="iconCo"><i class="fa fa-smile-o fa-5" id="boardIC" ></i>Contact Us</h4></div>
+					<h4 class="btn" id="iconCo"><i class="fa fa-envelope fa-5" id="boardIC" ></i>Contact Us</h4></div>
 					<div class="h-body text-center">
 						<p>[로그인이 필요한 서비스 입니다.] 직접 RoadWith를 사용해보시며, 불편하거나 개선될 점을 제작자에게 알려주세요!</p>
 					</div>
@@ -139,40 +139,50 @@
 	<!-- container -->
 	<div class="container">
 
-		<h2 class="text-center top-space">Frequently Asked Questions</h2>
+		<h2 class="text-center top-space">후원 / 협력사 소개</h2>
+		<h3 class="text-center">스포츠 브랜드</h3>
+		<br>
+
+		<div class="center-block row">
+			<div class="col-md-4">
+				<img src="./resources/assets/images/Adidas.jpg" class="img-rounded" alt="Responsive image">
+			</div>
+			<div class="col-md-4">
+				<img src="./resources/assets/images/Asics.jpg" class="img-rounded" alt="Responsive image">
+			</div>
+			<div class="col-md-4">
+				<img src="./resources/assets/images/FILA.jpg" class="img-rounded" alt="Responsive image">
+			</div>
+			<div class="col-md-4">
+				<img src="./resources/assets/images/Puma.jpg" class="img-rounded" alt="Responsive image">
+			</div>
+			<div class="col-md-4">
+				<img src="./resources/assets/images/Reebok.jpg" class="img-rounded" alt="Responsive image">
+			</div>
+			<div class="col-md-4">
+				<img src="./resources/assets/images/Nike.jpg" class="img-rounded" alt="Responsive image">
+			</div>
+		</div> <!-- /row -->
+		
+		<h3 class="text-center">자전거 브랜드</h3>
 		<br>
 
 		<div class="row">
-			<div class="col-sm-6">
-				<h3>Which code editor would you recommend?</h3>
-				<p>I'd highly recommend you <a href="http://www.sublimetext.com/">Sublime Text</a> - a free to try text editor which I'm using daily. Awesome tool!</p>
+			<div class="col-md-4">
+				<img src="./resources/assets/images/BIANCHI.jpg" class="img-rounded" alt="Responsive image">
 			</div>
-			<div class="col-sm-6">
-				<h3>Nice header. Where do I find more images like that one?</h3>
-				<p>
-					Well, there are thousands of stock art galleries, but personally, 
-					I prefer to use photos from these sites: <a href="http://unsplash.com">Unsplash.com</a> 
-					and <a href="http://www.flickr.com/creativecommons/by-2.0/tags/">Flickr - Creative Commons</a></p>
+			<div class="col-md-4">
+				<img src="./resources/assets/images/TREK.jpg" class="img-rounded" alt="Responsive image">
 			</div>
-		</div> <!-- /row -->
-
-		<div class="row">
-			<div class="col-sm-6">
-				<h3>Can I use it to build a site for my client?</h3>
-				<p>
-					Yes, you can. You may use this template for any purpose, just don't forget about the <a href="http://creativecommons.org/licenses/by/3.0/">license</a>, 
-					which says: "You must give appropriate credit", i.e. you must provide the name of the creator and a link to the original template in your work. 
-				</p>
-			</div>
-			<div class="col-sm-6">
-				<h3>Can you customize this template for me?</h3>
-				<p>Yes, I can. Please drop me a line to sergey-at-pozhilov.com and describe your needs in details. Please note, my services are not cheap.</p>
+			
+			<div class="col-md-4">
+				<img src="./resources/assets/images/ALTON.jpg" class="img-rounded" alt="Responsive image">
 			</div>
 		</div> <!-- /row -->
 
 		<div class="jumbotron top-space">
-			<h4>Dicta, nostrum nemo soluta sapiente sit dolor quae voluptas quidem doloribus recusandae facere magni ullam suscipit sunt atque rerum eaque iusto facilis esse nam veniam incidunt officia perspiciatis at voluptatibus. Libero, aliquid illum possimus numquam fuga.</h4>
-     		<p class="text-right"><a class="btn btn-primary btn-large">Learn more »</a></p>
+			<h4>저희와 함께할 후원사 및 협력사를 모집하고있습니다!</h4>
+     		<p class="text-right"><a class="btn btn-primary btn-large">후원하러 가기 »</a></p>
   		</div>
 
 </div>	<!-- /container -->
@@ -202,12 +212,12 @@
 				<div class="row">
 					
 					<div class="col-md-3 widget">
-						<h3 class="widget-title">Contact</h3>
+						<h3 class="widget-title">문의관련</h3>
 						<div class="widget-body">
-							<p>+234 23 9873237<br>
-								<a href="mailto:#">some.email@somewhere.com</a><br>
+							<p>010-5423-2723<br>
+								<a href="mailto:#">jjunghee@sba.seoul.kr</a><br>
 								<br>
-								234 Hidden Pond Road, Ashland City, TN 37015
+								서울시 마포구 성암로 330 DMC첨단산업센터
 							</p>	
 						</div>
 					</div>
@@ -225,10 +235,9 @@
 					</div>
 
 					<div class="col-md-6 widget">
-						<h3 class="widget-title">Text widget</h3>
+						<h3 class="widget-title">사용된 기술</h3>
 						<div class="widget-body">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, dolores, quibusdam architecto voluptatem amet fugiat nesciunt placeat provident cumque accusamus itaque voluptate modi quidem dolore optio velit hic iusto vero praesentium repellat commodi ad id expedita cupiditate repellendus possimus unde?</p>
-							<p>Eius consequatur nihil quibusdam! Laborum, rerum, quis, inventore ipsa autem repellat provident assumenda labore soluta minima alias temporibus facere distinctio quas adipisci nam sunt explicabo officia tenetur at ea quos doloribus dolorum voluptate reprehenderit architecto sint libero illo et hic.</p>
+							<p>이 프로젝트(Roadwith)는 MyBatis, GitHub, Twitter Bootstrap, Spring Framework, Apache Tomcat, Oracle 11g 등의 기술들이 이용되어 만들어졌습니다.
 						</div>
 					</div>
 
@@ -243,11 +252,11 @@
 					<div class="col-md-6 widget">
 						<div class="widget-body">
 							<p class="simplenav">
-								<a href="#">Home</a> | 
-								<a href="about.html">About</a> |
-								<a href="sidebar-right.html">Sidebar</a> |
-								<a href="contact.html">Contact</a> |
-								<b><a href="signup.html">Sign up</a></b>
+								<a href="/roadwith">홈</a> | 
+								<a href="notice">공지사항</a> |
+								<a href="freeBoard">자유게시판</a> |
+								<a href="contact.html">문의사항</a> |
+								<b><a href="signUp">회원가입</a></b>
 							</p>
 						</div>
 					</div>

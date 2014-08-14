@@ -9,7 +9,7 @@
 	
 	<title>로드러너</title>
 
-	<link rel="shortcut icon" href="./resources/assets/images/gt_favicon.png">
+	<link rel="shortcut icon" href="./resources/assets/images/favicon5.png">
 	<link rel="stylesheet" media="screen" href="./resources/assets/css/googleFont.css">
 	<link rel="stylesheet" href="./resources/assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="./resources/assets/css/font-awesome.min.css">
@@ -35,7 +35,7 @@
 					<span class="icon-bar"></span> 
 					<span class="icon-bar"></span> 
 				</button>
-				<a class="navbar-brand" href="/roadwith"><img src="./resources/assets/images/logo.png" alt="Progressus HTML5 template"></a>
+				<a class="navbar-brand" href="/roadwith"><img src="./resources/assets/images/logotest2.png" alt="Progressus HTML5 template"></a>
 			</div>
 			<div class="navbar-collapse collapse">
 				<ul class="nav navbar-nav pull-right">
@@ -110,12 +110,12 @@
 				<div class="row">
 					
 					<div class="col-md-3 widget">
-						<h3 class="widget-title">Contact</h3>
+						<h3 class="widget-title">문의관련</h3>
 						<div class="widget-body">
-							<p>+234 23 9873237<br>
-								<a href="mailto:#">some.email@somewhere.com</a><br>
+							<p>010-5423-2723<br>
+								<a href="mailto:#">jjunghee@sba.seoul.kr</a><br>
 								<br>
-								234 Hidden Pond Road, Ashland City, TN 37015
+								서울시 마포구 성암로 330 DMC첨단산업센터
 							</p>	
 						</div>
 					</div>
@@ -123,7 +123,7 @@
 					<div class="col-md-3 widget">
 						<h3 class="widget-title">Follow me</h3>
 						<div class="widget-body">
-							<p class="follow-me-icons clearfix">
+							<p class="follow-me-icons">
 								<a href=""><i class="fa fa-twitter fa-2"></i></a>
 								<a href=""><i class="fa fa-dribbble fa-2"></i></a>
 								<a href=""><i class="fa fa-github fa-2"></i></a>

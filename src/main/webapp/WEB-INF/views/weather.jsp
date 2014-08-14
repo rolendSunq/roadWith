@@ -11,7 +11,7 @@
 		<meta name="description" content="">
 		<meta name="author" content="Sergey Pozhilov (GetTemplate.com)">
 		<title>날씨 검색</title>
-		<link rel="shortcut icon" href="./resources/assets/images/gt_favicon.png">
+		<link rel="shortcut icon" href="./resources/assets/images/favicon5.png">
 		<link rel="stylesheet" media="screen" href="./resources/assets/css/googleFont.css">
 		<link rel="stylesheet" href="./resources/assets/css/bootstrap.min.css">
 		<link rel="stylesheet" href="./resources/assets/css/font-awesome.min.css">
@@ -35,7 +35,7 @@
 						<span class="icon-bar"></span> 
 						<span class="icon-bar"></span> 
 					</button>
-					<a class="navbar-brand" href="/roadwith"><img src="./resources/assets/images/logo.png" alt="Progressus HTML5 template"></a>
+					<a class="navbar-brand" href="/roadwith"><img src="./resources/assets/images/logotest2.png" alt="Progressus HTML5 template"></a>
 				</div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav pull-right">
@@ -429,22 +429,12 @@
 							</div>
 						</div>
 	
-						<div class="col-md-6 widget">
-							<h3 class="widget-title">Text widget</h3>
-							<div class="widget-body">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-									Excepturi, dolores, quibusdam architecto voluptatem amet fugiat
-									nesciunt placeat provident cumque accusamus itaque voluptate
-									modi quidem dolore optio velit hic iusto vero praesentium
-									repellat commodi ad id expedita cupiditate repellendus possimus
-									unde?</p>
-								<p>Eius consequatur nihil quibusdam! Laborum, rerum, quis,
-									inventore ipsa autem repellat provident assumenda labore soluta
-									minima alias temporibus facere distinctio quas adipisci nam sunt
-									explicabo officia tenetur at ea quos doloribus dolorum voluptate
-									reprehenderit architecto sint libero illo et hic.</p>
-							</div>
+					<div class="col-md-6 widget">
+						<h3 class="widget-title">사용된 기술</h3>
+						<div class="widget-body">
+							<p>이 프로젝트(Roadwith)는 MyBatis, GitHub, Twitter Bootstrap, Spring Framework, Apache Tomcat, Oracle 11g 등의 기술들이 이용되어 만들어졌습니다.
 						</div>
+					</div>
 	
 					</div>
 					<!-- /row of widgets -->
@@ -452,33 +442,34 @@
 			</div>
 	
 			<div class="footer2">
-				<div class="container">
-					<div class="row">
-	
-						<div class="col-md-6 widget">
-							<div class="widget-body">
-								<p class="simplenav">
-									<a href="#">Home</a> | <a href="about.html">About</a> | <a
-										href="sidebar-right.html">Sidebar</a> | <a href="contact.html">Contact</a>
-									| <b><a href="signup.html">Sign up</a></b>
-								</p>
-							</div>
+			<div class="container">
+				<div class="row">
+					
+					<div class="col-md-6 widget">
+						<div class="widget-body">
+							<p class="simplenav">
+								<a href="/roadwith">홈</a> | 
+								<a href="notice">공지사항</a> |
+								<a href="freeBoard">자유게시판</a> |
+								<a href="contact.html">문의사항</a> |
+								<b><a href="signUp">회원가입</a></b>
+							</p>
 						</div>
-	
-						<div class="col-md-6 widget">
-							<div class="widget-body">
-								<p class="text-right">
-									Copyright &copy; 2014, Your name. Designed by <a
-										href="http://gettemplate.com/" rel="designer">gettemplate</a>
-								</p>
-							</div>
-						</div>
-	
 					</div>
-					<!-- /row of widgets -->
-				</div>
+
+					<div class="col-md-6 widget">
+						<div class="widget-body">
+							<p class="text-right">
+								Copyright &copy; 2014, Your name. Designed by <a href="http://gettemplate.com/" rel="designer">gettemplate</a> 
+							</p>
+						</div>
+					</div>
+
+				</div> <!-- /row of widgets -->
 			</div>
-		</footer>
+		</div>
+
+	</footer>	
 	
 	
 	
