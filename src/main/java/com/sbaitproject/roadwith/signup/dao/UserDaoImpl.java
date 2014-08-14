@@ -28,6 +28,11 @@ public class UserDaoImpl implements UserDao {
 	public int findByEmail(String email) {
 		return session.selectOne(NS + "FindByEmail", email);
 	}
+
+	@Override
+	public String findIdByEmail(String userEmail) {
+		return session.selectOne(NS + "FindIdByEmail", userEmail);
+	}
 	
 
 }

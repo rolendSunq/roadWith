@@ -83,4 +83,26 @@ public class UserServiceImpl implements UserService{
 		userDao.signUpInsert(person);
 	}
 
+	@Override
+	public void findIdService(String userEmail, HttpServletResponse response) {
+		Gson gson = new Gson();
+		PrintWriter printWriter = null;
+		
+		response.setContentType("application/json");
+		response.setContentType("text/xml; charset=UTF-8");
+		response.setHeader("Cache-Control", "no-cache");
+		
+		String result = userDao.findIdByEmail(userEmail);
+		
+		try {
+			printWriter = new PrintWriter(response.getWriter());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		printWriter.println(gson.toJson(result));
+		printWriter.flush();
+		printWriter.close();
+	}
+
 }

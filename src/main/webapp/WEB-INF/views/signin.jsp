@@ -86,7 +86,7 @@
 									<hr>
 									<div class="row">
 										<div class="col-lg-8">
-											<b><a href="">Forgot password?</a></b>
+											<button type="button" class="btn btn-default" id="findEmailBtn">Forgot password?</button>
 										</div>
 										<div class="col-lg-4 text-right">
 											<button class="btn btn-primary btn-lg" type="button" id="signinBtn">Sign in</button>
@@ -101,6 +101,25 @@
 				<!-- /Article -->
 			</div>
 		</div>	<!-- /container -->
+		<!-- modal find ID -->
+		<div class="modal fade" id="modalEmail">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title">Modal title</h4>
+					</div>
+					<div class="modal-body">
+						<p id="modalTitle">가입한 Email 입력</p>
+						<input type="text" class="form-control" id="emailInp">
+					</div>
+					<div class="modal-footer">
+					    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					    <button type="button" class="btn btn-primary" id="findIdBtn">찾기</button>
+				  	</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
 		<footer id="footer" class="top-space">
 
 		<div class="footer1">
@@ -220,6 +239,25 @@
 				
 				$('form[name=signin]').attr({action:'signin',method:'post'}).submit();
 			}
+			
+			function searchId(){
+				$.ajax({
+				    type : "POST"
+				    ,async : true
+				    ,url : "ajaxFindIdByEmail"
+				    ,dataType : "json" 
+				    ,data : {email:$('#emailInp').val()}
+				    ,contentType: "application/json; charset=utf-8"
+				    ,success : function(response, status, request) {
+				    	if (response != null) {
+				    		$('#modalTitle').html('아이디: <b class="pull-right">' + response + '</b>');
+						} else {
+				    		$('#modalTitle').html('아이디: <b class="pull-right">일치하는 아이디 없음.</b>');
+							return false;
+						}
+				    }
+				});
+			}
 		
 			$(document).ready(function(){
 				$('#idOrEmail').focus();
@@ -241,6 +279,16 @@
 					var txt = $('#idOrEmail').val();
 					selectIdEmail(txt);
 					validation();
+				});
+				
+				$('#findEmailBtn').click(function(){
+					$('#modalEmail').modal('show');
+				});
+				
+				$('#findIdBtn').click(function(){
+					if (true) {
+						searchId();
+					}
 				});
 			});
 		</script>

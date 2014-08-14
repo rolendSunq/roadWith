@@ -1,6 +1,10 @@
 package com.sbaitproject.roadwith;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.crypto.URIDereferencer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -51,5 +55,19 @@ public class SignUpController{
 		String userEmail = data.substring(3, data.length());
 		System.out.println("userEmail: " + userEmail);
 		userService.searchEmail(userEmail, response);
+	}
+	@RequestMapping(value = "ajaxFindIdByEmail", method = RequestMethod.POST)
+	public void ajaxFindIdByEmailController(@RequestBody String json, HttpServletResponse response) {
+		String data = json;
+		String userEmail = data.substring(6, data.length());
+		
+		try {
+			userEmail = URLDecoder.decode(userEmail, "UTF-8");
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		
+		System.out.println("userEmail: " + userEmail);
+		userService.findIdService(userEmail, response);
 	}
 }
