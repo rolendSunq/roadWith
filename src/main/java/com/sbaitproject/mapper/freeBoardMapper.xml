@@ -65,7 +65,7 @@
 		WHERE article_id = #{articleId}
 	</select>
 	
-	 <select id="FindByPasswd" parameterType="String" resultType="int">
+	 <select id="FindPasswdByAticleId" parameterType="String" resultType="int">
     	SELECT password
     	FROM freeboard
     	WHERE article_id = #{articleId}

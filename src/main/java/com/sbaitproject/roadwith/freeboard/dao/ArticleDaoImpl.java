@@ -89,8 +89,7 @@ public class ArticleDaoImpl implements ArticleDao {
 	}
 
 	@Override
-	public String findPasswdByAticleId(String articleId) {
-	
+	public int findPasswdByAticleId(String articleId) {
 		return session.selectOne(NS + "FindPasswdByAticleId", articleId);
 	}
 

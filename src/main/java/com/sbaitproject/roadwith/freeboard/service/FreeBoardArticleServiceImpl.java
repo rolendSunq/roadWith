@@ -174,7 +174,7 @@ public class FreeBoardArticleServiceImpl implements FreeBoardArticleService {
 	}
 
 	@Override
-	public void findPasswdService(String articleId, HttpServletResponse response) {
+	public void findPasswdService(String articleId, String password, HttpServletResponse response) {
 		Gson gson = new Gson();
 		PrintWriter printWriter = null;
 		
@@ -182,9 +182,14 @@ public class FreeBoardArticleServiceImpl implements FreeBoardArticleService {
 		response.setContentType("text/xml; charset=UTF-8");
 		response.setHeader("Cache-Control", "no-cache");
 		
-		String result = articleDao.findPasswdByAticleId(articleId);
-		
-		System.out.println(result);
+		int result = articleDao.findPasswdByAticleId(articleId);
+		String status = null;
+
+		if (result == Integer.parseInt(password)) {
+			status = "valid";
+		} else {
+			status = "invalid";
+		}
 		
 		try {
 			printWriter = new PrintWriter(response.getWriter());
@@ -192,7 +197,7 @@ public class FreeBoardArticleServiceImpl implements FreeBoardArticleService {
 			e.printStackTrace();
 		}
 		
-		printWriter.println(gson.toJson(result));
+		printWriter.println(gson.toJson(status));
 		printWriter.flush();
 		printWriter.close();
 		

@@ -264,34 +264,27 @@
 			}
 			
 			function searchPasswd(){
+				var jsonData = '{\"password\":\"' + $('#PasswdInp').val() + '\",\"articleId\":\"' + $('#articleIdHid').val() + '\"}';
 				$.ajax({
 				    type : "POST"
 				    ,async : true
 				    ,url : "ajaxSearchPassword"
 				    ,dataType : "json" 
-				    ,data : {"password":$('#PasswdInp').val(),"articleId":$('#articleIdHid').val()}
+				    ,data : jsonData
 				    ,contentType: "application/json; charset=utf-8"
 				    ,success : function(response, status, request) {
-				    	if (response == 'success') {
-
+						if (response == 'valid') {
 							updateStatus = 'hide';
-							
 							$('#readBox').show();
 							$('#updateBox').hide();
-							
-							if (updateValidation()) {
-								$('form[name=updateFrm]').submit();
-							} else {
-								$('#passwdResult').html('패스워드가 일치 하지 않습니다.');
-								
+							$('form[name=updateFrm]').submit();
+						} else {
+							$('#passwdResult').html('패스워드가 일치 하지 않습니다.');
 							return false;
-							}							
 						}
 				    }
 				});
 			}
-			
-			
 			
 			$(document).ready(function(){
 				var title = $('#updateTitle').val();
@@ -339,7 +332,6 @@
 				});
 				
 				$('#replyBtn').click(function(){
-
 					if (replyValidation()) {
 						status = 'hide';
 						$('#replyDisplayBtn').html('<i class="fa fa-hand-o-right"></i> 답글');
@@ -349,18 +341,17 @@
 				});					
 				
 				$('#enterEditBtn').click(function() {
-					
 					$('#modalPasswd').modal('show');					
-					
 				});
 				
 				$('#adjustTextBtn').click(function(){
-					
 					searchPasswd();
-					
 				});
 				
-				
+				$('#PasswdInp').click(function(){
+					$(this).val('');
+					$('#passwdResult').html('');
+				});
 			});
 		</script>
 		<script src="./resources/assets/js/headroom.min.js"></script>

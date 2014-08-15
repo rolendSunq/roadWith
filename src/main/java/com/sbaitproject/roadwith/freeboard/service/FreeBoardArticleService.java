@@ -17,5 +17,5 @@ public interface FreeBoardArticleService {
 	public void registrationReply(int articleId, Model model, Article replyArticle);	// 댓글 등록
 	public void getReplyList(int group_id, Model model);			// reply list
 	public void updateArticleService(Article article, Model model);
-	public void findPasswdService(String articleId, HttpServletResponse response);
+	public void findPasswdService(String articleId, String password, HttpServletResponse response);
 }

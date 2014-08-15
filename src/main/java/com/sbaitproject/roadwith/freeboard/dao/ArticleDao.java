@@ -17,5 +17,5 @@ import com.sbaitproject.roadwith.freeboard.vo.Article;
 	public List<Article> selectGroupIdByReply(int group_id);
 	public void updateArticle(Article article);
 	public int selectGroupIdByArticleId(int articleId);
-	public String findPasswdByAticleId(String articleId);
+	public int findPasswdByAticleId(String articleId);
 }

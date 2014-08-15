@@ -61,12 +61,8 @@ public class FreeBoardController {
 	
 	@RequestMapping(value = "ajaxSearchPassword", method = RequestMethod.POST)
 	public void ajaxSearchPasswordController(@RequestBody String json, HttpServletResponse response) throws UnsupportedEncodingException {
-		System.out.println(json);
-		String reJson = null;
-		reJson = URLDecoder.decode(json, "UTF-8");
-		System.out.println(reJson);
 		Gson gson = new Gson();
-		User user = gson.fromJson(reJson, User.class);
-		//freeBoardArticleService.findPasswdService(articleId, response);
+		User user = gson.fromJson(json, User.class);
+		freeBoardArticleService.findPasswdService(user.getArticleId(), user.getPassword(), response);
 	}
 }
