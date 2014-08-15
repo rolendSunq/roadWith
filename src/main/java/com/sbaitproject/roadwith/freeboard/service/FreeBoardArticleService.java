@@ -1,9 +1,12 @@
 package com.sbaitproject.roadwith.freeboard.service;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.ui.Model;
 
 import com.sbaitproject.roadwith.freeboard.vo.Article;
 import com.sbaitproject.roadwith.freeboard.vo.ArticleListVo;
+import com.sbaitproject.roadwith.vo.Person;
 
 public interface FreeBoardArticleService {
 	public static final int COUNT_PER_PAGE = 10;
@@ -14,4 +17,5 @@ public interface FreeBoardArticleService {
 	public void registrationReply(int articleId, Model model, Article replyArticle);	// 댓글 등록
 	public void getReplyList(int group_id, Model model);			// reply list
 	public void updateArticleService(Article article, Model model);
+	public void findPasswdService(String articleId, HttpServletResponse response);
 }

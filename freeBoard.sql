@@ -1,4 +1,5 @@
 drop table freeboard;
+drop SEQUENCE seq_freeboard_id;
 
 create table freeboard (
 	article_id number not null,
@@ -16,8 +17,9 @@ create table freeboard (
 create sequence seq_freeboard_id
 	start with 1
 	increment by 1
-	nocache
-	nocycle;
+	NOMAXVALUE
+	NOCACHE
+	NOCYCLE;
 	
 --select * from freeboard;
 

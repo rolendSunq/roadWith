@@ -65,6 +65,12 @@
 		WHERE article_id = #{articleId}
 	</select>
 	
+	 <select id="FindByPasswd" parameterType="String" resultType="int">
+    	SELECT password
+    	FROM freeboard
+    	WHERE article_id = #{articleId}
+    </select>
+	
 	<insert id="InsertArticle" parameterType="com.sbaitproject.roadwith.freeboard.vo.Article" >
 		insert into freeBoard
 		(article_id, group_id, sequence_no, posting_date, read_count, writer_name, password, title, content)

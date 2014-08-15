@@ -1,14 +1,19 @@
 package com.sbaitproject.roadwith.freeboard.service;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import com.google.gson.Gson;
 import com.sbaitproject.roadwith.freeboard.dao.ArticleDao;
 import com.sbaitproject.roadwith.freeboard.vo.Article;
 import com.sbaitproject.roadwith.freeboard.vo.ArticleListVo;
@@ -167,4 +172,32 @@ public class FreeBoardArticleServiceImpl implements FreeBoardArticleService {
 		model.addAttribute("article", newArticle);
 		model.addAttribute("replyArticleList", replyArticleList);
 	}
+
+	@Override
+	public void findPasswdService(String articleId, HttpServletResponse response) {
+		Gson gson = new Gson();
+		PrintWriter printWriter = null;
+		
+		response.setContentType("application/json");
+		response.setContentType("text/xml; charset=UTF-8");
+		response.setHeader("Cache-Control", "no-cache");
+		
+		String result = articleDao.findPasswdByAticleId(articleId);
+		
+		System.out.println(result);
+		
+		try {
+			printWriter = new PrintWriter(response.getWriter());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		printWriter.println(gson.toJson(result));
+		printWriter.flush();
+		printWriter.close();
+		
+	}
+
+	
+
 }
