@@ -51,7 +51,14 @@
 						<li><a href="notice">공지사항</a></li>
 						<li><a href="contact">문의사항</a></li>
 						<li><a href="weather">날씨</a></li>
-						<li><a class="btn" href="signin.html?signin">로그인 / 회원가입</a></li>
+					<c:choose>
+						<c:when test="${id != null }">
+						<li><a class="btn" href="signout"><i class="fa fa-sign-out"></i> 로그아웃</a></li>
+						</c:when>
+						<c:otherwise>
+						<li><a class="btn" href="signin.html?signin"><i class="fa fa-sign-in"></i> 로그인 / 회원가입</a></li>
+						</c:otherwise>
+					</c:choose>
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>

@@ -1,198 +1,166 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="">
-	<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
-	
-	<title>로드러너</title>
-
-	<link rel="shortcut icon" href="./resources/assets/images/favicon5.png">
-	<link rel="stylesheet" media="screen" href="./resources/assets/css/googleFont.css">
-	<link rel="stylesheet" href="./resources/assets/css/bootstrap.min.css">
-	<link rel="stylesheet" href="./resources/assets/css/font-awesome.min.css">
-
-	<!-- Custom styles for our template -->
-	<link rel="stylesheet" href="./resources/assets/css/bootstrap-theme.css" media="screen" >
-	<link rel="stylesheet" href="./resources/assets/css/main.css">
-
-	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
-	<script src="./resources/assets/js/html5shiv.js"></script>
-	<script src="./resources/assets/js/respond.min.js"></script>
-	<![endif]-->
-</head>
-<body>
-<!-- Fixed navbar -->
-	<div class="navbar navbar-inverse navbar-fixed-top headroom" >
-		<div class="container">
-			<div class="navbar-header">
-				<!-- Button for smallest screens -->
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span> 
-					<span class="icon-bar"></span> 
-				</button>
-				<a class="navbar-brand" href="/roadwith"><img src="./resources/assets/images/logotest2.png" alt="Progressus HTML5 template"></a>
-			</div>
-			<div class="navbar-collapse collapse">
-				<ul class="nav navbar-nav pull-right">
-					<li><a href="/roadwith">홈</a></li>
-					<li  class="active"><a href="about">개요</a></li>
-					<li><a href="freeBoard?freeBoard" class="board" >게시판</a></li>
-					<li><a href="notice">공지사항</a></li>
-					<li><a href="contact">문의사항</a></li>
-					<li><a class="btn" href="signin.html?signin">로그인 / 회원가입</a></li>
-				</ul>
-			</div><!--/.nav-collapse -->
-		</div>
-	</div> 
-	<!-- /.navbar -->
-	
-	
-	<header id="head" class="secondary"></header>
-
-	<!-- container -->
-	<div class="container">
-
-		<ol class="breadcrumb">
-			<li><a href="index.html">홈</a></li>
-			<li class="active">개요</li>
-		</ol>
-
-		<div class="row">
-			
-			<!-- Article main content -->
-			<article class="col-sm-8 maincontent">
-				<header class="page-header">
-					<h1 class="page-title">About</h1>
-				</header>
-				<h3>RoadRunner를 만들기로 한 계기</h3>
-				<p><img src="assets/images/mac.jpg" alt="" class="img-rounded pull-right" width="300" > Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, consequuntur eius repellendus eos aliquid molestiae ea laborum ex quibusdam laudantium voluptates placeat consectetur quam aliquam beatae soluta accusantium iusto nihil nesciunt unde veniam magnam repudiandae sapiente.</p>
-				<p>Quos, aliquam nam velit impedit minus tenetur beatae voluptas facere sint pariatur! Voluptatibus, quisquam, error, est assumenda corporis inventore illo nesciunt iure aut dolor possimus repellat minima veniam alias eius!</p>
-				<h3>제작과정</h3>
-				<p>Velit, odit, eius, libero unde impedit quaerat dolorem assumenda alias consequuntur optio quae maiores ratione tempore sit aliquid architecto eligendi pariatur ab soluta doloremque dicta aspernatur labore quibusdam dolore corrupti quod inventore. Maiores, repellat, consequuntur eius repellendus eos aliquid molestiae ea laborum ex quibusdam laudantium voluptates placeat consectetur quam aliquam!</p>
-				<h3>제작자 간단소개(프로필)</h3>
-				<p>Eum, quasi, est, vitae, ipsam nobis consectetur ea aspernatur ad eos voluptatibus fugiat nisi perferendis impedit. Quam, nulla, excepturi, voluptate minus illo tenetur sint ab in culpa cumque impedit quibusdam. Saepe, molestias quia voluptatem natus velit fugiat omnis rem eos sapiente quasi quaerat aspernatur quisquam deleniti accusantium laboriosam odio id?</p>
-				<h3>유저분들께 바라는 점</h3>
-				<p>Velit, odit, eius, libero unde impedit quaerat dolorem assumenda alias consequuntur optio quae maiores ratione tempore sit aliquid architecto eligendi pariatur ab soluta doloremque dicta aspernatur labore quibusdam dolore corrupti quod inventore. Maiores, repellat, consequuntur eius repellendus eos aliquid molestiae ea laborum ex quibusdam laudantium voluptates placeat consectetur quam aliquam!</p>
-				<p>Eum, quasi, est, vitae, ipsam nobis consectetur ea aspernatur ad eos voluptatibus fugiat nisi perferendis impedit. Quam, nulla, excepturi, voluptate minus illo tenetur sint ab in culpa cumque impedit quibusdam. Saepe, molestias quia voluptatem natus velit fugiat omnis rem eos sapiente quasi quaerat aspernatur quisquam deleniti accusantium laboriosam odio id?</p>
-				
-			</article>
-			<!-- /Article -->
-			
-			<!-- Sidebar -->
-			<aside class="col-sm-4 sidebar sidebar-right">
-
-				<div class="widget">
-					<h4>Vacancies</h4>
-					<ul class="list-unstyled list-spaces">
-						<li><a href="">Lorem ipsum dolor</a><br><span class="small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, laborum.</span></li>
-						<li><a href="">Totam, libero, quis</a><br><span class="small text-muted">Suscipit veniam debitis sed ipsam quia magnam eveniet perferendis nisi.</span></li>
-						<li><a href="">Enim, sequi dignissimos</a><br><span class="small text-muted">Reprehenderit illum quod unde quo vero ab inventore alias veritatis.</span></li>
-						<li><a href="">Suscipit, consequatur, aut</a><br><span class="small text-muted">Sed, mollitia earum debitis est itaque esse reiciendis amet cupiditate.</span></li>
-						<li><a href="">Nam, illo, veritatis</a><br><span class="small text-muted">Delectus, sapiente illo provident quo aliquam nihil beatae dignissimos itaque.</span></li>
-					</ul>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
+		<title>로드러너</title>
+		<link rel="shortcut icon" href="./resources/assets/images/favicon5.png">
+		<link rel="stylesheet" media="screen" href="./resources/assets/css/googleFont.css">
+		<link rel="stylesheet" href="./resources/assets/css/bootstrap.min.css">
+		<link rel="stylesheet" href="./resources/assets/css/font-awesome.min.css">
+		<!-- Custom styles for our template -->
+		<link rel="stylesheet" href="./resources/assets/css/bootstrap-theme.css" media="screen" >
+		<link rel="stylesheet" href="./resources/assets/css/main.css">
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		<script src="./resources/assets/js/html5shiv.js"></script>
+		<script src="./resources/assets/js/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+	<!-- Fixed navbar -->
+		<div class="navbar navbar-inverse navbar-fixed-top headroom" >
+			<div class="container">
+				<div class="navbar-header">
+					<!-- Button for smallest screens -->
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span> 
+						<span class="icon-bar"></span> 
+					</button>
+					<a class="navbar-brand" href="/roadwith"><img src="./resources/assets/images/logotest2.png" alt="Progressus HTML5 template"></a>
 				</div>
-
-			</aside>
-			<!-- /Sidebar -->
-
-		</div>
-	</div>	<!-- /container -->
-	
-<footer id="footer" class="top-space">
-
-		<div class="footer1">
-			<div class="container">
-				<div class="row">
-					
-					<div class="col-md-3 widget">
-						<h3 class="widget-title">문의관련</h3>
-						<div class="widget-body">
-							<p>010-5423-2723<br>
-								<a href="mailto:#">jjunghee@sba.seoul.kr</a><br>
-								<br>
-								서울시 마포구 성암로 330 DMC첨단산업센터
-							</p>	
-						</div>
-					</div>
-
-					<div class="col-md-3 widget">
-						<h3 class="widget-title">Follow me</h3>
-						<div class="widget-body">
-							<p class="follow-me-icons">
-								<a href=""><i class="fa fa-twitter fa-2"></i></a>
-								<a href=""><i class="fa fa-dribbble fa-2"></i></a>
-								<a href=""><i class="fa fa-github fa-2"></i></a>
-								<a href=""><i class="fa fa-facebook fa-2"></i></a>
-							</p>	
-						</div>
-					</div>
-
-					<div class="col-md-6 widget">
-						<h3 class="widget-title">Text widget</h3>
-						<div class="widget-body">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, dolores, quibusdam architecto voluptatem amet fugiat nesciunt placeat provident cumque accusamus itaque voluptate modi quidem dolore optio velit hic iusto vero praesentium repellat commodi ad id expedita cupiditate repellendus possimus unde?</p>
-							<p>Eius consequatur nihil quibusdam! Laborum, rerum, quis, inventore ipsa autem repellat provident assumenda labore soluta minima alias temporibus facere distinctio quas adipisci nam sunt explicabo officia tenetur at ea quos doloribus dolorum voluptate reprehenderit architecto sint libero illo et hic.</p>
-						</div>
-					</div>
-
-				</div> <!-- /row of widgets -->
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav pull-right">
+						<li><a href="/roadwith">홈</a></li>
+						<li  class="active"><a href="about">개요</a></li>
+						<li><a href="freeBoard" class="board" >게시판</a></li>
+						<li><a href="notice">공지사항</a></li>
+						<li><a href="contact">문의사항</a></li>
+					<c:choose>
+						<c:when test="${id != null }">
+						<li><a class="btn" href="signout"><i class="fa fa-sign-out"></i> 로그아웃</a></li>
+						</c:when>
+						<c:otherwise>
+						<li><a class="btn" href="signin.html?signin"><i class="fa fa-sign-in"></i> 로그인 / 회원가입</a></li>
+						</c:otherwise>
+					</c:choose>
+					</ul>
+				</div><!--/.nav-collapse -->
 			</div>
-		</div>
-
-		<div class="footer2">
-			<div class="container">
-				<div class="row">
+		</div> 
+		<!-- /.navbar -->
+		<header id="head" class="secondary"></header>
+		<!-- container -->
+		<div class="container">
+			<ol class="breadcrumb">
+				<li><a href="index.html">홈</a></li>
+				<li class="active">개요</li>
+			</ol>
+			<div class="row">
+				<!-- Article main content -->
+				<article class="col-sm-8 maincontent">
+					<header class="page-header">
+						<h1 class="page-title">About</h1>
+					</header>
+					<h3>RoadRunner를 만들기로 한 계기</h3>
+					<p><img src="assets/images/mac.jpg" alt="" class="img-rounded pull-right" width="300" > Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, consequuntur eius repellendus eos aliquid molestiae ea laborum ex quibusdam laudantium voluptates placeat consectetur quam aliquam beatae soluta accusantium iusto nihil nesciunt unde veniam magnam repudiandae sapiente.</p>
+					<p>Quos, aliquam nam velit impedit minus tenetur beatae voluptas facere sint pariatur! Voluptatibus, quisquam, error, est assumenda corporis inventore illo nesciunt iure aut dolor possimus repellat minima veniam alias eius!</p>
+					<h3>제작과정</h3>
+					<p>Velit, odit, eius, libero unde impedit quaerat dolorem assumenda alias consequuntur optio quae maiores ratione tempore sit aliquid architecto eligendi pariatur ab soluta doloremque dicta aspernatur labore quibusdam dolore corrupti quod inventore. Maiores, repellat, consequuntur eius repellendus eos aliquid molestiae ea laborum ex quibusdam laudantium voluptates placeat consectetur quam aliquam!</p>
+					<h3>제작자 간단소개(프로필)</h3>
+					<p>Eum, quasi, est, vitae, ipsam nobis consectetur ea aspernatur ad eos voluptatibus fugiat nisi perferendis impedit. Quam, nulla, excepturi, voluptate minus illo tenetur sint ab in culpa cumque impedit quibusdam. Saepe, molestias quia voluptatem natus velit fugiat omnis rem eos sapiente quasi quaerat aspernatur quisquam deleniti accusantium laboriosam odio id?</p>
+					<h3>유저분들께 바라는 점</h3>
+					<p>Velit, odit, eius, libero unde impedit quaerat dolorem assumenda alias consequuntur optio quae maiores ratione tempore sit aliquid architecto eligendi pariatur ab soluta doloremque dicta aspernatur labore quibusdam dolore corrupti quod inventore. Maiores, repellat, consequuntur eius repellendus eos aliquid molestiae ea laborum ex quibusdam laudantium voluptates placeat consectetur quam aliquam!</p>
+					<p>Eum, quasi, est, vitae, ipsam nobis consectetur ea aspernatur ad eos voluptatibus fugiat nisi perferendis impedit. Quam, nulla, excepturi, voluptate minus illo tenetur sint ab in culpa cumque impedit quibusdam. Saepe, molestias quia voluptatem natus velit fugiat omnis rem eos sapiente quasi quaerat aspernatur quisquam deleniti accusantium laboriosam odio id?</p>
 					
-					<div class="col-md-6 widget">
-						<div class="widget-body">
-							<p class="simplenav">
-								<a href="#">Home</a> | 
-								<a href="about.html">About</a> |
-								<a href="sidebar-right.html">Sidebar</a> |
-								<a href="contact.html">Contact</a> |
-								<b><a href="signup.html">Sign up</a></b>
-							</p>
-						</div>
+				</article>
+				<!-- /Article -->
+				<!-- Sidebar -->
+				<aside class="col-sm-4 sidebar sidebar-right">
+					<div class="widget">
+						<h4>Vacancies</h4>
+						<ul class="list-unstyled list-spaces">
+							<li><a href="">Lorem ipsum dolor</a><br><span class="small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, laborum.</span></li>
+							<li><a href="">Totam, libero, quis</a><br><span class="small text-muted">Suscipit veniam debitis sed ipsam quia magnam eveniet perferendis nisi.</span></li>
+							<li><a href="">Enim, sequi dignissimos</a><br><span class="small text-muted">Reprehenderit illum quod unde quo vero ab inventore alias veritatis.</span></li>
+							<li><a href="">Suscipit, consequatur, aut</a><br><span class="small text-muted">Sed, mollitia earum debitis est itaque esse reiciendis amet cupiditate.</span></li>
+							<li><a href="">Nam, illo, veritatis</a><br><span class="small text-muted">Delectus, sapiente illo provident quo aliquam nihil beatae dignissimos itaque.</span></li>
+						</ul>
 					</div>
-
-					<div class="col-md-6 widget">
-						<div class="widget-body">
-							<p class="text-right">
-								Copyright &copy; 2014, Your name. Designed by <a href="http://gettemplate.com/" rel="designer">gettemplate</a> 
-							</p>
-						</div>
-					</div>
-
-				</div> <!-- /row of widgets -->
+				</aside>
+				<!-- /Sidebar -->
 			</div>
-		</div>
-	</footer>	
-		
-
-
-
-
-	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
-	<script src="./resources/assets/js/jquery-1.11.1.min.js"></script>
-	<script src="./resources/assets/js/bootstrap.min.js"></script>
-	<script>
-		$(document).ready(function(){
-			$('#userEmail').keydown(function(e){
-				var txt = $('#userEmail').val();
-				if (e.keyCode == 13){
-					$('#userPasswd').focus();
-					return false;
-				}
-			});
-		});
-	</script>
-	<script src="./resources/assets/js/headroom.min.js"></script>
-	<script src="./resources/assets/js/jQuery.headroom.min.js"></script>
-	<script src="./resources/assets/js/template.js"></script>
-</body>
+		</div>	<!-- /container -->
+		<footer id="footer" class="top-space">
+			<div class="footer1">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-3 widget">
+							<h3 class="widget-title">문의관련</h3>
+							<div class="widget-body">
+								<p>010-5423-2723<br>
+									<a href="mailto:#">jjunghee@sba.seoul.kr</a><br>
+									<br>
+									서울시 마포구 성암로 330 DMC첨단산업센터
+								</p>	
+							</div>
+						</div>
+						<div class="col-md-3 widget">
+							<h3 class="widget-title">Follow me</h3>
+							<div class="widget-body">
+								<p class="follow-me-icons">
+									<a href=""><i class="fa fa-twitter fa-2"></i></a>
+									<a href=""><i class="fa fa-dribbble fa-2"></i></a>
+									<a href=""><i class="fa fa-github fa-2"></i></a>
+									<a href=""><i class="fa fa-facebook fa-2"></i></a>
+								</p>	
+							</div>
+						</div>
+						<div class="col-md-6 widget">
+							<h3 class="widget-title">Text widget</h3>
+							<div class="widget-body">
+								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, dolores, quibusdam architecto voluptatem amet fugiat nesciunt placeat provident cumque accusamus itaque voluptate modi quidem dolore optio velit hic iusto vero praesentium repellat commodi ad id expedita cupiditate repellendus possimus unde?</p>
+								<p>Eius consequatur nihil quibusdam! Laborum, rerum, quis, inventore ipsa autem repellat provident assumenda labore soluta minima alias temporibus facere distinctio quas adipisci nam sunt explicabo officia tenetur at ea quos doloribus dolorum voluptate reprehenderit architecto sint libero illo et hic.</p>
+							</div>
+						</div>
+					</div> <!-- /row of widgets -->
+				</div>
+			</div>
+			<div class="footer2">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 widget">
+							<div class="widget-body">
+								<p class="simplenav">
+									<a href="#">Home</a> | 
+									<a href="about.html">About</a> |
+									<a href="sidebar-right.html">Sidebar</a> |
+									<a href="contact.html">Contact</a> |
+									<b><a href="signup.html">Sign up</a></b>
+								</p>
+							</div>
+						</div>
+						<div class="col-md-6 widget">
+							<div class="widget-body">
+								<p class="text-right">
+									Copyright &copy; 2014, Your name. Designed by <a href="http://gettemplate.com/" rel="designer">gettemplate</a> 
+								</p>
+							</div>
+						</div>
+					</div> <!-- /row of widgets -->
+				</div>
+			</div>
+		</footer>	
+		<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+		<script src="./resources/assets/js/jquery-1.11.1.min.js"></script>
+		<script src="./resources/assets/js/bootstrap.min.js"></script>
+		<script src="./resources/assets/js/headroom.min.js"></script>
+		<script src="./resources/assets/js/jQuery.headroom.min.js"></script>
+		<script src="./resources/assets/js/template.js"></script>
+	</body>
 </html>
