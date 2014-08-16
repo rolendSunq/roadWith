@@ -28,7 +28,7 @@ public class UserContactDAOImpl implements UserContactDAO {
 	@Override
 	public int getPersonEmail(String userEmail) {
 		logger.info("dao select one email is " + userEmail);
-		return sqlSession.selectOne(NS + "getPsersonEamil", userEmail);
+		return sqlSession.selectOne(NS + "getPersonEmail", userEmail);
 	}
 
 	@Override

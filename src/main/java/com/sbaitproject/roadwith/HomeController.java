@@ -48,12 +48,11 @@ public class HomeController {
 	}
 	
 	@RequestMapping(value = "signin", method = RequestMethod.POST)
-	public String signinPost(Person person, HttpSession session) {
+	public String signinPost(Person person, HttpSession session, @RequestParam(value = "section") boolean section) {
 		String result = null;
 		String url = "signin";
-		boolean section = true;
 		
-		if (person.getId() != null) 
+		if (section == true) 
 			result = contactServices.checkSignin(section, person);
 		else 
 			result = contactServices.checkSignin(section = false, person);
