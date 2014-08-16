@@ -51,7 +51,7 @@
 					<a href="#" data-toggle="dropdown" class="dropdown-toggle">게시판 <b class="caret"></b></a>
 					<ul class="dropdown-menu">
 					<li><a href="freeBoard">자유게시판</a></li>
-					<li><a href="R2Board">러너 / 라이더</a></li>
+					<li><a href="roadContent">러너 / 라이더</a></li>
 					</ul>
 					</li>
 					<li><a href="notice">공지사항</a></li>

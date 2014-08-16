@@ -38,7 +38,13 @@
 					<ul class="nav navbar-nav pull-right">
 						<li><a href="/roadwith">홈</a></li>
 						<li  class="active"><a href="about">개요</a></li>
-						<li><a href="freeBoard" class="board" >게시판</a></li>
+						<li class="dropdown">
+							<a href="#" data-toggle="dropdown" class="dropdown-toggle">게시판 <b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="freeBoard">자유게시판</a></li>
+								<li><a href="roadContent">러너 / 라이더</a></li>
+							</ul>
+						</li>
 						<li><a href="notice">공지사항</a></li>
 						<li><a href="contact">문의사항</a></li>
 					<c:choose>

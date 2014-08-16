@@ -108,16 +108,6 @@ public class HomeController {
 		return "freeBoard/freeMain";
 	}
 	
-	@RequestMapping(value = "FreeRiderBoard", method = RequestMethod.GET)
-	public String riderBoard(Model model) {
-		return "freeBoard/riderBoard";
-	}
-	
-	@RequestMapping(value = "FreeRunBoard", method = RequestMethod.GET)
-	public String runBoard(Model model) {
-		return "freeBoard/runBoard";
-	}
-	
 	@RequestMapping(value = "write", method = RequestMethod.GET)
 	public String writeForm(Model model) {
 		return "freeBoard/writeForm";
@@ -144,4 +134,8 @@ public class HomeController {
 		return "weather";
 	}
 	
+	@RequestMapping("roadContent")
+	public String roadContentController() {
+		return "riders/riderBoard";
+	}
 }
