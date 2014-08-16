@@ -19,9 +19,9 @@
 		<style type="text/css">
 			#mapArea {
 				margin: auto;
-				width: 900px;
-	  			height: 500px;
-	  			border: 0;
+				width: 800px;
+	  			height: 480px;
+	  			border: 1px;
 			}
 		</style>
 	
@@ -58,7 +58,14 @@
 						<li><a href="notice">공지사항</a></li>
 						<li><a href="contact">문의사항</a></li>
 						<li><a href="weather">날씨</a></li>
-						<li><a class="btn" href="signin.html?signin">로그인 / 회원가입</a></li>
+					<c:choose>
+						<c:when test="${id != null }">
+						<li><a class="btn" href="signout"><i class="fa fa-sign-out"></i> 로그아웃</a></li>
+						</c:when>
+						<c:otherwise>
+						<li><a class="btn" href="signin.html?signin"><i class="fa fa-sign-in"></i> 로그인 / 회원가입</a></li>
+						</c:otherwise>
+					</c:choose>
 					</ul>
 				</div><!--/.nav-collapse -->
 			</div>
@@ -238,14 +245,14 @@
 	
 	
 		<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
-		<script type="text/javascript" src="http://openapi.map.naver.com/openapi/naverMap.naver?ver=2.0&key=1cd4020a7df985f3bb9f64b77ae0e8db"></script>
+		<script type="text/javascript" src="http://openapi.map.naver.com/openapi/naverMap.naver?ver=2.0&key=f725885371d20e1e3d1b4867f75a984a"></script>
 		<script src="./resources/assets/js/jquery-1.11.1.min.js"></script>
 		<script src="./resources/assets/js/bootstrap.min.js"></script>
 		<script type="text/javascript">
 			var pinCreateCount = 0;
 		 	var oSeoulCityPoint = new nhn.api.map.LatLng(37.509931, 126.981784);
 			var defaultLevel = 9;
-			var oMap = new nhn.api.map.Map(document.getElementById('mapArea'), { 
+			var oMap = new nhn.api.map.Map(document.getElementById('#mapArea'), { 
 											point : oSeoulCityPoint,
 											zoom : defaultLevel,
 											enableWheelZoom : true,

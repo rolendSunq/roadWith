@@ -42,3 +42,4 @@ COUNT(*) OVER() AS TOTCNT FROM (
 ) A
 ) WHERE RNUM >= 1 AND RNUM <= 10
 order by posting_date desc;
+

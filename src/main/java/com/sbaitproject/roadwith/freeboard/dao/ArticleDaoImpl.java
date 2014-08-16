@@ -93,7 +93,8 @@ public class ArticleDaoImpl implements ArticleDao {
 		return session.selectOne(NS + "FindPasswdByAticleId", articleId);
 	}
 
-	
-	
-
+	@Override
+	public void deletArticle(int articleId) {
+		session.delete(NS + "DeleteArticle", articleId);
+	}
 }

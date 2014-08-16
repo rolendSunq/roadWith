@@ -88,4 +88,10 @@
 		SET title = #{title}, content = #{content}
 		WHERE article_id = #{articleId}
 	</update>
+	
+	<delete id="DeleteArticle" parameterType="int">
+		DELETE
+		FROM freeboard
+		WHERE group_id = #{articleId}
+	</delete>
  </mapper>

@@ -18,4 +18,5 @@ public interface FreeBoardArticleService {
 	public void getReplyList(int group_id, Model model);			// reply list
 	public void updateArticleService(Article article, Model model);
 	public void findPasswdService(String articleId, String password, HttpServletResponse response);
+	public void deleteArticleService(int articleId);
 }

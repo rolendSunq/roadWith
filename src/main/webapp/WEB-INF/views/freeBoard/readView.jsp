@@ -224,6 +224,7 @@
 		<script>
 			var status = 'hide';
 			var updateStatus = 'hide';
+			var caller = null;
 			
 			function updateValidation(){
 				var titleValue = $('#updateTitle').val();
@@ -263,7 +264,7 @@
 				return true;
 			}
 			
-			function searchPasswd(){
+			function searchPasswd(caller){
 				var jsonData = '{\"password\":\"' + $('#PasswdInp').val() + '\",\"articleId\":\"' + $('#articleIdHid').val() + '\"}';
 				$.ajax({
 				    type : "POST"
@@ -274,16 +275,31 @@
 				    ,contentType: "application/json; charset=utf-8"
 				    ,success : function(response, status, request) {
 						if (response == 'valid') {
-							updateStatus = 'hide';
-							$('#readBox').show();
-							$('#updateBox').hide();
-							$('form[name=updateFrm]').submit();
+							if (caller == 'modifyBtn') {
+								updateStatus = 'hide';
+								$('#readBox').show();
+								$('#updateBox').hide();
+								$('form[name=updateFrm]').submit();
+							} else {
+								$(location).attr('href', 'deleteArticle?articleId=' + $('#articleIdHid').val());
+							}
 						} else {
 							$('#passwdResult').html('패스워드가 일치 하지 않습니다.');
 							return false;
 						}
 				    }
 				});
+			}
+			
+			function modalValidation(){
+				var inpVal = $('#PasswdInp').val();
+				if (inpVal == '' || inpVal == null || inpVal.length == 0) {
+					alert('패스워드를 입력하세요.');
+					$('#PasswdInp').focus();
+					return false;
+				}
+				
+				return true;
 			}
 			
 			$(document).ready(function(){
@@ -341,16 +357,25 @@
 				});					
 				
 				$('#enterEditBtn').click(function() {
+					caller = 'modifyBtn';
 					$('#modalPasswd').modal('show');					
 				});
 				
 				$('#adjustTextBtn').click(function(){
-					searchPasswd();
+					if (modalValidation()) {
+						searchPasswd(caller);
+					}
 				});
 				
 				$('#PasswdInp').click(function(){
 					$(this).val('');
 					$('#passwdResult').html('');
+				});
+				
+				$('#deleteArticleBtn').click(function(){
+					alert('주의: 삭제시 댓글도 같이 삭제됩니다.');
+					caller = 'deleteBtn';
+					$('#modalPasswd').modal('show');
 				});
 			});
 		</script>

@@ -17,6 +17,7 @@ import com.google.gson.Gson;
 import com.sbaitproject.roadwith.freeboard.dao.ArticleDao;
 import com.sbaitproject.roadwith.freeboard.vo.Article;
 import com.sbaitproject.roadwith.freeboard.vo.ArticleListVo;
+import com.sbaitproject.roadwith.freeboard.vo.User;
 
 @Service
 public class FreeBoardArticleServiceImpl implements FreeBoardArticleService {
@@ -203,6 +204,8 @@ public class FreeBoardArticleServiceImpl implements FreeBoardArticleService {
 		
 	}
 
-	
-
+	@Override
+	public void deleteArticleService(int articleId) {
+		articleDao.deletArticle(articleId);
+	}
 }

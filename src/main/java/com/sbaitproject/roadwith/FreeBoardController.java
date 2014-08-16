@@ -56,7 +56,14 @@ public class FreeBoardController {
 	public String updateArticleController(Model model, Article article) {
 		freeBoardArticleService.updateArticleService(article, model);
 		return "freeBoard/readView";
-		
+	}
+	
+	@RequestMapping(value = "deleteArticle", method = RequestMethod.GET)
+	public ModelAndView deleteArticleController(@RequestParam("articleId") int articleId) {
+		freeBoardArticleService.deleteArticleService(articleId);
+		ModelAndView mav = new ModelAndView();
+		mav.setView(new RedirectView("freeBoard"));
+		return mav;
 	}
 	
 	@RequestMapping(value = "ajaxSearchPassword", method = RequestMethod.POST)
