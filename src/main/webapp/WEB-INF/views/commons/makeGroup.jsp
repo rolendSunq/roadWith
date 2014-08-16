@@ -134,7 +134,7 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="startTime" class="col-md-3 control-label">출발 시간</label>
+						<label for="startTime" class="col-md-3 control-label">출발 시간</label>${currentDate }
 						<div class="col-md-2">
 							<input type="text" class="form-control" name="startTime" id="startTime">
 						</div>
@@ -248,7 +248,7 @@
 		<script type="text/javascript" src="http://openapi.map.naver.com/openapi/naverMap.naver?ver=2.0&key=f725885371d20e1e3d1b4867f75a984a"></script>
 		<script src="./resources/assets/js/jquery-1.11.1.min.js"></script>
 		<script src="./resources/assets/js/bootstrap.min.js"></script>
-		<script type="text/javascript">
+		<script>
 			var pinCreateCount = 0;
 		 	var oSeoulCityPoint = new nhn.api.map.LatLng(37.509931, 126.981784);
 			var defaultLevel = 9;
@@ -410,5 +410,8 @@
 		<script src="./resources/assets/js/headroom.min.js"></script>
 		<script src="./resources/assets/js/jQuery.headroom.min.js"></script>
 		<script src="./resources/assets/js/template.js"></script>
+		<script type="text/javascript">
+			
+		</script>
 	</body>
 </html>
