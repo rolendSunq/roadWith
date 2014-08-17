@@ -302,8 +302,7 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 </div>
 
 <!-- modal notice-->		
-		
-		<footer id="footer" class="top-space">
+	<footer id="footer" class="top-space">
 
 		<div class="footer1">
 			<div class="container">
@@ -333,36 +332,39 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 					</div>
 
 					<div class="col-md-6 widget">
-						<h3 class="widget-title">Text widget</h3>
+						<h3 class="widget-title">사용된 기술</h3>
 						<div class="widget-body">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, dolores, quibusdam architecto voluptatem amet fugiat nesciunt placeat provident cumque accusamus itaque voluptate modi quidem dolore optio velit hic iusto vero praesentium repellat commodi ad id expedita cupiditate repellendus possimus unde?</p>
-							<p>Eius consequatur nihil quibusdam! Laborum, rerum, quis, inventore ipsa autem repellat provident assumenda labore soluta minima alias temporibus facere distinctio quas adipisci nam sunt explicabo officia tenetur at ea quos doloribus dolorum voluptate reprehenderit architecto sint libero illo et hic.</p>
+							<p>이 프로젝트(Roadwith)는 MyBatis, GitHub, Twitter Bootstrap, Spring Framework, Apache Tomcat, Oracle 11g 등의 기술들이 이용되어 만들어졌습니다.
 						</div>
 					</div>
 
 				</div> <!-- /row of widgets -->
 			</div>
 		</div>
-			<div class="footer2">
+
+		<div class="footer2">
 			<div class="container">
 				<div class="row">
 					
 					<div class="col-md-6 widget">
 						<div class="widget-body">
 							<p class="simplenav">
-								<a href="/roadwith">홈</a> | 
-								<a href="notice">공지사항</a> |
+								<a href="/roadwith">홈</a> |
+								<a href="preview">튜토리얼</a> | 
+								<a id="navNotice">공지사항</a> |
 								<a href="freeBoard">자유게시판</a> |
-								<a href="contact.html">문의사항</a> |
+								<a href="weather">날씨</a> |
+								<a href="contact">문의사항</a> |
 								<b><a href="signUp">회원가입</a></b>
 							</p>
 						</div>
 					</div>
 
 					<div class="col-md-6 widget">
-						<h3 class="widget-title">사용된 기술</h3>
 						<div class="widget-body">
-							<p>이 프로젝트(Roadwith)는 MyBatis, GitHub, Twitter Bootstrap, Spring Framework, Apache Tomcat, Oracle 11g 등의 기술들이 이용되어 만들어졌습니다.
+							<p class="text-right">
+								Copyright &copy; 2014, Your name. Designed by <a href="http://gettemplate.com/" rel="designer">gettemplate</a> 
+							</p>
 						</div>
 					</div>
 

@@ -361,75 +361,76 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 <!-- modal notice-->
 		
 	
-		<footer id="footer" class="top-space">
-	
-			<div class="footer1">
-				<div class="container">
-					<div class="row">
-						
-						<div class="col-md-3 widget">
-							<h3 class="widget-title">문의관련</h3>
-							<div class="widget-body">
-								<p>010-5423-2723<br>
-									<a href="mailto:#">jjunghee@sba.seoul.kr</a><br>
-									<br>
-									서울시 마포구 성암로 330 DMC첨단산업센터
-								</p>	
-							</div>
+	<footer id="footer" class="top-space">
+
+		<div class="footer1">
+			<div class="container">
+				<div class="row">
+					
+					<div class="col-md-3 widget">
+						<h3 class="widget-title">문의관련</h3>
+						<div class="widget-body">
+							<p>010-5423-2723<br>
+								<a href="mailto:#">jjunghee@sba.seoul.kr</a><br>
+								<br>
+								서울시 마포구 성암로 330 DMC첨단산업센터
+							</p>	
 						</div>
-	
-						<div class="col-md-3 widget">
-							<h3 class="widget-title">Follow me</h3>
-							<div class="widget-body">
-								<p class="follow-me-icons">
-									<a href=""><i class="fa fa-twitter fa-2"></i></a>
-									<a href=""><i class="fa fa-dribbble fa-2"></i></a>
-									<a href=""><i class="fa fa-github fa-2"></i></a>
-									<a href=""><i class="fa fa-facebook fa-2"></i></a>
-								</p>	
-							</div>
+					</div>
+
+					<div class="col-md-3 widget">
+						<h3 class="widget-title">Follow me</h3>
+						<div class="widget-body">
+							<p class="follow-me-icons">
+								<a href=""><i class="fa fa-twitter fa-2"></i></a>
+								<a href=""><i class="fa fa-dribbble fa-2"></i></a>
+								<a href=""><i class="fa fa-github fa-2"></i></a>
+								<a href=""><i class="fa fa-facebook fa-2"></i></a>
+							</p>	
 						</div>
-	
-						<div class="col-md-6 widget">
-							<h3 class="widget-title">사용된 기술</h3>
-							<div class="widget-body">
-								<p>이 프로젝트(Roadwith)는 MyBatis, GitHub, Twitter Bootstrap, Spring Framework, Apache Tomcat, Oracle 11g 등의 기술들이 이용되어 만들어졌습니다.
-							</div>
+					</div>
+
+					<div class="col-md-6 widget">
+						<h3 class="widget-title">사용된 기술</h3>
+						<div class="widget-body">
+							<p>이 프로젝트(Roadwith)는 MyBatis, GitHub, Twitter Bootstrap, Spring Framework, Apache Tomcat, Oracle 11g 등의 기술들이 이용되어 만들어졌습니다.
 						</div>
-	
-					</div> <!-- /row of widgets -->
-				</div>
+					</div>
+
+				</div> <!-- /row of widgets -->
 			</div>
-	
-			<div class="footer2">
-				<div class="container">
-					<div class="row">
-						
-						<div class="col-md-6 widget">
-							<div class="widget-body">
-								<p class="simplenav">
-									<a href="/roadwith">홈</a> | 
-									<a href="notice">공지사항</a> |
-									<a href="freeBoard">자유게시판</a> |
-									<a href="contact.html">문의사항</a> |
-									<b><a href="signUp">회원가입</a></b>
-								</p>
-							</div>
+		</div>
+
+		<div class="footer2">
+			<div class="container">
+				<div class="row">
+					
+					<div class="col-md-6 widget">
+						<div class="widget-body">
+							<p class="simplenav">
+								<a href="/roadwith">홈</a> |
+								<a href="preview">튜토리얼</a> | 
+								<a id="navNotice">공지사항</a> |
+								<a href="freeBoard">자유게시판</a> |
+								<a href="weather">날씨</a> |
+								<a href="contact">문의사항</a> |
+								<b><a href="signUp">회원가입</a></b>
+							</p>
 						</div>
-	
-						<div class="col-md-6 widget">
-							<div class="widget-body">
-								<p class="text-right">
-									Copyright &copy; 2014, Your name. Designed by <a href="http://gettemplate.com/" rel="designer">gettemplate</a> 
-								</p>
-							</div>
+					</div>
+
+					<div class="col-md-6 widget">
+						<div class="widget-body">
+							<p class="text-right">
+								Copyright &copy; 2014, Road With. Designed by rolend Sunq</a> 
+							</p>
 						</div>
-	
-					</div> <!-- /row of widgets -->
-				</div>
+					</div>
+				</div> <!-- /row of widgets -->
 			</div>
-	
-		</footer>	
+		</div>
+
+	</footer>	
 	
 	
 	

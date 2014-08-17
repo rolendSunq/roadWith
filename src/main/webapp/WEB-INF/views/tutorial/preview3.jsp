@@ -380,10 +380,12 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 					<div class="col-md-6 widget">
 						<div class="widget-body">
 							<p class="simplenav">
-								<a href="/roadwith">홈</a> | 
-								<a href="notice">공지사항</a> |
+								<a href="/roadwith">홈</a> |
+								<a href="preview">튜토리얼</a> | 
+								<a id="navNotice">공지사항</a> |
 								<a href="freeBoard">자유게시판</a> |
-								<a href="contact.html">문의사항</a> |
+								<a href="weather">날씨</a> |
+								<a href="contact">문의사항</a> |
 								<b><a href="signUp">회원가입</a></b>
 							</p>
 						</div>
@@ -392,17 +394,15 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 					<div class="col-md-6 widget">
 						<div class="widget-body">
 							<p class="text-right">
-								Copyright &copy; 2014, Your name. Designed by <a href="http://gettemplate.com/" rel="designer">gettemplate</a> 
+								Copyright &copy; 2014, Road With. Designed by rolend Sunq</a> 
 							</p>
 						</div>
 					</div>
-
 				</div> <!-- /row of widgets -->
 			</div>
 		</div>
 
 	</footer>	
-
 
 
 	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->

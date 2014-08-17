@@ -120,7 +120,7 @@
 	<!-- container -->
 	<div class="container">
 		<ol class="breadcrumb">
-			<li><a href="/roadwith">홈</a></li>
+			<li><a href="/roadwith" id="fontColor">홈</a></li>
 			<li class="active">자유게시판</li>
 		</ol>
 		<article class="container">
@@ -162,7 +162,7 @@
 						<td>${status.count}</td>
 						<td>
 							<c:set var="query" value="articleId=${article.articleId}&p=${Articles.requestPage}"/>
-							<a href='<c:url value="read_view?${query}"/>'>
+							<a href='<c:url value="read_view?${query}"/>' id="fontColor">
 								${article.title}
 							</a>
 						</td>
@@ -373,7 +373,7 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 
 <!-- modal notice-->
 
-		<footer id="footer" class="top-space">
+	<footer id="footer" class="top-space">
 
 		<div class="footer1">
 			<div class="container">
@@ -412,17 +412,20 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 				</div> <!-- /row of widgets -->
 			</div>
 		</div>
-			<div class="footer2">
+
+		<div class="footer2">
 			<div class="container">
 				<div class="row">
 					
 					<div class="col-md-6 widget">
 						<div class="widget-body">
 							<p class="simplenav">
-								<a href="/roadwith">홈</a> | 
-								<a href="notice">공지사항</a> |
+								<a href="/roadwith">홈</a> |
+								<a href="preview">튜토리얼</a> | 
+								<a id="navNotice">공지사항</a> |
 								<a href="freeBoard">자유게시판</a> |
-								<a href="contact.html">문의사항</a> |
+								<a href="weather">날씨</a> |
+								<a href="contact">문의사항</a> |
 								<b><a href="signUp">회원가입</a></b>
 							</p>
 						</div>
@@ -431,16 +434,15 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 					<div class="col-md-6 widget">
 						<div class="widget-body">
 							<p class="text-right">
-								Copyright &copy; 2014, Your name. Designed by <a href="http://gettemplate.com/" rel="designer">gettemplate</a> 
+								Copyright &copy; 2014, Road With. Designed by rolend Sunq</a> 
 							</p>
 						</div>
 					</div>
-
 				</div> <!-- /row of widgets -->
 			</div>
 		</div>
 
-	</footer>		
+	</footer>			
 		<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 		<script src="./resources/assets/js/jquery-1.11.1.min.js"></script>
 		<script src="./resources/assets/js/bootstrap.min.js"></script>
