@@ -49,7 +49,7 @@
 						<li><a href="notice">공지사항</a></li>
 						<li><a href="contact">문의사항</a></li>
 						<li><a href="weather">날씨</a></li>
-						<li><a class="btn" href="signin.html?signin">로그인 / 회원가입</a></li>
+						<li><a class="btn" href="signin">로그인 / 회원가입</a></li>
 					</ul>
 				</div>
 				<!--/.nav-collapse -->
