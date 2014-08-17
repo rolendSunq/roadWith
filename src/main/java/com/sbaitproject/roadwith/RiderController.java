@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sbaitproject.roadwith.roadboard.service.RoadBoardService;
 import com.sbaitproject.roadwith.roadboard.vo.RoadArticle;
-import com.sbaitproject.roadwith.roadboard.vo.RoadArticleList;
 
 @Component("rideGroup")
 @Controller

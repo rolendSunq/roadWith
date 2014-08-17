@@ -2,7 +2,6 @@ package com.sbaitproject.roadwith.vo;
 
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Person {
 	private String id;
@@ -42,6 +41,7 @@ public class Person {
 	public void setPw(String pw) {
 		this.pw = pw;
 	}
+	
 	public String getLogTime() {
 		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
         // S is the millisecond

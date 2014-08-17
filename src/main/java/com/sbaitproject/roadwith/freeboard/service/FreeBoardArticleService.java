@@ -6,7 +6,6 @@ import org.springframework.ui.Model;
 
 import com.sbaitproject.roadwith.freeboard.vo.Article;
 import com.sbaitproject.roadwith.freeboard.vo.ArticleListVo;
-import com.sbaitproject.roadwith.vo.Person;
 
 public interface FreeBoardArticleService {
 	public static final int COUNT_PER_PAGE = 10;

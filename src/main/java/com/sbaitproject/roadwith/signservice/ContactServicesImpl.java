@@ -2,7 +2,6 @@ package com.sbaitproject.roadwith.signservice;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.sbaitproject.roadwith.join.dao.UserContactDAO;
 import com.sbaitproject.roadwith.vo.Person;

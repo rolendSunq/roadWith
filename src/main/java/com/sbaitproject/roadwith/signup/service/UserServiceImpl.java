@@ -2,7 +2,6 @@ package com.sbaitproject.roadwith.signup.service;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Timestamp;
 
 import javax.servlet.http.HttpServletResponse;
 

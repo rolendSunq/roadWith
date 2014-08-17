@@ -5,7 +5,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.ui.Model;
 
 import com.sbaitproject.roadwith.roadboard.vo.RoadArticle;
-import com.sbaitproject.roadwith.roadboard.vo.RoadArticleList;
 
 public interface RoadBoardService {
 	public void insertArticle(RoadArticle roadArticle, HttpSession session);

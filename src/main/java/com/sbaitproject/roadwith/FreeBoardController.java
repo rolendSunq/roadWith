@@ -1,7 +1,6 @@
 package com.sbaitproject.roadwith;
 
 import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 
 import javax.servlet.http.HttpServletResponse;
 
@@ -17,9 +16,6 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
 import com.sbaitproject.roadwith.freeboard.service.FreeBoardArticleService;
 import com.sbaitproject.roadwith.freeboard.vo.Article;
 import com.sbaitproject.roadwith.freeboard.vo.User;
