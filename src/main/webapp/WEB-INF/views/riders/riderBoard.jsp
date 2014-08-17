@@ -21,7 +21,8 @@
 
 	<style type="text/css">
 		#riderContent {/*background-color: blue;*/}
-		#nameTitle {background-color: yellow;}
+		#nameTitle {background-color: #2BE8D8;}
+		#jumbotron {background-color: #2F6BFF;}
 	</style>
 
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -70,58 +71,37 @@
 		</div>
 	</div> 
 	<!-- /.navbar -->
-	
-	<!-- 
+	<!-- full image rider
 	<header id="head" class="secondary"></header>
 	 -->
-
 	<!-- container -->
 	<div class="container">
-		<div class="jumbotron top-space">
+		<!-- jumbotron -->
+		<div class="jumbotron top-space" id="jumbotron">
 			<h4>Rider Group</h4>
 			<form name="makeGrpFrm">
 	     		<p class="text-right"><a class="btn btn-primary btn-large" id="makeGroup"><i class="fa fa-users"></i> 그룹 생성하기 »</a></p>
 			</form>
-  		</div>
-		<div class="row">
-			<div class="container">
-				<div id="riderContent">
-					<div class="col-md-1" id="counter">
-						<div id="cbox">
-							<div>
-								<h3 class="text-center">0</h3>
-								<h5 class="text-center">조회수</h5>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-1" id="entry">
-						<div id="ebox">
-							<h3 class="text-center">0</h3>
-							<h5 class="text-center">참여자</h5>
-						</div>
-					</div>
-					<div class="col-md-1" id="reply">
-						<div id="rbox">
-							<h3 class="text-center">0</h3>
-							<h5 class="text-center">댓글</h5>
-						</div>
-					</div>
-					<div class="col-md-9" id="nameTitle">
-						<h3>오늘 달려요</h3>
-						<h5>여의도</h5>
-					</div>
-				</div>
+			<div class="page-header"></div>
+			<div id="nameTitle">
+				<span class="badge"><i class="h5 fa fa-dot-circle-o"></i> 조회 0</span>
+				<span class="badge"><i class="h5 fa fa-reply"></i> 댓글 0</span>
+				<span class="badge"><i class="h5 fa fa-user"></i> 참여 0</span>
+				<span><label class="h3"><i class="fa fa-volume-up"></i>오늘 달려요</label></span><br>
+				<span class="pull-right">
+					<label class="h4"><i class="fa fa-map-marker"></i> 여의도</label>&nbsp;&nbsp;
+					<label class="h4"><i class="fa fa-clock-o"></i> 08-17 12:30</label> 
+				</span>
 			</div>
-			<hr class="hr">
-		</div>
+			<div class="page-header"></div>
+  		</div>
+		<!-- /jumbotron -->
 	</div>
-
+	<!-- /container -->
 	<footer id="footer" class="top-space">
-
 		<div class="footer1">
 			<div class="container">
 				<div class="row">
-					
 					<div class="col-md-3 widget">
 						<h3 class="widget-title">Contact</h3>
 						<div class="widget-body">
@@ -132,7 +112,6 @@
 							</p>	
 						</div>
 					</div>
-
 					<div class="col-md-3 widget">
 						<h3 class="widget-title">Follow me</h3>
 						<div class="widget-body">
@@ -144,7 +123,6 @@
 							</p>	
 						</div>
 					</div>
-
 					<div class="col-md-6 widget">
 						<h3 class="widget-title">Text widget</h3>
 						<div class="widget-body">
@@ -152,11 +130,9 @@
 							<p>Eius consequatur nihil quibusdam! Laborum, rerum, quis, inventore ipsa autem repellat provident assumenda labore soluta minima alias temporibus facere distinctio quas adipisci nam sunt explicabo officia tenetur at ea quos doloribus dolorum voluptate reprehenderit architecto sint libero illo et hic.</p>
 						</div>
 					</div>
-
 				</div> <!-- /row of widgets -->
 			</div>
 		</div>
-
 		<div class="footer2">
 			<div class="container">
 				<div class="row">
@@ -172,7 +148,6 @@
 							</p>
 						</div>
 					</div>
-
 					<div class="col-md-6 widget">
 						<div class="widget-body">
 							<p class="text-right">
