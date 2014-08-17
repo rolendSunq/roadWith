@@ -1,5 +1,7 @@
 create table riderArticle(
 	articleId number not null,
+	article_hit number,
+	reply_hit number,
 	content VARCHAR2(200) not null,
 	planDay VARCHAR2(13) not null,
 	startTime VARCHAR2(5) not null,

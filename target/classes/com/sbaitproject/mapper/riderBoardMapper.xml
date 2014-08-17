@@ -31,7 +31,7 @@
 	
 	<insert id="InsertRiderArticle" parameterType="com.sbaitproject.roadwith.roadboard.vo.RoadArticle">
 		INSERT INTO riderArticle 
-		(articleId, content, planDay, startTime, aimTime, entryMember, startSpot, goalSpot, writer_id, writer_nickName, posting_date)
-		VALUES(seq_riderArticle_id.nextval, #{content}, #{planDay}, #{startTime}, #{aimTime},  ${entryMember}, #{startSpot}, #{goalSpot}, #{writerId}, #{writerNickName}, sysdate)
+		(articleId, article_hit, reply_hit, content, planDay, startTime, aimTime, entryMember, startSpot, goalSpot, writer_id, writer_nickName, posting_date)
+		VALUES(seq_riderArticle_id.nextval, 0, 0, #{content}, #{planDay}, #{startTime}, #{aimTime},  ${entryMember}, #{startSpot}, #{goalSpot}, #{writerId}, #{writerNickName}, sysdate)
 	</insert>
 </mapper>

@@ -41,22 +41,7 @@ public class RiderController {
 	
 	@RequestMapping(value = "RiderBoard", method = RequestMethod.POST)
 	public String riderBoardController(Model model, @RequestParam(value="p", required=false) int currentPageNumber) {
-		
-		RoadArticleList roadArticleList = roadBoardService.getRiderArticleList(currentPageNumber);
-		
-		if(roadArticleList.getTotalPageCount() > 0) {
-			int beginPageNumber = (roadArticleList.getRequestPage() - 1) / ((10 * 10) + 1);
-			int endPageNumber = beginPageNumber + 9;
-			
-			if (endPageNumber > roadArticleList.getTotalPageCount()) 
-				endPageNumber = roadArticleList.getTotalPageCount();
-
-			model.addAttribute("beginPage", beginPageNumber);
-			model.addAttribute("endPage", endPageNumber);
-		}
-		
-		model.addAttribute("Articles", roadArticleList);
-		
-		return "freeBoard/freeMain";
+		roadBoardService.getRiderArticleList(currentPageNumber, model);
+		return "riders/riderBoard";
 	}
 }
