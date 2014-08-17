@@ -22,7 +22,7 @@
 	<style type="text/css">
 		#riderContent {/*background-color: blue;*/}
 		#nameTitle {background-color: #2BE8D8; }
-		#jumbotron {background-color: #8EA2FF;}
+		#jumbotron {background-color: #B2FFA6;}
 		#tabFontColor {color: black;}
 		#formName {height: 20px;}
 		#header {height: 110px;}
@@ -81,29 +81,29 @@
 	<!-- container -->
 	
 	<header id="header">
-		<div class="container">
-			<div class="row">
-				<h1></h1>
-				<br>
-				<h1></h1>
-				<br>
-				<h1></h1>
-				<br>
+	<div class="container">
+		<div class="row">
+			<h1></h1>
+			<br>
+			<h1></h1>
+			<br>
+			<h1></h1>
+			<br>
+		</div>
+	</div>
+
+	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		<div class="container">			
+			<div class="navbar-collapse collapse">
+				<ul class="nav nav-tabs" role="tablist">
+					<li ><a href="roadContent" id="tabFontColor"><b>라이더 게시판</b></a></li>
+					<li class="active"><a><b>러너 게시판</b></a></li>
+					<li><a href="freeBoard" id="tabFontColor"><b>자유 게시판</b></a></li>
+				</ul>
 			</div>
 		</div>
-
-		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-			<div class="container">			
-				<div class="navbar-collapse collapse">
-					<ul class="nav nav-tabs" role="tablist">
-						<li class="active" ><a><b>라이더 게시판</b></a></li>
-						<li><a href=runBoard id="tabFontColor"><b>러너 게시판</b></a></li>
-						<li><a href="freeBoard" id="tabFontColor"><b>자유 게시판</b></a></li>
-					</ul>
-				</div>
-			</div>
-		</div>	
-	</header>
+	</div>
+</header>
 
 	<div class="container">
 		<div class="row">
@@ -115,11 +115,9 @@
 	<div class="container">
 		<!-- jumbotron -->
 		<div class="jumbotron top-space" id="jumbotron">
-			<h2>Rider Group</h2>
+			<h2>Run Group</h2>
 			<form name="makeGrpFrm" id="formName">
-	     		<p class="text-right">
-	     			<a class="btn btn-primary btn-large" id="makeGroup"><i class="fa fa-users"></i> 그룹 생성하기 »</a>
-	     		</p>			
+	     		<p class="text-right"><a class="btn btn-primary btn-large" id="makeGroup"><i class="fa fa-users"></i> 그룹 생성하기 »</a></p>			
 			<div class="page-header" id="header">			
 				<span class="badge"><i class="h5 fa fa-dot-circle-o"></i> 조회 0</span>
 				<span class="badge"><i class="h5 fa fa-reply"></i> 댓글 0</span>
@@ -400,14 +398,7 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 	<script>
 		$(document).ready(function(){
 			$('#makeGroup').click(function(){
-			<c:choose>
-				<c:when test="${id != null}">
 				$('form[name=makeGrpFrm]').attr({'method':'post','action':'MakeRiderGroup'}).submit();
-				</c:when>
-				<c:otherwise>
-				alert("로그인 후 사용가능합니다.");
-				</c:otherwise>
-			</c:choose>
 			});
 			
 			$('#navNotice').click(function(){

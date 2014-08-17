@@ -44,10 +44,10 @@
 						<a href="#" data-toggle="dropdown" class="dropdown-toggle">게시판 <b class="caret"></b></a>
 						<ul class="dropdown-menu">
 						<li><a href="freeBoard?freeBoard">자유게시판</a></li>
-						<li><a href="R2Board">러너 / 라이더</a></li>
+						<li><a href="roadContent">러너 / 라이더</a></li>
 						</ul>
 						</li>
-						<li><a href="notice">공지사항</a></li>
+						<li><a id="navNotice">공지사항</a></li>
 						<li><a href="contact">문의사항</a></li>
 						<li><a href="weather">날씨</a></li>
 					<c:choose>
@@ -215,6 +215,187 @@
 		</div>
 		
 		<!-- /.modal -->
+
+	<!-- modal notice-->
+	
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+    	<div class="modal-content">
+      		<div class="modal-header">
+        		<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        			<h4 class="modal-title" id="myModalLabel"><b>공지 사항</b></h4>
+      		</div>
+      		<div class="modal-body">
+      			<div class="page-header">
+					<h2>
+						<b>8월 17일 임시점검 안내</b> 
+					</h2>
+				</div>
+안녕하세요~!<p>
+항상 유저님들과 함께 하는 RoadWith 입니다.<p>
+<p>
+RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며,<p>
+2014년 08월 17일 일요일 임시점검 일정을 안내해 드립니다.<p>
+ <p>
+자세한 사항은 이하를 참고 바랍니다.<p>
+<p>
+<p> 
+◎ 점검 일시:<p>
+<p>
+    ■ 서버점검 - 2014년 08월 17일 (목) 07:00 ~ 09:00 (약 2시간)<p>
+<p>
+<p>
+◎ 패치 내용:<p>
+<p>
+    ■ 서버 안정화 작업<p>
+<p>
+<p>
+회원 여러분들의 뜨거운 관심과 열정에 항상 감사 드리며<p>
+최선을 다하는 RoadWith가 되겠습니다.<p>
+ <p>
+감사합니다.<p>
+<p>
+      </div>
+      
+        <div class="modal-body">
+       		<div class="page-header">
+				<h2>
+					<b>8월 15일 광복절 이벤트 안내</b> 
+				</h2>
+			</div>
+        
+안녕하세요~!<p>
+항상 유저님들과 함께 하는 RoadWith 입니다.<p>
+<p>
+RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며,<p>
+2014년 08월 15일 금요일 광복절 이벤트 일정을 안내해 드리겠습니다.<p>
+ <p>
+자세한 사항은 이하를 참고 바랍니다.<p>
+<p>
+<p> 
+◎ 이벤트 일시:<p>
+<p>
+    ■ 이벤트 기간 - 2014년 08월 15일 (금)  2014년 08월 17일 (일) (3일간)<p>
+    ■ 이벤트 내용 - 이벤트 기간내에 10이상 run&rider 그룹을 형성하여 즐기실분들에게<p>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;선착순 20팀에게 저녁 식사값을 지불해드리겠습니다.<p>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;회원분들의 많은 참여 부탁드립니다.<p>
+<p>
+<p>
+회원 여러분들의 뜨거운 관심과 열정에 항상 감사 드리며<p>
+최선을 다하는 RoadWith가 되겠습니다.<p>
+ <p>
+감사합니다.<p>
+<p>
+      </div>
+    
+	<div class="modal-body">
+    	<div class="page-header">
+			<h2>
+				<b>8월 13일 업데이트 일정 안내</b> 
+			</h2>
+	</div>
+        
+안녕하세요~!<p>
+항상 유저님들과 함께 하는 RoadWith 입니다.<p>
+<p>
+RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며,<p>
+2014년 08월 13일 수요일 업데이트 일정을 안내해 드립니다.<p>
+ <p>
+자세한 사항은 이하를 참고 바랍니다.<p>
+<p>
+<p> 
+◎ 업데이트 일시:<p>
+<p>
+    ■ 서버점검 - 2014년 08월 13일 (수) 05:00 ~ 09:00 (약 4시간)<p>
+<p>
+<p>
+◎ 업데이트 내용:<p>
+<p>
+    ■ 날씨 검색 시스템 적용<p>
+    ■ 지도 검색 시스템 적용<p>
+<p>
+<p>
+회원 여러분들의 뜨거운 관심과 열정에 항상 감사 드리며<p>
+최선을 다하는 RoadWith가 되겠습니다.<p>
+ <p>
+감사합니다.<p>
+<p>
+      </div>
+      
+	<div class="modal-body">
+    	<div class="page-header">
+			<h2>
+				<b>8월 8일 임시점검 안내</b> 
+			</h2>
+	</div>
+        
+안녕하세요~!<p>
+항상 유저님들과 함께 하는 RoadWith 입니다.<p>
+<p>
+RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며,<p>
+2014년 08월 08일 금요일 임시점검 일정을 안내해 드립니다.<p>
+ <p>
+자세한 사항은 이하를 참고 바랍니다.<p>
+<p>
+<p> 
+◎ 점검 일시:<p>
+<p>
+    ■ 서버점검 - 2014년 08월 08일 (금) 07:00 ~ 09:00 (약 2시간)<p>
+<p>
+<p>
+◎ 패치 내용:<p>
+<p>
+    ■ 서버 안정화 작업<p>
+<p>
+<p>
+회원 여러분들의 뜨거운 관심과 열정에 항상 감사 드리며<p>
+최선을 다하는 RoadWith가 되겠습니다.<p>
+ <p>
+감사합니다.<p>
+<p>
+      </div>
+      
+	<div class="modal-body">
+    	<div class="page-header">
+			<h2>
+				<b>8월 2일 임시점검 안내</b> 
+			</h2>
+	</div>
+        
+안녕하세요~!<p>
+항상 유저님들과 함께 하는 RoadWith 입니다.<p>
+<p>
+RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며,<p>
+2014년 08월 02일 토요일 임시점검 일정을 안내해 드립니다.<p>
+ <p>
+자세한 사항은 이하를 참고 바랍니다.<p>
+<p>
+<p> 
+◎ 점검 일시:<p>
+<p>
+    ■ 서버점검 - 2014년 08월 02일 (목) 07:00 ~ 09:00 (약 2시간)<p>
+<p>
+<p>
+◎ 패치 내용:<p>
+<p>
+    ■ 서버 안정화 작업<p>
+<p>
+<p>
+회원 여러분들의 뜨거운 관심과 열정에 항상 감사 드리며<p>
+최선을 다하는 RoadWith가 되겠습니다.<p>
+ <p>
+감사합니다.<p>
+<p> 
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal notice-->
 		
 		
 		
@@ -384,6 +565,11 @@
 					caller = 'deleteBtn';
 					$('#modalPasswd').modal('show');
 				});
+				
+				$('#navNotice').click(function(){
+					$('#myModal').modal('show');
+				});
+				
 			});
 		</script>
 		<script src="./resources/assets/js/headroom.min.js"></script>

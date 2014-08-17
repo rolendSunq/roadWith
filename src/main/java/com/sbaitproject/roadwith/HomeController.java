@@ -137,4 +137,10 @@ public class HomeController {
 	public String roadContentController() {
 		return "riders/riderBoard";
 	}
+	
+	@RequestMapping("runBoard")
+	public String runBoardController() {
+		return "riders/runBoard";
+	}
+	
 }
