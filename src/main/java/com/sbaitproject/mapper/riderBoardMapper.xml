@@ -1,30 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Rider">
-	<resultMap type="com.sbaitproject.roadwith.riderboard.vo.RiderArticle" id="RiderArticle">
-		<result property="seq" column="seq"/>
-		<result property="writer" column="writer"/>
-		<result property="subject" column="subject"/>
+	<resultMap type="com.sbaitproject.roadwith.roadboard.vo.RoadArticle" id="roadArticle">
 		<result property="content" column="content"/>
-		<result property="readySpot" column="readySpot"/>
-		<result property="endSpot" column="endSpot"/>
-		<result property="logTime" column="logTime"/>
+		<result property="planDay" column="planDay"/>
+		<result property="startTime" column="startTime"/>
+		<result property="aimTime" column="aimTime"/>
+		<result property="startSpot" column="startSpot"/>
+		<result property="goalSpot" column="goalSpot"/>
+		<result property="writerId" column="writer_id"/>
+		<result property="writerNickName" column="writer_nickName"/>
 	</resultMap>
 	
 	<select id="SelectAllCount">
 		SELECT count(*)
-		FROM RIDERBOARD
+		FROM riderArticle
 	</select>
 	
 	<!-- 지정된 페이지 갯수를 가져오기 -->
-	<select id="SelectedSubject" parameterType="int" resultMap="Rider.RiderArticle">
-		SELECT *
-		FROM (SELECT /*+INDEX_DESC(RIDERBOARD riderBoard_seq_pk)*/ ROWNUM RSEQ, SEQ, WRITER, SUBJECT, CONTENT, LOGTIME FROM RIDERBOARD WHERE ROWNUM &lt;= #{endNo1}) A 
-		WHERE A.RSEQ &gt; #{endNo2}		
+	<select id="SelectedRiderArticle" parameterType="map" resultMap="roadArticle">
+		SELECT * FROM (
+		SELECT A.*, 
+		ROWNUM AS RNUM,
+		COUNT(*) OVER() AS TOTCNT FROM (
+			SELECT * FROM riderArticle
+		) A
+		) WHERE RNUM &gt;= #{firstRow} AND RNUM &lt;= #{endRow}
+		ORDER BY posting_date DESC		
 	</select>
 	
-	<insert id="InsertQuery" parameterType="com.sbaitproject.roadwith.riderboard.vo.RiderArticle">
-		INSERT INTO (seq, writer, subject, content, logTime)
-		VALUES(seq_riderboard.nextval, #{writer}, #{subject}, #{content}, sysdate)
+	<insert id="InsertRiderArticle" parameterType="com.sbaitproject.roadwith.roadboard.vo.RoadArticle">
+		INSERT INTO riderArticle 
+		(articleId, content, planDay, startTime, aimTime, entryMember, startSpot, goalSpot, writer_id, writer_nickName, posting_date)
+		VALUES(seq_riderArticle_id.nextval, #{content}, #{planDay}, #{startTime}, #{aimTime},  ${entryMember}, #{startSpot}, #{goalSpot}, #{writerId}, #{writerNickName}, sysdate)
 	</insert>
 </mapper>

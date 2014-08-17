@@ -80,81 +80,104 @@
 			</div>
 			<div class="row">
 				<h1 class="text-center">${section} 생성</h1>
-				<form class="form-horizontal" role="form">
+				<form class="form-horizontal" role="form" name="makeGroupFrm">
 					<div class="form-group">
 						<label for="titleName" class="col-md-3 control-label">라이딩 제목</label>
 						<div class="col-md-6">
-							<input type="text" name="title" id="titleName" class="form-control">
+							<input type="text" name="content" id="content" class="form-control" placeHolder="상대방에게 알릴 문구를 입력하세요.">
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="titleName" class="col-md-3 control-label">시작일</label>
+						<label for="startDay" class="col-md-3 control-label">시작일</label>
 						<div class="col-md-6 form-inline">
 							<div class="form-group col-md-3">
-								<h4>2014년 8월</h4>
+								<span class="form-control">
+									<label id="year"></label>
+									<label id="month"></label>
+								</span>
 							</div>
 							<div class="form-group col-md-2">
-								<select class="form-control">
-									<option>1</option>
-									<option>2</option>
-									<option>3</option>
-									<option>4</option>
-									<option>5</option>
-									<option>6</option>
-									<option>7</option>
-									<option>8</option>
-									<option>9</option>
-									<option>10</option>
-									<option>11</option>
-									<option>12</option>
-									<option>13</option>
-									<option>14</option>
-									<option>15</option>
-									<option>16</option>
-									<option>17</option>
-									<option>18</option>
-									<option>19</option>
-									<option>20</option>
-									<option>21</option>
-									<option>22</option>
-									<option>23</option>
-									<option>24</option>
-									<option>25</option>
-									<option>26</option>
-									<option>27</option>
-									<option>28</option>
-									<option>29</option>
-									<option>30</option>
-									<option>31</option>
+								<select class="form-control" id="day">
+									<option value="01">1</option>
+									<option value="02">2</option>
+									<option value="03">3</option>
+									<option value="04">4</option>
+									<option value="05">5</option>
+									<option value="06">6</option>
+									<option value="07">7</option>
+									<option value="08">8</option>
+									<option value="09">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="13">13</option>
+									<option value="14">14</option>
+									<option value="15">15</option>
+									<option value="16">16</option>
+									<option value="17">17</option>
+									<option value="18">18</option>
+									<option value="19">19</option>
+									<option value="20">20</option>
+									<option value="21">21</option>
+									<option value="22">22</option>
+									<option value="23">23</option>
+									<option value="24">24</option>
+									<option value="25">25</option>
+									<option value="26">26</option>
+									<option value="27">27</option>
+									<option value="28">28</option>
+									<option value="29">29</option>
+									<option value="30">30</option>
+									<option value="31">31</option>
 								</select>
-							</div>
-							<div class="form-group col-md-2">
-								<h4>&nbsp;일</h4>
 							</div>
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="startTime" class="col-md-3 control-label">출발 시간</label>${currentDate }
+						<label for="startTime" class="col-md-3 control-label">출발 시간</label>
 						<div class="col-md-2">
-							<input type="text" class="form-control" name="startTime" id="startTime">
+							<input type="text" class="form-control" name="startTime" id="startTime" placeholder="15:07 형식으로 입력">
+						</div>
+						<label for="aimTime" class="col-md-2 control-label">도착 예정 시간</label>
+						<div class="col-md-2">
+							<input type="text" class="form-control" name="aimTime" id="aimTime" placeholder="17:07 형식으로 입력">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="entryMember" class="col-md-3 control-label">참여 인원</label>
+						<div class="col-md-1">
+							<select class="form-control" name="entryMember" id="entryMember">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<option value="6">6</option>
+								<option value="7">7</option>
+								<option value="8">8</option>
+								<option value="9">9</option>
+								<option value="10">10</option>
+							</select>
+						</div>
+						<label for="adviceCorse" class="col-md-3 control-label">추천 라이딩 코스</label>
 						<div class="col-md-2">
-							<input type="text" class="form-control" name="entryMember" id="entryMember">
+							<select class="form-control" name="adviceCourse" id="adviceCourse">
+								<option value="beginner">초급</option>
+								<option value="amateur">중급</option>
+								<option value="pro">고급</option>
+							</select>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="startSpot" class="col-md-3 control-label">출발 장소</label>
 						<div class="col-md-6">
-							<input type="text" class="form-control" name="startSpot" id="startSpot" readonly="readonly">
+							<input type="text" class="form-control" name="startSpot" id="startSpot">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="goalSpot" class="col-md-3 control-label">도착 장소</label>
 						<div class="col-md-6">
-							<input type="text" class="form-control" name="goalSpot" id="goalSpot" readonly="readonly">
+							<input type="text" class="form-control" name="goalSpot" id="goalSpot">
 						</div>
 					</div>
 					<div class="form-group">
@@ -163,9 +186,10 @@
 					<div class="form-group">
 						<p></p>
 						<div class="col-md-3 text-right">
-							<button type="button" class="btn btn-default" name="enter" id="enter"> 등록</button>
+							<button type="button" class="btn btn-default" id="enter"> 등록</button>
 						</div>
 					</div>
+					<input type="hidden" name="planDay" id="planDay">
 				</form>
 			</div>
 		</div>
@@ -584,21 +608,143 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 			oMap.attach('dblclick', function(oCustomEvent) {
 				alert('hi yo~~');
 			});
+		</script>
+		<script type="text/javascript">
+			function getToDay() {
+				var calValue = '${currentDate}';
+				var calendar = calValue.split('-');
+				var year = calendar[0];
+				var month = calendar[1];
+				var day = calendar[2];
+				$('#year').text(year + '년');
+				$('#month').text(month + '월');
+				$('#day').val(day);
+			}
+			
+			function contentCheck() {
+				var contentValue = $('#content').val();
+				if (contentValue == '' || contentValue == null || contentValue.length == 0) {
+					alert('공백은 허용하지 않습니다.');
+					$('#content').focus();
+					return false;
+				}
+				
+				return true;
+			}
+			
+			function setAdviceCorse() {
+				var selectedValue = $('#adviceCourse').val();
+				
+				if (selectedValue == 'beginner') {
+					$('#startSpot').val('서울특별시 영등포구 여의도동 82-7');
+					$('#goalSpot').val('서울특별시 송파구 잠실2동 1168-8');
+				} else if (selectedValue == 'amateur') {
+					$('#startSpot').val('서울특별시 강서구 염창동 104');
+					$('#goalSpot').val('서울특별시 마포구 상암동 1537-3');
+				} else if (selectedValue == 'pro') {
+					$('#startSpot').val('경기도 안양시 만안구 석수2동 463-4');
+					$('#goalSpot').val('경기도 파주시 문산읍 임진리 3-1');
+				}
+			}
+			
+			function formatTime(time) {
+			    var result = false, m;
+			    var timeReg = /^\s*([01]?\d|2[0-3]):?([0-5]\d)\s*$/;
+			    if ((m = time.match(timeReg))) {
+			        result = (m[1].length == 2 ? "" : "0") + m[1] + ":" + m[2];
+			    }
+			    return result;
+			}
+			
+			function timeValidation(time, jQelement) {
+				
+				if (time == '' || time == null || time.length == 0){
+					alert('시간을 입력하세요.');
+					$(jQelement).focus();
+					return false;
+				}
+				
+				if (formatTime(time) == time) return true;
+				else {
+					alert('시간 형식이 틀립니다.\n24:00 표기법으로 작성해 주세요.');
+					return false;
+				}
+				
+				return true;
+			}
+			
+			function spotValidation() {
+				var startSpotValue = $('#startSpot').val();
+				var goalSpotValue = $('#goalSpot').val();
+				
+				if (startSpotValue == '' || startSpotValue == null || startSpotValue.length == 0) {
+					alert('출발 장소를 입력하세요.');
+					$('#startSpot').focus();
+					return false;
+				}
+				
+				if (goalSpotValue == '' || goalSpotValue == null || goalSpotValue.length == 0) {
+					alert('도착 장소를 입력하세요.');
+					$('#goalSpot').focus();
+					return false;
+				}
+				
+				return true;
+			}
+			
+			function validation() {
+				var startTimeValue = $('#startTime').val();
+				var aimTimeValue = $('#aimTime').val();
+	
+				contentCheck();
+				timeValidation(startTimeValue, $('#startTime'));
+				timeValidation(aimTimeValue, $('#aimTime'));
+				spotValidation();
+				return true;
+			}
 			
 			
-		
-			
+			$(document).ready(function(){
+				getToDay();
+				
+				$('#content').keydown(function(e){
+					if (e.keyCode == 13) {
+						
+						$('#day').focus();
+					}
+				});
+				
+				$('#startTime').keydown(function(e){
+					var value = $(this).val();
+					if (e.keyCode == 13) {
+						if (timeValidation(value, $(this))) $('#aimTime').focus();
+					}
+				});
+				
+				$('#aimTime').keydown(function(e){
+					var value = $(this).val();
+					if (e.keyCode == 13) {
+						if (timeValidation(value, $(this)))	$('#entryMember').focus();
+					}
+				});
+
+				
+				$('#adviceCourse').change(function(){
+					setAdviceCorse();
+				});
+				
+				$('#enter').click(function(){
+					var day = $('#year').text() + '-' + $('#month').text() + '-' + $('#day option:selected').val() + '일';
+					$('#planDay').val(day);
+					if (validation()) {
+						$('form[name=makeGroupFrm]').attr({'action':'MakeRiderArticle','method':'POST'}).submit();
+					}
+				});
+			});
 		</script>
 		<script src="./resources/assets/js/headroom.min.js"></script>
 		<script src="./resources/assets/js/jQuery.headroom.min.js"></script>
 		<script src="./resources/assets/js/template.js"></script>
 		<script type="text/javascript"></script>
-		<script>
-			$(document).ready(function(){
-				$('#navNotice').click(function(){
-					$('#myModal').modal('show');
-				});
-			});
-		</script>
 	</body>
 </html>

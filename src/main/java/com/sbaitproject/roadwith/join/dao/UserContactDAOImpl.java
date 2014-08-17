@@ -43,4 +43,9 @@ public class UserContactDAOImpl implements UserContactDAO {
 		return sqlSession.selectOne(NS + "getPersonIdByEmail", userEmail);
 	}
 
+	@Override
+	public String selectPersonNickNameById(String userId) {
+		return sqlSession.selectOne(NS + "SelectPersonNickNameById", userId);
+	}
+
 }

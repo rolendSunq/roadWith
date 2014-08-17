@@ -15,11 +15,7 @@ public class ArticleListVo {
 		this(Collections.<Article>emptyList(), 0, 0, 0, 0);
 	}
 	
-	public ArticleListVo(
-			List<Article> articleList, int requestPage,
-			int totalPageCount, int startRow, int endRow) {
-		super();
-		
+	public ArticleListVo(List<Article> articleList, int requestPage,	int totalPageCount, int startRow, int endRow) {
 		this.articleList = articleList;
 		this.requestPage = requestPage;
 		this.totalPageCount = totalPageCount;

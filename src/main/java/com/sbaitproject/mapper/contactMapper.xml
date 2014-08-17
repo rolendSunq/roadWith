@@ -32,6 +32,12 @@
         WHERE email = #{email}
     </select>
  
+ 	<select id="SelectPersonNickNameById" parameterType="String" resultType="String">
+ 		SELECT nickname
+ 		FROM users
+ 		WHERE id = #{userId}
+ 	</select>
+    
     <insert id="savePerson" parameterType="String"> 
         INSERT INTO
         USERS(id, name)
@@ -54,5 +60,4 @@
         WHERE
         id = #{id}
     </delete>
- 
 </mapper>

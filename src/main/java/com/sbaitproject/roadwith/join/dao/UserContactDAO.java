@@ -6,4 +6,5 @@ public interface UserContactDAO {
 	public int getPersonEmail(String userEmail);
 	public int getPersonPassword(String userPassword);
 	public String getPersonIdByEmail(String userEmail);
+	public String selectPersonNickNameById(String userId);
 }

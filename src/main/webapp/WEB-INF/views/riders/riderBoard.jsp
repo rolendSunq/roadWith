@@ -393,7 +393,7 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 					<div class="col-md-6 widget">
 						<div class="widget-body">
 							<p class="text-right">
-								Copyright &copy; 2014, Road With. Designed by rolend Sunq</a> 
+								Copyright &copy; 2014, Road With. Designed by rolend Sunq
 							</p>
 						</div>
 					</div>
