@@ -24,6 +24,11 @@
 		<script src="./resources/assets/js/html5shiv.js"></script>
 		<script src="./resources/assets/js/respond.min.js"></script>
 		<![endif]-->
+		
+		<style type="text/css">
++		#fontColor {color: black;}
++		</style>	
+		
 	</head>
 	<body>
 	<!-- Fixed navbar -->
@@ -72,7 +77,7 @@
 		<div class="container">
 	
 			<ol class="breadcrumb">
-				<li><a href="index.html">홈</a></li>
+				<li><a href="index.html" id="fontColor">홈</a></li>
 				<li class="active">문의사항</li>
 			</ol>
 	
@@ -109,7 +114,7 @@
 							<br>
 							<div class="row">
 								<div class="pull-right col-sm-6 text-right">
-									<input class="btn btn-action" type="submit" value="메일 전송" id="sendMessageBtn">
+									<input class="btn btn-primary btn-lg" type="submit" value="메일 전송" id="sendMessageBtn">
 								</div>
 							</div>
 						</form>

@@ -121,10 +121,10 @@
 	     			<a class="btn btn-primary btn-large" id="makeGroup"><i class="fa fa-users"></i> 그룹 생성하기 »</a>
 	     		</p>			
 			<div class="page-header" id="header">			
-				<span class="badge"><i class="h5 fa fa-dot-circle-o"></i> 조회 0</span>
-				<span class="badge"><i class="h5 fa fa-reply"></i> 댓글 0</span>
-				<span class="badge"><i class="h5 fa fa-user"></i> 참여 0</span> &nbsp;&nbsp;&nbsp;&nbsp;
-				<span><label class="h3"><i class="fa fa-volume-up"></i>오늘 달려요</label></span><br>
+				<span class="badge"><i class="h5 fa fa-dot-circle-o"></i> 조회 12</span>
++				<span class="badge"><i class="h5 fa fa-reply"></i> 댓글 3</span>
++				<span class="badge"><i class="h5 fa fa-user"></i> 참여 5</span> &nbsp;&nbsp;&nbsp;&nbsp;
++				<span><label class="h3"><i class="fa fa-volume-up"></i>안양천따라 임진강까지 라이딩 하실분!</label></span><br>
 				<span class="pull-right">
 					<label class="h4"><i class="fa fa-map-marker"></i> 안양천 <i class="fa fa-long-arrow-right "></i></label>&nbsp;
 					<label class="h4"><i class="fa fa-map-marker"></i> 통일전망대 </label>&nbsp;&nbsp;
@@ -133,14 +133,14 @@
 			</div>
 			
 			<div class="page-header" id="header">
-				<span class="badge"><i class="h5 fa fa-dot-circle-o"></i> 조회 0</span>
-				<span class="badge"><i class="h5 fa fa-reply"></i> 댓글 0</span>
-				<span class="badge"><i class="h5 fa fa-user"></i> 참여 0</span> &nbsp;&nbsp;&nbsp;&nbsp;
-				<span><label class="h3"><i class="fa fa-volume-up"></i>내일 달려요</label></span><br>
+				<span class="badge"><i class="h5 fa fa-dot-circle-o"></i> 조회 21</span>
++				<span class="badge"><i class="h5 fa fa-reply"></i> 댓글 7</span>
++				<span class="badge"><i class="h5 fa fa-user"></i> 참여 8</span> &nbsp;&nbsp;&nbsp;&nbsp;
++				<span><label class="h3"><i class="fa fa-volume-up"></i>지리산 둘레길 라이딩 하실분</label></span><br>
 				<span class="pull-right">
-					<label class="h4"><i class="fa fa-map-marker"></i> 안양천 <i class="fa fa-long-arrow-right "></i></label>&nbsp;
-					<label class="h4"><i class="fa fa-map-marker"></i> 통일전망대 </label>&nbsp;&nbsp;
-					<label class="h4"><i class="fa fa-clock-o"></i> 08-17 12:30</label> 
+					<label class="h4"><i class="fa fa-map-marker"></i> 동강 <i class="fa fa-long-arrow-right "></i></label>&nbsp;
++					<label class="h4"><i class="fa fa-map-marker"></i> 수철마을 </label>&nbsp;&nbsp;
++					<label class="h4"><i class="fa fa-clock-o"></i> 08-21 12:30</label> 
 				</span>
 			</div>
 			

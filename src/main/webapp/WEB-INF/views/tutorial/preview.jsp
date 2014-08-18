@@ -70,20 +70,6 @@
 			<br>
 			<h1></h1>
 			<br>
-			<h1></h1>
-			<br>
-		</div>
-	</div>
-
-	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		<div class="container">			
-			<div class="navbar-collapse collapse">
-				<ul class="nav nav-tabs" role="tablist">
-					<li class="active"><a href="#"><b>라이더 게시판</b></a></li>
-					<li><a href="preview"> 러너 게시판</a></li>
-					<li><a href="#">자유 게시판</a></li>
-				</ul>
-			</div>
 		</div>
 	</div>
 </header>

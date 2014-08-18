@@ -19,6 +19,11 @@
 			<script src="./resources/assets/js/html5shiv.js"></script>
 			<script src="./resources/assets/js/respond.min.js"></script>
 		<![endif]-->
+		
+		<style type="text/css">
++		#fontColor {color: black;}
++		</style>
+		
 	</head>
 	<body>
 		<!-- Fixed navbar -->
@@ -60,7 +65,7 @@
 		<!-- container -->
 		<div class="container">
 			<ol class="breadcrumb">
-				<li><a href="index.html">홈</a></li>
+				<li><a href="index.html" id="fontColor">홈</a></li>
 				<li class="active">회원가입</li>
 			</ol>
 			<div class="row">
