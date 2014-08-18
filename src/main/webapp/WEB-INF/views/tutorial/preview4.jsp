@@ -85,13 +85,21 @@
 			<div class="row">
 				<div class="page-header">
 					<h1>
-						Q / A <small>-  -</small>
+						Q / A <small>- 문의 사항 -</small>
 					</h1>
 					<br>
 				</div>
 			</div>
 		</div>
 	</header>
+	
+	<div class="container">
+		<div class="col-md-10 col-md-offset-1">
+			<div id="contact">
+				<div class="row"></div>
+			</div>
+		</div>
+	</div>
 
 
 

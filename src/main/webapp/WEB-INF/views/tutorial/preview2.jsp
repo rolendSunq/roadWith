@@ -84,7 +84,7 @@
 				<div class="row">
 					<div class="page-header">
 						<h1>
-							게시판 작성 <small>- 장소 설정 -</small>
+							게시판 작성 <small>- 자유 게시판 -</small>
 						</h1>
 						<br>
 					</div>
@@ -116,7 +116,7 @@
 			<div class="row">
 				<div class="page-header">
 					<h1>
-						게시판 작성 <small>- 시간 설정 -</small>
+						게시판 작성 <small>- 라이더 게시판 -</small>
 					</h1>
 					<br>
 				</div>
@@ -147,7 +147,7 @@
 			<div class="row">
 				<div class="page-header">
 					<h1>
-						게시판 작성 <small>- 인원 설정 -</small>
+						게시판 작성 <small>- 러너 게시판 -</small>
 					</h1>
 					<br>
 				</div>

@@ -89,7 +89,7 @@
 				<div class="row">
 					<div class="page-header">
 						<h1>
-							Tutorial <small>- 회원가입 -</small>
+							회원 관리 <small>- 회원가입 -</small>
 						</h1>
 						<br>
 					</div>
@@ -98,7 +98,7 @@
 		</header>
 		<div class="container">
 			<div class="col-md-10 col-md-offset-1">
-				<div id="signup">
+				<div id="signUp">
 					<div class="row"></div>
 				</div>
 			</div>
@@ -112,29 +112,90 @@
 				</div>
 			</div>
 		</div>
+		
 		<div class="container">
 			<div class="row">
 				<div class="page-header">
 					<h1>
-						Tutorial <small>- 로그인 -</small>
+						회원 관리 <small>- 로그인 -</small>
 					</h1>
 					<br>
 				</div>
 			</div>
 		</div>
+		
 		<div class="container">
 			<div class="col-md-10 col-md-offset-1">
-				<div id="signin">
+				<div id="signIn">
 					<div class="row"></div>
 				</div>
 			</div>
 		</div>
+		
+		<div class="container">
+			<div class="col-md-11  col-md-offset-5">
+				<div id="direction">
+					<div class="row">
+						<i class="fa fa-arrow-down fa-5x"> </i>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container">
+			<div class="row">
+				<div class="page-header">
+					<h1>
+						회원 관리 <small>- 아이디 찾기 -</small>
+					</h1>
+					<br>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container">
+			<div class="col-md-10 col-md-offset-1">
+				<div id="serchId">
+					<div class="row"></div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container">
+			<div class="col-md-11  col-md-offset-5">
+				<div id="direction">
+					<div class="row">
+						<i class="fa fa-arrow-down fa-5x"> </i>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container">
+			<div class="row">
+				<div class="page-header">
+					<h1>
+						회원 관리 <small>- 패스워드 찾기 -</small>
+					</h1>
+					<br>
+				</div>
+			</div>
+		</div>
+		
+		<div class="container">
+			<div class="col-md-10 col-md-offset-1">
+				<div id="serchPw">
+					<div class="row"></div>
+				</div>
+			</div>
+		</div>	
+		
 		<div class="jumbotron" id="directionTool">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-6 highlight">
 						<div class="h-caption">
-							<h4 class="btn" id="preBtn1">
+							<a href="/roadwith"><h4 class="btn" id="preBtn1">
 								<i class="fa fa-reply"></i>이전
 							</h4>
 							<a href="/roadwith"><h4 class="btn" id="homeBtn">

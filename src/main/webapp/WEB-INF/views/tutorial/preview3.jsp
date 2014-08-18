@@ -81,37 +81,7 @@
 				<br>
 			</div>
 		</div>
-		<div class="container">
-			<div class="row">
-				<div class="page-header">
-					<h1>
-						편의 기능 <small>- 지도 검색 -</small>
-					</h1>
-					<br>
-				</div>
-			</div>
-		</div>
 	</header>
-
-	<div class="container">
-		<div class="col-md-10 col-md-offset-1">
-			<div id="map">
-				<div class="row"></div>
-			</div>
-		</div>
-	</div>
-
-	<div class="container">
-		<div class="col-md-11  col-md-offset-5">
-			<div id="direction">
-				<div class="row">
-					<i class="fa fa-arrow-down fa-5x"> </i>
-				</div>
-			</div>
-		</div>
-	</div>
-
-
 
 	<div class="container">
 		<div class="row">
@@ -126,7 +96,36 @@
 
 	<div class="container">
 		<div class="col-md-10 col-md-offset-1">
-			<div id="weather">
+			<div id="weather1">
+				<div class="row"></div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="col-md-11  col-md-offset-5">
+			<div id="direction">
+				<div class="row">
+					<i class="fa fa-arrow-down fa-5x"> </i>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="row">
+			<div class="page-header">
+				<h1>
+					편의 기능 <small>- 날씨 검색 -</small>
+				</h1>
+				<br>
+			</div>
+		</div>
+	</div>
+	
+	<div class="container">
+		<div class="col-md-10 col-md-offset-1">
+			<div id="weather2">
 				<div class="row"></div>
 			</div>
 		</div>

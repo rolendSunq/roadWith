@@ -2,13 +2,18 @@
 #head { background:#181015 url( ../images/cycles-cycling-resize.jpg) no-repeat; background-size: cover; min-height:520px; text-align: center; padding-top:240px; color:white; font-family:"Open sans", Helvetica, Arial; font-weight:300; }
 #content1 { background:#181015 url( ../images/runner_resize.jpg) no-repeat; background-size: cover; min-height:520px; text-align: center; padding-top:240px; color:white; font-family:"Open sans", Helvetica, Arial; font-weight:300; }
 #directionTool {background:#FFFFFF; margin-left: 600px;}
-#board1 { background:#FFFFFF url( ../images/board1.jpg) no-repeat;  min-height:600px; min-width:1000px; padding-top:240px; color:white; }
-#board2 { background:#FFFFFF url( ../images/board2.jpg) no-repeat;  min-height:600px; min-width:1000px; padding-top:240px; color:white; }
-#board3 { background:#FFFFFF url( ../images/board3.jpg) no-repeat;  min-height:600px; min-width:1000px; padding-top:240px; color:white; }
-#map{background:#FFFFFF url( ../images/map.jpg) no-repeat; min-height:900px; margin-left: 100px;}
-#weather{background:#FFFFFF url( ../images/weather.jpg) no-repeat; min-height:500px; margin-left: 200px;}
-#signup { background:#FFFFFF url( ../images/signup.jpg) no-repeat;  min-height:500px; padding-top:240px; color:white; }
-#signin { background:#FFFFFF url( ../images/signin.jpg) no-repeat;  min-height:500px; padding-top:240px; color:white; }
+#board1 { background:#FFFFFF url( ../images/previewImg/board1.jpg) no-repeat;  min-height:600px; min-width:1200px; padding-top:240px; color:white; }
+#board2 { background:#FFFFFF url( ../images/previewImg/board2.jpg) no-repeat;  min-height:600px; min-width:1200px; padding-top:240px; color:white; }
+#board3 { background:#FFFFFF url( ../images/previewImg/board3.jpg) no-repeat;  min-height:600px; min-width:1200px; padding-top:240px; color:white; }
+#map {background:#FFFFFF url( ../images/map.jpg) no-repeat; min-height:900px; margin-left: 100px;}
+#weather1 { background:#FFFFFF url( ../images/previewImg/weather1.jpg) no-repeat;  min-height:750px; min-width:1200px; padding-top:240px; color:white; }
+#weather2 { background:#FFFFFF url( ../images/previewImg/weather2.jpg) no-repeat;  min-height:750px; min-width:1200px; padding-top:240px; color:white; }
+#contact { background:#FFFFFF url( ../images/previewImg/contact.jpg) no-repeat;  min-height:750px; min-width:1200px; padding-top:240px; color:white; }
+#signUp { background:#FFFFFF url( ../images/previewImg/signUp.jpg) no-repeat;  min-height:900px;  min-width:2000px; padding-top:240px; color:white; }
+#signIn { background:#FFFFFF url( ../images/previewImg/signIn.jpg) no-repeat;  min-height:600px; padding-top:240px; color:white; }
+#serchId { background:#FFFFFF url( ../images/previewImg/serchId.jpg) no-repeat;  min-height:900px;  min-width:1000px; padding-top:240px; color:white; }
+#serchPw { background:#FFFFFF url( ../images/previewImg/serchPw.jpg) no-repeat;  min-height:800px;  min-width:1000px; padding-top:240px; color:white; }
+
 #direction { margin-left:60px;}
 #head .secondary { height:100px; min-height: 100px; padding-top:0px; }
 #head .lead { font-family:"Open sans", Helvetica, Arial; font-size:44px; margin-bottom:6px; color:#FF9433; line-height:1.15em; } 
