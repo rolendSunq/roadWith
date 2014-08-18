@@ -31,6 +31,7 @@
 	height : auto;
 	max-width : 100%;
 	}
+	#imgRi {color: black;}
 	</style>
 </head>
 
@@ -80,9 +81,9 @@
 	<header id="head">
 		<div class="container">
 			<div class="row" >
-				<h1 class="lead" id="imgRi">함께 라이딩하는 즐거움 </h1>
-				<p class="tagline" id="imgRi2">그룹으로 모여 달리는 재미와 기록은 라이딩의 더 큰 가치를 제공합니다.<!-- <a href="http://www.gettemplate.com/?utm_source=progressus&amp;utm_medium=template&amp;utm_campaign=progressus">GetTemplate</a></p>
-				<p><a class="btn btn-default btn-lg" role="button">MORE INFO</a> <a class="btn btn-action btn-lg" role="button">DOWNLOAD NOW</a> --></p>
+				<h1 class="lead" id="imgRi">함께 라이딩하는 즐거움</h1>
+				<p class="tagline" id="imgRi2"><a href="roadContent">그룹으로 모여 달리는 재미와 기록은 라이딩의 더 큰 가치를 제공합니다.</a><!-- <a href="http://www.gettemplate.com/?utm_source=progressus&amp;utm_medium=template&amp;utm_campaign=progressus">GetTemplate</a></p>
+				<p><a href="roadContent" class="btn btn-default btn-lg" role="button">MORE INFO</a> <a class="btn btn-action btn-lg" role="button">DOWNLOAD NOW</a> --></p>
 		
 			</div>
 		</div>
@@ -527,12 +528,12 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 			
 			$("#imgRi").click(function() {
 				 //location.replace("freeBoard?freeBoard");
-				$(location).attr('href','FreeRiderBoard');
+				$(location).attr('href','roadContent');
 			});
 			
 			$("#imgRu").click(function() {
 				 //location.replace("freeBoard?freeBoard");
-				$(location).attr('href','FreeRunBoard');
+				$(location).attr('href','');
 			});
 			
 			$('#navNotice').click(function(){
