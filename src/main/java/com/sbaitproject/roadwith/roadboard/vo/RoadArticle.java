@@ -1,6 +1,7 @@
 package com.sbaitproject.roadwith.roadboard.vo;
 
 public class RoadArticle {
+	private int articleId;
 	private String content;
 	private int articleHit;
 	private int replyHit;
@@ -13,6 +14,13 @@ public class RoadArticle {
 	private String goalSpot;
 	private String writerId;
 	private String writerNickName;
+	
+	public int getArticleId() {
+		return articleId;
+	}
+	public void setArticleId(int articleId) {
+		this.articleId = articleId;
+	}
 	public String getContent() {
 		return content;
 	}

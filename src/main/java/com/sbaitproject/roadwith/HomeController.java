@@ -60,12 +60,12 @@ public class HomeController {
 		
 		if (result.equals("success") && section == true){
 			session.setAttribute("id", person.getId());
-			url = "/riders/riderBoard";
+			url = "forward:RiderBoard";
 		}
 		else if (result.equals("success") && section == false) {
 			String obtainID = contactServices.getIdByEmail(person.getEmail());
 			session.setAttribute("id", obtainID);
-			url = "/riders/riderBoard";
+			url = "forward:RiderBoard";
 		}
 			
 		return url;

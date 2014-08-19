@@ -2,16 +2,17 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Rider">
 	<resultMap type="com.sbaitproject.roadwith.roadboard.vo.RoadArticle" id="roadArticle">
+		<result property="articleId" column="article_id"/>
 		<result property="content" column="content"/>
 		<result property="articleHit" column="article_hit"/>
 		<result property="replyHit" column="reply_hit"/>
-		<result property="planDay" column="planDay"/>
-		<result property="startTime" column="startTime"/>
-		<result property="aimTime" column="aimTime"/>
-		<result property="entryMember" column="entryMember"/>
-		<result property="joinMember" column="joinMember"/>
-		<result property="startSpot" column="startSpot"/>
-		<result property="goalSpot" column="goalSpot"/>
+		<result property="planDay" column="plan_day"/>
+		<result property="startTime" column="start_time"/>
+		<result property="aimTime" column="aim_time"/>
+		<result property="entryMember" column="entry_member"/>
+		<result property="joinMember" column="join_member"/>
+		<result property="startSpot" column="start_spot"/>
+		<result property="goalSpot" column="goal_spot"/>
 		<result property="writerId" column="writer_id"/>
 		<result property="writerNickName" column="writer_nickName"/>
 	</resultMap>
@@ -33,9 +34,21 @@
 		ORDER BY posting_date DESC		
 	</select>
 	
+	<select id="SelectedRiderArticleByArticleId" parameterType="int" resultMap="roadArticle">
+		SELECT *
+		FROM riderArticle
+		WHERE article_id = #{articleId}
+	</select>
+	
 	<insert id="InsertRiderArticle" parameterType="com.sbaitproject.roadwith.roadboard.vo.RoadArticle">
 		INSERT INTO riderArticle 
-		(articleId, article_hit, reply_hit, content, planDay, startTime, aimTime, entryMember, joinMember, startSpot, goalSpot, writer_id, writer_nickName, posting_date)
+		(article_id, article_hit, reply_hit, content, plan_day, start_time, aim_time, entry_member, join_member, start_spot, goal_spot, writer_id, writer_nickName, posting_date)
 		VALUES(seq_riderArticle_id.nextval, 0, 0, #{content}, #{planDay}, #{startTime}, #{aimTime},  ${entryMember}, 0, #{startSpot}, #{goalSpot}, #{writerId}, #{writerNickName}, sysdate)
 	</insert>
+	
+	<update id="UpdateArticleHit" parameterType="map">
+		UPDATE riderArticle
+		SET article_hit = #{articleHit}
+		WHERE article_id = #{articleId}
+	</update>
 </mapper>

@@ -9,4 +9,5 @@ import com.sbaitproject.roadwith.roadboard.vo.RoadArticle;
 public interface RoadBoardService {
 	public void insertArticle(RoadArticle roadArticle, HttpSession session);
 	public void getRiderArticleList(String currentPageNumber, Model model);
+	public void riderViewService(int articleId, Model model);
 }

@@ -36,4 +36,17 @@ public class RiderBoardDaoImpl implements RoadBoardDao {
 		return sqlSession.selectList(NS + "SelectedRiderArticle", params);
 	}
 
+	@Override
+	public RoadArticle selectedRiderArticleByArticleId(int articleId) {
+		return sqlSession.selectOne(NS + "SelectedRiderArticleByArticleId", articleId);
+	}
+
+	@Override
+	public void updateArticleHit(int articleId, int articleHit) {
+		Map<String, Integer> params = new HashMap<String, Integer>();
+		params.put("articleId", articleId);
+		params.put("articleHit", articleHit);
+		sqlSession.update(NS + "UpdateArticleHit", params);
+	}
+
 }

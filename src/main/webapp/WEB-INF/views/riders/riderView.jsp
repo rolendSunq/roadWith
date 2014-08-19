@@ -6,7 +6,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport"    content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
-		<meta name="author"      content="pearlite">
+		<meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
 		<title>로드러너</title>
 		<link rel="shortcut icon" href="./resources/assets/images/gt_favicon.png">
 		<link rel="stylesheet" media="screen" href="./resources/assets/css/googleFont.css">
@@ -18,7 +18,7 @@
 		<style type="text/css">
 			#riderContent {/*background-color: blue;*/}
 			#nameTitle {background-color: #2BE8D8; }
-			#jumbotron {background-color: #B2FFA6;}
+			#jumbotron {background-color: #8EA2FF;}
 			#tabFontColor {color: black;}
 			#formName {height: 20px;}
 			#header {height: 110px;}
@@ -47,11 +47,11 @@
 						<li class="active"><a href="/roadwith">홈</a></li>
 						<li><a href="preview">튜토리얼</a></li>
 						<li class="dropdown">
-							<a href="#" data-toggle="dropdown" class="dropdown-toggle">게시판 <b class="caret"></b></a>
-							<ul class="dropdown-menu">
-								<li><a href="freeBoard">자유게시판</a></li>
-								<li><a href="roadContent">러너 / 라이더</a></li>
-							</ul>
+						<a href="#" data-toggle="dropdown" class="dropdown-toggle">게시판 <b class="caret"></b></a>
+						<ul class="dropdown-menu">
+						<li><a href="freeBoard">자유게시판</a></li>
+						<li><a href="roadContent">러너 / 라이더</a></li>
+						</ul>
 						</li>
 						<li><a id="navNotice">공지사항</a></li>
 						<li><a href="contact">문의사항</a></li>
@@ -73,7 +73,6 @@
 		<header id="head" class="secondary"></header>
 		 -->
 		<!-- container -->
-		
 		<header id="header">
 			<div class="container">
 				<div class="row">
@@ -85,105 +84,49 @@
 					<br>
 				</div>
 			</div>
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<div class="container">			
-					<div class="navbar-collapse collapse">
-						<ul class="nav nav-tabs" role="tablist">
-							<li ><a href="roadContent" id="tabFontColor"><b>라이더 게시판</b></a></li>
-							<li class="active"><a><b>러너 게시판</b></a></li>
-							<li><a href="freeBoard" id="tabFontColor"><b>자유 게시판</b></a></li>
-						</ul>
-					</div>
-				</div>
-			</div>
 		</header>
 		<div class="container">
 			<div class="row">
-				<h1></h1>
-				<br>
+				<div class="container">
+					<div>
+						<span class="">
+							<div class="h3">${Article.getContent() }</div>
+							<label class="h4">${Article.getWriterNickName() }</label>
+							<label class="h4">${Article.getPlanDay() }</label>
+							<label class="h4">${Article.getStartTime() }</label>
+							<label class="h4">${Article.getAimTime() }</label>
+						</span>
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="container">
-			<!-- jumbotron -->
-			<div class="jumbotron top-space" id="jumbotron">
-				<h2>Run Group</h2>
-				<form name="makeGrpFrm" id="formName">
-		     		<p class="text-right"><a class="btn btn-primary btn-large" id="makeGroup"><i class="fa fa-users"></i> 그룹 생성하기 »</a></p>			
-				<div class="page-header" id="header">			
-					<span class="badge"><i class="h5 fa fa-dot-circle-o"></i> 조회 0</span>
-					<span class="badge"><i class="h5 fa fa-reply"></i> 댓글 0</span>
-					<span class="badge"><i class="h5 fa fa-user"></i> 참여 0</span> &nbsp;&nbsp;&nbsp;&nbsp;
-					<span><label class="h3"><i class="fa fa-volume-up"></i>오늘 달려요</label></span><br>
-					<span class="pull-right">
-						<label class="h4"><i class="fa fa-map-marker"></i> 안양천 <i class="fa fa-long-arrow-right "></i></label>&nbsp;
-						<label class="h4"><i class="fa fa-map-marker"></i> 통일전망대 </label>&nbsp;&nbsp;
-						<label class="h4"><i class="fa fa-clock-o"></i> 08-17 12:30</label> 
-					</span>						
-				</div>
-				<div class="page-header" id="header">
-					<span class="badge"><i class="h5 fa fa-dot-circle-o"></i> 조회 0</span>
-					<span class="badge"><i class="h5 fa fa-reply"></i> 댓글 0</span>
-					<span class="badge"><i class="h5 fa fa-user"></i> 참여 0</span> &nbsp;&nbsp;&nbsp;&nbsp;
-					<span><label class="h3"><i class="fa fa-volume-up"></i>내일 달려요</label></span><br>
-					<span class="pull-right">
-						<label class="h4"><i class="fa fa-map-marker"></i> 안양천 <i class="fa fa-long-arrow-right "></i></label>&nbsp;
-						<label class="h4"><i class="fa fa-map-marker"></i> 통일전망대 </label>&nbsp;&nbsp;
-						<label class="h4"><i class="fa fa-clock-o"></i> 08-17 12:30</label> 
-					</span>
-				</div>
-				</form>
-	  		</div>
-			<!-- /jumbotron -->
-		</div>
-		<!-- /container -->
 		<!-- modal notice-->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-	    	<div class="modal-content">
-	      		<div class="modal-header">
-	        		<button type="button" class="close" data-dismiss="modal">
-	        			<span aria-hidden="true">&times;</span>
-	        			<span class="sr-only">Close</span>
-	        		</button>
-	        		<h4 class="modal-title" id="myModalLabel"><b>공지 사항</b></h4>
-	      		</div>
-	      		<div class="modal-body">
-	      			<div class="page-header">
-						<h2><b>8월 17일 임시점검 안내</b></h2>
-					</div>
-					<p>
-					안녕하세요~!
-					항상 유저님들과 함께 하는 RoadWith 입니다.
-					RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며,
-					2014년 08월 17일 일요일 임시점검 일정을 안내해 드립니다.
-					자세한 사항은 이하를 참고 바랍니다.
-					</p>
-					<p></p>
-					<p>◎ 점검 일시:</p>
-					<p>■ 서버점검 - 2014년 08월 17일 (목) 07:00 ~ 09:00 (약 2시간)</p>
-					<p>◎ 패치 내용:</p>
-					<p>■ 서버 안정화 작업</p>
-					<p></p>
-					<p>
-					회원 여러분들의 뜨거운 관심과 열정에 항상 감사 드리며
-					최선을 다하는 RoadWith가 되겠습니다.
-					감사합니다.
-					</p>
-					<p></p>
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+		    	<div class="modal-content">
+		      		<div class="modal-header">
+		        		<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		        			<h4 class="modal-title" id="myModalLabel"><b>공지 사항</b></h4>
+		      		</div>
+		      		<div class="modal-body">
+		      			<div class="page-header">
+							<h2>
+								<b></b> 
+							</h2>
+						</div>
+		      		</div>
 				</div>
-	      </div>
-	      
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
-	      </div>
-	    </div>
-	  </div>
-	</div>
-	<!-- modal notice-->	
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" data-dismiss="modal">확인</button>
+				</div>
+		    </div>
+		</div>
+		<!-- modal notice End -->	
 		<footer id="footer" class="top-space">
 			<div class="footer1">
 				<div class="container">
 					<div class="row">
+						
 						<div class="col-md-3 widget">
 							<h3 class="widget-title">문의관련</h3>
 							<div class="widget-body">
@@ -211,7 +154,6 @@
 								<p>이 프로젝트(Roadwith)는 MyBatis, GitHub, Twitter Bootstrap, Spring Framework, Apache Tomcat, Oracle 11g 등의 기술들이 이용되어 만들어졌습니다.
 							</div>
 						</div>
-	
 					</div> <!-- /row of widgets -->
 				</div>
 			</div>
@@ -232,38 +174,22 @@
 								</p>
 							</div>
 						</div>
-	
 						<div class="col-md-6 widget">
 							<div class="widget-body">
 								<p class="text-right">
-									Copyright &copy; 2014, Road With. Designed by rolend Sunq</a> 
+									Copyright &copy; 2014, Road With. Designed by rolend Sunq
 								</p>
 							</div>
 						</div>
 					</div> <!-- /row of widgets -->
 				</div>
 			</div>
-	
 		</footer>	
 		<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 		<script src="./resources/assets/js/jquery-1.11.1.min.js"></script>
 		<script src="./resources/assets/js/bootstrap.min.js"></script>
 		<script>
 			$(document).ready(function(){
-				$('#makeGroup').click(function(){
-				<c:choose>
-					<c:when test="${id != null}">
-					$('form[name=makeGrpFrm]').attr({'method':'post','action':'MakeRiderGroup'}).submit();
-					</c:when>
-					<c:otherwise>
-					alert("로그인 후 이용하세요.");
-					</c:otherwise>
-				</c:choose>	
-				});
-				
-				$('#navNotice').click(function(){
-					$('#myModal').modal('show');
-				});
 				
 			});
 		</script>

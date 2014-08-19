@@ -21,15 +21,12 @@
 			<script src="./resources/assets/js/html5shiv.js"></script>
 			<script src="./resources/assets/js/respond.min.js"></script>
 		<![endif]-->
-	
-		
-	<style type="text/css">
-		#jumbotron {background-color: #F4FF8A;}
-		#fontColor {color: black;}
-		#formName {height: 20px;}
-		#header {height: 110px;}
-	</style>
-		
+		<style type="text/css">
+			#jumbotron {background-color: #F4FF8A;}
+			#fontColor {color: black;}
+			#formName {height: 20px;}
+			#header {height: 110px;}
+		</style>
 	</head>
 	<body>
 		<!-- Fixed navbar -->
@@ -70,8 +67,7 @@
 		</div>
 	</div> 
 	<!-- /.navbar -->
-	
-<header id="header">
+	<header id="header">
 		<div class="container">
 			<div class="row">
 				<h1></h1>
@@ -82,7 +78,6 @@
 				<br>
 			</div>
 		</div>
-
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<div class="container">			
 				<div class="navbar-collapse collapse">
@@ -102,7 +97,6 @@
 			<br>
 		</div>
 	</div>
-	
 	<div class="container">
 		<!-- jumbotron -->
 		<div class="jumbotron top-space" id="jumbotron">
@@ -115,8 +109,8 @@
 	     		
 			</form>
 		</div>
+		<!-- jumbotron End -->
 	</div>
-	
 	<!-- container -->
 	<div class="container">
 		<ol class="breadcrumb">
@@ -374,11 +368,9 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 <!-- modal notice-->
 
 	<footer id="footer" class="top-space">
-
 		<div class="footer1">
 			<div class="container">
 				<div class="row">
-					
 					<div class="col-md-3 widget">
 						<h3 class="widget-title">문의관련</h3>
 						<div class="widget-body">
@@ -389,7 +381,6 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 							</p>	
 						</div>
 					</div>
-
 					<div class="col-md-3 widget">
 						<h3 class="widget-title">Follow me</h3>
 						<div class="widget-body">
@@ -401,22 +392,18 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 							</p>	
 						</div>
 					</div>
-
 					<div class="col-md-6 widget">
 						<h3 class="widget-title">사용된 기술</h3>
 						<div class="widget-body">
 							<p>이 프로젝트(Roadwith)는 MyBatis, GitHub, Twitter Bootstrap, Spring Framework, Apache Tomcat, Oracle 11g 등의 기술들이 이용되어 만들어졌습니다.
 						</div>
 					</div>
-
 				</div> <!-- /row of widgets -->
 			</div>
 		</div>
-
 		<div class="footer2">
 			<div class="container">
 				<div class="row">
-					
 					<div class="col-md-6 widget">
 						<div class="widget-body">
 							<p class="simplenav">
@@ -430,7 +417,6 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 							</p>
 						</div>
 					</div>
-
 					<div class="col-md-6 widget">
 						<div class="widget-body">
 							<p class="text-right">
@@ -441,22 +427,21 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 				</div> <!-- /row of widgets -->
 			</div>
 		</div>
-
 	</footer>			
-		<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
-		<script src="./resources/assets/js/jquery-1.11.1.min.js"></script>
-		<script src="./resources/assets/js/bootstrap.min.js"></script>
-		<script>
-			$(document).ready(function(){
-				$('#writeArticle').click(function(){
-					$(location).attr('href',"write");
-				});
-				
-				$('#navNotice').click(function(){
-					$('#myModal').modal('show');
-				});
-				
+	<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+	<script src="./resources/assets/js/jquery-1.11.1.min.js"></script>
+	<script src="./resources/assets/js/bootstrap.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('#writeArticle').click(function(){
+				$(location).attr('href',"write");
 			});
+			
+			$('#navNotice').click(function(){
+				$('#myModal').modal('show');
+			});
+			
+		});
 	</script>
 	<script src="./resources/assets/js/headroom.min.js"></script>
 	<script src="./resources/assets/js/jQuery.headroom.min.js"></script>

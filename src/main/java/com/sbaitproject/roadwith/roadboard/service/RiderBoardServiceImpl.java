@@ -83,4 +83,11 @@ public class RiderBoardServiceImpl implements RoadBoardService {
 		int pageCount = totalArticleCount / COUNT_PER_PAGE;
 		return (totalArticleCount % COUNT_PER_PAGE > 0) ? pageCount++ : pageCount;
 	}
+
+	@Override
+	public void riderViewService(int articleId, Model model) {
+		RoadArticle riderArticle  = roadBoardDao.selectedRiderArticleByArticleId(articleId);
+		roadBoardDao.updateArticleHit(riderArticle.getArticleHit() + 1, riderArticle.getArticleId());
+		model.addAttribute("Article", riderArticle);
+	}
 }

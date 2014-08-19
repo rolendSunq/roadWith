@@ -43,4 +43,10 @@ public class RiderController {
 		roadBoardService.getRiderArticleList(currentPageNumber, model);
 		return "riders/riderBoard";
 	}
+	
+	@RequestMapping(value = "RiderView")
+	public String riderViewController(Model model, @RequestParam(value = "articleId") int articleId) {
+		roadBoardService.riderViewService(articleId, model);
+		return "riders/riderView";
+	}
 }
