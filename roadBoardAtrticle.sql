@@ -7,6 +7,7 @@ create table riderArticle(
 	startTime VARCHAR2(5) not null,
 	aimTime VARCHAR2(5) not null,
 	entryMember number not null,
+	joinMember number,
 	startSpot VARCHAR2(100) not null,
 	goalSpot VARCHAR2(100) not null,
 	writer_id VARCHAR2(50) not null,	

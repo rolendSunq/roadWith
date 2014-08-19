@@ -35,11 +35,11 @@ public class RiderController {
 	@RequestMapping(value = "MakeRiderArticle", method = RequestMethod.POST)
 	public String makeRiderArticleController(RoadArticle roadArticle, HttpSession session) {
 		roadBoardService.insertArticle(roadArticle, session);
-		return "forward:MakeRiderGroup";
+		return "forward:RiderBoard";
 	}
 	
-	@RequestMapping(value = "RiderBoard", method = RequestMethod.POST)
-	public String riderBoardController(Model model, @RequestParam(value="p", required=false) int currentPageNumber) {
+	@RequestMapping(value = "RiderBoard")
+	public String riderBoardController(Model model, @RequestParam(value="p", required=false) String currentPageNumber) {
 		roadBoardService.getRiderArticleList(currentPageNumber, model);
 		return "riders/riderBoard";
 	}

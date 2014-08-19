@@ -406,7 +406,14 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 	<script>
 		$(document).ready(function(){
 			$('#makeGroup').click(function(){
+			<c:choose>
+				<c:when test="${id != null}">
 				$('form[name=makeGrpFrm]').attr({'method':'post','action':'MakeRiderGroup'}).submit();
+				</c:when>
+				<c:otherwise>
+				alert("로그인 후 이용하세요.");
+				</c:otherwise>
+			</c:choose>	
 			});
 			
 			$('#navNotice').click(function(){

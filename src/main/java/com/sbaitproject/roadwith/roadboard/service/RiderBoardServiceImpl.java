@@ -33,19 +33,23 @@ public class RiderBoardServiceImpl implements RoadBoardService {
 	}
 
 	@Override
-	public void getRiderArticleList(int currentPageNumber, Model model) {
+	public void getRiderArticleList(String pageNumber, Model model) {
 		RoadArticleList roadArticleList = null;
 		int totalArticleNumber = roadBoardDao.selectAllCount();
-		currentPageNumber = setDefaultPage(currentPageNumber);
+		int currentPageNumber = setDefaultPage(pageNumber);
 		
-		
+		System.out.println("totalArticleNumber: " + totalArticleNumber);
 		int totalPageCount = calculatePageCount(totalArticleNumber);
 		int firstRow = (currentPageNumber - 1) * (COUNT_PER_PAGE + 1);
 		int endRow = firstRow + (COUNT_PER_PAGE - 1);
+		System.out.println("totalPC" + totalPageCount);
+		System.out.println("firstRow" + firstRow);
+		System.out.println("endRow" + endRow);
 		
 		if (endRow > totalArticleNumber){
 			endRow = totalArticleNumber;
 		}
+		System.out.println("endRow" + endRow);
 		
 		if (currentPageNumber == 0){
 			roadArticleList =  new RoadArticleList();
@@ -57,10 +61,12 @@ public class RiderBoardServiceImpl implements RoadBoardService {
 		if(roadArticleList.getTotalPageCount() > 0) {
 			int beginPageNumber = (roadArticleList.getRequestPage() - 1) / ((10 * 10) + 1);
 			int endPageNumber = beginPageNumber + 9;
-			
+			System.out.println("beginPageNumber" + beginPageNumber);
+			System.out.println("endPageNumber" + endPageNumber);
 			if (endPageNumber > roadArticleList.getTotalPageCount()) 
 				endPageNumber = roadArticleList.getTotalPageCount();
 
+			System.out.println("endPageNumber" + endPageNumber);
 			model.addAttribute("beginPage", beginPageNumber);
 			model.addAttribute("endPage", endPageNumber);
 		}
@@ -68,13 +74,13 @@ public class RiderBoardServiceImpl implements RoadBoardService {
 		model.addAttribute("Articles", roadArticleList);
 	}
 	
-	private int setDefaultPage(int pageNumber) {
-		return (pageNumber == 0) ? 1 : pageNumber;
+	private int setDefaultPage(String pageNumber) {
+		return (pageNumber == null || pageNumber.equals("0")) ? 1 : Integer.parseInt(pageNumber);
 	}
 	
 	private int calculatePageCount(int totalArticleCount) {
 		if (totalArticleCount == 0)	return 0;
 		int pageCount = totalArticleCount / COUNT_PER_PAGE;
-		return (totalArticleCount % COUNT_PER_PAGE  > 0) ? pageCount++ : pageCount;
+		return (totalArticleCount % COUNT_PER_PAGE > 0) ? pageCount++ : pageCount;
 	}
 }

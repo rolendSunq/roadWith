@@ -97,7 +97,7 @@
 				<div class="navbar-collapse collapse">
 					<ul class="nav nav-tabs" role="tablist">
 						<li class="active" ><a><b>라이더 게시판</b></a></li>
-						<li><a href=runBoard id="tabFontColor"><b>러너 게시판</b></a></li>
+						<li><a href="runBoard" id="tabFontColor"><b>러너 게시판</b></a></li>
 						<li><a href="freeBoard" id="tabFontColor"><b>자유 게시판</b></a></li>
 					</ul>
 				</div>
@@ -119,37 +119,45 @@
 			<form name="makeGrpFrm" id="formName">
 	     		<p class="text-right">
 	     			<a class="btn btn-primary btn-large" id="makeGroup"><i class="fa fa-users"></i> 그룹 생성하기 »</a>
-	     		</p>			
-			<div class="page-header" id="header">			
-				<span class="badge"><i class="h5 fa fa-dot-circle-o"></i> 조회 12</span>
-+				<span class="badge"><i class="h5 fa fa-reply"></i> 댓글 3</span>
-+				<span class="badge"><i class="h5 fa fa-user"></i> 참여 5</span> &nbsp;&nbsp;&nbsp;&nbsp;
-+				<span><label class="h3"><i class="fa fa-volume-up"></i>안양천따라 임진강까지 라이딩 하실분!</label></span><br>
-				<span class="pull-right">
-					<label class="h4"><i class="fa fa-map-marker"></i> 안양천 <i class="fa fa-long-arrow-right "></i></label>&nbsp;
-					<label class="h4"><i class="fa fa-map-marker"></i> 통일전망대 </label>&nbsp;&nbsp;
-					<label class="h4"><i class="fa fa-clock-o"></i> 08-17 12:30</label> 
-				</span>						
-			</div>
-			
-			<div class="page-header" id="header">
-				<span class="badge"><i class="h5 fa fa-dot-circle-o"></i> 조회 21</span>
-+				<span class="badge"><i class="h5 fa fa-reply"></i> 댓글 7</span>
-+				<span class="badge"><i class="h5 fa fa-user"></i> 참여 8</span> &nbsp;&nbsp;&nbsp;&nbsp;
-+				<span><label class="h3"><i class="fa fa-volume-up"></i>지리산 둘레길 라이딩 하실분</label></span><br>
-				<span class="pull-right">
-					<label class="h4"><i class="fa fa-map-marker"></i> 동강 <i class="fa fa-long-arrow-right "></i></label>&nbsp;
-+					<label class="h4"><i class="fa fa-map-marker"></i> 수철마을 </label>&nbsp;&nbsp;
-+					<label class="h4"><i class="fa fa-clock-o"></i> 08-21 12:30</label> 
-				</span>
-			</div>
-			
-			
+	     		</p>
 			</form>
   		</div>
-		<!-- /jumbotron -->
+		<!-- /jumbotron End -->
+   	<c:choose>
+   		<c:when test="${Articles.isHasArticle() == false }"></c:when>
+   		<c:otherwise>
+   		<c:forEach var="article" items="${Articles.roadArticleList }" varStatus="status">
+		<div class="page-header" id="header">			
+			<span class="badge"><i class="h5 fa fa-dot-circle-o"></i> 조회 ${article.getArticleHit() }</span>
+			<span class="badge"><i class="h5 fa fa-reply"></i> 댓글 ${article.getReplyHit() }</span>
+			<span class="badge"><i class="h5 fa fa-user"></i> 참여 ${article.getJoinMember() }</span> &nbsp;&nbsp;&nbsp;&nbsp;
+			<span><label class="h3"><i class="fa fa-volume-up"></i><span class="badge">${article.getWriterNickName() }</span> ${article.getContent() }</label></span><br>
+			<span class="pull-right">
+				<label class="h4"><i class="fa fa-map-marker"></i> ${article.getSplitStartSpot() } <i class="fa fa-long-arrow-right "></i></label>&nbsp;
+				<label class="h4"><i class="fa fa-map-marker"></i> ${article.getSplitGoalSpot() }</label>&nbsp;&nbsp;
+				<label class="h4"><i class="fa fa-clock-o"></i> ${article.getPlanDay() } ${article.getStartTime() }</label> 
+			</span>						
+		</div>
+   		</c:forEach>
+   		</c:otherwise>
+   	</c:choose>			
+		<!-- paging -->
+		<div class="text-center">
+			<ul class="pagination">
+				<c:if test="${beginPage > 10}">
+				  <li><a href="<c:url value="/RiderBoard?p=${beginPage-1}"/>">&laquo;</a></li>
+				</c:if>
+				<c:forEach var="pno" begin="${beginPage + 1}" end="${endPage}">
+				  <li><a href='<c:url value="/RiderBoard?p=${pno}"/>'>${pno}</a></li>
+				</c:forEach>
+				<c:if test="${endPage < Articles.totalPageCount}">
+				  <li><a href="<c:url value="/RiderBoard?p=${endPage + 1}"/>">&raquo;</a></li>
+				</c:if>
+			</ul>
+		</div>
+		<!-- paging End -->
 	</div>
-	<!-- /container -->
+	<!-- /container End-->
 	
 	<!-- modal notice-->
 	
@@ -407,6 +415,7 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 	<script src="./resources/assets/js/jquery-1.11.1.min.js"></script>
 	<script src="./resources/assets/js/bootstrap.min.js"></script>
 	<script>
+		
 		$(document).ready(function(){
 			$('#makeGroup').click(function(){
 			<c:choose>

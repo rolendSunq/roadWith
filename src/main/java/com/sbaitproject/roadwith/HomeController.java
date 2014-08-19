@@ -135,7 +135,7 @@ public class HomeController {
 	
 	@RequestMapping("roadContent")
 	public String roadContentController() {
-		return "riders/riderBoard";
+		return "forward:RiderBoard";
 	}
 	
 	@RequestMapping("runBoard")

@@ -25,6 +25,10 @@ public class RoadArticleList {
 	public List<RoadArticle> getRoadArticleList() {
 		return roadArticleList;
 	}
+	
+	public boolean isHasArticle(){
+		return ! roadArticleList.isEmpty();
+	}
 
 	public void setRoadArticleList(List<RoadArticle> roadArticleList) {
 		this.roadArticleList = roadArticleList;

@@ -92,7 +92,7 @@
 						<div class="col-md-6 form-inline">
 							<div class="form-group col-md-3">
 								<span class="form-control">
-									<label id="year"></label>
+									<label id="year"></label>&nbsp;
 									<label id="month"></label>
 								</span>
 							</div>
@@ -616,8 +616,8 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 				var year = calendar[0];
 				var month = calendar[1];
 				var day = calendar[2];
-				$('#year').text(year + '년');
-				$('#month').text(month + '월');
+				$('#year').text(year);
+				$('#month').text(month);
 				$('#day').val(day);
 			}
 			
@@ -695,12 +695,13 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 			function validation() {
 				var startTimeValue = $('#startTime').val();
 				var aimTimeValue = $('#aimTime').val();
+				result = true;
 	
-				contentCheck();
-				timeValidation(startTimeValue, $('#startTime'));
-				timeValidation(aimTimeValue, $('#aimTime'));
-				spotValidation();
-				return true;
+				result = contentCheck();
+				result = timeValidation(startTimeValue, $('#startTime'));
+				result = timeValidation(aimTimeValue, $('#aimTime'));
+				result = spotValidation();
+				return result;
 			}
 			
 			
@@ -709,7 +710,6 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 				
 				$('#content').keydown(function(e){
 					if (e.keyCode == 13) {
-						
 						$('#day').focus();
 					}
 				});
@@ -734,7 +734,7 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 				});
 				
 				$('#enter').click(function(){
-					var day = $('#year').text() + '-' + $('#month').text() + '-' + $('#day option:selected').val() + '일';
+					var day = $('#year').text() + '-' + $('#month').text() + '-' + $('#day option:selected').val();
 					$('#planDay').val(day);
 					if (validation()) {
 						$('form[name=makeGroupFrm]').attr({'action':'MakeRiderArticle','method':'POST'}).submit();

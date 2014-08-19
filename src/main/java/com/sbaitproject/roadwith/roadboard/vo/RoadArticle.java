@@ -2,20 +2,34 @@ package com.sbaitproject.roadwith.roadboard.vo;
 
 public class RoadArticle {
 	private String content;
+	private int articleHit;
+	private int replyHit;
 	private String planDay;
 	private String startTime;
 	private String aimTime;
 	private int entryMember;
+	private int joinMember;
 	private String startSpot;
 	private String goalSpot;
 	private String writerId;
 	private String writerNickName;
-	
 	public String getContent() {
 		return content;
 	}
 	public void setContent(String content) {
 		this.content = content;
+	}
+	public int getArticleHit() {
+		return articleHit;
+	}
+	public void setArticleHit(int articleHit) {
+		this.articleHit = articleHit;
+	}
+	public int getReplyHit() {
+		return replyHit;
+	}
+	public void setReplyHit(int replyHit) {
+		this.replyHit = replyHit;
 	}
 	public String getPlanDay() {
 		return planDay;
@@ -41,6 +55,12 @@ public class RoadArticle {
 	public void setEntryMember(int entryMember) {
 		this.entryMember = entryMember;
 	}
+	public int getJoinMember() {
+		return joinMember;
+	}
+	public void setJoinMember(int joinMember) {
+		this.joinMember = joinMember;
+	}
 	public String getStartSpot() {
 		return startSpot;
 	}
@@ -64,5 +84,15 @@ public class RoadArticle {
 	}
 	public void setWriterNickName(String writerNickName) {
 		this.writerNickName = writerNickName;
+	}
+	
+	public String getSplitStartSpot() {
+		String[] str = new String(startSpot).split(" ");
+		return str[(str.length-1)-1] + " " +str[(str.length-1)];
+	}
+	
+	public String getSplitGoalSpot() {
+		String[] str = new String(goalSpot).split(" ");
+		return str[(str.length-1)-1] + " " + str[(str.length-1)];
 	}
 }
