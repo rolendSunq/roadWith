@@ -22,6 +22,11 @@
 			#tabFontColor {color: black;}
 			#formName {height: 20px;}
 			#header {height: 110px;}
+			.rowLine {
+				.container;
+				height: 2px;
+				background-color: #19567F;
+			}
 		</style>
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -89,13 +94,19 @@
 			<div class="row">
 				<div class="container">
 					<div>
+						<button type="button" class="btn btn-default" id="joinMember" data-toggle="tooltip" data-placement="top" title="참여하기"><i class="fa fa-plus-circle fa-2x"></i><span class="h3"></span></button>&nbsp;
+						<button type="button" class="btn btn-default" id="comment" data-toggle="tooltip" data-placement="top" title="코멘트달기"><i class="fa fa-comment fa-2x"></i></button>
+						<div class="rowLine"></div>
 						<span class="">
 							<div class="h3">${Article.getContent() }</div>
-							<label class="h4">${Article.getWriterNickName() }</label>
-							<label class="h4">${Article.getPlanDay() }</label>
-							<label class="h4">${Article.getStartTime() }</label>
-							<label class="h4">${Article.getAimTime() }</label>
+							<label class="h4"><span class="badge"><i class="fa fa-pencil fa-3x"></i><h4>${Article.getWriterNickName() }</h4></span></label>
+							<label class="h4"><span class="badge"><i class="fa fa-calendar fa-3x"></i><h4>${Article.getPlanDay() }</h4></span></label>
+							<label class="h4"><span class="badge"><i class="fa fa-clock-o fa-3x"></i><h4>${Article.getStartTime() }</h4></span></label>
+							<label class="h4"><span class="badge"><i class="fa fa-bullseye fa-3x"></i><h4>${Article.getAimTime() }</h4></span></label>
+							<label class="h4"><span class="badge"><i class="fa fa-arrow-circle-right fa-3x"></i><h4>${Article.getStartSpot() }</h4></span></label>
+							<label class="h4"><span class="badge"><i class="fa fa-dot-circle-o fa-3x"></i><h4>${Article.getGoalSpot() }</h4></span></label>
 						</span>
+						<div class="rowLine"></div>
 					</div>
 				</div>
 			</div>
@@ -190,7 +201,13 @@
 		<script src="./resources/assets/js/bootstrap.min.js"></script>
 		<script>
 			$(document).ready(function(){
+				$('#joinMember').hover(function(){
+					$(this).tooltip('show');
+				});
 				
+				$('#comment').hover(function(){
+					$(this).tooltip('show');
+				});
 			});
 		</script>
 		<script src="./resources/assets/js/headroom.min.js"></script>

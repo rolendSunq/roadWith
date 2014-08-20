@@ -37,19 +37,13 @@ public class RiderBoardServiceImpl implements RoadBoardService {
 		RoadArticleList roadArticleList = null;
 		int totalArticleNumber = roadBoardDao.selectAllCount();
 		int currentPageNumber = setDefaultPage(pageNumber);
-		
-		System.out.println("totalArticleNumber: " + totalArticleNumber);
 		int totalPageCount = calculatePageCount(totalArticleNumber);
 		int firstRow = (currentPageNumber - 1) * (COUNT_PER_PAGE + 1);
 		int endRow = firstRow + (COUNT_PER_PAGE - 1);
-		System.out.println("totalPC" + totalPageCount);
-		System.out.println("firstRow" + firstRow);
-		System.out.println("endRow" + endRow);
 		
 		if (endRow > totalArticleNumber){
 			endRow = totalArticleNumber;
 		}
-		System.out.println("endRow" + endRow);
 		
 		if (currentPageNumber == 0){
 			roadArticleList =  new RoadArticleList();
@@ -61,12 +55,9 @@ public class RiderBoardServiceImpl implements RoadBoardService {
 		if(roadArticleList.getTotalPageCount() > 0) {
 			int beginPageNumber = (roadArticleList.getRequestPage() - 1) / ((10 * 10) + 1);
 			int endPageNumber = beginPageNumber + 9;
-			System.out.println("beginPageNumber" + beginPageNumber);
-			System.out.println("endPageNumber" + endPageNumber);
 			if (endPageNumber > roadArticleList.getTotalPageCount()) 
 				endPageNumber = roadArticleList.getTotalPageCount();
 
-			System.out.println("endPageNumber" + endPageNumber);
 			model.addAttribute("beginPage", beginPageNumber);
 			model.addAttribute("endPage", endPageNumber);
 		}
@@ -87,7 +78,7 @@ public class RiderBoardServiceImpl implements RoadBoardService {
 	@Override
 	public void riderViewService(int articleId, Model model) {
 		RoadArticle riderArticle  = roadBoardDao.selectedRiderArticleByArticleId(articleId);
-		roadBoardDao.updateArticleHit(riderArticle.getArticleHit() + 1, riderArticle.getArticleId());
+		roadBoardDao.updateArticleHit(riderArticle.getArticleId(), riderArticle.getArticleHit() + 1);
 		model.addAttribute("Article", riderArticle);
 	}
 }

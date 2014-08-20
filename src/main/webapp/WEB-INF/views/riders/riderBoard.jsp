@@ -22,11 +22,13 @@
 		<style type="text/css">
 			#riderContent {/*background-color: blue;*/}
 			#nameTitle {background-color: #2BE8D8; }
-			#jumbotron {background-color: #8EA2FF;}
+			#jumbotron {
+				/*background-color: #8EA2FF;*/
+				background:url('./resources/assets/images/bicycle-wide.jpg') no-repeat center center;
+			}
 			#tabFontColor {color: black;}
 			#formName {height: 20px;}
-			#header {height: 110px;}
-			
+			/*#header {height: 130px;}*/
 		</style>
 	
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -127,23 +129,27 @@
 	   		<c:when test="${Articles.isHasArticle() == false }"></c:when>
 	   		<c:otherwise>
 	   		<c:forEach var="article" items="${Articles.roadArticleList }" varStatus="status">
-			<div class="page-header" id="header">			
-				<span class="badge"><i class="h5 fa fa-dot-circle-o"></i> 조회 ${article.getArticleHit() }</span>
-				<span class="badge"><i class="h5 fa fa-reply"></i> 댓글 ${article.getReplyHit() }</span>
-				<span class="badge"><i class="h5 fa fa-user"></i> 참여 ${article.getJoinMember() }</span> &nbsp;&nbsp;&nbsp;&nbsp;
-				<span>
-					<label class="h3">
-						<i class="fa fa-volume-up"></i>
-						<span class="badge">${article.getWriterNickName() }</span> 
-						<a href="<c:url value="RiderView?articleId=${article.getArticleId()}"/>">${article.getContent() }</a>
-					</label>
-				</span><br>
-				<span class="pull-right">
-					<label class="h4"><i class="fa fa-map-marker"></i> ${article.getSplitStartSpot() } <i class="fa fa-long-arrow-right "></i></label>&nbsp;
-					<label class="h4"><i class="fa fa-map-marker"></i> ${article.getSplitGoalSpot() }</label>&nbsp;&nbsp;
-					<label class="h4"><i class="fa fa-clock-o"></i> ${article.getPlanDay() } ${article.getStartTime() }</label> 
-				</span>						
-			</div>
+				<div class="well" id="header">
+					<div class="row">
+						<span class="badge"><i class="h5 fa fa-dot-circle-o"></i> 조회 ${article.getArticleHit() }</span>
+						<span class="badge"><i class="h5 fa fa-reply"></i> 댓글 ${article.getReplyHit() }</span>
+						<span class="badge"><i class="h5 fa fa-user"></i> 참여 ${article.getJoinMember() }</span> &nbsp;&nbsp;&nbsp;&nbsp;
+						<span>
+							<label class="h3">
+								<i class="fa fa-volume-up"></i>
+								<span class="badge">${article.getWriterNickName() }</span> 
+								<a href="<c:url value="RiderView?articleId=${article.getArticleId()}"/>">${article.getContent() }</a>
+							</label>
+						</span>
+					</div>
+					<div class="row">
+						<span class="pull-right">
+							<label class="h4"><i class="fa fa-map-marker"></i> ${article.getSplitStartSpot() } <i class="fa fa-long-arrow-right "></i></label>&nbsp;
+							<label class="h4"><i class="fa fa-map-marker"></i> ${article.getSplitGoalSpot() }</label>&nbsp;&nbsp;
+							<label class="h4"><i class="fa fa-clock-o"></i> ${article.getPlanDay() } ${article.getStartTime() }</label> 
+						</span>						
+					</div>			
+				</div>
 	   		</c:forEach>
 	   		</c:otherwise>
 	   	</c:choose>			
