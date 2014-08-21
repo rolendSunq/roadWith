@@ -9,7 +9,6 @@ public class RoadArticle {
 	private String startTime;
 	private String aimTime;
 	private int entryMember;
-	private int joinMember;
 	private String startSpot;
 	private String goalSpot;
 	private String writerId;
@@ -62,12 +61,6 @@ public class RoadArticle {
 	}
 	public void setEntryMember(int entryMember) {
 		this.entryMember = entryMember;
-	}
-	public int getJoinMember() {
-		return joinMember;
-	}
-	public void setJoinMember(int joinMember) {
-		this.joinMember = joinMember;
 	}
 	public String getStartSpot() {
 		return startSpot;

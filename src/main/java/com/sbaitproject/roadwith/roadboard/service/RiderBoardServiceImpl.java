@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
+import com.google.gson.Gson;
 import com.sbaitproject.roadwith.join.dao.UserContactDAO;
 import com.sbaitproject.roadwith.roadboard.dao.RoadBoardDao;
 import com.sbaitproject.roadwith.roadboard.vo.RoadArticle;
@@ -80,5 +81,14 @@ public class RiderBoardServiceImpl implements RoadBoardService {
 		RoadArticle riderArticle  = roadBoardDao.selectedRiderArticleByArticleId(articleId);
 		roadBoardDao.updateArticleHit(riderArticle.getArticleId(), riderArticle.getArticleHit() + 1);
 		model.addAttribute("Article", riderArticle);
+	}
+
+	@Override
+	public void joinMemberService(Gson gson, HttpSession session) {
+		
+	}
+	
+	private void noneNamedMethod() {
+		
 	}
 }

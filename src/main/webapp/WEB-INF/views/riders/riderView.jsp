@@ -94,23 +94,26 @@
 			<div class="row">
 				<div class="container">
 					<div>
+						<button type="button" class="btn btn-default" id="backBoard" ata-toggle="tooltip" data-placement="top" title="뒤로가기"><i class="fa fa-arrow-left fa-2x"></i></button>&nbsp;
 						<button type="button" class="btn btn-default" id="joinMember" data-toggle="tooltip" data-placement="top" title="참여하기"><i class="fa fa-plus-circle fa-2x"></i><span class="h3"></span></button>&nbsp;
 						<button type="button" class="btn btn-default" id="comment" data-toggle="tooltip" data-placement="top" title="코멘트달기"><i class="fa fa-comment fa-2x"></i></button>
-						<div class="rowLine"></div>
 						<span class="">
 							<div class="h3">${Article.getContent() }</div>
-							<label class="h4"><span class="badge"><i class="fa fa-pencil fa-3x"></i><h4>${Article.getWriterNickName() }</h4></span></label>
-							<label class="h4"><span class="badge"><i class="fa fa-calendar fa-3x"></i><h4>${Article.getPlanDay() }</h4></span></label>
-							<label class="h4"><span class="badge"><i class="fa fa-clock-o fa-3x"></i><h4>${Article.getStartTime() }</h4></span></label>
-							<label class="h4"><span class="badge"><i class="fa fa-bullseye fa-3x"></i><h4>${Article.getAimTime() }</h4></span></label>
-							<label class="h4"><span class="badge"><i class="fa fa-arrow-circle-right fa-3x"></i><h4>${Article.getStartSpot() }</h4></span></label>
-							<label class="h4"><span class="badge"><i class="fa fa-dot-circle-o fa-3x"></i><h4>${Article.getGoalSpot() }</h4></span></label>
+							<label class="h4"><span class="badge"><i class="fa fa-pencil fa-2x"></i><h4>${Article.getWriterNickName() }</h4></span></label>
+							<label class="h4"><span class="badge"><i class="fa fa-calendar fa-2x"></i><h4>${Article.getPlanDay() }</h4></span></label>
+							<label class="h4"><span class="badge"><i class="fa fa-clock-o fa-2x"></i><h4>${Article.getStartTime() }</h4></span></label>
+							<label class="h4"><span class="badge"><i class="fa fa-bullseye fa-2x"></i><h4>${Article.getAimTime() }</h4></span></label>
+							<label class="h4"><span class="badge"><i class="fa fa-arrow-circle-right fa-2x"></i><h4>${Article.getStartSpot() }</h4></span></label>
+							<label class="h4"><span class="badge"><i class="fa fa-dot-circle-o fa-2x"></i><h4>${Article.getGoalSpot() }</h4></span></label>
 						</span>
 						<div class="rowLine"></div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<form name="joinMemberFrm">
+			<input type="hidden" name="writerId" value="${Article.getWriterId()}" id="writerId">
+		</form>
 		<!-- modal notice-->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -200,6 +203,27 @@
 		<script src="./resources/assets/js/jquery-1.11.1.min.js"></script>
 		<script src="./resources/assets/js/bootstrap.min.js"></script>
 		<script>
+			function validateJoinMember() {
+				var jsonData = '{"writerId":"' + ${Article.getWriterId()} + '"}';
+				jsonData = jsonData.replace('"', '\"');
+				$.ajax({
+				    type : "POST"
+				    ,async : true
+				    ,url : "CheckJoinMember"
+				    ,dataType : "json" 
+				    ,data : jsonData
+				    ,contentType: "application/json; charset=utf-8"
+				    ,success : function(response, status, request) {
+				    	if (response == 'success') {
+							$('form[name=joinMemberFrm]').attr({'action':'JoinMember', 'method': 'post'}).submit();
+						} else {
+							alert('작성자는 구성원이 될 수 없습니다.');
+							return false;
+						}
+				    }
+				});
+			}
+			
 			$(document).ready(function(){
 				$('#joinMember').hover(function(){
 					$(this).tooltip('show');
@@ -207,6 +231,14 @@
 				
 				$('#comment').hover(function(){
 					$(this).tooltip('show');
+				});
+				
+				$('#backBoard').hover(function(){
+					$(this).tooltip('show');
+				});
+				
+				$('#backBoard').click(function(){
+					$(location).attr('href', 'RiderBoard');
 				});
 			});
 		</script>

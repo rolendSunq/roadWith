@@ -9,10 +9,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.google.gson.Gson;
 import com.sbaitproject.roadwith.roadboard.service.RoadBoardService;
 import com.sbaitproject.roadwith.roadboard.vo.RoadArticle;
 
@@ -48,5 +51,11 @@ public class RiderController {
 	public String riderViewController(Model model, @RequestParam(value = "articleId") int articleId) {
 		roadBoardService.riderViewService(articleId, model);
 		return "riders/riderView";
+	}
+	
+	@RequestMapping(value = "JoinMember", method = RequestMethod.POST)
+	public void joinMemberController(@RequestBody String json, HttpSession session) {
+		Gson gson = new Gson();
+		roadBoardService.joinMemberService(gson, session);
 	}
 }

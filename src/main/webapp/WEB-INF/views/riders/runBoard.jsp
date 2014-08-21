@@ -18,7 +18,7 @@
 		<style type="text/css">
 			#riderContent {/*background-color: blue;*/}
 			#nameTitle {background-color: #2BE8D8; }
-			#jumbotron {background-color: #B2FFA6;}
+			#jumbotron {background:url('./resources/assets/images/Girl_Runner.jpg') no-repeat center center;}
 			#tabFontColor {color: black;}
 			#formName {height: 20px;}
 			#header {height: 110px;}
@@ -108,7 +108,7 @@
 			<div class="jumbotron top-space" id="jumbotron">
 				<h2>Run Group</h2>
 				<form name="makeGrpFrm" id="formName">
-		     		<p class="text-right"><a class="btn btn-primary btn-large" id="makeGroup"><i class="fa fa-users"></i> 그룹 생성하기 »</a></p>			
+		     		<p class="text-right"><a class="btn btn-primary btn-large" id="makeGroup"><i class="fa fa-users"></i> 그룹 생성하기 ≫</a></p>			
 				<div class="page-header" id="header">			
 					<span class="badge"><i class="h5 fa fa-dot-circle-o"></i> 조회 0</span>
 					<span class="badge"><i class="h5 fa fa-reply"></i> 댓글 0</span>
@@ -236,7 +236,7 @@
 						<div class="col-md-6 widget">
 							<div class="widget-body">
 								<p class="text-right">
-									Copyright &copy; 2014, Road With. Designed by rolend Sunq</a> 
+									Copyright &copy; 2014, Road With. Designed by rolend Sunq
 								</p>
 							</div>
 						</div>

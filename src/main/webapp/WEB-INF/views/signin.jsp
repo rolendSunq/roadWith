@@ -20,10 +20,13 @@
 		<script src="./resources/assets/js/html5shiv.js"></script>
 		<script src="./resources/assets/js/respond.min.js"></script>
 		<![endif]-->
+		<style type="text/css">
+			.orangeFont {color: #FF530D;}
+		</style>
 	</head>
 	<body>
 		<!-- Fixed navbar -->
-		<div class="navbar navbar-inverse navbar-fixed-top headroom" >
+		<div class="navbar navbar-inverse navbar-fixed-top headroom" id="navbar">
 			<div class="container">
 				<div class="navbar-header">
 					<!-- Button for smallest screens -->
@@ -79,7 +82,7 @@
 							<div class="panel-body">
 								<h3 class="thin text-center">귀하의 계정에 로그인</h3>
 								<p class="text-center text-muted">계정이 없다면, 
-									<a href="signUp">회원가입</a>으로  이동하여 가입하시면 됩니다.  
+									<a href="signUp"><b class="orangeFont">회원가입</b></a>으로  이동하여 가입하시면 됩니다.  
 								</p>
 								<hr>
 								<form name="signin">
@@ -502,8 +505,15 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 				    }
 				});
 			}				
+			
+			function getHeight() {
+				var navbarElement = $('#navbar');
+				var headElement = $('#head');
+				return navbarElement.outerHeight() + headElement.outerHeight();
+			}
 		
 			$(document).ready(function(){
+				$('#panel').animate({scrollTop:getHeight()}, 3000);
 				$('#idOrEmail').focus();
 				$('#idOrEmail').keydown(function(e){
 					if (e.keyCode == 13){

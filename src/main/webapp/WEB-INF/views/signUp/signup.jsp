@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="">
 		<meta name="author" content="Sergey Pozhilov (GetTemplate.com)">
-		<title>Sign up - Progressus Bootstrap template</title>
+		<title>로드러너 - 회원가입</title>
 		<link rel="shortcut icon" href="./resources/assets/images/favicon5.png">
 		<link rel="stylesheet" media="screen" href="./resources/assets/css/googleFont.css">
 		<link rel="stylesheet" href="./resources/assets/css/bootstrap.min.css">
@@ -19,15 +19,14 @@
 			<script src="./resources/assets/js/html5shiv.js"></script>
 			<script src="./resources/assets/js/respond.min.js"></script>
 		<![endif]-->
-		
 		<style type="text/css">
-+		#fontColor {color: black;}
-+		</style>
-		
+			#fontColor {color: black;}
+			.orangeFont {color: #FF530D;}
+		</style>
 	</head>
 	<body>
 		<!-- Fixed navbar -->
-		<div class="navbar navbar-inverse navbar-fixed-top headroom">
+		<div class="navbar navbar-inverse navbar-fixed-top headroom" id="navbar">
 			<div class="container">
 				<div class="navbar-header">
 					<!-- Button for smallest screens -->
@@ -75,11 +74,11 @@
 						<h1 class="page-title">회원가입</h1>
 					</header>
 					<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
-						<div class="panel panel-default">
+						<div class="panel panel-default" id="panel">
 							<div class="panel-body">
 								<h3 class="thin text-center">환영합니다.</h3>
 								<p class="text-center text-muted">
-									이미 회원가입을 하셨다면, <a href="signin.html">Login</a> 으로 이동하세요.<br>
+									이미 회원가입을 하셨다면, <a href="signin.html"><b class="orangeFont">Login</b></a> 으로 이동하세요.<br>
 									개인 정보 보호로 연락처와 주민번호는 묻지 않습니다.
 								</p>
 								<hr>
@@ -595,7 +594,14 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 				return true;
 			}
 	
+			function getHeight() {
+				var navbarElement = $('#navbar');
+				var headElement = $('#head');
+				return navbarElement.outerHeight() + headElement.outerHeight();
+			}
+			
 			$(document).ready(function() {
+				$('#panel').animate({scrollTop:getHeight()}, 3000);
 				$('#signUpBtn').click(function() {
 					if (validation()) {
 						$('form[name=signUpFrm]').submit();
