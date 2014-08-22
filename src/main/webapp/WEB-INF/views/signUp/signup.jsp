@@ -380,6 +380,7 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 		<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 		<script src="./resources/assets/js/jquery-1.11.1.min.js"></script>
 		<script src="./resources/assets/js/bootstrap.min.js"></script>
+		<script src="./resources/assets/js/jquery.scrollTo.js"></script>
 		<script type="text/javascript">
 			function checkUserName(){
 				var hangulExp = /^[가-힣]{2,5}$/;
@@ -601,7 +602,7 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 			}
 			
 			$(document).ready(function() {
-				$('#panel').animate({scrollTop:getHeight()}, 3000);
+				$.scrollTo('#panel', 1000);
 				$('#signUpBtn').click(function() {
 					if (validation()) {
 						$('form[name=signUpFrm]').submit();

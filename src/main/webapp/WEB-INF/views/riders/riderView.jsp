@@ -203,23 +203,22 @@
 		<script src="./resources/assets/js/jquery-1.11.1.min.js"></script>
 		<script src="./resources/assets/js/bootstrap.min.js"></script>
 		<script>
-			function validateJoinMember() {
-				var jsonData = '{"writerId":"' + ${Article.getWriterId()} + '"}';
+			function addJoinMember() {
+				var jsonData = '{"joinMemberId":"' + '${id}' + '","articleId":"' + '${Article.getArticleId()}' + '"}';
 				jsonData = jsonData.replace('"', '\"');
 				$.ajax({
 				    type : "POST"
 				    ,async : true
-				    ,url : "CheckJoinMember"
+				    ,url : "JoinMember"
 				    ,dataType : "json" 
 				    ,data : jsonData
 				    ,contentType: "application/json; charset=utf-8"
 				    ,success : function(response, status, request) {
 				    	if (response == 'success') {
-							$('form[name=joinMemberFrm]').attr({'action':'JoinMember', 'method': 'post'}).submit();
-						} else {
-							alert('작성자는 구성원이 될 수 없습니다.');
-							return false;
-						}
+				    		alert('구성원으로 참여하였습니다.');
+				    	} else {
+				    		alert('이미 구성원 모집이 완료되었습니다.');
+				    	}
 				    }
 				});
 			}
@@ -227,6 +226,17 @@
 			$(document).ready(function(){
 				$('#joinMember').hover(function(){
 					$(this).tooltip('show');
+				});
+				
+				$('#joinMember').click(function(){
+					<c:choose>
+						<c:when test="${Article.getWriterId().equals(id)}">
+							alert('작성자는 이미 구성원으로 되어있습니다.');
+						</c:when>
+						<c:otherwise>
+							addJoinMember();
+						</c:otherwise>
+					</c:choose>
 				});
 				
 				$('#comment').hover(function(){

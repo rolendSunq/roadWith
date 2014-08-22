@@ -52,4 +52,22 @@ public class RiderBoardDaoImpl implements RoadBoardDao {
 		sqlSession.update(NS + "UpdateArticleHit", params);
 	}
 
+	@Override
+	public int selectEntryMemberByArticleId(int articleId) {
+		return sqlSession.selectOne(NS + "SelectEntryMemberByArticleId", articleId);
+	}
+
+	@Override
+	public int selectJoinMemberCount(int articleId) {
+		return sqlSession.selectOne(NS + "SelectJoinMemberCount", articleId);
+	}
+
+	@Override
+	public void insertJoinMemberAdd(int articleId, String joinMemberId) {
+		Map<String, Object> params = new HashMap<String, Object>();
+		params.put("articleId", articleId);
+		params.put("joinMemberId", joinMemberId);
+		sqlSession.insert(NS + "InsertJoinMemberAdd", params);
+	}
+
 }

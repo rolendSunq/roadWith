@@ -411,6 +411,7 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 		<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
 		<script src="./resources/assets/js/jquery-1.11.1.min.js"></script>
 		<script src="./resources/assets/js/bootstrap.min.js"></script>
+		<script src="./resources/assets/js/jquery.scrollTo.js"></script>
 		<script>
 			var section = true;
 			function selectIdEmail(inputValue) {
@@ -505,15 +506,9 @@ RoadWith를 사랑하고 아껴주시는 여러분께 감사의 말씀 드리며
 				    }
 				});
 			}				
-			
-			function getHeight() {
-				var navbarElement = $('#navbar');
-				var headElement = $('#head');
-				return navbarElement.outerHeight() + headElement.outerHeight();
-			}
 		
 			$(document).ready(function(){
-				$('#panel').animate({scrollTop:getHeight()}, 3000);
+				$.scrollTo('#panel', 1000);
 				$('#idOrEmail').focus();
 				$('#idOrEmail').keydown(function(e){
 					if (e.keyCode == 13){

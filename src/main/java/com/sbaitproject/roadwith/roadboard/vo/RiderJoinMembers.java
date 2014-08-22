@@ -3,7 +3,6 @@ package com.sbaitproject.roadwith.roadboard.vo;
 public class RiderJoinMembers {
 	private int articleId;
 	private String joinMemberId;
-	
 	public int getArticleId() {
 		return articleId;
 	}
@@ -16,5 +15,4 @@ public class RiderJoinMembers {
 	public void setJoinMemberId(String joinMemberId) {
 		this.joinMemberId = joinMemberId;
 	}
-	
 }

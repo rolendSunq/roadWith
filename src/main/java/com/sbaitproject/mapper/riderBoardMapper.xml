@@ -45,10 +45,16 @@
 		WHERE article_id = #{articleId}
 	</select>
 	
+	<select id="SelectEntryMemberByArticleId" parameterType="int" resultType="int">
+		SELECT entry_member
+		FROM riderArticle
+		WHERE article_id = #{articleId}
+	</select>
+	
 	<insert id="InsertRiderArticle" parameterType="com.sbaitproject.roadwith.roadboard.vo.RoadArticle">
 		INSERT INTO riderArticle 
 		(article_id, article_hit, reply_hit, content, plan_day, start_time, aim_time, entry_member, start_spot, goal_spot, writer_id, writer_nickName, posting_date)
-		VALUES(seq_riderArticle_id.nextval, 0, 0, #{content}, #{planDay}, #{startTime}, #{aimTime},  ${entryMember}, #{startSpot}, #{goalSpot}, #{writerId}, #{writerNickName}, sysdate)
+		VALUES(seq_riderArticle_id.nextval, 0, 0, #{content}, #{planDay}, #{startTime}, #{aimTime}, ${entryMember}, #{startSpot}, #{goalSpot}, #{writerId}, #{writerNickName}, sysdate)
 	</insert>
 	
 	<update id="UpdateArticleHit" parameterType="map">
@@ -58,6 +64,13 @@
 	</update>
 	
 	<!-- ===rider_join_members=== -->
+	
+	<select id="SelectJoinMemberCount" parameterType="int" resultType="int">
+		SELECT count(join_member_id)
+		FROM rider_join_members
+		WHERE article_id = #{articleId}
+	</select>
+	
 	<insert id="InsertJoinMemberAdd" parameterType="map">
 		INSERT INTO rider_join_members
 		VALUES(#{articleId}, #{joinMemberId})

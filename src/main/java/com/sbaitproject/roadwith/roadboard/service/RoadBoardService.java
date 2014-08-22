@@ -1,5 +1,6 @@
 package com.sbaitproject.roadwith.roadboard.service;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
@@ -11,5 +12,5 @@ public interface RoadBoardService {
 	public void insertArticle(RoadArticle roadArticle, HttpSession session);
 	public void getRiderArticleList(String currentPageNumber, Model model);
 	public void riderViewService(int articleId, Model model);
-	public void joinMemberService(Gson gson, HttpSession session);
+	public void joinMemberService(Gson gson, String json, HttpServletResponse response);
 }

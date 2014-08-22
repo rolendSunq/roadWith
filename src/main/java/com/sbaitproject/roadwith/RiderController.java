@@ -3,6 +3,7 @@ package com.sbaitproject.roadwith;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,8 +55,8 @@ public class RiderController {
 	}
 	
 	@RequestMapping(value = "JoinMember", method = RequestMethod.POST)
-	public void joinMemberController(@RequestBody String json, HttpSession session) {
+	public void joinMemberController(@RequestBody String json, HttpServletResponse response) {
 		Gson gson = new Gson();
-		roadBoardService.joinMemberService(gson, session);
+		roadBoardService.joinMemberService(gson, json, response);
 	}
 }

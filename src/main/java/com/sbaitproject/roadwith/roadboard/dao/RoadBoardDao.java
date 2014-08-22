@@ -10,4 +10,7 @@ public interface RoadBoardDao {
 	public List<RoadArticle> selectedRiderArticle(int firstRow, int endRow);
 	public RoadArticle selectedRiderArticleByArticleId(int articleId);
 	public void updateArticleHit(int articleId, int articleHit);
+	public int selectEntryMemberByArticleId(int articleId);
+	public int selectJoinMemberCount(int articleId);
+	public void insertJoinMemberAdd(int articleId, String joinMemberId);
 }

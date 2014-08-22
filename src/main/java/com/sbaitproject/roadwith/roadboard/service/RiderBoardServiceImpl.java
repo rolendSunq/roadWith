@@ -1,7 +1,10 @@
 package com.sbaitproject.roadwith.roadboard.service;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +14,7 @@ import org.springframework.ui.Model;
 import com.google.gson.Gson;
 import com.sbaitproject.roadwith.join.dao.UserContactDAO;
 import com.sbaitproject.roadwith.roadboard.dao.RoadBoardDao;
+import com.sbaitproject.roadwith.roadboard.vo.RiderJoinMembers;
 import com.sbaitproject.roadwith.roadboard.vo.RoadArticle;
 import com.sbaitproject.roadwith.roadboard.vo.RoadArticleList;
 
@@ -84,11 +88,40 @@ public class RiderBoardServiceImpl implements RoadBoardService {
 	}
 
 	@Override
-	public void joinMemberService(Gson gson, HttpSession session) {
-		
+	public void joinMemberService(Gson gson, String json, HttpServletResponse response) {
+		RiderJoinMembers riderJoinMembers = gson.fromJson(json, RiderJoinMembers.class);
+		if (!isEntryMemberFullOver(riderJoinMembers.getArticleId())) {
+			roadBoardDao.insertJoinMemberAdd(riderJoinMembers.getArticleId(), riderJoinMembers.getJoinMemberId());
+			resultPrintWrite(response, "success");
+		} else {
+			resultPrintWrite(response, "failure");
+		}
 	}
 	
-	private void noneNamedMethod() {
+	private boolean isEntryMemberFullOver(int articleId) {
+		int entryMemberNumber = roadBoardDao.selectEntryMemberByArticleId(articleId);
+		int joinMemberNumber = roadBoardDao.selectJoinMemberCount(articleId);
+		return (entryMemberNumber == joinMemberNumber || entryMemberNumber < joinMemberNumber) ? true : false;
+	}
+	
+	private void resultPrintWrite(HttpServletResponse response, String result) {
+		Gson gson = new Gson();
+		PrintWriter printWriter = null;
 		
+		response.setContentType("application/json");
+		response.setContentType("text/xml; charset=UTF-8");
+		response.setHeader("Cache-Control", "no-cache");
+		
+		String status = result;
+		
+		try {
+			printWriter = new PrintWriter(response.getWriter());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		printWriter.println(gson.toJson(status));
+		printWriter.flush();
+		printWriter.close();
 	}
 }

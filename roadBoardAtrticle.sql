@@ -6,7 +6,7 @@ create table riderArticle(
 	plan_day VARCHAR2(13) not null,
 	start_time VARCHAR2(5) not null,
 	aim_time VARCHAR2(5) not null,
-	entry_member number not null,
+	entry_member number,
 	start_spot VARCHAR2(100) not null,
 	goal_spot VARCHAR2(100) not null,
 	writer_id VARCHAR2(50) not null,	
@@ -28,6 +28,7 @@ CREATE SEQUENCE seq_riderArticle_id
 	NOCYCLE;
 	
 select * from riderarticle;
+select * from RIDER_JOIN_MEMBERS;
 --drop table riderarticle cascade constraints;
 --drop table rider_join_members
 --drop sequence seq_riderArticle_id;

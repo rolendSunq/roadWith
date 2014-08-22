@@ -124,7 +124,7 @@
 					<div class="row">
 						<span class="badge"><i class="h5 fa fa-dot-circle-o"></i> 조회 ${article.getArticleHit() }</span>
 						<span class="badge"><i class="h5 fa fa-reply"></i> 댓글 ${article.getReplyHit() }</span>
-						<span class="badge"><i class="h5 fa fa-user"></i> 참여 ${article.getJoinMember() }</span> &nbsp;&nbsp;&nbsp;&nbsp;
+						<span class="badge"><i class="h5 fa fa-user"></i> 참여 ${article.getEntryMember() }</span> &nbsp;&nbsp;&nbsp;&nbsp;
 						<span>
 							<label class="h3">
 								<i class="fa fa-volume-up"></i>
