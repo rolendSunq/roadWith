@@ -25,6 +25,10 @@
 			#tabFontColor {color: black;}
 			#formName {height: 20px;}
 			#header {height: 110px;}
+			#vertical-center{
+				background-color: #B79ABF;
+				vertical-align:middle;
+			}
 		</style>
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -122,22 +126,22 @@
 	   		<c:forEach var="article" items="${Articles.roadArticleList }" varStatus="status">
 				<div class="well">
 					<div class="row">
-						<span class="badge"><i class="h5 fa fa-dot-circle-o"></i> 조회 ${article.getArticleHit() }</span>
-						<span class="badge"><i class="h5 fa fa-reply"></i> 댓글 ${article.getReplyHit() }</span>
-						<span class="badge"><i class="h5 fa fa-user"></i> 참여 ${article.getEntryMember() }</span> &nbsp;&nbsp;&nbsp;&nbsp;
+						<span class="badge" id="vertical-center"><i class="h5 fa fa-dot-circle-o"></i> 조회 ${article.getArticleHit() }</span>
+						<span class="badge" id="vertical-center"><i class="h5 fa fa-reply"></i> 댓글 ${article.getReplyHit() }</span>
+						<span class="badge" id="vertical-center"><i class="h5 fa fa-user"></i> 참여 ${article.getEntryMember() }</span> &nbsp;&nbsp;&nbsp;&nbsp;
 						<span>
-							<label class="h3">
+							<label class="h4">
 								<i class="fa fa-volume-up"></i>
-								<span class="badge">${article.getWriterNickName() }</span> 
+								<span class="badge" id="vertical-center">${article.getWriterNickName() }</span> 
 								<a href="<c:url value="RiderView?articleId=${article.getArticleId()}"/>">${article.getContent() }</a>
 							</label>
 						</span>
 					</div>
 					<div class="row">
 						<span class="pull-right">
-							<label class="h4"><i class="fa fa-map-marker"></i> ${article.getSplitStartSpot() } <i class="fa fa-long-arrow-right "></i></label>&nbsp;
-							<label class="h4"><i class="fa fa-map-marker"></i> ${article.getSplitGoalSpot() }</label>&nbsp;&nbsp;
-							<label class="h4"><i class="fa fa-clock-o"></i> ${article.getPlanDay() } ${article.getStartTime() }</label> 
+							<label class="h5"><i class="fa fa-map-marker"></i> ${article.getSplitStartSpot() } <i class="fa fa-long-arrow-right "></i></label>&nbsp;
+							<label class="h5"><i class="fa fa-map-marker"></i> ${article.getSplitGoalSpot() }</label>&nbsp;&nbsp;
+							<label class="h5"><i class="fa fa-clock-o"></i> ${article.getPlanDay() } ${article.getStartTime() }</label> 
 						</span>						
 					</div>			
 				</div>
