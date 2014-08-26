@@ -20,7 +20,7 @@ import com.sbaitproject.roadwith.roadboard.vo.RoadArticleList;
 
 @Service
 public class RiderBoardServiceImpl implements RoadBoardService {
-	private final static int COUNT_PER_PAGE = 10;
+	private final static int COUNT_PER_PAGE = 5;
 	
 	@Autowired
 	private RoadBoardDao roadBoardDao;
@@ -43,7 +43,7 @@ public class RiderBoardServiceImpl implements RoadBoardService {
 		int totalArticleNumber = roadBoardDao.selectAllCount();
 		int currentPageNumber = setDefaultPage(pageNumber);
 		int totalPageCount = calculatePageCount(totalArticleNumber);
-		int firstRow = (currentPageNumber - 1) * (COUNT_PER_PAGE + 1);
+		int firstRow = ((firstRow = (currentPageNumber - 1) * (COUNT_PER_PAGE + 1)) == 0) ? 1 : firstRow;
 		int endRow = firstRow + (COUNT_PER_PAGE - 1);
 		
 		if (endRow > totalArticleNumber){
@@ -58,11 +58,12 @@ public class RiderBoardServiceImpl implements RoadBoardService {
 		}
 		
 		if(roadArticleList.getTotalPageCount() > 0) {
-			int beginPageNumber = (roadArticleList.getRequestPage() - 1) / ((10 * 10) + 1);
+			int beginPageNumber = ((beginPageNumber = (roadArticleList.getRequestPage() - 1) / ((10 * 10) + 1)) == 0) ? 1 : beginPageNumber;
 			int endPageNumber = beginPageNumber + 9;
+			
 			if (endPageNumber > roadArticleList.getTotalPageCount()) 
 				endPageNumber = roadArticleList.getTotalPageCount();
-
+			
 			model.addAttribute("beginPage", beginPageNumber);
 			model.addAttribute("endPage", endPageNumber);
 		}
@@ -76,7 +77,7 @@ public class RiderBoardServiceImpl implements RoadBoardService {
 	
 	private int calculatePageCount(int totalArticleCount) {
 		if (totalArticleCount == 0)	return 0;
-		int pageCount = totalArticleCount / COUNT_PER_PAGE;
+		int pageCount = (int)Math.ceil((double)totalArticleCount / (double)COUNT_PER_PAGE);
 		return (totalArticleCount % COUNT_PER_PAGE > 0) ? pageCount++ : pageCount;
 	}
 
