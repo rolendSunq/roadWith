@@ -38,7 +38,7 @@ public class RiderController {
 	@RequestMapping(value = "MakeRiderArticle", method = RequestMethod.POST)
 	public String makeRiderArticleController(RoadArticle roadArticle, HttpSession session) {
 		roadBoardService.insertArticle(roadArticle, session);
-		return "forward:RiderBoard";
+		return "redirect:RiderBoard";
 	}
 	
 	@RequestMapping(value = "RiderBoard")

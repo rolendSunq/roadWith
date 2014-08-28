@@ -151,14 +151,14 @@
 			<!-- paging -->
 			<div class="text-center">
 				<ul class="pagination">
-					<c:if test="${beginPage > 10}">
-					  <li><a href="<c:url value="/RiderBoard?p=${beginPage-1}"/>">&laquo;</a></li>
+					<c:if test="${Articles.getStartBlock() > Articles.getBlockRange()}">
+					  <li><a href="<c:url value="/RiderBoard?p=${Articles.getStartBlock() - 1}"/>">&laquo;</a></li>
 					</c:if>
-					<c:forEach var="pno" begin="${beginPage}" end="${endPage}">
+					<c:forEach var="pno" begin="${Articles.getStartBlock()}" end="${Articles.getEndBlock()}">
 					  <li><a href='<c:url value="/RiderBoard?p=${pno}"/>'>${pno}</a></li>
 					</c:forEach>
-					<c:if test="${endPage < Articles.totalPageCount}">
-					  <li><a href="<c:url value="/RiderBoard?p=${endPage + 1}"/>">&raquo;</a></li>
+					<c:if test="${Articles.getEndBlock() < Articles.getTotalPagePerBlock()}">
+					  <li><a href="<c:url value="/RiderBoard?p=${Articles.getEndBlock() + 1}"/>">&raquo;</a></li>
 					</c:if>
 				</ul>
 			</div>

@@ -7,27 +7,30 @@ public class RoadArticleList {
 	private List<RoadArticle> roadArticleList;
 	private int requestPage;
 	private int totalPageCount;
-	private int startRow;
-	private int endRow;
+	private int startBlock;
+	private int endBlock;
+	private int blockRange;
+	private int totalPagePerBlock;
 	
 	public RoadArticleList() {
-		this(Collections.<RoadArticle>emptyList(), 0, 0, 0, 0);
+		this(Collections.<RoadArticle>emptyList(), 0, 0, 0, 0, 0, 0);
 	}
 	
-	public RoadArticleList(List<RoadArticle> roadArticleList, int requestPage, int totalPageCount, int startRow, int endRow) {
+	public RoadArticleList(List<RoadArticle> roadArticleList, int requestPage, int totalPageCount, int startBlock, int endBlock, int blockRange, int totalPagePerBlock) {
 		this.roadArticleList = roadArticleList;
 		this.requestPage = requestPage;
 		this.totalPageCount = totalPageCount;
-		this.startRow = startRow;
-		this.endRow = endRow;
-	}
-	
-	public List<RoadArticle> getRoadArticleList() {
-		return roadArticleList;
+		this.startBlock = startBlock;
+		this.endBlock = endBlock;
+		this.blockRange = blockRange;
 	}
 	
 	public boolean isHasArticle(){
 		return ! roadArticleList.isEmpty();
+	}
+
+	public List<RoadArticle> getRoadArticleList() {
+		return roadArticleList;
 	}
 
 	public void setRoadArticleList(List<RoadArticle> roadArticleList) {
@@ -50,20 +53,36 @@ public class RoadArticleList {
 		this.totalPageCount = totalPageCount;
 	}
 
-	public int getStartRow() {
-		return startRow;
+	public int getStartBlock() {
+		return startBlock;
 	}
 
-	public void setStartRow(int startRow) {
-		this.startRow = startRow;
+	public void setStartBlock(int startBlock) {
+		this.startBlock = startBlock;
 	}
 
-	public int getEndRow() {
-		return endRow;
+	public int getEndBlock() {
+		return endBlock;
 	}
 
-	public void setEndRow(int endRow) {
-		this.endRow = endRow;
+	public void setEndBlock(int endBlock) {
+		this.endBlock = endBlock;
+	}
+
+	public int getBlockRange() {
+		return blockRange;
+	}
+
+	public void setBlockRange(int blockRange) {
+		this.blockRange = blockRange;
+	}
+
+	public int getTotalPagePerBlock() {
+		return totalPagePerBlock;
+	}
+
+	public void setTotalPagePerBlock(int totalPagePerBlock) {
+		this.totalPagePerBlock = totalPagePerBlock;
 	}
 
 }
